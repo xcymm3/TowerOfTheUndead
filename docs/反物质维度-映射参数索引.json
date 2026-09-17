@@ -64,7 +64,7 @@
         "formatEffect": "value => formatX(value, 2, 2)",
         "charged": "{\r\n      description: \"Antimatter Dimensions gain a power effect based on time played and Teresa level\",\r\n      effect: () => 1 +\r\n        Math.log10(Math.log10(Time.totalTimePlayed.totalMilliseconds)) *\r\n        Math.pow(Ra.pets.teresa.level, 0.5) / 150,\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "古塔岁月",
+      "undeadName": "古墓积年",
       "mappingKey": "infinityUpgrades/totalTimeMult"
     },
     {
@@ -78,7 +78,7 @@
         "effect": "() => 1 +\r\n        Math.log10(Math.log10(Time.totalTimePlayed.totalMilliseconds)) *\r\n        Math.pow(Ra.pets.teresa.level, 0.5) / 150",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "古塔岁月·灌注",
+      "undeadName": "古墓积年·觉醒",
       "mappingKey": "infinityUpgrades.charged/totalTimeMult"
     },
     {
@@ -96,7 +96,7 @@
         "formatEffect": "value => formatX(value, 1, 1)",
         "charged": "{\r\n      description: \"1st and 8th Antimatter Dimensions gain a power effect based on Infinities and Teresa level\",\r\n      effect: () => chargedDimInfinityMult(),\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "首尾骨阵",
+      "undeadName": "骷髅与灾厄盟誓",
       "mappingKey": "infinityUpgrades/dim18mult"
     },
     {
@@ -110,7 +110,7 @@
         "effect": "() => chargedDimInfinityMult()",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "首尾骨阵·灌注",
+      "undeadName": "骷髅与灾厄盟誓·觉醒",
       "mappingKey": "infinityUpgrades.charged/dim18mult"
     },
     {
@@ -128,7 +128,7 @@
         "formatEffect": "value => formatX(value, 1, 1)",
         "charged": "{\r\n      description: \"2nd and 7th Antimatter Dimensions gain a power effect based on Infinities and Teresa level\",\r\n      effect: () => chargedDimInfinityMult(),\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "双七骨阵",
+      "undeadName": "腐尸与龙骸盟誓",
       "mappingKey": "infinityUpgrades/dim27mult"
     },
     {
@@ -142,7 +142,7 @@
         "effect": "() => chargedDimInfinityMult()",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "双七骨阵·灌注",
+      "undeadName": "腐尸与龙骸盟誓·觉醒",
       "mappingKey": "infinityUpgrades.charged/dim27mult"
     },
     {
@@ -160,7 +160,7 @@
         "formatEffect": "value => formatX(value, 1, 1)",
         "charged": "{\r\n      description: \"3rd and 6th Antimatter Dimensions gain a power effect based on Infinities and Teresa level\",\r\n      effect: () => chargedDimInfinityMult(),\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "三六骨阵",
+      "undeadName": "幽魂与黑骑盟誓",
       "mappingKey": "infinityUpgrades/dim36mult"
     },
     {
@@ -174,7 +174,7 @@
         "effect": "() => chargedDimInfinityMult()",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "三六骨阵·灌注",
+      "undeadName": "幽魂与黑骑盟誓·觉醒",
       "mappingKey": "infinityUpgrades.charged/dim36mult"
     },
     {
@@ -192,7 +192,7 @@
         "formatEffect": "value => formatX(value, 1, 1)",
         "charged": "{\r\n      description: \"4th and 5th Antimatter Dimensions gain a power effect based on Infinities and Teresa level\",\r\n      effect: () => chargedDimInfinityMult(),\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "四五骨阵",
+      "undeadName": "血族与尸巫盟誓",
       "mappingKey": "infinityUpgrades/dim45mult"
     },
     {
@@ -206,7 +206,7 @@
         "effect": "() => chargedDimInfinityMult()",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "四五骨阵·灌注",
+      "undeadName": "血族与尸巫盟誓·觉醒",
       "mappingKey": "infinityUpgrades.charged/dim45mult"
     },
     {
@@ -223,7 +223,7 @@
         "effect": "9",
         "charged": "{\r\n      description: () => \"Decrease Dimension Boost requirement based on Teresa level\",\r\n      effect: () => 1 / (1 + Math.sqrt(Ra.pets.teresa.level) / 10),\r\n      formatEffect: value => `${formatX(value, 4, 4)}`\r\n    }"
       },
-      "undeadName": "轻骨仪式",
+      "undeadName": "招魂减耗",
       "mappingKey": "infinityUpgrades/resetBoost"
     },
     {
@@ -237,7 +237,7 @@
         "effect": "() => 1 / (1 + Math.sqrt(Ra.pets.teresa.level) / 10)",
         "formatEffect": "value => `${formatX(value, 4, 4)}`"
       },
-      "undeadName": "轻骨仪式·灌注",
+      "undeadName": "招魂减耗·觉醒",
       "mappingKey": "infinityUpgrades.charged/resetBoost"
     },
     {
@@ -254,7 +254,7 @@
         "formatEffect": "() => `${formatX(2, 0, 1)} ➜ ${formatX(2.2, 0, 1)}`",
         "charged": "{\r\n      description: () => `The multiplier for buying ${formatInt(10)} Antimatter Dimensions gains ` +\r\n        \"a power effect based on Teresa level\",\r\n      effect: () => 1 + Ra.pets.teresa.level / 200,\r\n      formatEffect: value => formatPow(value, 3, 3)\r\n    }"
       },
-      "undeadName": "十骨成军",
+      "undeadName": "亡者集结",
       "mappingKey": "infinityUpgrades/buy10Mult"
     },
     {
@@ -268,7 +268,7 @@
         "effect": "() => 1 + Ra.pets.teresa.level / 200",
         "formatEffect": "value => formatPow(value, 3, 3)"
       },
-      "undeadName": "十骨成军·灌注",
+      "undeadName": "亡者集结·觉醒",
       "mappingKey": "infinityUpgrades.charged/buy10Mult"
     },
     {
@@ -285,7 +285,7 @@
         "effect": "2",
         "charged": "{\r\n      description: \"All Galaxies are stronger based on Teresa level\",\r\n      effect: () => 2 + Math.sqrt(Ra.pets.teresa.level) / 100,\r\n      formatEffect: value => `+${formatPercents(value - 1)}`\r\n    }"
       },
-      "undeadName": "墓域共鸣",
+      "undeadName": "墓园统御",
       "mappingKey": "infinityUpgrades/galaxyBoost"
     },
     {
@@ -299,7 +299,7 @@
         "effect": "() => 2 + Math.sqrt(Ra.pets.teresa.level) / 100",
         "formatEffect": "value => `+${formatPercents(value - 1)}`"
       },
-      "undeadName": "墓域共鸣·灌注",
+      "undeadName": "墓园统御·觉醒",
       "mappingKey": "infinityUpgrades.charged/galaxyBoost"
     },
     {
@@ -316,7 +316,7 @@
         "formatEffect": "value => formatX(value, 2, 2)",
         "charged": "{\r\n      description:\r\n        \"Antimatter Dimensions gain a power effect based on time spent in current Infinity and Teresa level\",\r\n      effect: () => 1 +\r\n        Math.log10(Math.log10(Time.thisInfinity.totalMilliseconds + 100)) *\r\n        Math.sqrt(Ra.pets.teresa.level) / 150,\r\n      formatEffect: value => formatPow(value, 4, 4)\r\n    }"
       },
-      "undeadName": "此世余温",
+      "undeadName": "今世招魂",
       "mappingKey": "infinityUpgrades/thisInfinityTimeMult"
     },
     {
@@ -330,7 +330,7 @@
         "effect": "() => 1 +\r\n        Math.log10(Math.log10(Time.thisInfinity.totalMilliseconds + 100)) *\r\n        Math.sqrt(Ra.pets.teresa.level) / 150",
         "formatEffect": "value => formatPow(value, 4, 4)"
       },
-      "undeadName": "此世余温·灌注",
+      "undeadName": "今世招魂·觉醒",
       "mappingKey": "infinityUpgrades.charged/thisInfinityTimeMult"
     },
     {
@@ -348,7 +348,7 @@
         "formatEffect": "value => formatX(value, 2, 2)",
         "charged": "{\r\n      description: \"Multiplier to 1st Antimatter Dimension based on unspent Infinity Points, powered by Teresa level\",\r\n      effect: () => Currency.infinityPoints.value.dividedBy(2).pow(Math.sqrt(Ra.pets.teresa.level) * 1.5).plus(1),\r\n      formatEffect: value => formatX(value, 2, 2)\r\n    }"
       },
-      "undeadName": "魂印积蓄",
+      "undeadName": "魂印供养",
       "mappingKey": "infinityUpgrades/unspentIPMult"
     },
     {
@@ -362,7 +362,7 @@
         "effect": "() => Currency.infinityPoints.value.dividedBy(2).pow(Math.sqrt(Ra.pets.teresa.level) * 1.5).plus(1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "魂印积蓄·灌注",
+      "undeadName": "魂印供养·觉醒",
       "mappingKey": "infinityUpgrades.charged/unspentIPMult"
     },
     {
@@ -380,7 +380,7 @@
         "formatEffect": "() => `${formatX(2, 0, 1)} ➜ ${formatX(2.5, 0, 1)}`",
         "charged": "{\r\n      description: \"Dimension Boost multiplier gains a power effect based on Teresa level\",\r\n      effect: () => 1 + Ra.pets.teresa.level / 200,\r\n      formatEffect: value => formatPow(value, 3, 3)\r\n    }"
       },
-      "undeadName": "筑塔增幅",
+      "undeadName": "通灵尖塔",
       "mappingKey": "infinityUpgrades/dimboostMult"
     },
     {
@@ -394,7 +394,7 @@
         "effect": "() => 1 + Ra.pets.teresa.level / 200",
         "formatEffect": "value => formatPow(value, 3, 3)"
       },
-      "undeadName": "筑塔增幅·灌注",
+      "undeadName": "通灵尖塔·觉醒",
       "mappingKey": "infinityUpgrades.charged/dimboostMult"
     },
     {
@@ -412,7 +412,7 @@
         "formatEffect": "value => {\r\n      if (Teresa.isRunning || V.isRunning) return \"Disabled in this reality\";\r\n      if (Pelle.isDoomed) return \"Disabled\";\r\n      if (player.records.bestInfinity.time >= 999999999999) return \"Too slow to generate\";\r\n      return `${format(value, 2)} every ${Time.bestInfinity.times(10).toStringShort()}`;\r\n    }",
         "charged": "{\r\n      description: () =>\r\n        `Gain Reality Machines each real-time second proportional to amount gained on Reality,\r\n        increasing with Teresa level`,\r\n      effect: () => Math.pow(Ra.pets.teresa.level, 2) *\r\n        Ra.unlocks.continuousTTBoost.effects.autoPrestige.effectOrDefault(1),\r\n      formatEffect: value => formatX(value, 2, 1)\r\n    }"
       },
-      "undeadName": "魂印自生",
+      "undeadName": "亡灵税赋",
       "mappingKey": "infinityUpgrades/ipGen"
     },
     {
@@ -426,7 +426,7 @@
         "effect": "() => Math.pow(Ra.pets.teresa.level, 2) *\r\n        Ra.unlocks.continuousTTBoost.effects.autoPrestige.effectOrDefault(1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "命匣自生·灌注",
+      "undeadName": "命匣贡赋·觉醒",
       "mappingKey": "infinityUpgrades.charged/ipGen"
     },
     {
@@ -440,7 +440,7 @@
         "cost": "20",
         "description": "() =>\r\n      `Start every reset with ${formatInt(1)} Dimension Boost, automatically unlocking the 5th Antimatter Dimension`"
       },
-      "undeadName": "初层遗赠",
+      "undeadName": "尸巫召集令",
       "mappingKey": "infinityUpgrades/skipReset1"
     },
     {
@@ -455,7 +455,7 @@
         "checkRequirement": "() => InfinityUpgrade.skipReset1.isBought",
         "description": "() =>\r\n      `Start every reset with ${formatInt(2)} Dimension Boosts, automatically unlocking the 6th Antimatter Dimension`"
       },
-      "undeadName": "二层遗赠",
+      "undeadName": "黑骑召集令",
       "mappingKey": "infinityUpgrades/skipReset2"
     },
     {
@@ -470,7 +470,7 @@
         "checkRequirement": "() => InfinityUpgrade.skipReset2.isBought",
         "description": "() =>\r\n      `Start every reset with ${formatInt(3)} Dimension Boosts, automatically unlocking the 7th Antimatter Dimension`"
       },
-      "undeadName": "三层遗赠",
+      "undeadName": "龙骸召集令",
       "mappingKey": "infinityUpgrades/skipReset3"
     },
     {
@@ -485,7 +485,7 @@
         "checkRequirement": "() => InfinityUpgrade.skipReset3.isBought",
         "description": "() =>\r\n      `Start every reset with ${formatInt(4)} Dimension Boosts, automatically unlocking the 8th Antimatter Dimension;\r\n      and an Antimatter Galaxy`"
       },
-      "undeadName": "骨王与墓域遗赠",
+      "undeadName": "领主降临与领地遗赠",
       "mappingKey": "infinityUpgrades/skipResetGalaxy"
     },
     {
@@ -503,7 +503,7 @@
         "isDisabled": "() => !player.options.offlineProgress",
         "formatEffect": "value => `${format(value, 2, 2)} IP/min`"
       },
-      "undeadName": "沉眠魂印",
+      "undeadName": "沉眠贡赋",
       "mappingKey": "infinityUpgrades/ipOffline"
     },
     {
@@ -539,7 +539,7 @@
         "effect": "() => Math.pow(player.records.totalAntimatter.exponent + 1, 0.5)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "万魂积业",
+      "undeadName": "亡魂大军",
       "mappingKey": "breakInfinityUpgrades/totalAMMult"
     },
     {
@@ -555,7 +555,7 @@
         "effect": "() => Math.pow(Currency.antimatter.exponent + 1, 0.5)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "聚魂威势",
+      "undeadName": "魂海威压",
       "mappingKey": "breakInfinityUpgrades/currentAMMult"
     },
     {
@@ -570,7 +570,7 @@
         "description": "() => `All Galaxies are ${formatPercents(0.5)} stronger`",
         "effect": "1.5"
       },
-      "undeadName": "墓域强化",
+      "undeadName": "亡者领土",
       "mappingKey": "breakInfinityUpgrades/galaxyBoost"
     },
     {
@@ -586,7 +586,7 @@
         "effect": "() => 1 + Currency.infinitiesTotal.value.pLog10() * 10",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "百世骨军",
+      "undeadName": "百世军势",
       "mappingKey": "breakInfinityUpgrades/infinitiedMult"
     },
     {
@@ -602,7 +602,7 @@
         "effect": "() => Math.max(Math.pow((Achievements.effectiveCount - 30), 3) / 40, 1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "功业鼓舞",
+      "undeadName": "墓园荣耀",
       "mappingKey": "breakInfinityUpgrades/achievementMult"
     },
     {
@@ -620,7 +620,7 @@
         "hasCap": "true",
         "cap": "DC.D3E4"
       },
-      "undeadName": "试炼余威",
+      "undeadName": "试炼战绩",
       "mappingKey": "breakInfinityUpgrades/slowestChallengeMult"
     },
     {
@@ -636,7 +636,7 @@
         "effect": "() => player.records.bestInfinity.time",
         "formatEffect": "value => {\r\n      if (value === Number.MAX_VALUE && !Pelle.isDoomed) return \"No Infinity generation\";\r\n      let infinities = DC.D1;\r\n      infinities = infinities.timesEffectsOf(\r\n        RealityUpgrade(5),\r\n        RealityUpgrade(7),\r\n        Ra.unlocks.continuousTTBoost.effects.infinity\r\n      );\r\n      infinities = infinities.times(getAdjustedGlyphEffect(\"infinityinfmult\"));\r\n      const timeStr = Time.bestInfinity.totalMilliseconds <= 50\r\n        ? `${TimeSpan.fromMilliseconds(100).toStringShort()} (capped)`\r\n        : `${Time.bestInfinity.times(2).toStringShort()}`;\r\n      return `${quantify(\"Infinity\", infinities)} every ${timeStr}`;\r\n    }"
       },
-      "undeadName": "转生自衍",
+      "undeadName": "转生契约",
       "mappingKey": "breakInfinityUpgrades/infinitiedGen"
     },
     {
@@ -650,7 +650,7 @@
         "cost": "5e9",
         "description": "\"Unlock the buy max Dimension Boost Autobuyer mode\""
       },
-      "undeadName": "连续筑塔",
+      "undeadName": "连筑尖塔",
       "mappingKey": "breakInfinityUpgrades/autobuyMaxDimboosts"
     },
     {
@@ -664,7 +664,7 @@
         "cost": "1e15",
         "description": "\"Autobuyers unlocked or improved by Normal Challenges work twice as fast\""
       },
-      "undeadName": "执役疾行",
+      "undeadName": "执役加速",
       "mappingKey": "breakInfinityUpgrades/autobuyerSpeed"
     },
     {
@@ -683,7 +683,7 @@
         "noLabel": "true",
         "onPurchased": "() => GameCache.tickSpeedMultDecrease.invalidate()"
       },
-      "undeadName": "魂火节律减耗",
+      "undeadName": "仪式节材",
       "mappingKey": "breakInfinityUpgrades/tickspeedCostMult"
     },
     {
@@ -702,7 +702,7 @@
         "noLabel": "true",
         "onPurchased": "() => GameCache.dimensionMultDecrease.invalidate()"
       },
-      "undeadName": "骨军召唤减耗",
+      "undeadName": "招魂节材",
       "mappingKey": "breakInfinityUpgrades/dimCostMult"
     },
     {
@@ -738,7 +738,7 @@
         "effect": "() => Currency.eternityPoints.value.plus(1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "冥印养陵",
+      "undeadName": "冥印资助",
       "mappingKey": "eternityUpgrades/idMultEP"
     },
     {
@@ -754,7 +754,7 @@
         "effect": "effect() {\r\n      const log4 = Math.log4;\r\n      const eterPreCap = Currency.eternities.value.clampMax(1e5).toNumber();\r\n      const base = eterPreCap / 200 + 1;\r\n      const pow = Math.log(eterPreCap * 2 + 1) / log4;\r\n      const multPreCap = Math.pow(base, pow);\r\n      const eterPostCap = Currency.eternities.value.sub(1e5);\r\n      const mult1 = eterPostCap.divide(200).plus(1);\r\n      const mult2 = eterPostCap.times(2).plus(1).log(Math.E) / log4;\r\n      const multPostCap = mult1.times(mult2).clampMin(1);\r\n      return multPostCap.times(multPreCap);\r\n    }",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "轮回养陵",
+      "undeadName": "轮回传承",
       "mappingKey": "eternityUpgrades/idMultEternities"
     },
     {
@@ -771,7 +771,7 @@
         "cap": "DC.D2P30D0_61",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "破界试炼回响",
+      "undeadName": "破界秘仪",
       "mappingKey": "eternityUpgrades/idMultICRecords"
     },
     {
@@ -787,7 +787,7 @@
         "effect": "() => Achievements.power",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "功业祭坛",
+      "undeadName": "功业祭典",
       "mappingKey": "eternityUpgrades/tdMultAchs"
     },
     {
@@ -803,7 +803,7 @@
         "effect": "() => Decimal.max(Currency.timeTheorems.value, 1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "冥典祭坛",
+      "undeadName": "典籍供奉",
       "mappingKey": "eternityUpgrades/tdMultTheorems"
     },
     {
@@ -819,7 +819,7 @@
         "effect": "() => (Pelle.isDoomed ? 1 + Time.thisReality.totalDays : Math.max(Time.totalTimePlayed.totalDays, 1))",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "岁月祭坛",
+      "undeadName": "古老祭礼",
       "mappingKey": "eternityUpgrades/tdMultRealTime"
     },
     {
@@ -973,7 +973,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "一阶冥陵执役",
+      "undeadName": "一阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID1"
     },
     {
@@ -988,7 +988,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "二阶冥陵执役",
+      "undeadName": "二阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID2"
     },
     {
@@ -1003,7 +1003,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "三阶冥陵执役",
+      "undeadName": "三阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID3"
     },
     {
@@ -1018,7 +1018,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "四阶冥陵执役",
+      "undeadName": "四阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID4"
     },
     {
@@ -1033,7 +1033,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "五阶冥陵执役",
+      "undeadName": "五阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID5"
     },
     {
@@ -1048,7 +1048,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "六阶冥陵执役",
+      "undeadName": "六阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID6"
     },
     {
@@ -1063,7 +1063,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "七阶冥陵执役",
+      "undeadName": "七阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID7"
     },
     {
@@ -1078,7 +1078,7 @@
         "givenByPelle": "() => PelleUpgrade.IDAutobuyers.isBought",
         "pelleUseless": "true"
       },
-      "undeadName": "八阶冥陵执役",
+      "undeadName": "八阶通灵者执役",
       "mappingKey": "eternityMilestones/autobuyerID8"
     },
     {
@@ -1091,7 +1091,7 @@
         "eternities": "25",
         "reward": "\"You automatically unlock Infinity Dimensions upon reaching them\""
       },
-      "undeadName": "冥陵自动显现",
+      "undeadName": "通灵者自动显现",
       "mappingKey": "eternityMilestones/autoUnlockID"
     },
     {
@@ -1104,7 +1104,7 @@
         "eternities": "30",
         "reward": "\"Start with all Antimatter Dimensions available for purchase\""
       },
-      "undeadName": "八阶骨军齐备",
+      "undeadName": "八阶亡灵军团齐备",
       "mappingKey": "eternityMilestones/unlockAllND"
     },
     {
@@ -1225,7 +1225,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "Number.MAX_VALUE"
       },
-      "undeadName": "幽夜流速",
+      "undeadName": "永夜降临",
       "mappingKey": "dilationUpgrades/dtGain"
     },
     {
@@ -1244,7 +1244,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "38"
       },
-      "undeadName": "幽夜墓域减阈",
+      "undeadName": "幽域扩张",
       "mappingKey": "dilationUpgrades/galaxyThreshold"
     },
     {
@@ -1263,7 +1263,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "Number.MAX_VALUE"
       },
-      "undeadName": "逆命烬增殖",
+      "undeadName": "逆命余烬",
       "mappingKey": "dilationUpgrades/tachyonGain"
     },
     {
@@ -1278,7 +1278,7 @@
         "description": "() => `Gain twice as many Tachyon Galaxies, up to ${formatInt(500)} base Galaxies`",
         "effect": "2"
       },
-      "undeadName": "幽夜双域",
+      "undeadName": "双重幽域",
       "mappingKey": "dilationUpgrades/doubleGalaxies"
     },
     {
@@ -1294,7 +1294,7 @@
         "effect": "() => {\r\n      let rep10 = replicantiMult().pLog10() * 0.1;\r\n      rep10 = rep10 > 9000 ? 9000 + 0.5 * (rep10 - 9000) : rep10;\r\n      return Decimal.pow10(rep10);\r\n    }",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "瘟疫祭坛",
+      "undeadName": "瘟疫祭礼",
       "mappingKey": "dilationUpgrades/tdMultReplicanti"
     },
     {
@@ -1310,7 +1310,7 @@
         "effect": "() => Currency.dilatedTime.value.pow(308).clampMin(1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "幽夜骨军",
+      "undeadName": "暗夜军团",
       "mappingKey": "dilationUpgrades/ndMultDT"
     },
     {
@@ -1327,7 +1327,7 @@
         "formatEffect": "value => formatX(value, 2, 1)",
         "cap": "() => Effarig.eternityCap"
       },
-      "undeadName": "幽夜魂印",
+      "undeadName": "永夜贡赋",
       "mappingKey": "dilationUpgrades/ipMultDT"
     },
     {
@@ -1341,7 +1341,7 @@
         "cost": "1e10",
         "description": "\"You can buy all three Time Study paths from the Dimension Split\""
       },
-      "undeadName": "三脉同修",
+      "undeadName": "三系通灵",
       "mappingKey": "dilationUpgrades/timeStudySplit"
     },
     {
@@ -1356,7 +1356,7 @@
         "description": "() => `Reduce the Dilation penalty (${formatPow(1.05, 2, 2)} after reduction)`",
         "effect": "1.05"
       },
-      "undeadName": "永夜抗性",
+      "undeadName": "诅咒抗性",
       "mappingKey": "dilationUpgrades/dilationPenalty"
     },
     {
@@ -1372,7 +1372,7 @@
         "effect": "() => Currency.tachyonParticles.value.div(20000)",
         "formatEffect": "value => `${format(value, 2, 1)}/sec`"
       },
-      "undeadName": "冥典自书",
+      "undeadName": "亡灵秘典",
       "mappingKey": "dilationUpgrades/ttGenerator"
     },
     {
@@ -1392,7 +1392,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "Number.MAX_VALUE"
       },
-      "undeadName": "终焉幽夜增流",
+      "undeadName": "末世长夜",
       "mappingKey": "dilationUpgrades/dtGainPelle"
     },
     {
@@ -1412,7 +1412,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "Number.MAX_VALUE"
       },
-      "undeadName": "终焉幽夜扩域",
+      "undeadName": "末世疆域",
       "mappingKey": "dilationUpgrades/galaxyMultiplier"
     },
     {
@@ -1432,7 +1432,7 @@
         "formatCost": "value => format(value, 2)",
         "purchaseCap": "Number.MAX_VALUE"
       },
-      "undeadName": "终焉魂火升幂",
+      "undeadName": "末世狂热",
       "mappingKey": "dilationUpgrades/tickspeedPower"
     },
     {
@@ -1448,7 +1448,7 @@
         "description": "\"Apply a cube root to the Tachyon Galaxy threshold\"",
         "effect": "1 / 3"
       },
-      "undeadName": "终焉墓域破阈",
+      "undeadName": "幽域破限",
       "mappingKey": "dilationUpgrades/galaxyThresholdPelle"
     },
     {
@@ -1465,7 +1465,7 @@
         "effect": "() => 1e9 ** Math.min((Math.max(player.eternityPoints.log10() - 1500, 0) / 2500) ** 1.2, 1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "冥印照彻长夜",
+      "undeadName": "冥河长夜",
       "mappingKey": "dilationUpgrades/flatDilationMult"
     },
     {
@@ -1484,7 +1484,7 @@
         "cap": "DC.E2500",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "魂火祭坛",
+      "undeadName": "丧钟共鸣",
       "mappingKey": "normalTimeStudies/0"
     },
     {
@@ -1502,7 +1502,7 @@
         "effect": "() => Replicanti.amount.pow(0.032)",
         "formatEffect": "value => {\r\n      const oldVal = Decimal.pow(Decimal.log2(Replicanti.amount.clampMin(1)), 2);\r\n      const newVal = oldVal.plus(value);\r\n      return formatX(newVal.div(oldVal).clampMin(1), 2, 2);\r\n    }"
       },
-      "undeadName": "疫种异化",
+      "undeadName": "瘟疫异变",
       "mappingKey": "normalTimeStudies/1"
     },
     {
@@ -1519,7 +1519,7 @@
         "description": "() => `Base Replicanti interval limit ${formatInt(50)}ms ➜ ${formatInt(1)}ms`",
         "effect": "1"
       },
-      "undeadName": "疫种急孵",
+      "undeadName": "腐化加速",
       "mappingKey": "normalTimeStudies/2"
     },
     {
@@ -1536,7 +1536,7 @@
         "description": "() => `Powers up multipliers that are based on your Infinities (Bonuses${formatPow(4)})`",
         "effect": "4"
       },
-      "undeadName": "百世余威",
+      "undeadName": "百世亡者",
       "mappingKey": "normalTimeStudies/3"
     },
     {
@@ -1554,7 +1554,7 @@
         "effect": "() => Math.max(DimBoost.totalBoosts, 1)",
         "formatEffect": "value => formatX(value, 2)"
       },
-      "undeadName": "筑塔转生",
+      "undeadName": "尖塔转生",
       "mappingKey": "normalTimeStudies/4"
     },
     {
@@ -1570,7 +1570,7 @@
         "reqType": "TS_REQUIREMENT_TYPE.AT_LEAST_ONE",
         "description": "\"You keep half of your Replicanti Galaxies on Infinity\""
       },
-      "undeadName": "半巢传承",
+      "undeadName": "瘟疫遗产",
       "mappingKey": "normalTimeStudies/5"
     },
     {
@@ -1588,7 +1588,7 @@
         "effect": "() => DC.D1_2.pow(Replicanti.galaxies.total + player.galaxies + player.dilation.totalTachyonGalaxies)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "墓域铸印",
+      "undeadName": "领土贡赋",
       "mappingKey": "normalTimeStudies/6"
     },
     {
@@ -1605,7 +1605,7 @@
         "description": "() => `Antimatter Galaxy requirement increases by ${formatInt(52)}\r\n      8th Dimensions instead of ${formatInt(60)}`",
         "effect": "52"
       },
-      "undeadName": "墓域节材",
+      "undeadName": "墓园工事",
       "mappingKey": "normalTimeStudies/7"
     },
     {
@@ -1622,7 +1622,7 @@
         "description": "() => `You gain ${formatX(1e15)} more Infinity Points`",
         "effect": "1e15"
       },
-      "undeadName": "魂印洪流",
+      "undeadName": "灵魂收割",
       "mappingKey": "normalTimeStudies/8"
     },
     {
@@ -1639,7 +1639,7 @@
         "description": "() => `You gain ${formatX(15)} more Eternity Points`",
         "effect": "15"
       },
-      "undeadName": "冥印洪流",
+      "undeadName": "冥河赠礼",
       "mappingKey": "normalTimeStudies/9"
     },
     {
@@ -1656,7 +1656,7 @@
         "description": "() => `You gain Replicanti ${formatInt(3)} times faster`",
         "effect": "3"
       },
-      "undeadName": "疫种三生",
+      "undeadName": "疫潮蔓延",
       "mappingKey": "normalTimeStudies/10"
     },
     {
@@ -1675,7 +1675,7 @@
         "cap": "DC.E210000",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "献祭遍骨",
+      "undeadName": "献祭全军",
       "mappingKey": "normalTimeStudies/11"
     },
     {
@@ -1694,7 +1694,7 @@
         "cap": "DC.E30000",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "献祭第四冥陵",
+      "undeadName": "术士血祭",
       "mappingKey": "normalTimeStudies/12"
     },
     {
@@ -1713,7 +1713,7 @@
         "cap": "DC.E1300",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "献祭第三祭坛",
+      "undeadName": "幽魂祭礼",
       "mappingKey": "normalTimeStudies/13"
     },
     {
@@ -1730,7 +1730,7 @@
         "description": "() => `Base Dimension Boost power becomes ${formatX(10)}`",
         "effect": "10"
       },
-      "undeadName": "筑塔十倍",
+      "undeadName": "尖塔威仪",
       "mappingKey": "normalTimeStudies/14"
     },
     {
@@ -1749,7 +1749,7 @@
         "cap": "DC.E1E7",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "筑塔养陵",
+      "undeadName": "议会集结",
       "mappingKey": "normalTimeStudies/15"
     },
     {
@@ -1768,7 +1768,7 @@
         "cap": "DC.E30",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "回响筑塔",
+      "undeadName": "祭坛回响",
       "mappingKey": "normalTimeStudies/16"
     },
     {
@@ -1787,7 +1787,7 @@
         "cap": "DC.E300",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "长夜养骨",
+      "undeadName": "亡灵复苏",
       "mappingKey": "normalTimeStudies/17"
     },
     {
@@ -1806,7 +1806,7 @@
         "cap": "DC.C2P30",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "疾轮养陵",
+      "undeadName": "通灵疾行",
       "mappingKey": "normalTimeStudies/18"
     },
     {
@@ -1824,7 +1824,7 @@
         "effect": "() => Decimal.pow(player.totalTickGained, 0.25).clampMin(1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "回响祭坛",
+      "undeadName": "岁月祭祀",
       "mappingKey": "normalTimeStudies/19"
     },
     {
@@ -1842,7 +1842,7 @@
         "effect": "() => Decimal.max(Replicanti.amount, 1)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "疫海养骨",
+      "undeadName": "瘟疫军势",
       "mappingKey": "normalTimeStudies/20"
     },
     {
@@ -1860,7 +1860,7 @@
         "effect": "() => DC.D5.pow(player.replicanti.galaxies)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "疫巢增幅",
+      "undeadName": "疫巢共鸣",
       "mappingKey": "normalTimeStudies/21"
     },
     {
@@ -1878,7 +1878,7 @@
         "effect": "() => Math.max(player.replicanti.galaxies, 1)",
         "formatEffect": "value => formatX(value, 2, 0)"
       },
-      "undeadName": "疫巢祭坛",
+      "undeadName": "瘟疫圣坛",
       "mappingKey": "normalTimeStudies/22"
     },
     {
@@ -1895,7 +1895,7 @@
         "description": "() => (Achievement(103).canBeApplied\r\n      ? `Make the Infinity Point formula better log(x)/${formatFloat(307.8, 1)} ➜ log(x)/${formatInt(285)}`\r\n      : `Make the Infinity Point formula better log(x)/${formatInt(308)} ➜ log(x)/${formatInt(285)}`)",
         "effect": "285"
       },
-      "undeadName": "转生精炼",
+      "undeadName": "转生秘术",
       "mappingKey": "normalTimeStudies/23"
     },
     {
@@ -1916,7 +1916,7 @@
         "formatEffect": "value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 1, 1))",
         "cap": "50"
       },
-      "undeadName": "征伐冥印",
+      "undeadName": "征伐之道",
       "mappingKey": "normalTimeStudies/24"
     },
     {
@@ -1935,7 +1935,7 @@
         "description": "() => (Perk.studyPassive.isBought\r\n      ? `You gain ${formatX(50)} more Eternity Points`\r\n      : `You gain ${formatX(35)} more Eternity Points`)",
         "effect": "() => (Perk.studyPassive.isBought ? 50 : 35)"
       },
-      "undeadName": "守陵冥印",
+      "undeadName": "守墓之道",
       "mappingKey": "normalTimeStudies/25"
     },
     {
@@ -1955,7 +1955,7 @@
         "effect": "() => {\r\n      const perkEffect = TimeSpan.fromMinutes(Perk.studyIdleEP.effectOrDefault(0));\r\n      const totalSeconds = Time.thisEternity.plus(perkEffect).totalSeconds;\r\n      return Math.sqrt(1.39 * totalSeconds);\r\n    }",
         "formatEffect": "value => formatX(value, 1, 1)"
       },
-      "undeadName": "沉眠冥印",
+      "undeadName": "长眠之道",
       "mappingKey": "normalTimeStudies/26"
     },
     {
@@ -1974,7 +1974,7 @@
         "description": "() => (Achievement(138).isUnlocked\r\n      ? `You can get ${formatPercents(0.5)} more Replicanti Galaxies`\r\n      : `Automatic Replicanti Galaxies are disabled, but you can get ${formatPercents(0.5)} more`)",
         "effect": "() => Math.floor(player.replicanti.boughtGalaxyCap / 2)"
       },
-      "undeadName": "征伐扩巢",
+      "undeadName": "征服疫土",
       "mappingKey": "normalTimeStudies/27"
     },
     {
@@ -1993,7 +1993,7 @@
         "description": "() => (Pelle.isDoomed\r\n      ? `Replicanti Galaxies are ${formatPercents(0.4)} stronger`\r\n      : `Replicanti Galaxies are ${formatPercents(0.4)} stronger and Replicanti are \r\n        ${Perk.studyPassive.isBought ? formatX(3) : formatX(1.5, 1, 1)} faster`)",
         "effect": "0.4"
       },
-      "undeadName": "守陵强巢",
+      "undeadName": "瘟疫守望",
       "mappingKey": "normalTimeStudies/28"
     },
     {
@@ -2012,7 +2012,7 @@
         "description": "() => (Achievement(138).isUnlocked\r\n      ? `Replicanti Galaxies are ${formatPercents(0.5)} stronger`\r\n      : `Replicanti are ${formatX(10)} slower until ${format(Number.MAX_VALUE, 2)}` +\r\n    `, but Replicanti Galaxies are ${formatPercents(0.5)} stronger`)",
         "effect": "0.5"
       },
-      "undeadName": "沉眠强巢",
+      "undeadName": "沉眠疫域",
       "mappingKey": "normalTimeStudies/29"
     },
     {
@@ -2032,7 +2032,7 @@
         "effect": "() => (Perk.studyActiveEP.isBought\r\n      ? DC.E45\r\n      : DC.E45.divide(thisInfinityMult(Time.thisInfinity.totalSeconds)).clampMin(1))",
         "formatEffect": "value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 2, 1))"
       },
-      "undeadName": "征伐魂印",
+      "undeadName": "战地收魂",
       "mappingKey": "normalTimeStudies/30"
     },
     {
@@ -2052,7 +2052,7 @@
         "effect": "passiveIPMult",
         "cap": "() => (Effarig.eternityCap === undefined ? undefined : Effarig.eternityCap.toNumber())"
       },
-      "undeadName": "守陵魂印",
+      "undeadName": "守墓贡赋",
       "mappingKey": "normalTimeStudies/31"
     },
     {
@@ -2073,7 +2073,7 @@
         "formatEffect": "value => formatX(value, 2, 1)",
         "cap": "() => Effarig.eternityCap"
       },
-      "undeadName": "沉眠魂印",
+      "undeadName": "沉眠收魂",
       "mappingKey": "normalTimeStudies/32"
     },
     {
@@ -2090,7 +2090,7 @@
         "description": "() => `${formatX(1e4)} multiplier on all Time Dimensions`",
         "effect": "1e4"
       },
-      "undeadName": "万倍祭坛",
+      "undeadName": "千年祭典",
       "mappingKey": "normalTimeStudies/33"
     },
     {
@@ -2107,7 +2107,7 @@
         "description": "() => `${formatX(DC.E616)} multiplier on all Antimatter Dimensions`",
         "effect": "() => DC.E616"
       },
-      "undeadName": "无量骨军",
+      "undeadName": "亡灵天灾",
       "mappingKey": "normalTimeStudies/34"
     },
     {
@@ -2124,7 +2124,7 @@
         "description": "() => `${formatX(1e11)} multiplier on all Infinity Dimensions`",
         "effect": "1e11"
       },
-      "undeadName": "万世冥陵",
+      "undeadName": "通灵盛会",
       "mappingKey": "normalTimeStudies/35"
     },
     {
@@ -2141,7 +2141,7 @@
         "description": "() => `Time Shard requirement for the next Tickspeed upgrade goes up slower\r\n      ${formatX(1.33, 0, 2)} ➜ ${formatX(1.25, 0, 2)}`",
         "effect": "() => TS171_MULTIPLIER"
       },
-      "undeadName": "回响节律",
+      "undeadName": "永续回响",
       "mappingKey": "normalTimeStudies/36"
     },
     {
@@ -2158,7 +2158,7 @@
         "description": "() => `You gain ${formatPercents(0.01)} of your Infinity Points gained on crunch each second`",
         "effect": "() => gainedInfinityPoints().times(Time.deltaTime / 100)\r\n      .timesEffectOf(Ra.unlocks.continuousTTBoost.effects.autoPrestige)"
       },
-      "undeadName": "魂印涓流",
+      "undeadName": "灵魂税赋",
       "mappingKey": "normalTimeStudies/37"
     },
     {
@@ -2175,7 +2175,7 @@
         "description": "() => `After Eternity you permanently keep ${formatPercents(0.05)}\r\n    of your Infinities as Banked Infinities`",
         "effect": "() => Currency.infinities.value.times(0.05).floor()"
       },
-      "undeadName": "转生归档",
+      "undeadName": "百世归档",
       "mappingKey": "normalTimeStudies/38"
     },
     {
@@ -2191,7 +2191,7 @@
         "reqType": "TS_REQUIREMENT_TYPE.ALL",
         "description": "() => (Enslaved.isRunning\r\n      ? \"There is not enough space in this Reality\"\r\n      : `Replicanti can go beyond ${format(replicantiCap(), 2, 1)}, but growth slows down at higher amounts`)"
       },
-      "undeadName": "疫海破限",
+      "undeadName": "无尽瘟疫",
       "mappingKey": "normalTimeStudies/39"
     },
     {
@@ -2210,7 +2210,7 @@
         "cap": "DC.E13000",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "轮回养骨",
+      "undeadName": "轮回军势",
       "mappingKey": "normalTimeStudies/40"
     },
     {
@@ -2226,7 +2226,7 @@
         "reqType": "TS_REQUIREMENT_TYPE.AT_LEAST_ONE",
         "description": "\"Pick a second path from the Dimension Split\""
       },
-      "undeadName": "双脉同修",
+      "undeadName": "双系通灵",
       "mappingKey": "normalTimeStudies/41"
     },
     {
@@ -2243,7 +2243,7 @@
         "description": "() => `Dimension Boost requirement scaling is reduced by ${formatInt(5)}`",
         "effect": "5"
       },
-      "undeadName": "筑塔节材",
+      "undeadName": "尖塔节材",
       "mappingKey": "normalTimeStudies/42"
     },
     {
@@ -2262,7 +2262,7 @@
         "cap": "1.1",
         "formatEffect": "value => `+${formatPercents(value - 1, 3)}`"
       },
-      "undeadName": "回响墓域",
+      "undeadName": "墓园回响",
       "mappingKey": "normalTimeStudies/43"
     },
     {
@@ -2279,7 +2279,7 @@
         "description": "() => `You gain Replicanti ${formatInt(20)} times faster`",
         "effect": "20"
       },
-      "undeadName": "疫种狂潮",
+      "undeadName": "瘟疫狂潮",
       "mappingKey": "normalTimeStudies/44"
     },
     {
@@ -2298,7 +2298,7 @@
         "cap": "DC.E164000",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "骨王盛祭",
+      "undeadName": "灾厄盛祭",
       "mappingKey": "normalTimeStudies/45"
     },
     {
@@ -2318,7 +2318,7 @@
         "effect": "() => DC.D1_0025.pow(DimBoost.totalBoosts)",
         "formatEffect": "value => formatX(value, 2, 1)"
       },
-      "undeadName": "高塔祭坛",
+      "undeadName": "尖塔祭礼",
       "mappingKey": "normalTimeStudies/46"
     },
     {
@@ -2337,7 +2337,7 @@
         "description": "() => `Dimension Boost costs scale by another ${formatInt(2)} less`",
         "effect": "2"
       },
-      "undeadName": "筑塔再减耗",
+      "undeadName": "精工尖塔",
       "mappingKey": "normalTimeStudies/47"
     },
     {
@@ -2356,7 +2356,7 @@
         "description": "() => `Distant Galaxy cost scaling starts ${formatInt(7)} Galaxies later`",
         "effect": "7"
       },
-      "undeadName": "近疆延展",
+      "undeadName": "荒原开拓",
       "mappingKey": "normalTimeStudies/48"
     },
     {
@@ -2375,7 +2375,7 @@
         "description": "description() {\r\n      const effect = TimeStudy(224).effectValue;\r\n      return `Distant Galaxy cost scaling starts ${quantifyInt(\"Galaxy\", effect)} later\r\n        (${formatInt(1)} per ${formatInt(2000)} Dim Boosts)`;\r\n    }",
         "effect": "() => Math.floor(DimBoost.totalBoosts / 2000)"
       },
-      "undeadName": "高塔拓疆",
+      "undeadName": "领土扩张",
       "mappingKey": "normalTimeStudies/49"
     },
     {
@@ -2415,7 +2415,7 @@
         "effect": "() => Math.floor(player.replicanti.boughtGalaxyCap / 15)",
         "formatEffect": "value => `+${formatInt(value)} RG`"
       },
-      "undeadName": "巢限生巢",
+      "undeadName": "瘟疫繁荣",
       "mappingKey": "normalTimeStudies/51"
     },
     {
@@ -2435,7 +2435,7 @@
         "effect": "() => Math.max(Math.pow(Sacrifice.totalBoost.pLog10(), 10), 1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "献祭第四祭坛",
+      "undeadName": "血月祭礼",
       "mappingKey": "normalTimeStudies/52"
     },
     {
@@ -2454,7 +2454,7 @@
         "description": "() => `Dimensional Sacrifice formula scales better\r\n      ${Sacrifice.getSacrificeDescription({ \"TimeStudy228\": false })} ➜\r\n      ${Sacrifice.getSacrificeDescription({ \"TimeStudy228\": true })}`",
         "effect": "0.2"
       },
-      "undeadName": "献祭精炼",
+      "undeadName": "献祭精通",
       "mappingKey": "normalTimeStudies/53"
     },
     {
@@ -2474,7 +2474,7 @@
         "effect": "() => Decimal.pow(DimBoost.totalBoosts, 0.3).clampMin(1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "层叠骨阵",
+      "undeadName": "塔主威仪",
       "mappingKey": "normalTimeStudies/54"
     },
     {
@@ -2494,7 +2494,7 @@
         "effect": "() => Math.pow(1 + player.galaxies / 1000, 0.2)",
         "formatEffect": "value => `+${formatPercents(value - 1, 3)}`"
       },
-      "undeadName": "墓域连城",
+      "undeadName": "墓园帝国",
       "mappingKey": "normalTimeStudies/55"
     },
     {
@@ -2514,7 +2514,7 @@
         "effect": "() => Replicanti.amount.pow(0.3)",
         "formatEffect": "value => `/ ${format(value, 1, 2)}`"
       },
-      "undeadName": "疫巢低耗",
+      "undeadName": "低耗疫巢",
       "mappingKey": "normalTimeStudies/56"
     },
     {
@@ -2533,7 +2533,7 @@
         "description": "\"Dimensional Sacrifice applies to 1st Antimatter Dimension\"",
         "effect": "() => Sacrifice.totalBoost"
       },
-      "undeadName": "初骨受祭",
+      "undeadName": "骷髅祝祷",
       "mappingKey": "normalTimeStudies/57"
     },
     {
@@ -2554,7 +2554,7 @@
         "formatEffect": "value => formatX(value, 2, 1)",
         "unlocked": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 1"
       },
-      "undeadName": "三誓·塔坛合一",
+      "undeadName": "禁咒·尖塔共鸣",
       "mappingKey": "normalTimeStudies/58"
     },
     {
@@ -2574,7 +2574,7 @@
         "effect": "3000",
         "unlocked": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2"
       },
-      "undeadName": "三誓·无垠墓疆",
+      "undeadName": "禁咒·无垠墓园",
       "mappingKey": "normalTimeStudies/59"
     },
     {
@@ -2594,7 +2594,7 @@
         "effect": "1.5",
         "unlocked": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3"
       },
-      "undeadName": "三誓·瘟疫王国",
+      "undeadName": "禁咒·瘟疫王国",
       "mappingKey": "normalTimeStudies/60"
     },
     {
@@ -2614,7 +2614,7 @@
         "effect": "2",
         "unlocked": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 4"
       },
-      "undeadName": "三誓·双重献祭",
+      "undeadName": "禁咒·灵魂盛宴",
       "mappingKey": "normalTimeStudies/61"
     },
     {
@@ -2836,7 +2836,7 @@
         "cost": "1e6",
         "requirement": "() => PlayerProgress.dilationUnlocked()"
       },
-      "undeadName": "开启挽歌祭坛",
+      "undeadName": "开启尸巫祭坛",
       "mappingKey": "dilationTimeStudies/1"
     },
     {
@@ -2851,7 +2851,7 @@
         "cost": "1e7",
         "requirement": "() => TimeStudy.timeDimension(5).isBought"
       },
-      "undeadName": "开启长夜祭坛",
+      "undeadName": "开启黑骑祭坛",
       "mappingKey": "dilationTimeStudies/2"
     },
     {
@@ -2866,7 +2866,7 @@
         "cost": "1e8",
         "requirement": "() => TimeStudy.timeDimension(6).isBought"
       },
-      "undeadName": "开启冥河祭坛",
+      "undeadName": "开启龙墓祭坛",
       "mappingKey": "dilationTimeStudies/3"
     },
     {
@@ -2932,7 +2932,7 @@
         "reward": "\"Upgradeable 2nd Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "停火召唤",
+      "undeadName": "招魂反噬",
       "mappingKey": "normalChallenges/1"
     },
     {
@@ -2950,7 +2950,7 @@
         "reward": "\"Upgradeable 3rd Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "衰骨复苏",
+      "undeadName": "骷髅复苏",
       "mappingKey": "normalChallenges/2"
     },
     {
@@ -2968,7 +2968,7 @@
         "reward": "\"Upgradeable 4th Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "上位吞骨",
+      "undeadName": "亡者吞噬",
       "mappingKey": "normalChallenges/3"
     },
     {
@@ -2986,7 +2986,7 @@
         "reward": "\"Upgradeable 5th Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "迟缓魂火",
+      "undeadName": "诅咒仪式",
       "mappingKey": "normalChallenges/4"
     },
     {
@@ -3004,7 +3004,7 @@
         "reward": "\"Upgradeable 6th Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "以骨换骨",
+      "undeadName": "尸骸易位",
       "mappingKey": "normalChallenges/5"
     },
     {
@@ -3022,7 +3022,7 @@
         "reward": "\"Upgradeable 7th Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "十骨无援",
+      "undeadName": "离散军团",
       "mappingKey": "normalChallenges/6"
     },
     {
@@ -3040,7 +3040,7 @@
         "reward": "\"Upgradeable 8th Antimatter Dimension Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "唯祭独存",
+      "undeadName": "献祭之路",
       "mappingKey": "normalChallenges/7"
     },
     {
@@ -3058,7 +3058,7 @@
         "reward": "\"Upgradeable Tickspeed Autobuyer\"",
         "lockedAt": "DC.D0"
       },
-      "undeadName": "同价诅咒",
+      "undeadName": "连锁诅咒",
       "mappingKey": "normalChallenges/8"
     },
     {
@@ -3076,7 +3076,7 @@
         "reward": "\"Dimension Boosts Autobuyer\"",
         "lockedAt": "DC.D16"
       },
-      "undeadName": "六阶军团",
+      "undeadName": "龙骸禁令",
       "mappingKey": "normalChallenges/9"
     },
     {
@@ -3112,7 +3112,7 @@
         "reward": "\"Big Crunches Autobuyer\"",
         "lockedAt": "DC.D16"
       },
-      "undeadName": "隔阶传承",
+      "undeadName": "隔阶召唤",
       "mappingKey": "normalChallenges/11"
     },
     {
@@ -3129,7 +3129,7 @@
         "reward": "{\r\n      description: () => `${formatX(1.3, 1, 1)} on all Infinity Dimensions for each Infinity Challenge completed`,\r\n      effect: () => Math.pow(1.3, InfinityChallenges.completed.length),\r\n      formatEffect: value => formatX(value, 1, 1)\r\n    }",
         "unlockAM": "DC.E2000"
       },
-      "undeadName": "十二墓咒",
+      "undeadName": "墓园万咒",
       "mappingKey": "infinityChallenges/0"
     },
     {
@@ -3165,7 +3165,7 @@
         "reward": "{\r\n      description: `Antimatter Dimension multiplier based on Antimatter Galaxies and Tickspeed purchases`,\r\n      effect: () => (Laitela.continuumActive\r\n        ? Decimal.pow(1.05 + (player.galaxies * 0.005), Tickspeed.continuumValue)\r\n        : Decimal.pow(1.05 + (player.galaxies * 0.005), player.totalTickBought)),\r\n      formatEffect: value => formatX(value, 2, 2),\r\n    }",
         "unlockAM": "DC.E12000"
       },
-      "undeadName": "凝滞魂火",
+      "undeadName": "仪式凝滞",
       "mappingKey": "infinityChallenges/2"
     },
     {
@@ -3183,7 +3183,7 @@
         "reward": "{\r\n      description: () => `All Antimatter Dimension multipliers become multiplier${formatPow(1.05, 2, 2)}`,\r\n      effect: 1.05\r\n    }",
         "unlockAM": "DC.E14000"
       },
-      "undeadName": "独尊一阶",
+      "undeadName": "独裁统御",
       "mappingKey": "infinityChallenges/3"
     },
     {
@@ -3200,7 +3200,7 @@
         "reward": "{\r\n      description: () =>\r\n        `All Galaxies are ${formatPercents(0.1)} stronger and reduce the requirements for them\r\n        and Dimension Boosts by ${formatInt(1)}`,\r\n      effect: 1.1\r\n    }",
         "unlockAM": "DC.E18000"
       },
-      "undeadName": "阶序代价",
+      "undeadName": "阶序贡赋",
       "mappingKey": "infinityChallenges/4"
     },
     {
@@ -3255,7 +3255,7 @@
         "reward": "{\r\n      description:\r\n        \"You get a multiplier to AD 2-7 based on 1st and 8th AD multipliers.\",\r\n      effect: () => AntimatterDimension(1).multiplier.times(AntimatterDimension(8).multiplier).pow(0.02),\r\n      formatEffect: value => formatX(value, 2, 2)\r\n    }",
         "unlockAM": "DC.E28000"
       },
-      "undeadName": "魂力流失",
+      "undeadName": "灵魂衰竭",
       "mappingKey": "infinityChallenges/7"
     },
     {
@@ -3289,7 +3289,7 @@
         "goalIncrease": "DC.E175",
         "reward": "{\r\n      description: \"1st Infinity Dimension multiplier based on Infinity Power\",\r\n      effect: completions => Currency.infinityPower.value.pow(1.5 / (700 - completions * 100)).clampMin(1),\r\n      cap: DC.E100,\r\n      formatEffect: value => formatX(value, 2, 1)\r\n    }"
       },
-      "undeadName": "冥陵封闭",
+      "undeadName": "议会噤声",
       "mappingKey": "eternityChallenges/1"
     },
     {
@@ -3306,7 +3306,7 @@
         "goalIncrease": "DC.E75",
         "reward": "{\r\n      description: () => `Increase the multiplier for buying ${formatInt(10)} Antimatter Dimensions`,\r\n      effect: completions => completions * 0.72,\r\n      formatEffect: value => `+${format(value, 2, 2)}`\r\n    }"
       },
-      "undeadName": "高阶沉寂",
+      "undeadName": "高阶封印",
       "mappingKey": "eternityChallenges/2"
     },
     {
@@ -3343,7 +3343,7 @@
         "goalIncrease": "DC.E400",
         "reward": "{\r\n      description: \"Distant Galaxy cost scaling starts later\",\r\n      effect: completions => completions * 5,\r\n      formatEffect: value => `${formatInt(value)} AG later`\r\n    }"
       },
-      "undeadName": "墓疆重负",
+      "undeadName": "亡土重负",
       "mappingKey": "eternityChallenges/4"
     },
     {
@@ -3361,7 +3361,7 @@
         "reward": "{\r\n      description: \"Further reduce Antimatter Dimension cost multiplier growth\",\r\n      effect: completions => completions * 0.2,\r\n      formatEffect: value => {\r\n        const total = Math.round(Player.dimensionMultDecrease + Effects.sum(EternityChallenge(6).reward)) - value;\r\n        return `-${format(value, 2, 1)} (${formatX(total, 2, 1)} total)`;\r\n      }\r\n    }",
         "scrambleText": "[\"cannot gain Antimatter Galaxies normally\", \"c㏰'퐚 gai鸭 Anti꟢at랜erﻪﶓa⁍axie㮾 䂇orma㦂l\"]"
       },
-      "undeadName": "无墓之国",
+      "undeadName": "流亡王国",
       "mappingKey": "eternityChallenges/5"
     },
     {
@@ -3379,7 +3379,7 @@
         "effect": "() => TimeDimension(1).productionPerSecond",
         "reward": "{\r\n      description: \"1st Time Dimension produces 8th Infinity Dimensions\",\r\n      effect: completions => TimeDimension(1).productionPerSecond.pow(completions * 0.2).minus(1).clampMin(0),\r\n      formatEffect: value => `${format(value, 2, 1)} per second`\r\n    }"
       },
-      "undeadName": "冥链逆流",
+      "undeadName": "通灵逆流",
       "mappingKey": "eternityChallenges/6"
     },
     {
@@ -3396,7 +3396,7 @@
         "goalIncrease": "DC.E900",
         "reward": "{\r\n      description: \"Infinity Power strengthens Replicanti Galaxies\",\r\n      effect: completions => {\r\n        const infinityPower = Math.log10(Currency.infinityPower.value.pLog10() + 1);\r\n        return Math.max(0, Math.pow(infinityPower, 0.03 * completions) - 1);\r\n      },\r\n      formatEffect: value => formatPercents(value, 2)\r\n    }"
       },
-      "undeadName": "有限赐予",
+      "undeadName": "有限贡赋",
       "mappingKey": "eternityChallenges/7"
     },
     {
@@ -3413,7 +3413,7 @@
         "goalIncrease": "DC.E250",
         "reward": "{\r\n      description: \"Infinity Dimension multiplier based on Time Shards\",\r\n      effect: completions => Currency.timeShards.value.pow(completions * 0.1).clampMin(1),\r\n      cap: DC.E400,\r\n      formatEffect: value => formatX(value, 2, 1)\r\n    }"
       },
-      "undeadName": "禁燃魂火",
+      "undeadName": "禁忌仪式",
       "mappingKey": "eternityChallenges/8"
     },
     {
@@ -3470,7 +3470,7 @@
         "failedRestriction": "\"(Too slow for more)\"",
         "reward": "{\r\n      description: \"Infinity Dimension cost multipliers are reduced\",\r\n      effect: completions => 1 - completions * 0.008,\r\n      formatEffect: value => `x${formatPow(value, 3, 3)}`\r\n    }"
       },
-      "undeadName": "千倍长眠",
+      "undeadName": "千年诅咒",
       "mappingKey": "eternityChallenges/11"
     },
     {
@@ -3487,7 +3487,7 @@
         "textTemplate": "\"You gain Dilated Time {value} times faster\"",
         "effect": "3"
       },
-      "undeadName": "幽夜增幅器",
+      "undeadName": "永夜法印",
       "mappingKey": "realityUpgrades/0"
     },
     {
@@ -3504,7 +3504,7 @@
         "textTemplate": "\"You gain Replicanti {value} times faster\"",
         "effect": "3"
       },
-      "undeadName": "疫种增幅器",
+      "undeadName": "瘟疫法印",
       "mappingKey": "realityUpgrades/1"
     },
     {
@@ -3521,7 +3521,7 @@
         "textTemplate": "\"You gain {value} times more Eternities\"",
         "effect": "3"
       },
-      "undeadName": "轮回增幅器",
+      "undeadName": "轮回法印",
       "mappingKey": "realityUpgrades/2"
     },
     {
@@ -3538,7 +3538,7 @@
         "textTemplate": "\"You gain {value} times more Tachyon Particles\"",
         "effect": "3"
       },
-      "undeadName": "逆命增幅器",
+      "undeadName": "逆命法印",
       "mappingKey": "realityUpgrades/3"
     },
     {
@@ -3555,7 +3555,7 @@
         "textTemplate": "\"You gain {value} times more Infinities\"",
         "effect": "5"
       },
-      "undeadName": "转生增幅器",
+      "undeadName": "转生法印",
       "mappingKey": "realityUpgrades/4"
     },
     {
@@ -3578,7 +3578,7 @@
         "effect": "() => 1 + Replicanti.galaxies.total / 50",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "疫巢共生",
+      "undeadName": "瘟疫共生",
       "mappingKey": "realityUpgrades/5"
     },
     {
@@ -3601,7 +3601,7 @@
         "effect": "() => 1 + player.galaxies / 30",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "墓域轮生",
+      "undeadName": "亡土轮生",
       "mappingKey": "realityUpgrades/6"
     },
     {
@@ -3623,7 +3623,7 @@
         "effect": "() => Math.sqrt(Achievements.power)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "功业逆命",
+      "undeadName": "不朽战绩",
       "mappingKey": "realityUpgrades/7"
     },
     {
@@ -3644,7 +3644,7 @@
         "description": "\"Gain another Glyph slot\"",
         "effect": "() => 1"
       },
-      "undeadName": "第四圣骨槽",
+      "undeadName": "第四冥器契位",
       "mappingKey": "realityUpgrades/8"
     },
     {
@@ -3691,7 +3691,7 @@
         "effect": "() => gainedInfinities().times(0.1)",
         "formatEffect": "value => `${format(value)} per second`"
       },
-      "undeadName": "转生之潮",
+      "undeadName": "灵魂潮汐",
       "mappingKey": "realityUpgrades/10"
     },
     {
@@ -3714,7 +3714,7 @@
         "effect": "() => Currency.timeTheorems.value\r\n      .minus(DC.E3).clampMin(2)\r\n      .pow(Math.log2(Math.min(Currency.realities.value, 1e4))).clampMin(1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "冥典见证",
+      "undeadName": "死灵博学",
       "mappingKey": "realityUpgrades/11"
     },
     {
@@ -3737,7 +3737,7 @@
         "automatorPoints": "10",
         "shortDescription": "() => `TD and ${formatX(5)} EP Autobuyers, improved Eternity Autobuyer`"
       },
-      "undeadName": "祭坛执役体系",
+      "undeadName": "不眠侍从",
       "mappingKey": "realityUpgrades/12"
     },
     {
@@ -3759,7 +3759,7 @@
         "effect": "() => Currency.realities.value * Ra.unlocks.continuousTTBoost.effects.eternity.effectOrDefault(1)",
         "formatEffect": "value => `${format(value)} per second`"
       },
-      "undeadName": "轮回之潮",
+      "undeadName": "轮回潮汐",
       "mappingKey": "realityUpgrades/13"
     },
     {
@@ -3782,7 +3782,7 @@
         "effect": "() => Math.max(Math.sqrt(Decimal.log10(EternityUpgrade.epMult.effectValue)) / 9, 1)",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "五重冥印回响",
+      "undeadName": "冥河回响",
       "mappingKey": "realityUpgrades/14"
     },
     {
@@ -3803,7 +3803,7 @@
         "effect": "1.3",
         "formatCost": "value => format(value, 1, 0)"
       },
-      "undeadName": "圣骨品相改良",
+      "undeadName": "冥器淬炼",
       "mappingKey": "realityUpgrades/15"
     },
     {
@@ -3824,7 +3824,7 @@
         "effect": "0.5",
         "formatCost": "value => format(value, 1, 0)"
       },
-      "undeadName": "圣骨复纹",
+      "undeadName": "复合法咒",
       "mappingKey": "realityUpgrades/16"
     },
     {
@@ -3845,7 +3845,7 @@
         "effect": "() => Math.max(Math.sqrt(Currency.eternities.value.plus(1).log10()) * 0.45, 1)",
         "formatCost": "value => format(value, 1, 0)"
       },
-      "undeadName": "百世铭骨",
+      "undeadName": "轮回铭文",
       "mappingKey": "realityUpgrades/17"
     },
     {
@@ -3865,7 +3865,7 @@
         "description": "\"You can sacrifice Glyphs for permanent bonuses (Shift + click)\"",
         "formatCost": "value => format(value, 1, 0)"
       },
-      "undeadName": "圣骨献祭",
+      "undeadName": "冥器献祭",
       "mappingKey": "realityUpgrades/18"
     },
     {
@@ -3887,7 +3887,7 @@
         "shortDescription": "() => `Second Black Hole`",
         "formatCost": "value => format(value, 1, 0)"
       },
-      "undeadName": "第二口死寂钟",
+      "undeadName": "第二座丧钟",
       "mappingKey": "realityUpgrades/19"
     },
     {
@@ -3906,7 +3906,7 @@
         "description": "() => `Remote Antimatter Galaxy scaling is moved to ${formatInt(1e5)} galaxies`",
         "effect": "1e5"
       },
-      "undeadName": "遥疆同葬",
+      "undeadName": "亡者疆域",
       "mappingKey": "realityUpgrades/20"
     },
     {
@@ -3926,7 +3926,7 @@
         "effect": "() => Decimal.pow10(Math.pow(1 + 2 * Math.log10(Time.thisReality.totalDays + 1), 1.6))",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "长世祭坛",
+      "undeadName": "古老祭祀",
       "mappingKey": "realityUpgrades/21"
     },
     {
@@ -3948,7 +3948,7 @@
         "cap": "180",
         "formatEffect": "value => formatX(value, 2, 2)"
       },
-      "undeadName": "疾世疫潮",
+      "undeadName": "瘟疫疾行",
       "mappingKey": "realityUpgrades/22"
     },
     {
@@ -3970,7 +3970,7 @@
         "description": "\"Gain another Glyph slot\"",
         "effect": "() => 1"
       },
-      "undeadName": "第五圣骨槽",
+      "undeadName": "第五冥器契位",
       "mappingKey": "realityUpgrades/23"
     },
     {
@@ -3990,7 +3990,7 @@
         "automatorPoints": "100",
         "shortDescription": "() => `Reality Autobuyer`"
       },
-      "undeadName": "无人冥界",
+      "undeadName": "不朽统治",
       "mappingKey": "realityUpgrades/24"
     },
     {
@@ -4007,7 +4007,7 @@
         "description": "() => `Increase Temporal Amplifier multiplier by +${format(0.15, 2, 2)}`",
         "effect": "0.15"
       },
-      "undeadName": "幽夜增幅深化",
+      "undeadName": "永夜法印精研",
       "mappingKey": "imaginaryUpgrades/0"
     },
     {
@@ -4024,7 +4024,7 @@
         "description": "() => `Increase Replicative Amplifier multiplier by +${format(0.15, 2, 2)}`",
         "effect": "0.15"
       },
-      "undeadName": "疫种增幅深化",
+      "undeadName": "瘟疫法印精研",
       "mappingKey": "imaginaryUpgrades/1"
     },
     {
@@ -4041,7 +4041,7 @@
         "description": "() => `Increase Eternal Amplifier multiplier by +${format(0.4, 2, 2)}`",
         "effect": "0.4"
       },
-      "undeadName": "轮回增幅深化",
+      "undeadName": "轮回法印精研",
       "mappingKey": "imaginaryUpgrades/2"
     },
     {
@@ -4058,7 +4058,7 @@
         "description": "() => `Increase Superluminal Amplifier multiplier by +${format(0.15, 2, 2)}`",
         "effect": "0.15"
       },
-      "undeadName": "逆命增幅深化",
+      "undeadName": "逆命法印精研",
       "mappingKey": "imaginaryUpgrades/3"
     },
     {
@@ -4075,7 +4075,7 @@
         "description": "() => `Increase Boundless Amplifier multiplier by +${format(0.6, 2, 2)}`",
         "effect": "0.6"
       },
-      "undeadName": "转生增幅深化",
+      "undeadName": "转生法印精研",
       "mappingKey": "imaginaryUpgrades/4"
     },
     {
@@ -4094,7 +4094,7 @@
         "formatEffect": "value => `${formatX(value)}`",
         "isDecimal": "true"
       },
-      "undeadName": "命匣容量扩张",
+      "undeadName": "命匣扩容",
       "mappingKey": "imaginaryUpgrades/5"
     },
     {
@@ -4112,7 +4112,7 @@
         "effect": "200",
         "formatEffect": "value => `+${formatInt(value)} levels`"
       },
-      "undeadName": "圣骨稳固",
+      "undeadName": "冥器稳定",
       "mappingKey": "imaginaryUpgrades/6"
     },
     {
@@ -4131,7 +4131,7 @@
         "formatEffect": "value => `${formatX(value)}`",
         "isDecimal": "true"
       },
-      "undeadName": "无量冥陵",
+      "undeadName": "至高通灵",
       "mappingKey": "imaginaryUpgrades/7"
     },
     {
@@ -4149,7 +4149,7 @@
         "effect": "0.03",
         "formatEffect": "value => `+${formatPercents(value)}`"
       },
-      "undeadName": "墓域深鸣",
+      "undeadName": "亡土威仪",
       "mappingKey": "imaginaryUpgrades/8"
     },
     {
@@ -4167,7 +4167,7 @@
         "effect": "1",
         "formatEffect": "value => `${formatX(1 + value, 2)}`"
       },
-      "undeadName": "死星凝聚",
+      "undeadName": "死星聚合",
       "mappingKey": "imaginaryUpgrades/9"
     },
     {
@@ -4189,7 +4189,7 @@
         "formatEffect": "value => `${formatPow(value, 0, 4)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "万魂祭坛",
+      "undeadName": "万魂祭祀",
       "mappingKey": "imaginaryUpgrades/10"
     },
     {
@@ -4211,7 +4211,7 @@
         "formatEffect": "value => `${format(value, 1)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "虚冥塔影",
+      "undeadName": "幻世尖塔",
       "mappingKey": "imaginaryUpgrades/11"
     },
     {
@@ -4233,7 +4233,7 @@
         "formatEffect": "value => `${formatX(value, 2, 1)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "虚匣扩容",
+      "undeadName": "虚冥容器",
       "mappingKey": "imaginaryUpgrades/12"
     },
     {
@@ -4255,7 +4255,7 @@
         "effect": "1.5",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "十骨升幂",
+      "undeadName": "军团升华",
       "mappingKey": "imaginaryUpgrades/13"
     },
     {
@@ -4275,7 +4275,7 @@
         "canLock": "true",
         "description": "() => `${\r\n      Pelle.isDoomed ? \"Unlock\" : \"Convert Antimatter Dimensions to Continuum and unlock\"\r\n    } Lai'tela, Celestial of Dimensions`"
       },
-      "undeadName": "永续召唤与虚渊君王",
+      "undeadName": "永续招魂与灾厄王座",
       "mappingKey": "imaginaryUpgrades/14"
     },
     {
@@ -4295,7 +4295,7 @@
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER",
         "description": "\"Unlock the 2nd Dark Matter Dimension\""
       },
-      "undeadName": "第二座虚渊祭台",
+      "undeadName": "瘟疫巨像苏醒",
       "mappingKey": "imaginaryUpgrades/15"
     },
     {
@@ -4314,7 +4314,7 @@
         "checkEvent": "GAME_EVENT.SINGULARITY_RESET_BEFORE",
         "description": "\"Unlock the 3rd Dark Matter Dimension\""
       },
-      "undeadName": "第三座虚渊祭台",
+      "undeadName": "恐惧收割者苏醒",
       "mappingKey": "imaginaryUpgrades/16"
     },
     {
@@ -4334,7 +4334,7 @@
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER",
         "description": "\"Unlock the 4th Dark Matter Dimension\""
       },
-      "undeadName": "第四座虚渊祭台",
+      "undeadName": "终末使徒苏醒",
       "mappingKey": "imaginaryUpgrades/17"
     },
     {
@@ -4356,7 +4356,7 @@
         "lockEvent": "() => `purchase more than ${formatInt(8)} Time Studies`",
         "description": "\"Unlock Dark Matter Annihilation\""
       },
-      "undeadName": "虚渊湮祭",
+      "undeadName": "灾厄献祭",
       "mappingKey": "imaginaryUpgrades/18"
     },
     {
@@ -4377,7 +4377,7 @@
         "effect": "10",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "虚冥执役",
+      "undeadName": "虚冥侍从",
       "mappingKey": "imaginaryUpgrades/19"
     },
     {
@@ -4401,7 +4401,7 @@
         "formatEffect": "value => `${formatX(value, 2, 1)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "湮祭精炼",
+      "undeadName": "献祭精粹",
       "mappingKey": "imaginaryUpgrades/20"
     },
     {
@@ -4423,7 +4423,7 @@
         "effect": "1e100",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "圣骨祭业圆满",
+      "undeadName": "遗物祭业圆满",
       "mappingKey": "imaginaryUpgrades/21"
     },
     {
@@ -4445,7 +4445,7 @@
         "formatEffect": "value => `${formatX(value)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "折叠墓室塔影",
+      "undeadName": "折叠塔影",
       "mappingKey": "imaginaryUpgrades/22"
     },
     {
@@ -4468,7 +4468,7 @@
         "formatEffect": "value => `${formatX(value, 2, 1)}`",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "死星强化塔影",
+      "undeadName": "死星王权",
       "mappingKey": "imaginaryUpgrades/23"
     },
     {
@@ -4490,7 +4490,7 @@
         "lockEvent": "\"equip another non-Companion Glyph\"",
         "description": "\"Unlock Pelle, Celestial of Antimatter\""
       },
-      "undeadName": "开启终焉封界",
+      "undeadName": "终焉之门",
       "mappingKey": "imaginaryUpgrades/24"
     },
     {
@@ -4507,7 +4507,7 @@
         "effect": "4",
         "layoutPosList": "[76596, 80200, 80600, 80200, 80188, 67769]"
       },
-      "undeadName": "初代圣骨抉择",
+      "undeadName": "初代冥器抉择",
       "mappingKey": "perks/firstPerk"
     },
     {
@@ -4804,7 +4804,7 @@
         "description": "\"Infinity Dimensions no longer have antimatter requirements.\"",
         "layoutPosList": "[51317, 80998, 79397, 80997, 82600, 104489]"
       },
-      "undeadName": "冥陵免游魂门槛",
+      "undeadName": "通灵者免游魂门槛",
       "mappingKey": "perks/bypassIDAntimatter"
     },
     {
@@ -5133,7 +5133,7 @@
         "shortDescription": "() => \"Faster ID Autobuyers\"",
         "layoutPosList": "[74095, 80199, 80198, 81000, 82997, 77720]"
       },
-      "undeadName": "冥陵执役三倍速",
+      "undeadName": "通灵者执役三倍速",
       "mappingKey": "perks/autobuyerFasterID"
     },
     {
@@ -5347,7 +5347,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.TIME",
         "hasRarity": "true"
       },
-      "undeadName": "岁月圣骨",
+      "undeadName": "时光沙漏",
       "mappingKey": "glyphTypes/time"
     },
     {
@@ -5363,7 +5363,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.DILATION",
         "hasRarity": "true"
       },
-      "undeadName": "永夜圣骨",
+      "undeadName": "永夜灯盏",
       "mappingKey": "glyphTypes/dilation"
     },
     {
@@ -5379,7 +5379,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.REPLICATION",
         "hasRarity": "true"
       },
-      "undeadName": "瘟疫圣骨",
+      "undeadName": "瘟疫香炉",
       "mappingKey": "glyphTypes/replication"
     },
     {
@@ -5396,7 +5396,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.INFINITY",
         "hasRarity": "true"
       },
-      "undeadName": "转生圣骨",
+      "undeadName": "转生护符",
       "mappingKey": "glyphTypes/infinity"
     },
     {
@@ -5413,7 +5413,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.POWER",
         "hasRarity": "true"
       },
-      "undeadName": "白骨圣骨",
+      "undeadName": "统御权杖",
       "mappingKey": "glyphTypes/power"
     },
     {
@@ -5431,7 +5431,7 @@
         "alchemyResource": "ALCHEMY_RESOURCE.EFFARIG",
         "hasRarity": "true"
       },
-      "undeadName": "遗物圣骨",
+      "undeadName": "遗世宝珠",
       "mappingKey": "glyphTypes/effarig"
     },
     {
@@ -5448,7 +5448,7 @@
         "canCustomize": "() => player.reality.glyphs.createdRealityGlyph",
         "alchemyResource": "ALCHEMY_RESOURCE.REALITY"
       },
-      "undeadName": "创世圣骨",
+      "undeadName": "创世法典",
       "mappingKey": "glyphTypes/reality"
     },
     {
@@ -5465,7 +5465,7 @@
         "isUnlocked": "() => false",
         "canCustomize": "() => V.isFlipped"
       },
-      "undeadName": "诅咒圣骨",
+      "undeadName": "诅咒契约",
       "mappingKey": "glyphTypes/cursed"
     },
     {
@@ -5482,7 +5482,7 @@
         "isUnlocked": "() => false",
         "canCustomize": "() => false"
       },
-      "undeadName": "伴生小骷髅",
+      "undeadName": "伴生幽灵",
       "mappingKey": "glyphTypes/companion"
     },
     {
@@ -5497,7 +5497,7 @@
         "color": "\"#FF80AB\"",
         "isUnlocked": "() => TeresaUnlocks.shop.isUnlocked"
       },
-      "undeadName": "挽歌圣骨外观",
+      "undeadName": "挽歌冥器外观",
       "mappingKey": "cosmeticGlyphs/music"
     },
     {
@@ -5514,7 +5514,7 @@
         "isUnlocked": "() => Themes.available().map(t => t.name).includes(\"S11\")",
         "canCustomize": "() => false"
       },
-      "undeadName": "骨泥圣骨外观",
+      "undeadName": "幽火冥器外观",
       "mappingKey": "cosmeticGlyphs/blob"
     },
     {
@@ -5709,7 +5709,7 @@
         "combine": "GlyphCombiner.addExponents",
         "enabledInDoomed": "true"
       },
-      "undeadName": "永夜骨军升幂",
+      "undeadName": "永夜亡灵军团升幂",
       "mappingKey": "glyphEffects/dilationpow"
     },
     {
@@ -5809,7 +5809,7 @@
         "combine": "effects => {\r\n      let sum = effects.reduce(Number.sumReducer, 0);\r\n      if (effects.length > 2) sum *= 6 / (effects.length + 4);\r\n      return sum > 0.1\r\n        ? { value: 0.1 + 0.2 * (sum - 0.1), capped: true }\r\n        : { value: sum, capped: effects.length > 2 };\r\n    }",
         "enabledInDoomed": "true"
       },
-      "undeadName": "疫海铭骨",
+      "undeadName": "疫海铭魂",
       "mappingKey": "glyphEffects/replicationglyphlevel"
     },
     {
@@ -5834,7 +5834,7 @@
         "alterationType": "ALTERATION_TYPE.BOOST",
         "enabledInDoomed": "true"
       },
-      "undeadName": "冥陵升幂",
+      "undeadName": "通灵者升幂",
       "mappingKey": "glyphEffects/infinitypow"
     },
     {
@@ -5936,7 +5936,7 @@
         "alterationType": "ALTERATION_TYPE.ADDITION",
         "enabledInDoomed": "true"
       },
-      "undeadName": "骨军升幂",
+      "undeadName": "亡灵军团升幂",
       "mappingKey": "glyphEffects/powerpow"
     },
     {
@@ -5959,7 +5959,7 @@
         "alterationType": "ALTERATION_TYPE.EMPOWER",
         "enabledInDoomed": "true"
       },
-      "undeadName": "骨军增幅",
+      "undeadName": "亡灵军团增幅",
       "mappingKey": "glyphEffects/powermult"
     },
     {
@@ -6006,7 +6006,7 @@
         "combine": "GlyphCombiner.addExponents",
         "enabledInDoomed": "true"
       },
-      "undeadName": "十骨增幅",
+      "undeadName": "集结增幅",
       "mappingKey": "glyphEffects/powerbuy10"
     },
     {
@@ -6050,7 +6050,7 @@
         "formatEffect": "x => formatInt(x)",
         "combine": "GlyphCombiner.add"
       },
-      "undeadName": "圣骨稳定",
+      "undeadName": "冥器稳定",
       "mappingKey": "glyphEffects/effarigglyph"
     },
     {
@@ -6124,7 +6124,7 @@
         "alteredColor": "() => GlyphAlteration.getAdditionColor(\"effarig\")",
         "alterationType": "ALTERATION_TYPE.ADDITION"
       },
-      "undeadName": "十骨升幂",
+      "undeadName": "集结升幂",
       "mappingKey": "glyphEffects/effarigforgotten"
     },
     {
@@ -6296,7 +6296,7 @@
         "formatEffect": "x => formatInt(x)",
         "combine": "GlyphCombiner.add"
       },
-      "undeadName": "基础圣骨授阶",
+      "undeadName": "基础冥器授阶",
       "mappingKey": "glyphEffects/realityglyphlevel"
     },
     {
@@ -6360,7 +6360,7 @@
         "formatEffect": "x => format(x, 2, 2)",
         "combine": "GlyphCombiner.add"
       },
-      "undeadName": "幽夜铭骨",
+      "undeadName": "幽夜铭魂",
       "mappingKey": "glyphEffects/realityDTglyph"
     },
     {
@@ -6419,7 +6419,7 @@
         "description": "amount => {\r\n      const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;\r\n      const nextDistantGalaxy = Math.pow(10, Math.pow((amount + 1) / 750, 1 / 1.2) * Math.log10(sacCap)) - 1;\r\n      const nextGalaxyText = amount < 750\r\n        ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`\r\n        : \"\";\r\n      return `Distant Galaxy scaling starts ${formatInt(amount)} later${nextGalaxyText}`;\r\n    }",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "白骨献祭·延展墓疆",
+      "undeadName": "权杖献祭·扩张亡土",
       "mappingKey": "glyphSacrifice/power"
     },
     {
@@ -6434,7 +6434,7 @@
         "description": "amount => `${formatX(amount, 2, 2)} bigger multiplier when buying 8th Infinity Dimension`",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "转生献祭·第八冥陵",
+      "undeadName": "护符献祭·永恒巫妖",
       "mappingKey": "glyphSacrifice/infinity"
     },
     {
@@ -6449,7 +6449,7 @@
         "description": "amount => `${formatX(amount, 2, 2)} bigger multiplier when buying 8th Time Dimension`",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "岁月献祭·第八祭坛",
+      "undeadName": "沙漏献祭·终寂祭坛",
       "mappingKey": "glyphSacrifice/time"
     },
     {
@@ -6464,7 +6464,7 @@
         "description": "amount => {\r\n      const sacCap = GlyphSacrificeHandler.maxSacrificeForEffects;\r\n      const nextDistantGalaxy = Math.pow(10, Math.pow((amount + 1) / 1500, 1 / 1.2) * Math.log10(sacCap)) - 1;\r\n      const nextGalaxyText = amount < 1500\r\n        ? ` (next at ${format(nextDistantGalaxy, 2, 2)})`\r\n        : \"\";\r\n      return `Replicanti Galaxy scaling starts ${formatInt(amount)} later${nextGalaxyText}`;\r\n    }",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "瘟疫献祭·铭骨成长",
+      "undeadName": "香炉献祭·冥器成长",
       "mappingKey": "glyphSacrifice/replication"
     },
     {
@@ -6479,7 +6479,7 @@
         "description": "amount => `Multiply Tachyon Particle gain by ${formatX(amount, 2, 2)}`",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "永夜献祭·逆命余烬",
+      "undeadName": "灯盏献祭·逆命余烬",
       "mappingKey": "glyphSacrifice/dilation"
     },
     {
@@ -6494,7 +6494,7 @@
         "description": "amount => `+${formatPercents(amount / 100, 2)} additional Glyph rarity`",
         "cap": "() => 1e70"
       },
-      "undeadName": "遗物献祭·圣骨品相",
+      "undeadName": "宝珠献祭·冥器品相",
       "mappingKey": "glyphSacrifice/effarig"
     },
     {
@@ -6509,7 +6509,7 @@
         "description": "amount => `Multiply Memory Chunk gain by ${formatX(amount, 2, 3)}`",
         "cap": "() => GlyphSacrificeHandler.maxSacrificeForEffects"
       },
-      "undeadName": "创世献祭·追忆残片",
+      "undeadName": "法典献祭·先祖追忆",
       "mappingKey": "glyphSacrifice/reality"
     },
     {
@@ -6893,7 +6893,7 @@
         "description": "\"Unlock Teresa's Reality.\"",
         "onUnlock": "() => Teresa.quotes.unlockReality.show()"
       },
-      "undeadName": "女王领域",
+      "undeadName": "摄政领域",
       "mappingKey": "teresa.unlocks/run"
     },
     {
@@ -6923,7 +6923,7 @@
         "description": "\"Unlock Effarig, Celestial of Ancient Relics.\"",
         "onUnlock": "() => Teresa.quotes.effarig.show()"
       },
-      "undeadName": "觐见遗物主宰",
+      "undeadName": "觐见遗物典藏官",
       "mappingKey": "teresa.unlocks/effarig"
     },
     {
@@ -6937,7 +6937,7 @@
         "price": "1e21",
         "description": "\"Unlock Teresa's Perk Point Shop.\""
       },
-      "undeadName": "女王遗赠商店",
+      "undeadName": "摄政遗赠商店",
       "mappingKey": "teresa.unlocks/shop"
     },
     {
@@ -6952,7 +6952,7 @@
         "description": "\"Unlock \\\"Undo\\\" of equipping a Glyph.\"",
         "isDisabledInDoomed": "true"
       },
-      "undeadName": "圣骨回置",
+      "undeadName": "冥器回置",
       "mappingKey": "teresa.unlocks/undo"
     },
     {
@@ -6983,7 +6983,7 @@
         "cost": "1e7",
         "onPurchased": "() => {\r\n      Effarig.quotes.unlockWeights.show();\r\n      ui.view.tabs.reality.openGlyphWeights = true;\r\n      Tab.reality.glyphs.show();\r\n    }"
       },
-      "undeadName": "铭骨权重调校",
+      "undeadName": "铭魂权重调校",
       "mappingKey": "effarigUnlocks/adjuster"
     },
     {
@@ -6998,7 +6998,7 @@
         "cost": "2e8",
         "onPurchased": "() => {\r\n      Effarig.quotes.unlockGlyphFilter.show();\r\n      player.reality.showSidebarPanel = GLYPH_SIDEBAR_MODE.FILTER_SETTINGS;\r\n    }"
       },
-      "undeadName": "圣骨筛选",
+      "undeadName": "冥器筛选",
       "mappingKey": "effarigUnlocks/glyphFilter"
     },
     {
@@ -7013,7 +7013,7 @@
         "cost": "3e9",
         "onPurchased": "() => {\r\n      Effarig.quotes.unlockSetSaves.show();\r\n      player.reality.showSidebarPanel = GLYPH_SIDEBAR_MODE.SAVED_SETS;\r\n    }"
       },
-      "undeadName": "圣骨套装",
+      "undeadName": "冥器套装",
       "mappingKey": "effarigUnlocks/setSaves"
     },
     {
@@ -7305,7 +7305,7 @@
         "maxShardReduction": "() => 0",
         "mode": "V_REDUCTION_MODE.SUBTRACTION"
       },
-      "undeadName": "少骨创世",
+      "undeadName": "无契统治",
       "mappingKey": "v.runUnlocks/0"
     },
     {
@@ -7327,7 +7327,7 @@
         "perReductionStep": "3",
         "mode": "V_REDUCTION_MODE.SUBTRACTION"
       },
-      "undeadName": "万墓疆域",
+      "undeadName": "亡土帝国",
       "mappingKey": "v.runUnlocks/1"
     },
     {
@@ -7371,7 +7371,7 @@
         "perReductionStep": "DC.E500000",
         "mode": "V_REDUCTION_MODE.DIVISION"
       },
-      "undeadName": "迟滞孤魂",
+      "undeadName": "长眠孤魂",
       "mappingKey": "v.runUnlocks/3"
     },
     {
@@ -7416,7 +7416,7 @@
         "perReductionStep": "1",
         "mode": "V_REDUCTION_MODE.SUBTRACTION"
       },
-      "undeadName": "永夜筑塔",
+      "undeadName": "永夜尖塔",
       "mappingKey": "v.runUnlocks/5"
     },
     {
@@ -7438,7 +7438,7 @@
         "mode": "V_REDUCTION_MODE.SUBTRACTION",
         "isHard": "true"
       },
-      "undeadName": "负骨挽歌",
+      "undeadName": "诅咒挽歌",
       "mappingKey": "v.runUnlocks/6"
     },
     {
@@ -7462,7 +7462,7 @@
         "mode": "V_REDUCTION_MODE.DIVISION",
         "isHard": "true"
       },
-      "undeadName": "逆钟冥典",
+      "undeadName": "逆时禁咒",
       "mappingKey": "v.runUnlocks/7"
     },
     {
@@ -7485,7 +7485,7 @@
         "mode": "V_REDUCTION_MODE.SUBTRACTION",
         "isHard": "true"
       },
-      "undeadName": "万阶圣骨",
+      "undeadName": "至高冥器",
       "mappingKey": "v.runUnlocks/8"
     },
     {
@@ -7532,7 +7532,7 @@
         "format": "x => formatPow(x, 3, 3)",
         "requirement": "() => V.spaceTheorems >= 5"
       },
-      "undeadName": "誓约骨军",
+      "undeadName": "誓约亡灵军团",
       "mappingKey": "v.unlocks/adPow"
     },
     {
@@ -7564,7 +7564,7 @@
         "description": "() => `Have ${formatInt(16)} V-Achievements`",
         "requirement": "() => V.spaceTheorems >= 16"
       },
-      "undeadName": "圣骨自动清理",
+      "undeadName": "冥器自动清理",
       "mappingKey": "v.unlocks/autoAutoClean"
     },
     {
@@ -7597,7 +7597,7 @@
         "effect": "2",
         "requirement": "() => V.spaceTheorems >= 36"
       },
-      "undeadName": "觐见遗忘君王",
+      "undeadName": "觐见不朽巫妖",
       "mappingKey": "v.unlocks/raUnlock"
     },
     {
@@ -7616,7 +7616,7 @@
         "rawMemoryChunksPerSecond": "() => 4 * Math.pow(Currency.eternityPoints.value.pLog10() / 1e4, 3)",
         "memoryProductionMultiplier": "() => Ra.unlocks.teresaXP.effectOrDefault(1)"
       },
-      "undeadName": "守墓女王记忆",
+      "undeadName": "墓园摄政者记忆",
       "mappingKey": "ra.pets/teresa"
     },
     {
@@ -7635,7 +7635,7 @@
         "rawMemoryChunksPerSecond": "() => 4 * Math.pow(Effarig.shardsGained, 0.1)",
         "memoryProductionMultiplier": "() => Ra.unlocks.effarigXP.effectOrDefault(1)"
       },
-      "undeadName": "遗物主宰记忆",
+      "undeadName": "遗物典藏官记忆",
       "mappingKey": "ra.pets/effarig"
     },
     {
@@ -7654,7 +7654,7 @@
         "rawMemoryChunksPerSecond": "() => 4 * Math.pow(Currency.timeShards.value.pLog10() / 3e5, 2)",
         "memoryProductionMultiplier": "() => Ra.unlocks.enslavedXP.effectOrDefault(1)"
       },
-      "undeadName": "缚时亡魂记忆",
+      "undeadName": "缚时幽魂记忆",
       "mappingKey": "ra.pets/enslaved"
     },
     {
@@ -7673,7 +7673,7 @@
         "rawMemoryChunksPerSecond": "() => 4 * Math.pow(Currency.infinityPower.value.pLog10() / 1e7, 1.5)",
         "memoryProductionMultiplier": "() => Ra.unlocks.vXP.effectOrDefault(1)"
       },
-      "undeadName": "誓约审判者记忆",
+      "undeadName": "恐惧骑士长记忆",
       "mappingKey": "ra.pets/v"
     },
     {
@@ -7742,7 +7742,7 @@
         "displayIcon": "`<span class=\"fas fa-bolt\"></span>`",
         "disabledByPelle": "true"
       },
-      "undeadName": "圣骨异化",
+      "undeadName": "冥器异化",
       "mappingKey": "ra.unlocks/alteredGlyphs"
     },
     {
@@ -7758,7 +7758,7 @@
         "level": "8",
         "displayIcon": "`Ϙ`"
       },
-      "undeadName": "唤醒遗物主宰",
+      "undeadName": "唤醒遗物典藏官",
       "mappingKey": "ra.unlocks/effarigUnlock"
     },
     {
@@ -7774,7 +7774,7 @@
         "level": "15",
         "displayIcon": "`<span class=\"fas fa-project-diagram\"></span>`"
       },
-      "undeadName": "女王商店扩容",
+      "undeadName": "摄政秘库扩容",
       "mappingKey": "ra.unlocks/perkShopIncrease"
     },
     {
@@ -7808,7 +7808,7 @@
         "level": "1",
         "displayIcon": "`<i class=\"fas fa-grip-horizontal\"></i>`"
       },
-      "undeadName": "圣骨倍选与满额碎片品相",
+      "undeadName": "冥器倍选与满额碎片品相",
       "mappingKey": "ra.unlocks/extraGlyphChoicesAndRelicShardRarityAlwaysMax"
     },
     {
@@ -7824,7 +7824,7 @@
         "level": "2",
         "displayIcon": "`<span class=\"fas fa-vial\"></span>`"
       },
-      "undeadName": "圣骨炼金",
+      "undeadName": "冥器炼金",
       "mappingKey": "ra.unlocks/unlockGlyphAlchemy"
     },
     {
@@ -7841,7 +7841,7 @@
         "level": "5",
         "displayIcon": "`<span class=\"fas fa-clone\"></span>`"
       },
-      "undeadName": "圣骨滋养追忆",
+      "undeadName": "冥器滋养追忆",
       "mappingKey": "ra.unlocks/effarigXP"
     },
     {
@@ -7857,7 +7857,7 @@
         "level": "10",
         "displayIcon": "`<span class=\"fas fa-braille\"></span>`"
       },
-      "undeadName": "圣骨多纹",
+      "undeadName": "冥器多纹",
       "mappingKey": "ra.unlocks/glyphEffectCount"
     },
     {
@@ -7873,7 +7873,7 @@
         "level": "8",
         "displayIcon": "`<span class=\"c-ra-pet-milestones-effarig-link\">\\uf0c1</span>`"
       },
-      "undeadName": "唤醒缚时亡魂",
+      "undeadName": "唤醒缚时幽魂",
       "mappingKey": "ra.unlocks/enslavedUnlock"
     },
     {
@@ -7890,7 +7890,7 @@
         "level": "15",
         "displayIcon": "`<span class=\"fas fa-fire\"></span>`"
       },
-      "undeadName": "遗物铭骨",
+      "undeadName": "遗物铭魂",
       "mappingKey": "ra.unlocks/relicShardGlyphLevelBoost"
     },
     {
@@ -7907,7 +7907,7 @@
         "level": "25",
         "displayIcon": "`<i class=\"fas fa-ankh\"></i>`"
       },
-      "undeadName": "满品圣骨与祭业升幂",
+      "undeadName": "满品冥器与祭业升幂",
       "mappingKey": "ra.unlocks/maxGlyphRarityAndShardSacrificeBoost"
     },
     {
@@ -7992,7 +7992,7 @@
         "level": "8",
         "displayIcon": "`⌬`"
       },
-      "undeadName": "唤醒誓约审判者",
+      "undeadName": "唤醒恐惧骑士长",
       "mappingKey": "ra.unlocks/vUnlock"
     },
     {
@@ -8027,7 +8027,7 @@
         "displayIcon": "`<span class=\"fas fa-clock\"></span>`",
         "onUnlock": "() => {\r\n        const allGlyphs = player.reality.glyphs.active.concat(player.reality.glyphs.inventory);\r\n        for (const glyph of allGlyphs) {\r\n          Glyphs.applyGamespeed(glyph);\r\n        }\r\n      }"
       },
-      "undeadName": "基础圣骨皆加速",
+      "undeadName": "基础冥器皆加速",
       "mappingKey": "ra.unlocks/allGamespeedGlyphs"
     },
     {
@@ -8169,7 +8169,7 @@
         "costCap": "() => (Ra.unlocks.perkShopIncrease.canBeApplied ? 1048576 : 2048)",
         "cap": "() => (Ra.unlocks.perkShopIncrease.canBeApplied ? Math.pow(1.05, 20) : Math.pow(1.05, 11))"
       },
-      "undeadName": "圣骨等级增幅",
+      "undeadName": "冥器升阶",
       "mappingKey": "perkShop/glyphLevel"
     },
     {
@@ -8246,7 +8246,7 @@
         "costCap": "() => Number.MAX_VALUE",
         "cap": "() => Number.MAX_VALUE"
       },
-      "undeadName": "挽歌圣骨",
+      "undeadName": "挽歌遗物",
       "mappingKey": "perkShop/musicGlyph"
     },
     {
@@ -8264,7 +8264,7 @@
         "costCap": "() => Number.MAX_VALUE",
         "cap": "() => Number.MAX_VALUE"
       },
-      "undeadName": "满匣挽歌圣骨",
+      "undeadName": "满库挽歌遗物",
       "mappingKey": "perkShop/fillMusicGlyph"
     },
     {
@@ -8285,7 +8285,7 @@
         "description": "\"provides a power to Antimatter Dimensions\"",
         "formatEffect": "value => `Antimatter Dimension multipliers ${formatPow(value, 4, 4)}`"
       },
-      "undeadName": "骨髓精华",
+      "undeadName": "统御精华",
       "mappingKey": "alchemyResources/power"
     },
     {
@@ -8306,7 +8306,7 @@
         "description": "\"provides a power to Infinity Dimensions\"",
         "formatEffect": "value => `Infinity Dimension multipliers ${formatPow(value, 4, 4)}`"
       },
-      "undeadName": "魂印精华",
+      "undeadName": "转生精华",
       "mappingKey": "alchemyResources/infinity"
     },
     {
@@ -8391,7 +8391,7 @@
         "formatEffect": "value => `Replicanti interval increases slower ${formatX(1.2, 1, 1)} ➜\r\n      ${formatX(value, 4, 4)} per ${format(Number.MAX_VALUE, 2)}`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.TIME,\r\n        amount: 8\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.REPLICATION,\r\n        amount: 7\r\n      }\r\n    ]"
       },
-      "undeadName": "疫潮稳定剂",
+      "undeadName": "腐化凝剂",
       "mappingKey": "alchemyResources/cardinality"
     },
     {
@@ -8435,7 +8435,7 @@
         "formatEffect": "value => `All Dimensions ${formatX(value)}`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.POWER,\r\n        amount: 10\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.INFINITY,\r\n        amount: 5\r\n      }\r\n    ]"
       },
-      "undeadName": "三脉合剂",
+      "undeadName": "通灵合剂",
       "mappingKey": "alchemyResources/dimensionality"
     },
     {
@@ -8457,7 +8457,7 @@
         "formatEffect": "value => `All Antimatter Dimension multipliers are ${formatPow(1.05, 2, 2)}\r\n      if they are above ${format(value)} `",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.POWER,\r\n        amount: 9\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.DILATION,\r\n        amount: 6\r\n      }\r\n    ]"
       },
-      "undeadName": "威能催化剂",
+      "undeadName": "灾厄催化剂",
       "mappingKey": "alchemyResources/inflation"
     },
     {
@@ -8479,7 +8479,7 @@
         "formatEffect": "value => `Tachyon Galaxies are ${formatPercents(value, 2, 2)} stronger\r\n      per ${format(DC.E1E6)} Replicanti`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.REPLICATION,\r\n        amount: 5\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.DILATION,\r\n        amount: 10\r\n      }\r\n    ]"
       },
-      "undeadName": "墓域转化剂",
+      "undeadName": "幽域转化剂",
       "mappingKey": "alchemyResources/alternation"
     },
     {
@@ -8500,7 +8500,7 @@
         "description": "\"increases Relic Shard gain\"",
         "formatEffect": "value => `Relic Shard gain is multiplied ${formatX(value, 2, 2)}`"
       },
-      "undeadName": "遗物精华",
+      "undeadName": "遗世精华",
       "mappingKey": "alchemyResources/effarig"
     },
     {
@@ -8544,7 +8544,7 @@
         "formatEffect": "value => `All Dimensions ${formatPow(Ra.momentumValue, 4, 4)}, increasing by\r\n      ${format(0.005 * Achievement(175).effectOrDefault(1), 3, 3)}\r\n      per real-time hour after the resource is unlocked, up to a maximum of ${formatPow(value, 4, 4)}`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.EFFARIG,\r\n        amount: 11\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.POWER,\r\n        amount: 4\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.TIME,\r\n        amount: 20\r\n      }\r\n    ]"
       },
-      "undeadName": "长存骨珀",
+      "undeadName": "不朽琥珀",
       "mappingKey": "alchemyResources/momentum"
     },
     {
@@ -8610,7 +8610,7 @@
         "formatEffect": "value => `Multiply Antimatter Dimensions by Reality Machines${formatPow(value, 2, 2)}`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.DIMENSIONALITY,\r\n        amount: 7\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.MOMENTUM,\r\n        amount: 8\r\n      }\r\n    ]"
       },
-      "undeadName": "命匣骨粉",
+      "undeadName": "命匣尘埃",
       "mappingKey": "alchemyResources/force"
     },
     {
@@ -8719,7 +8719,7 @@
         "formatEffect": "value => `Consume all Reality Resource to create a level ${formatInt(value)} Reality Glyph`",
         "reagents": "[\r\n      {\r\n        resource: ALCHEMY_RESOURCE.EXPONENTIAL,\r\n        amount: 1\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.FORCE,\r\n        amount: 1\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.UNCOUNTABILITY,\r\n        amount: 1\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.BOUNDLESS,\r\n        amount: 1\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.MULTIVERSAL,\r\n        amount: 1\r\n      },\r\n      {\r\n        resource: ALCHEMY_RESOURCE.UNPREDICTABILITY,\r\n        amount: 1\r\n      }\r\n    ]"
       },
-      "undeadName": "创世骨核",
+      "undeadName": "创世核心",
       "mappingKey": "alchemyResources/reality"
     },
     {
@@ -8757,7 +8757,7 @@
         "effectFormat": "x => formatX(x, 2, 2)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "虚渊骨质增幅",
+      "undeadName": "灾厄精粹增幅",
       "mappingKey": "singularityMilestones/darkMatterMult"
     },
     {
@@ -8795,7 +8795,7 @@
         "effectFormat": "x => `/ ${format(1 / x, 2, 2)}`",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "虚渊祭台减耗",
+      "undeadName": "灾厄化身减耗",
       "mappingKey": "singularityMilestones/darkDimensionCostReduction"
     },
     {
@@ -8853,7 +8853,7 @@
         "effectFormat": "x => formatX(POWER_DM_PER_ASCENSION + x, 1, 0)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "晋升骨质增幅",
+      "undeadName": "晋升灾厄精粹增幅",
       "mappingKey": "singularityMilestones/improvedAscensionDM"
     },
     {
@@ -8907,7 +8907,7 @@
         "effectFormat": "x => ((x === 0) ? \"No autobuyers\" : `Autobuy up to the ${[\"1st\", \"2nd\", \"3rd\", \"4th\"][x - 1]} DMD`)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "虚渊祭台执役",
+      "undeadName": "灾厄化身执役",
       "mappingKey": "singularityMilestones/darkDimensionAutobuyers"
     },
     {
@@ -9069,7 +9069,7 @@
         "effectFormat": "x => formatX(x, 2, 2)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.BOOSTS_LAITELA"
       },
-      "undeadName": "圣骨养渊",
+      "undeadName": "冥器养渊",
       "mappingKey": "singularityMilestones/darkFromGlyphLevel"
     },
     {
@@ -9123,7 +9123,7 @@
         "effectFormat": "x => `${format(x, 2, 1)}/s`",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "湮祭孕育终渊祭台",
+      "undeadName": "湮祭孕育终末使徒",
       "mappingKey": "singularityMilestones/dim4Generation"
     },
     {
@@ -9141,7 +9141,7 @@
         "effectFormat": "x => formatX(x, 2, 2)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.SELF_BOOST"
       },
-      "undeadName": "终渊祭台共鸣",
+      "undeadName": "终末使徒共鸣",
       "mappingKey": "singularityMilestones/darkFromDM4"
     },
     {
@@ -9213,7 +9213,7 @@
         "effectFormat": "x => formatX(Math.clampMin(x, 1), 2, 2)",
         "upgradeDirection": "LAITELA_UPGRADE_DIRECTION.BOOSTS_MAIN"
       },
-      "undeadName": "死星铭骨",
+      "undeadName": "死星铭魂",
       "mappingKey": "singularityMilestones/glyphLevelFromSingularities"
     },
     {
@@ -9284,7 +9284,7 @@
         "formatEffect": "x => formatX(x, 2, 2)",
         "cap": "44"
       },
-      "undeadName": "余烬骨军",
+      "undeadName": "末世军团",
       "mappingKey": "pelleUpgrades/antimatterDimensionMult"
     },
     {
@@ -9301,7 +9301,7 @@
         "formatEffect": "x => formatX(x, 2, 2)",
         "cap": "35"
       },
-      "undeadName": "余烬疾世",
+      "undeadName": "末世狂热",
       "mappingKey": "pelleUpgrades/timeSpeedMult"
     },
     {
@@ -9318,7 +9318,7 @@
         "formatEffect": "x => formatInt(x)",
         "cap": "26"
       },
-      "undeadName": "余烬铭骨",
+      "undeadName": "末世冥器",
       "mappingKey": "pelleUpgrades/glyphLevels"
     },
     {
@@ -9335,7 +9335,7 @@
         "formatEffect": "x => `+${format(x, 2, 2)}`",
         "cap": "21"
       },
-      "undeadName": "余烬冥威转化",
+      "undeadName": "末世通灵",
       "mappingKey": "pelleUpgrades/infConversion"
     },
     {
@@ -9352,7 +9352,7 @@
         "formatEffect": "x => formatX(x, 2, 2)",
         "cap": "9"
       },
-      "undeadName": "余烬墓域",
+      "undeadName": "末世疆域",
       "mappingKey": "pelleUpgrades/galaxyPower"
     },
     {
@@ -9367,7 +9367,7 @@
         "cost": "1e5",
         "formatCost": "formatCost"
       },
-      "undeadName": "初四阶骨军永久执役",
+      "undeadName": "低阶军团永久执役",
       "mappingKey": "pelleUpgrades/antimatterDimAutobuyers1"
     },
     {
@@ -9397,7 +9397,7 @@
         "cost": "5e6",
         "formatCost": "formatCost"
       },
-      "undeadName": "执役等级永存",
+      "undeadName": "执役传承",
       "mappingKey": "pelleUpgrades/keepAutobuyers"
     },
     {
@@ -9412,7 +9412,7 @@
         "cost": "2.5e7",
         "formatCost": "formatCost"
       },
-      "undeadName": "后四阶骨军永久执役",
+      "undeadName": "高阶军团永久执役",
       "mappingKey": "pelleUpgrades/antimatterDimAutobuyers2"
     },
     {
@@ -9427,7 +9427,7 @@
         "cost": "1e8",
         "formatCost": "formatCost"
       },
-      "undeadName": "永久墓域执役",
+      "undeadName": "永久领土执役",
       "mappingKey": "pelleUpgrades/galaxyAutobuyer"
     },
     {
@@ -9442,7 +9442,7 @@
         "cost": "1e9",
         "formatCost": "formatCost"
       },
-      "undeadName": "永久魂火执役",
+      "undeadName": "永久仪式执役",
       "mappingKey": "pelleUpgrades/tickspeedAutobuyer"
     },
     {
@@ -9457,7 +9457,7 @@
         "cost": "1e10",
         "formatCost": "formatCost"
       },
-      "undeadName": "转生魂契永存",
+      "undeadName": "转生契约永存",
       "mappingKey": "pelleUpgrades/keepInfinityUpgrades"
     },
     {
@@ -9472,7 +9472,7 @@
         "cost": "1e11",
         "formatCost": "formatCost"
       },
-      "undeadName": "筑塔不损",
+      "undeadName": "尖塔不朽",
       "mappingKey": "pelleUpgrades/dimBoostResetsNothing"
     },
     {
@@ -9487,7 +9487,7 @@
         "cost": "1e12",
         "formatCost": "formatCost"
       },
-      "undeadName": "破界魂契永存",
+      "undeadName": "破界契约永存",
       "mappingKey": "pelleUpgrades/keepBreakInfinityUpgrades"
     },
     {
@@ -9502,7 +9502,7 @@
         "cost": "1e14",
         "formatCost": "formatCost"
       },
-      "undeadName": "永久冥陵执役",
+      "undeadName": "永久议会执役",
       "mappingKey": "pelleUpgrades/IDAutobuyers"
     },
     {
@@ -9517,7 +9517,7 @@
         "cost": "1e15",
         "formatCost": "formatCost"
       },
-      "undeadName": "破界试炼永存",
+      "undeadName": "破界战绩永存",
       "mappingKey": "pelleUpgrades/keepInfinityChallenges"
     },
     {
@@ -9532,7 +9532,7 @@
         "cost": "1e16",
         "formatCost": "formatCost"
       },
-      "undeadName": "拓疆留塔",
+      "undeadName": "领土留塔",
       "mappingKey": "pelleUpgrades/galaxyNoResetDimboost"
     },
     {
@@ -9562,7 +9562,7 @@
         "cost": "1e19",
         "formatCost": "formatCost"
       },
-      "undeadName": "转生留疫巢",
+      "undeadName": "转生留巢",
       "mappingKey": "pelleUpgrades/replicantiGalaxyNoReset"
     },
     {
@@ -9577,7 +9577,7 @@
         "cost": "1e20",
         "formatCost": "formatCost"
       },
-      "undeadName": "轮回计数永存",
+      "undeadName": "轮回记忆永存",
       "mappingKey": "pelleUpgrades/eternitiesNoReset"
     },
     {
@@ -9592,7 +9592,7 @@
         "cost": "1e21",
         "formatCost": "formatCost"
       },
-      "undeadName": "冥典与研究永存",
+      "undeadName": "亡灵典籍永存",
       "mappingKey": "pelleUpgrades/timeStudiesNoReset"
     },
     {
@@ -9607,7 +9607,7 @@
         "cost": "1e22",
         "formatCost": "formatCost"
       },
-      "undeadName": "疫种永久苏醒",
+      "undeadName": "瘟疫永生",
       "mappingKey": "pelleUpgrades/replicantiStayUnlocked"
     },
     {
@@ -9652,7 +9652,7 @@
         "cost": "1e26",
         "formatCost": "formatCost"
       },
-      "undeadName": "轮回试炼永存",
+      "undeadName": "轮回战绩永存",
       "mappingKey": "pelleUpgrades/keepEternityChallenges"
     },
     {
@@ -9667,7 +9667,7 @@
         "cost": "1e45",
         "formatCost": "formatCost"
       },
-      "undeadName": "永夜升级永存",
+      "undeadName": "永夜秘术永存",
       "mappingKey": "pelleUpgrades/dilationUpgradesNoReset"
     },
     {
@@ -9682,7 +9682,7 @@
         "cost": "1e50",
         "formatCost": "formatCost"
       },
-      "undeadName": "逆命烬永存",
+      "undeadName": "逆命余烬永存",
       "mappingKey": "pelleUpgrades/tachyonParticlesNoReset"
     },
     {
@@ -9697,7 +9697,7 @@
         "cost": "1e30",
         "formatCost": "formatCost"
       },
-      "undeadName": "疫巢不损",
+      "undeadName": "瘟疫国度不朽",
       "mappingKey": "pelleUpgrades/replicantiGalaxyEM40"
     },
     {
@@ -9816,7 +9816,7 @@
         "requirement": "0.04",
         "description": "\"You can equip a single basic Glyph with decreased level and rarity\""
       },
-      "undeadName": "孤骨复装",
+      "undeadName": "孤器复装",
       "mappingKey": "pelleRifts.vacuum.milestones/0"
     },
     {
@@ -9889,7 +9889,7 @@
         "effect": "() => {\r\n          const x = player.celestials.pelle.rebuyables.antimatterDimensionMult;\r\n          return Decimal.pow(1e50, x - 9);\r\n        }",
         "formatEffect": "x => `1st Infinity Dimension ${formatX(x, 2, 2)}`"
       },
-      "undeadName": "余烬第一冥陵",
+      "undeadName": "余烬第一通灵者",
       "mappingKey": "pelleRifts.decay.milestones/0"
     },
     {
@@ -9972,7 +9972,7 @@
         "requirement": "0.15",
         "description": "\"Glyphs gain a new Pelle-specific effect\""
       },
-      "undeadName": "终焉圣骨异能",
+      "undeadName": "终焉冥器异能",
       "mappingKey": "pelleRifts.chaos.milestones/1"
     },
     {
@@ -10043,7 +10043,7 @@
         "effect": "() => Decimal.pow(\"1e1500\", ((EternityChallenges.completions - 25) / 20) ** 1.7).max(1)",
         "formatEffect": "x => `Infinity Dimensions ${formatX(x)}`"
       },
-      "undeadName": "轮回试炼养陵",
+      "undeadName": "轮回试炼通灵",
       "mappingKey": "pelleRifts.recursion.milestones/1"
     },
     {
@@ -10233,7 +10233,7 @@
         "description": "\"Buy a 1st Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "第一具骷髅",
+      "undeadName": "骷髅应召",
       "mappingKey": "normalAchievements/0"
     },
     {
@@ -10248,7 +10248,7 @@
         "description": "\"Buy a 2nd Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "骨匠开工",
+      "undeadName": "僵尸出土",
       "mappingKey": "normalAchievements/1"
     },
     {
@@ -10263,7 +10263,7 @@
         "description": "\"Buy a 3rd Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "守卫列阵",
+      "undeadName": "幽魂游荡",
       "mappingKey": "normalAchievements/2"
     },
     {
@@ -10278,7 +10278,7 @@
         "description": "\"Buy a 4th Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "祭司低语",
+      "undeadName": "血族来客",
       "mappingKey": "normalAchievements/3"
     },
     {
@@ -10293,7 +10293,7 @@
         "description": "\"Buy a 5th Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "巫妖苏醒",
+      "undeadName": "尸巫秘仪",
       "mappingKey": "normalAchievements/4"
     },
     {
@@ -10308,7 +10308,7 @@
         "description": "get description() {\r\n      return Enslaved.isRunning\r\n        ? \"Buy a 6th Antimatter Dimension (they never amount to anything)\"\r\n        : \"Buy a 6th Antimatter Dimension.\";\r\n    }",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "骨龙展翼",
+      "undeadName": "黑骑誓约",
       "mappingKey": "normalAchievements/5"
     },
     {
@@ -10323,7 +10323,7 @@
         "description": "\"Buy a 7th Antimatter Dimension.\"",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "统帅归来",
+      "undeadName": "骨龙苏醒",
       "mappingKey": "normalAchievements/6"
     },
     {
@@ -10338,7 +10338,7 @@
         "description": "get description() {\r\n      return Enslaved.isRunning\r\n        ? \"Buy an 8th Antimatter Dimension (don't get used to it)\"\r\n        : \"Buy an 8th Antimatter Dimension.\";\r\n    }",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_EVENT_OTHER"
       },
-      "undeadName": "白骨加冕",
+      "undeadName": "灾厄降临",
       "mappingKey": "normalAchievements/7"
     },
     {
@@ -10389,7 +10389,7 @@
         "reward": "get reward() { return `8th Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; }",
         "effect": "1.1"
       },
-      "undeadName": "九十九位骨王",
+      "undeadName": "九十九位灾厄领主",
       "mappingKey": "normalAchievements/10"
     },
     {
@@ -10471,7 +10471,7 @@
         "reward": "get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; }",
         "effect": "1.1"
       },
-      "undeadName": "再添一骨",
+      "undeadName": "再添孤魂",
       "mappingKey": "normalAchievements/15"
     },
     {
@@ -10489,7 +10489,7 @@
         "reward": "get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.05)} stronger.`; }",
         "effect": "1.05"
       },
-      "undeadName": "骨军威势",
+      "undeadName": "亡灵军团威势",
       "mappingKey": "normalAchievements/16"
     },
     {
@@ -10541,7 +10541,7 @@
         "reward": "get reward() { return `Dimensions 1-7 are ${formatPercents(0.02)} stronger.`; }",
         "effect": "1.02"
       },
-      "undeadName": "无王转生",
+      "undeadName": "无需灾厄领主",
       "mappingKey": "normalAchievements/19"
     },
     {
@@ -10659,7 +10659,7 @@
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER",
         "reward": "get reward() {\r\n      return `Each Antimatter Dimension gains a boost proportional to tier\r\n      (8th gets ${formatPercents(0.08)}, 7th gets ${formatPercents(0.07)}, etc.)`;\r\n    }"
       },
-      "undeadName": "骨阶有序",
+      "undeadName": "亡灵阶序",
       "mappingKey": "normalAchievements/26"
     },
     {
@@ -10775,7 +10775,7 @@
         "checkRequirement": "() => Autobuyer.antimatterDimension.zeroIndexed.concat(Autobuyer.tickspeed)\r\n      .every(a => a.isUnlocked && a.hasMaxedInterval)",
         "checkEvent": "[GAME_EVENT.REALITY_RESET_AFTER, GAME_EVENT.REALITY_UPGRADE_TEN_BOUGHT]"
       },
-      "undeadName": "骨军自理",
+      "undeadName": "亡灵军团自理",
       "mappingKey": "normalAchievements/33"
     },
     {
@@ -10932,7 +10932,7 @@
         "checkRequirement": "() => Currency.infinityPower.gt(1)",
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER"
       },
-      "undeadName": "冥陵初鸣",
+      "undeadName": "议会初立",
       "mappingKey": "normalAchievements/42"
     },
     {
@@ -11022,7 +11022,7 @@
         "reward": "get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.5)} stronger.`; }",
         "effect": "1.5"
       },
-      "undeadName": "衰骨十息",
+      "undeadName": "骷髅十息",
       "mappingKey": "normalAchievements/47"
     },
     {
@@ -11040,7 +11040,7 @@
         "reward": "get reward() { return `1st Antimatter Dimensions are ${formatInt(3)} times stronger.`; }",
         "effect": "3"
       },
-      "undeadName": "一骨成界",
+      "undeadName": "孤魂成界",
       "mappingKey": "normalAchievements/48"
     },
     {
@@ -11114,7 +11114,7 @@
         "reward": "\"Your Achievement bonus affects Infinity Dimensions.\"",
         "effect": "() => Achievements.power"
       },
-      "undeadName": "第四冥陵",
+      "undeadName": "亡灵术士之席",
       "mappingKey": "normalAchievements/52"
     },
     {
@@ -11451,7 +11451,7 @@
         "checkRequirement": "() => InfinityDimension(8).isUnlocked",
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER"
       },
-      "undeadName": "第八冥陵",
+      "undeadName": "永恒巫妖之席",
       "mappingKey": "normalAchievements/71"
     },
     {
@@ -11467,7 +11467,7 @@
         "checkRequirement": "() => player.requirementChecks.eternity.onlyAD8",
         "checkEvent": "GAME_EVENT.ETERNITY_RESET_BEFORE"
       },
-      "undeadName": "只留骨王",
+      "undeadName": "唯有灾厄",
       "mappingKey": "normalAchievements/72"
     },
     {
@@ -11757,7 +11757,7 @@
         "checkRequirement": "() => player.requirementChecks.eternity.onlyAD1",
         "checkEvent": "GAME_EVENT.ETERNITY_RESET_BEFORE"
       },
-      "undeadName": "一骨轮回",
+      "undeadName": "骷髅独行",
       "mappingKey": "normalAchievements/89"
     },
     {
@@ -11809,7 +11809,7 @@
         "cap": "() => Effarig.eternityCap",
         "formatEffect": "value => `${formatX(value, 2, 2)}`"
       },
-      "undeadName": "无骨无世",
+      "undeadName": "无灵无世",
       "mappingKey": "normalAchievements/92"
     },
     {
@@ -11915,7 +11915,7 @@
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER",
         "reward": "\"You start Eternities with all Infinity Challenges unlocked and completed.\""
       },
-      "undeadName": "不依冥陵",
+      "undeadName": "不依通灵者",
       "mappingKey": "normalAchievements/98"
     },
     {
@@ -12139,7 +12139,7 @@
         "effect": "() => (new Set(Glyphs.activeWithoutCompanion.map(g => g.type))).size",
         "formatEffect": "value => `+${formatInt(value)}`"
       },
-      "undeadName": "五骨齐聚",
+      "undeadName": "五器齐聚",
       "mappingKey": "normalAchievements/111"
     },
     {
@@ -12156,7 +12156,7 @@
         "checkEvent": "GAME_EVENT.GALAXY_RESET_AFTER",
         "reward": "\"Unlock V, the Celestial of Achievements.\""
       },
-      "undeadName": "无王八百墓",
+      "undeadName": "无领主的疆域",
       "mappingKey": "normalAchievements/112"
     },
     {
@@ -12172,7 +12172,7 @@
         "checkRequirement": "() => Glyphs.inventoryList.length >= 100",
         "checkEvent": "GAME_EVENT.GLYPHS_CHANGED"
       },
-      "undeadName": "百骨藏匣",
+      "undeadName": "百器藏匣",
       "mappingKey": "normalAchievements/113"
     },
     {
@@ -12258,7 +12258,7 @@
         "checkRequirement": "() => Glyphs.activeList.concat(Glyphs.inventoryList).map(\r\n      glyph => getGlyphEffectsFromBitmask(glyph.effects, 0, 0)\r\n        .filter(effect => effect.isGenerated).length\r\n    ).max() >= 4",
         "checkEvent": "GAME_EVENT.GLYPHS_CHANGED"
       },
-      "undeadName": "一骨四纹",
+      "undeadName": "孤魂四纹",
       "mappingKey": "normalAchievements/118"
     },
     {
@@ -12377,7 +12377,7 @@
         "reward": "get reward() { return `+${formatInt(69)} to Glyph level.`; }",
         "effect": "69"
       },
-      "undeadName": "六九六九骨",
+      "undeadName": "六九六九冥器",
       "mappingKey": "normalAchievements/125"
     },
     {
@@ -12414,7 +12414,7 @@
         "reward": "get reward() { return `Get ${formatPercents(0.1)} more memories.`; }",
         "effect": "1.1"
       },
-      "undeadName": "追忆半程",
+      "undeadName": "先祖复苏",
       "mappingKey": "normalAchievements/127"
     },
     {
@@ -12432,7 +12432,7 @@
         "reward": "get reward() { return `Glyph sacrifice is ${formatX(2)} stronger.`; }",
         "effect": "2"
       },
-      "undeadName": "诸骨皆祭",
+      "undeadName": "诸器皆祭",
       "mappingKey": "normalAchievements/128"
     },
     {
@@ -12448,7 +12448,7 @@
         "checkRequirement": "() => MachineHandler.gainedRealityMachines.gte(Decimal.NUMBER_MAX_VALUE) &&\r\n      player.celestials.ra.charged.size === 0 && Glyphs.activeWithoutCompanion.length === 0 &&\r\n      player.requirementChecks.reality.noTriads",
         "checkEvent": "GAME_EVENT.REALITY_RESET_BEFORE"
       },
-      "undeadName": "赤身创世",
+      "undeadName": "无契创世",
       "mappingKey": "normalAchievements/129"
     },
     {
@@ -12678,7 +12678,7 @@
         "checkRequirement": "() => GameEnd.endState > END_STATE_MARKERS.GAME_END && !GameEnd.removeAdditionalEnd",
         "checkEvent": "GAME_EVENT.GAME_TICK_AFTER"
       },
-      "undeadName": "白骨永存",
+      "undeadName": "亡者永恒",
       "mappingKey": "normalAchievements/143"
     },
     {
@@ -12748,7 +12748,7 @@
         "name": "\"Do a barrel roll!\"",
         "description": "\"Do a barrel roll.\""
       },
-      "undeadName": "骨塔翻身",
+      "undeadName": "亡灵之塔翻身",
       "mappingKey": "secretAchievements/4"
     },
     {
@@ -13464,7 +13464,7 @@
         "checkRequirement": "() => Teresa.isRunning",
         "checkEvent": "GAME_EVENT.REALITY_RESET_BEFORE"
       },
-      "undeadName": "女王领域完成",
+      "undeadName": "摄政领域完成",
       "mappingKey": "speedrunMilestones/18"
     },
     {
@@ -13564,8 +13564,10 @@
         "checkRequirement": "() => Achievement(188).isUnlocked",
         "checkEvent": "GAME_EVENT.ACHIEVEMENT_UNLOCKED"
       },
-      "undeadName": "白骨永存",
+      "undeadName": "亡者永恒",
       "mappingKey": "speedrunMilestones/24"
     }
-  ]
+  ],
+  "themeRevision": "2 · 亡灵诸族与墓园王国",
+  "themeNote": "借鉴墓园亡灵术语，加入本作亡灵术士、灾厄领主与主宰设定；仅修改主题名，源字段与映射键不变。"
 }
