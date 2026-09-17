@@ -1,0 +1,154 @@
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V4 */
+:root, body, .undead-runtime {
+  --color-base: #111923; --color-text: #ebe8d8; --color-text-inverted: #0c1219;
+  --color-background: #101821; --color-background-dark: #0b1018;
+  --color-good: #77cba0; --color-bad: #d87d7b; --color-notification: #f0d78b;
+  --color-prestige--accent: #b391dd; --color-prestige--base: #203a35;
+  --color-infinity: #b39c79; --color-eternity: #b78bd8; --color-reality: #72c1a0;
+  --color-ra-pet: #9eb1ce; --color-laitela--accent: #d5d8df;
+  --tower-panel: #182431; --tower-highlight: #364b5e; --tower-border: #607484;
+  --tower-muted: #91a4b1; --tower-void: #080e15; --tower-green: #1c674b;
+  --tower-green-light: #81c397; --tower-gold: #eddb8e; --tower-shadow: #05090e;
+  --font-game: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+}
+html { font-size: 62.5%; overflow-x: clip; background: var(--color-background); }
+body { margin: 0; min-width: 0; background: var(--color-background); color: var(--color-text); font: 1.4rem/1.55 var(--font-game); overflow-x: clip; }
+* { box-sizing: border-box; }
+button, input, select, textarea { font-family: var(--font-game); }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--tower-gold); outline-offset: 3px; }
+button:disabled { cursor: not-allowed; opacity: .56; }
+h1,h2,h3,h4 { font-style: normal; }
+.undead-runtime { width: 100%; min-height: 100vh; padding: 0 12px 28px; text-align: center; color: var(--color-text); background: var(--color-background); }
+body[class] { margin: 0; background: var(--tower-panel); }
+#loading { display: none !important; }
+.tower-tabs { display: flex; flex-wrap: wrap; gap: 5px; padding: 9px 0; border-bottom: 3px solid var(--tower-highlight); position: sticky; top: 0; z-index: 20; background: var(--color-background); }
+.tower-tabs button, .tower-subtabs button, .buy-modes button, .max-all {
+  color: var(--color-text); background: var(--tower-panel); border: 2px solid var(--tower-highlight);
+  box-shadow: inset 0 2px var(--tower-border), 0 2px var(--tower-shadow);
+  border-radius: 0; padding: 8px 13px; font-size: 15px; font-weight: 700; white-space: nowrap;
+}
+.tower-tabs button:hover, .tower-subtabs button:hover, .buy-modes button:hover { border-color: var(--tower-gold); }
+.tower-tabs .selected, .tower-subtabs .selected, .buy-modes .selected {
+  color: var(--tower-gold); border-color: var(--tower-gold); background: var(--tower-highlight);
+}
+.tower-tabs button:first-child { padding-inline: 22px; }
+.tower-subtabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 0; }
+.tower-subtabs button { font-size: 12px; padding: 5px 10px; }
+.notice-dot { color: var(--tower-gold); font-size: 10px; margin-left: 4px; }
+.tower-tabs { gap: 8px; }
+.tower-tabs button { flex: 1; font-size: 20px; letter-spacing: 4px; }
+.tower-utility { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: flex-end; padding: 5px 0; }
+.tower-utility button { background: none; color: var(--tower-muted); border: 0; font-size: 11px; padding: 3px 0; white-space: nowrap; }
+.tower-utility .selected { color: var(--tower-gold); }
+.undead-runtime .o-save-timer, .undead-runtime .o-tab-btn--short, .undead-runtime .o-how-to-play-btn { display: none; }
+.undead-runtime .l-help-me, .undead-runtime .h2p-tutorial--glow { display: none; }
+.tower-content { display: block !important; width: 100%; min-width: 0; padding-top: 8px; }
+.tower-content > .c-game-tab { margin: 0 auto; max-width: 100%; min-width: 0; }
+.army-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 6px 0; }
+.army-toolbar > span { color: var(--tower-muted); font-size: 12px; }
+.army-toolbar b { color: var(--tower-gold); }
+.buy-modes { display: flex; gap: 5px; margin-left: auto; }
+.buy-modes button, .max-all { padding: 5px 11px; font-size: 13px; }
+.max-all { font-size: 11px; }
+.army-rule { font-size: 11px; color: var(--tower-muted); margin: 0 0 12px; text-align: left; }
+.army-rows { display: grid; gap: 6px; }
+.army-row {
+  display: grid; grid-template-columns: 66px minmax(84px, 1fr) minmax(70px, .8fr) minmax(60px, .65fr) 102px;
+  align-items: center; gap: 8px; min-height: 66px; padding: 3px 9px 3px 0; text-align: left;
+  border: 2px solid var(--tower-highlight); outline: 1px solid var(--tower-void);
+  box-shadow: inset 0 2px var(--tower-border), inset 0 -3px var(--tower-void);
+  background: linear-gradient(110deg, var(--tower-panel), var(--color-background));
+}
+.army-portrait { width: 60px; height: 60px; background: url("./army-atlas.png") 0 0 / 400% 200% no-repeat; image-rendering: pixelated; }
+.unit-1 { background-position: 0 0; } .unit-2 { background-position: 33.333% 0; } .unit-3 { background-position: 66.667% 0; } .unit-4 { background-position: 100% 0; }
+.unit-5 { background-position: 0 100%; } .unit-6 { background-position: 33.333% 100%; } .unit-7 { background-position: 66.667% 100%; } .unit-8 { background-position: 100% 100%; }
+.unit-8 { clip-path: inset(0 0 0 14%); }
+.army-identity h2 { margin: 0; color: var(--color-text); font-size: 17px; line-height: 1.5; letter-spacing: 2px; text-shadow: 2px 2px var(--tower-shadow); }
+.army-multiplier { color: var(--tower-muted); font-size: 11px; }
+.army-quantity b, .army-price b { font-variant-numeric: tabular-nums; font-size: 15px; overflow-wrap: anywhere; }
+.army-price b { color: var(--tower-gold); }
+.army-row small { display: block; font-size: 10px; color: var(--tower-muted); font-weight: 400; }
+.army-row button, .sacrifice-panel button {
+  min-height: 46px; background: var(--tower-green); color: var(--color-text); border: 2px solid var(--tower-green-light);
+  box-shadow: inset 0 2px var(--tower-green-light), inset 0 -3px var(--tower-shadow), 2px 2px var(--tower-shadow);
+  border-radius: 0; font-size: 18px; font-weight: 700; white-space: nowrap;
+}
+.army-row button small { color: var(--color-text); font-size: 10px; }
+.army-row button:disabled { background: var(--tower-panel); border-color: var(--tower-highlight); box-shadow: inset 0 2px var(--tower-border); }
+.army-row button:not(:disabled):hover { filter: brightness(1.2); }
+.army-row button:not(:disabled):active { transform: translateY(2px); }
+.army-row.is-locked .army-portrait { filter: grayscale(1) brightness(.33); }
+.army-row.is-locked h2 { color: var(--tower-muted); }
+.recruit-progress { width: 44px; height: 3px; background: var(--tower-void); margin-top: 3px; }
+.recruit-progress i { display: block; height: 100%; background: var(--tower-green-light); }
+.army-resets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 12px; }
+.army-resets .reset-container { width: auto; margin: 0; padding: 10px 8px; background: var(--tower-panel); border: 3px solid var(--tower-highlight); box-shadow: inset 0 2px var(--tower-border); display: flex; flex-direction: column; justify-content: space-between; gap: 4px; }
+.army-resets h4 { font-size: 20px; color: var(--color-text); margin: 0; letter-spacing: 2px; }
+.army-resets span { font-size: 11px; color: var(--tower-muted); }
+.army-resets .o-primary-btn { width: 100%; height: auto; min-height: 50px; margin: 3px 0 0; padding: 7px; font-size: 11px; white-space: normal; }
+.sacrifice-panel { margin-block: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.sacrifice-panel small { display: block; color: var(--tower-muted); }
+.sacrifice-panel button { padding-inline: 22px; }
+.undead-runtime .l-tickspeed-container { margin: 10px 0; min-height: 0; width: 100%; }
+.undead-runtime .l-tickspeed-container--hidden { display: none; }
+.undead-runtime .tickspeed-buttons { display: flex; gap: 5px; width: 100%; }
+.undead-runtime .tickspeed-btn { flex: 1; }
+.undead-runtime .o-primary-btn, .undead-runtime .o-infinity-upgrade-btn,
+.undead-runtime .o-eternity-upgrade, .undead-runtime .o-reality-upgrade-btn {
+  color: var(--color-text); background-color: var(--tower-green); border-color: var(--tower-border); border-radius: 0;
+}
+.undead-runtime .o-primary-btn--disabled, .undead-runtime .o-infinity-upgrade-btn--unavailable,
+.undead-runtime .o-eternity-upgrade--unavailable, .undead-runtime .o-reality-upgrade-btn--unavailable {
+  background: var(--tower-panel); color: var(--tower-muted); border-color: var(--tower-highlight);
+}
+.undead-runtime .o-primary-btn--disabled:hover { background: var(--tower-panel); }
+.undead-runtime .o-infinity-upgrade-btn--bought, .undead-runtime .o-eternity-upgrade--bought { background: var(--tower-green); }
+.undead-runtime .c-prestige-info-blocks { position: relative; display: flex; flex-wrap: wrap; height: auto; gap: 8px; margin-bottom: 10px; }
+.undead-runtime .c-prestige-info-blocks > div { position: static; flex: 1 1 180px; width: auto; min-width: 0; }
+.undead-runtime .l-game-header__center { display: none; }
+.undead-runtime .c-game-tab { overflow-x: auto; padding-bottom: 8px; }
+.undead-runtime .army-management { overflow: visible; }
+.undead-runtime .l-modern-sidebar, .undead-runtime .l-notification-icon { display: none; }
+.undead-runtime .l-time-studies-tab__tt-shop { position: fixed; top: auto; bottom: 0; left: 0; width: 100%; height: auto; max-height: 180px; background: transparent; z-index: 10; }
+.undead-runtime .ttshop-background { background: var(--tower-panel); color: var(--color-text); border-color: var(--tower-border); max-width: 100%; }
+.undead-runtime .ttbuttons-row { flex-wrap: wrap; height: auto !important; }
+.undead-runtime .l-tt-buy-button { flex: 1; min-width: 70px; width: auto; }
+.undead-runtime .l-time-studies-tab { align-items: flex-start; padding-bottom: 160px; }
+.undead-runtime .l-time-study-tree { align-self: flex-start; margin-left: 0; margin-right: 0; flex-shrink: 0; }
+.undead-runtime .c-modal, .undead-runtime .c-modal__confirmation, .undead-runtime .c-modal__inner { background: var(--tower-panel); color: var(--color-text); border-color: var(--tower-border); border-radius: 0; max-width: calc(100vw - 24px); }
+.undead-runtime .l-modal, .undead-runtime .l-modal__container { max-width: 100vw; }
+.undead-runtime input, .undead-runtime textarea, .undead-runtime select { background: var(--color-background-dark); color: var(--color-text); border-color: var(--tower-border); }
+.undead-runtime .c-progress-bar { background: var(--tower-panel); margin-top: 14px; }
+.undead-runtime .c-progress-bar__fill { background: var(--tower-green); }
+.undead-runtime .o-tab-btn { border-radius: 0; }
+.tower-catalog { text-align: left; padding: 12px 0; }
+.tower-catalog h2 { color: var(--tower-gold); }
+.tower-catalog p { color: var(--tower-muted); font-size: 12px; }
+.tower-catalog input { width: 100%; padding: 10px; border: 1px solid var(--tower-border); }
+.tower-catalog article { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; padding: 10px 4px; border-bottom: 1px solid var(--tower-highlight); }
+.tower-catalog code { color: var(--tower-muted); font-size: 10px; overflow-wrap: anywhere; }
+#background-animations, .videocontainer, .c-modern-sidebar { display: none !important; }
+::-webkit-scrollbar { width: 8px; height: 8px; } ::-webkit-scrollbar-track { background: var(--tower-void); } ::-webkit-scrollbar-thumb { background: var(--tower-highlight); border: 1px solid var(--tower-border); }
+@media(max-width: 580px) {
+  .tower-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+  .tower-tabs button, .tower-tabs button:first-child { padding: 7px 2px; letter-spacing: 1px; }
+  .undead-runtime { padding-inline: 7px; }
+  .tower-tabs button { padding: 7px 10px; font-size: 12px; }
+  .army-row { grid-template-columns: 44px minmax(62px, 1fr) minmax(42px, .65fr) 69px; gap: 5px; min-height: 70px; padding-right: 5px; }
+  .army-portrait { width: 44px; height: 52px; background-size: 400% 200%; }
+  .army-identity h2 { font-size: 13px; letter-spacing: 0; }
+  .army-price { grid-column: 3; grid-row: 1; padding-top: 31px; }
+  .army-price b { font-size: 10px; }
+  .army-price small { display: none; }
+  .army-quantity { grid-column: 3; grid-row: 1; padding-bottom: 20px; }
+  .army-quantity b { font-size: 12px; }
+  .army-quantity small { display: none; }
+  .army-row button { grid-column: 4; grid-row: 1; font-size: 14px; min-width: 0; }
+  .army-row button small { font-size: 9px; }
+  .army-toolbar > span { font-size: 10px; }
+  .buy-modes button, .max-all { font-size: 11px; padding: 5px 8px; }
+  .army-rule { font-size: 10px; }
+  .army-resets h4 { font-size: 16px; }
+}
+@media(prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

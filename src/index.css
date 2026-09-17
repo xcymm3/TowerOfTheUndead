@@ -1,6 +1,18 @@
-@import '../tokens.css';
-
+:root {
+  font-family: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  color: #ebe8d8; background: #090f16; font-synthesis: none;
+  text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+  --font-game: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --color-bg: #090f16; --color-panel: #15212d; --color-dark: #0c141e;
+  --color-border: #536b7e; --color-edge: #293e50; --color-highlight: #7790a0;
+  --color-text: #ebe8d8; --color-muted: #91a4b1; --color-gold: #efdc92;
+  --color-green: #78e5a3; --color-purple: #bb8fe1; --color-shadow: #05090d;
+  --color-veil: #0a1728b3; --color-mist: #7ca7b012; --color-error: #eaaa9b;
+}
 * { box-sizing: border-box; }
 html, body { margin: 0; min-width: 320px; overflow-x: clip; }
-body { min-height: 100vh; background: var(--color-background); color: var(--color-text); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
-::selection { background: var(--color-accent); color: var(--color-background); }
+body { min-height: 100vh; }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+button:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+h1,h2,h3 { font-style: normal; overflow-wrap: anywhere; min-width: 0; }

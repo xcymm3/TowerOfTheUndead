@@ -1,0 +1,3 @@
+# Preserve the independently hashed upstream snapshot across operating systems.
+vendor/antimatter/** -text
+*.png binary

@@ -1,0 +1,15 @@
+import { chromium } from '@playwright/test'
+import fs from 'node:fs'
+const browser = await chromium.launch({ channel: 'chrome', headless: true })
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
+page.on('pageerror', error => console.log('PAGE ERROR:', error.message))
+page.on('console', message => { if (message.type() === 'error') console.log('CONSOLE:', message.text().slice(0, 700)) })
+await page.goto('http://127.0.0.1:5173/')
+await page.waitForTimeout(4000)
+const frame = page.frames().find(f => f.url().includes('/engine/'))
+console.log('FRAME', frame?.url())
+console.log((await frame?.locator('body').innerText())?.slice(0, 5000))
+console.log(await frame?.evaluate(() => ({ theme: window.UndeadTheme?.registry.size, initialized: window.ui?.view.initialized, loading: document.getElementById('loading')?.style.display })))
+fs.mkdirSync('test-results', { recursive: true })
+await page.screenshot({ path: 'test-results/first-load.png', fullPage: true })
+await browser.close()

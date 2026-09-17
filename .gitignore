@@ -10,6 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.runtime-build
+.runtime-reference
+public/engine
+test-results
+.deps-before-implementation
+public/reference
 *.local
 
 # Editor directories and files
