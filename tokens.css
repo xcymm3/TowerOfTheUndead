@@ -1,0 +1,10 @@
+:root {
+  color-scheme: dark;
+  --color-background: #181b19;
+  --color-text: #eee8d8;
+  --color-muted: #acae9f;
+  --color-accent: #bbca9b;
+  --color-border: #3c4239;
+  --font-body: system-ui, "Microsoft YaHei", sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "SimSun", serif;
+}

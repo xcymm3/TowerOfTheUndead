@@ -1,0 +1,21 @@
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V3 */
+.tower-shell { width: min(100% - 48px, 960px); margin-inline: auto; }
+.tower-header { display: flex; justify-content: space-between; gap: 20px; padding-block: 28px; border-bottom: 1px solid var(--color-border); }
+.wordmark { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; }
+.chapter, .eyebrow, .tower-footer { color: var(--color-muted); font-size: .8rem; }
+.chapter { flex-shrink: 0; }
+.tower-intro { padding-block: clamp(64px, 12vw, 128px) 56px; }
+.eyebrow { letter-spacing: .2em; }
+h1 { margin: 18px 0 24px; font-family: var(--font-display); font-size: clamp(3rem, 9vw, 6rem); font-weight: 500; line-height: 1.2; overflow-wrap: anywhere; min-width: 0; }
+.intro-copy { color: var(--color-muted); line-height: 2; }
+.tower-overview { border-block: 1px solid var(--color-border); padding-block: 24px; }
+.tower-overview h2 { margin: 0 0 24px; font-size: .9rem; font-weight: 500; color: var(--color-accent); }
+.resource-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; }
+.resource-list dt { color: var(--color-muted); font-size: .8rem; }
+.resource-list dd { margin: 8px 0 0; font-size: 1.8rem; font-variant-numeric: tabular-nums; }
+.tower-footer { padding-block: 28px; }
+@media (max-width: 480px) {
+  .tower-shell { width: calc(100% - 32px); }
+  .tower-header { flex-direction: column; gap: 10px; }
+  .resource-list { gap: 12px; }
+}
