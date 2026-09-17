@@ -55,17 +55,6 @@ export default function App() {
       </header>
 
       <div className="game-layout">
-        <section className="management-panel stone-frame" aria-label="高塔经营">
-          <iframe ref={frame} title="亡灵之塔经营界面" src={`${import.meta.env.BASE_URL}engine/index.html`}
-            onLoad={() => setLoaded(true)} allow="clipboard-read; clipboard-write" />
-          {!state && !error && <div className="loading-screen" role="status">
-            <span className="loading-sigil">♜</span><h2>唤醒高塔</h2>
-            <p>{slow ? '载入时间较长，请检查网络后重试。' : loaded ? '正在恢复军团与离线进度…' : '正在载入高塔…'}</p>
-            {slow && <button onClick={() => window.location.reload()}>重新载入</button>}
-          </div>}
-          {error && <div className="runtime-error" role="alert"><strong>高塔暂时无法运行</strong><p>{error}</p><button onClick={() => window.location.reload()}>重新载入</button></div>}
-        </section>
-
         <aside className="battle-panel stone-frame" aria-label="当前拥有的亡灵军团">
           <div className="scene-title"><span aria-hidden="true">◆</span><h2>墓园前线</h2><span aria-hidden="true">◆</span></div>
           <div className="scene-chapter">{state?.chapter ?? '荒坟初醒'}<span>墓域 {state?.cemeteries ?? '—'}</span></div>
@@ -88,6 +77,16 @@ export default function App() {
           </section>}
           <div className="scene-controls"><button onClick={togglePause} aria-pressed={paused}>{paused ? '▶ 继续动画' : 'Ⅱ 暂停动画'}</button><button onClick={() => setRoster(!roster)} aria-expanded={roster}>♟ 军团展示</button></div>
         </aside>
+        <section className="management-panel stone-frame" aria-label="高塔经营">
+          <iframe ref={frame} title="亡灵之塔经营界面" src={`${import.meta.env.BASE_URL}engine/index.html`}
+            onLoad={() => setLoaded(true)} allow="clipboard-read; clipboard-write" />
+          {!state && !error && <div className="loading-screen" role="status">
+            <span className="loading-sigil">♜</span><h2>唤醒高塔</h2>
+            <p>{slow ? '载入时间较长，请检查网络后重试。' : loaded ? '正在恢复军团与离线进度…' : '正在载入高塔…'}</p>
+            {slow && <button onClick={() => window.location.reload()}>重新载入</button>}
+          </div>}
+          {error && <div className="runtime-error" role="alert"><strong>高塔暂时无法运行</strong><p>{error}</p><button onClick={() => window.location.reload()}>重新载入</button></div>}
+        </section>
       </div>
 
       <footer className="game-footer">

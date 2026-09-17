@@ -1,4 +1,5 @@
 import Vue from "vue";
+import { notify } from "@/core/notify";
 import mapping from "./mapping.json";
 import { configurations } from "./bindings";
 import { armyNames, translate, prepareTranslations } from "./glossary";
@@ -42,6 +43,12 @@ export function installUndeadTheme() {
     }
   });
   prepareTranslations(extra);
+  // Notifications are plain DOM, outside Vue's render hook; preserve their timing and handlers.
+  for (const key of Object.keys(notify)) {
+    if (typeof notify[key] !== "function") continue;
+    const original = notify[key];
+    notify[key] = (text, ...args) => original(translate(text), ...args);
+  }
   const render = Vue.prototype._render;
   function translateVNode(node, componentName) {
     if (!node || typeof node !== "object") return;
@@ -83,7 +90,7 @@ function snapshot() {
     representatives: dimension.totalAmount.lt(1) ? 0 : Math.min(3, 1 + Math.floor(Math.max(0, dimension.totalAmount.log10()) / 2))
   }));
   return {
-    souls: format(Currency.antimatter.value, 2, 1),
+    souls: translate(format(Currency.antimatter.value, 2, 1)),
     production: format(Currency.antimatter.productionPerSecond, 2, 1),
     soulSeals: format(Currency.infinityPoints.value, 2, 0),
     floors: formatInt(DimBoost.purchasedBoosts),

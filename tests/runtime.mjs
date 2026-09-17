@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import { spawn } from 'node:child_process'
 import { chromium } from '@playwright/test'
 import { isBuildCurrent } from '../scripts/runtime-fingerprint.mjs'
+import { earlyInteractions } from './early-interactions.mjs'
 
 for (const kind of ['runtime', 'reference']) {
   assert.ok(isBuildCurrent(kind), '构建产物缺失或过期，请先运行 pnpm test：' + kind)
@@ -28,7 +29,11 @@ page.on('console', message => { if (message.type() === 'error') errors.push(mess
 const results = []
 async function test(name, fn) {
   try { await fn(); results.push({ name, pass: true }); console.log('PASS', name) }
-  catch (error) { results.push({ name, pass: false, error: error.stack }); console.error('FAIL', name, error.message) }
+  catch (error) {
+    results.push({ name, pass: false, error: error.stack })
+    console.error('FAIL', name, error.message)
+    await page.screenshot({ path: `test-results/failure-${results.length}.png`, fullPage: true }).catch(() => {})
+  }
 }
 let engine
 let reference
@@ -57,8 +62,8 @@ async function reset(frame) {
     GameUI.update()
   })
 }
-async function evaluateScenario(frame, action) {
-  await reset(frame)
+async function evaluateScenario(frame, action, resetFirst = true) {
+  if (resetFirst) await reset(frame)
   return frame.evaluate(script => {
     // Only static test scenarios are evaluated; production has no command evaluation bridge.
     const extra = Function(script)()
@@ -87,10 +92,13 @@ try {
   engine = await page.locator('iframe').elementHandle().then(e => e.contentFrame())
   await engine.waitForFunction(() => window.UndeadTower && ui.view.initialized)
   await page.getByText('本地存档 · 自动保存').waitFor()
-  const referencePage = await context.newPage()
+  // Keep upstream autosaves out of the game's storage even on slow test machines.
+  const referenceContext = await browser.newContext()
+  const referencePage = await referenceContext.newPage()
   reference = referencePage
   await referencePage.goto(base + '/reference/index.html')
   await referencePage.waitForFunction(() => window.GameStorage && window.ui?.view.initialized)
+  await referencePage.evaluate(() => GameIntervals.stop())
 
   await test('767 mappings bind to their original config objects', async () => {
     const count = await engine.evaluate(() => {
@@ -140,6 +148,8 @@ try {
     })
   }
 
+  await earlyInteractions({ page, engine, reference, reset, test, evaluateScenario })
+
   await test('Real purchase click updates army and resource state', async () => {
     await reset(engine)
     await engine.evaluate(() => Tab.dimensions.antimatter.show(true))
@@ -170,7 +180,7 @@ try {
     assert.equal(result.key, 'undeadTowerSave')
     assert.equal(result.bought, 1)
     assert.equal(result.saved, true)
-    // Reference page has its own unsaved baseline; no original save should have been written.
+    // The reference has an isolated context; this checks writes from the game itself.
     assert.equal(result.originalUntouched, true)
   })
   await test('Save reload and real offline simulation', async () => {

@@ -14,7 +14,7 @@
 .income strong { color: var(--color-green); } .seals .resource-symbol { color: var(--color-purple); } .floors .resource-symbol { color: var(--color-highlight); }
 .settings-button { color: var(--color-text); font-size: 33px; }
 .settings-button:hover { border-color: var(--color-gold); }
-.game-layout { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 12px; }
+.game-layout { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 12px; }
 .stone-frame { position: relative; border: 5px ridge var(--color-border); box-shadow: 0 0 0 2px var(--color-shadow), inset 0 0 0 2px var(--color-dark); background: var(--color-dark); min-width: 0; }
 .stone-frame::before, .stone-frame::after { content: ""; position: absolute; top: -5px; width: 13px; height: 13px; border: 2px solid var(--color-highlight); background: var(--color-edge); z-index: 2; pointer-events: none; }
 .stone-frame::before { left: -5px; } .stone-frame::after { right: -5px; }
@@ -65,7 +65,7 @@
 @keyframes idle { from { translate: 0 0; } to { translate: 0 -3px; } }
 @keyframes mist { from { translate: -12px 0; } to { translate: 12px 0; } }
 @media(min-width: 1800px) { .tower-app { max-width: 2000px; margin-inline: auto; } .field-unit { width: 144px; height: 144px; } .position-7 { width: 240px; height: 200px; } }
-@media(max-width: 1100px) { .resource-header { grid-template-columns: 1.3fr 1fr 1fr .8fr 48px; } .floors { display: none; } .wordmark { padding-inline: 7px; grid-template-columns: 36px 1fr; } .skull-mark { font-size: 35px; } .wordmark h1 { letter-spacing: 3px; } .resource { padding: 7px; gap: 6px; } .resource-symbol { font-size: 23px; } .resource strong { font-size: 20px; } .game-layout { grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); } .scene-title h2 { font-size: 19px; } .scene-title { left: 8%; right: 8%; } .field-unit { width: 90px; height: 90px; } .position-7 { width: 140px; height: 126px; } .scene-controls { padding: 10px; gap: 6px; } .scene-controls button { font-size: 12px; letter-spacing: 0; } }
+@media(max-width: 1100px) { .resource-header { grid-template-columns: 1.3fr 1fr 1fr .8fr 48px; } .floors { display: none; } .wordmark { padding-inline: 7px; grid-template-columns: 36px 1fr; } .skull-mark { font-size: 35px; } .wordmark h1 { letter-spacing: 3px; } .resource { padding: 7px; gap: 6px; } .resource-symbol { font-size: 23px; } .resource strong { font-size: 20px; } .game-layout { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); } .scene-title h2 { font-size: 19px; } .scene-title { left: 8%; right: 8%; } .field-unit { width: 90px; height: 90px; } .position-7 { width: 140px; height: 126px; } .scene-controls { padding: 10px; gap: 6px; } .scene-controls button { font-size: 12px; letter-spacing: 0; } }
 @media(max-width: 800px) {
   .tower-app { min-height: 100dvh; height: auto; padding: 6px; }
   .resource-header { grid-template-columns: 1fr 1fr 1fr 42px; min-height: 0; }
@@ -78,7 +78,7 @@
   .resource span:not(.resource-symbol) { display: block; font-size: 10px; }
   .resource-symbol { font-size: 20px; }
   .seals { grid-column: 3 / 5; }
-  .game-layout { display: flex; flex-direction: column-reverse; gap: 12px; }
+  .game-layout { display: flex; flex-direction: column; gap: 12px; }
   .battle-panel { height: 280px; flex: none; }
   .management-panel { height: 880px; flex: none; }
   .graveyard-scene { background-position: center 50%; }
@@ -96,3 +96,4 @@
 }
 @media(max-width: 375px) { .resource-symbol { display: none; } .resource strong { font-size: 17px; } .scene-title { left: 18%; right: 18%; } .scene-title h2 { font-size: 15px; } .resource-header { gap: 5px; } .save-status { font-size: 9px; } .game-footer > div { gap: 9px; } }
 @media(prefers-reduced-motion: reduce) { .field-unit, .scene-fog { animation: none; } }
+@media(max-width: 414px) { .resource strong { font-size: 14px; letter-spacing: -.3px; } }

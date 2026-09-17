@@ -1,5 +1,22 @@
 // Wording adapters only: captured values and mathematical expressions come from upstream.
 const exact = {
+  "You are about to do a Dimension Boost Reset": "即将进行筑塔重置",
+  "This will reset your Antimatter and Antimatter Dimensions. Are you sure you want to do this?": "这将重置游魂与亡灵军团。确认进行筑塔？",
+  "You are about to purchase an Antimatter Galaxy": "即将开辟墓域",
+  "Are you sure you want to purchase an Antimatter Galaxy?": "确认开辟墓域？",
+  "you will receive a small boost to Tickspeed Upgrades.": "魂火节律升级的效果会得到增强。",
+  "You are about to Infinity": "即将进行转生仪式",
+  "This animation will occur after every manually-triggered Infinity. If you would like to disable it, there is a setting to do so in the Options tab. This can be done for any visual animation effect in the game after seeing it for the first time.": "每次手动转生都会播放这一动画。首次观看后，可在设置中关闭它；游戏中的其他视觉动画也可在首次观看后关闭。",
+  "Okay": "知道了",
+  "Since you performed an Infinity in under a minute, the UI changed on the screen. Instead of the Dimensions disappearing, they stay and the Big Crunch button appears on top of them. This is purely visual, and is there to prevent flickering.": "你在一分钟内完成了转生。此后军团面板将保持显示，转生仪式按钮出现在面板上方。这只是为避免画面闪烁而进行的界面调整，不影响游戏数值。",
+  "Upon Infinity, all Dimensions, Dimension Boosts, and Antimatter Galaxies are reset.": "转生将重置全部生产者、筑塔和基础墓域。",
+  "In return, you gain an Infinity Point (IP). This allows you to buy multiple upgrades that you can find in the Infinity tab. You will also gain one Infinity, which is the stat shown in the Statistics tab.": "作为回报，你会获得 1 魂印，可在魂界中购买升级；同时增加 1 次转生，记录于史册。",
+  "unlock Sacrifice": "解锁灵魂献祭",
+  "Purchased Upgrade": "次已购升级",
+  "Dimensional Sacrifice will remove all of your 1st through 7th Antimatter Dimensions (with the cost and multiplier unchanged), for a boost to the 8th Antimatter Dimension based on the total amount of 1st Antimatter Dimensions sacrificed. It will take time to regain production.": "灵魂献祭将清空第一至第七阶亡灵军团的数量，费用和倍率保持不变；根据累计献祭的骷髅兵数量强化灾厄领主。恢复生产需要时间。",
+  "Dimensional Sacrifice will give you a boost to the 8th Antimatter Dimension based on the amount of 1st Antimatter Dimensions you had at the time of Sacrificing.": "灵魂献祭将根据献祭时拥有的骷髅兵数量强化灾厄领主。",
+  "This will reset your": "这将重置你的",
+  "However,": "同时，",
   "Tickspeed affects 1st Time Dimension with reduced effect": "魂火节律以减弱的效果加成墓园祭坛",
   "You gain more Infinities based on Dimension Boosts": "根据筑塔次数增加获得的转生次数",
   "You keep half of your Replicanti Galaxies on Infinity": "转生时保留一半疫巢",
@@ -46,6 +63,7 @@ const escape = text => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const entries = Object.entries(exact).sort((a,b)=>b[0].length-a[0].length)
   .map(([source, target]) => [new RegExp(escape(source).replace(/\s+/g, "\\s+"), "gi"), target]);
 const dynamic = [
+  [/Multiplier is currently (.*?) and will increase to\s*(.*?) on Dimensional Sacrifice\./gi, "当前倍率为 $1，灵魂献祭后将变为 $2。"],
   [/Improve Replicanti multiplier formula to\s*(.*)/gi, "改善疫种倍率公式：$1"],
   [/Base Replicanti interval limit\s*(.*?)ms\s*➜\s*(.*?)ms/gi, "疫种基础繁衍间隔下限：$1ms ➜ $2ms"],
   [/Powers up multipliers that are based on your Infinities\s*\(Bonuses(.*?)\)/gi, "基于转生次数的倍率变为原倍率的 $1 次幂"],

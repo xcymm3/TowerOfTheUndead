@@ -60,7 +60,8 @@ const bindings = mapping.entries.map(entry => {
   return expression
 })
 fs.writeFileSync(path.join(stage, 'src/undead/bindings.js'), `${imports.join('\n')}\nexport const configurations = [\n${bindings.join(',\n')}\n];\n`)
-fs.writeFileSync(path.join(stage, 'vue.config.js'), `module.exports = { publicPath: './', outputDir: ${JSON.stringify(path.join(root, 'public/engine'))}, lintOnSave: false, productionSourceMap: false };`)
+// Avoid spawning a worker per CPU on memory-constrained development machines.
+fs.writeFileSync(path.join(stage, 'vue.config.js'), `module.exports = { parallel: false, publicPath: './', outputDir: ${JSON.stringify(path.join(root, 'public/engine'))}, lintOnSave: false, productionSourceMap: false };`)
 const html = fs.readFileSync(path.join(stage, 'public/index.html'), 'utf8')
 fs.writeFileSync(path.join(stage, 'public/index.html'), html.replace('lang="en"', 'lang="zh-CN"').replace('<title>Antimatter Dimensions</title>', '<title>亡灵之塔 · 经营</title>').replace(/<link href="https:\/\/fonts.googleapis.com[^>]*>/g, ''))
 // Normalize line endings only in the generated workspace before platform adapter checks.

@@ -5,7 +5,7 @@ import HeaderPrestigeGroup from "@/components/ui-modes/HeaderPrestigeGroup";
 import HeaderChallengeDisplay from "@/components/ui-modes/HeaderChallengeDisplay";
 import HeaderChallengeEffects from "@/components/ui-modes/HeaderChallengeEffects";
 import HeaderBlackHole from "@/components/ui-modes/HeaderBlackHole";
-import BigCrunchButton from "@/components/ui-modes/BigCrunchButton";
+import BigCrunchButton from "@/undead/CrunchButton";
 import GameSpeedDisplay from "@/components/GameSpeedDisplay";
 export default {
   name: "UndeadGameUI",
@@ -60,7 +60,7 @@ export default {
       </button>
       <button :class="{ selected: catalog }" @click="catalog = !catalog">典籍</button>
     </nav>
-    <nav v-if="subtabs.length > 1 && !catalog" class="tower-subtabs" aria-label="系统分页">
+    <nav v-if="view.tab !== 'dimensions' && subtabs.length > 1 && !catalog" class="tower-subtabs" aria-label="系统分页">
       <button v-for="tab in subtabs" :key="tab.key" :class="{ selected: view.subtab === tab.key }" @click="showSub(tab)">{{ sublabel(tab) }}</button>
     </nav>
     <section v-if="catalog" class="tower-catalog">

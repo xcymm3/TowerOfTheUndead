@@ -60,7 +60,7 @@ body[class] { margin: 0; background: var(--tower-panel); }
   box-shadow: inset 0 2px var(--tower-border), inset 0 -3px var(--tower-void);
   background: linear-gradient(110deg, var(--tower-panel), var(--color-background));
 }
-.army-portrait { width: 60px; height: 60px; background: url("./army-atlas.png") 0 0 / 400% 200% no-repeat; image-rendering: pixelated; }
+.army-portrait { width: 52px; height: 52px; background: url("./army-atlas.png") 0 0 / 400% 200% no-repeat; image-rendering: pixelated; }
 .unit-1 { background-position: 0 0; } .unit-2 { background-position: 33.333% 0; } .unit-3 { background-position: 66.667% 0; } .unit-4 { background-position: 100% 0; }
 .unit-5 { background-position: 0 100%; } .unit-6 { background-position: 33.333% 100%; } .unit-7 { background-position: 66.667% 100%; } .unit-8 { background-position: 100% 100%; }
 .unit-8 { clip-path: inset(0 0 0 14%); }
@@ -108,7 +108,7 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .undead-runtime .c-prestige-info-blocks > div { position: static; flex: 1 1 180px; width: auto; min-width: 0; }
 .undead-runtime .l-game-header__center { display: none; }
 .undead-runtime .c-game-tab { overflow-x: auto; padding-bottom: 8px; }
-.undead-runtime .army-management { overflow: visible; }
+.undead-runtime .army-management { overflow: visible; padding: 0; border: 0; }
 .undead-runtime .l-modern-sidebar, .undead-runtime .l-notification-icon { display: none; }
 .undead-runtime .l-time-studies-tab__tt-shop { position: fixed; top: auto; bottom: 0; left: 0; width: 100%; height: auto; max-height: 180px; background: transparent; z-index: 10; }
 .undead-runtime .ttshop-background { background: var(--tower-panel); color: var(--color-text); border-color: var(--tower-border); max-width: 100%; }
@@ -152,3 +152,29 @@ body[class] { margin: 0; background: var(--tower-panel); }
   .army-resets h4 { font-size: 16px; }
 }
 @media(prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Early-game controls: conditions and effects stay readable outside action buttons. */
+.army-resets .reset-effect { margin: 4px 0; font-size: 11px; color: var(--tower-muted); line-height: 1.6; }
+.army-resets h4 small { font-size: 13px; color: var(--tower-gold); }
+.army-resets .o-primary-btn { min-height: 36px; font-size: 14px; white-space: nowrap; }
+.army-resets button:disabled { cursor: not-allowed; }
+.crunch-ready { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; margin-bottom: 12px; border: 2px solid var(--tower-gold); background: var(--tower-panel); text-align: left; }
+.crunch-ready strong { color: var(--tower-gold); }
+.crunch-ready p { margin: 4px 0 0; font-size: 11px; color: var(--tower-muted); }
+.crunch-ready button { flex: none; padding: 8px 14px; height: auto; white-space: nowrap; }
+.army-toolbar + .army-rule { min-height: 16px; }
+.undead-runtime .l-modal-buttons { flex-wrap: wrap; gap: 8px; }
+.undead-runtime .l-modal-buttons button { white-space: nowrap; }
+.undead-runtime .c-modal { font-family: var(--font-game); max-height: calc(100vh - 24px); overflow-y: auto; }
+.undead-runtime .c-modal-message { min-width: 0; width: min(50rem, calc(100vw - 52px)); }
+.undead-runtime .c-modal__title, .undead-runtime .c-modal-message__text { width: 100%; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+#notification-container .o-notification { max-width: calc(100vw - 24px); white-space: normal; overflow-wrap: anywhere; font-family: var(--font-game); color: var(--color-text); background: var(--tower-panel); border: 1px solid var(--tower-border); border-left: 3px solid var(--tower-gold); }
+#notification-container .o-notification--error { border-left-color: var(--color-bad); }
+@media(max-width: 580px) {
+  .army-resets { grid-template-columns: minmax(0, 1fr); }
+  .army-resets .reset-container { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; text-align: left; }
+  .army-resets .reset-container h4, .army-resets .reset-container > span, .army-resets .reset-effect { grid-column: 1; }
+  .army-resets .reset-container button { grid-column: 2; grid-row: 1 / span 3; align-self: center; padding-inline: 12px; }
+  .crunch-ready { flex-wrap: wrap; }
+  .army-price small { display: block; font-size: 8px; }
+}
