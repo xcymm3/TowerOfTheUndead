@@ -1,0 +1,309 @@
+{
+  "url": "https://xcymm3.github.io/TowerOfTheUndead/",
+  "method": "Chromium headless; visible Playwright clicks for all gameplay actions; read-only engine telemetry; saved reloads with browser clock offsets for built-in offline progress; no player-state or resource writes.",
+  "startedAt": "2026-09-18T09:28:22.328Z",
+  "finishedAt": "2026-09-18T09:28:32.050Z",
+  "wallTimeMs": 9722,
+  "simulatedOffsetMs": 904600000,
+  "finalState": {
+    "antimatter": "40.4907944643903",
+    "infinityPoints": "1",
+    "eternityPoints": "0",
+    "realities": 0,
+    "infinities": "1",
+    "eternities": "0",
+    "dimensionBoosts": 0,
+    "galaxies": 0,
+    "breakInfinity": false,
+    "endState": 0,
+    "doomed": false,
+    "realTimePlayed": 906909739.001301,
+    "fullGameCompletions": 0,
+    "currentChallenge": 0,
+    "currentInfinityChallenge": 0,
+    "currentEternityChallenge": 0,
+    "armyBought": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "errors": [],
+  "failedRequests": [],
+  "milestones": [
+    {
+      "name": "start",
+      "atMs": 6142,
+      "simulatedOffsetMs": 904600000,
+      "state": {
+        "antimatter": "1.7976931348623157e+308",
+        "infinityPoints": "0",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "0",
+        "eternities": "0",
+        "dimensionBoosts": 4,
+        "galaxies": 2,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906906737.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          1030,
+          770,
+          610,
+          510,
+          380,
+          300,
+          250,
+          190
+        ]
+      }
+    },
+    {
+      "name": "first-infinity",
+      "atMs": 8942,
+      "simulatedOffsetMs": 904600000,
+      "state": {
+        "antimatter": "31.1576426019966",
+        "infinityPoints": "1",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "1",
+        "eternities": "0",
+        "dimensionBoosts": 0,
+        "galaxies": 0,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906909541.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "early-complete",
+      "atMs": 9578,
+      "simulatedOffsetMs": 904600000,
+      "state": {
+        "antimatter": "62.268149205011596",
+        "infinityPoints": "1",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "1",
+        "eternities": "0",
+        "dimensionBoosts": 0,
+        "galaxies": 0,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906910201.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "atMs": 6142,
+      "simulatedOffsetMs": 904600000,
+      "type": "milestone",
+      "name": "start",
+      "state": {
+        "antimatter": "1.7976931348623157e+308",
+        "infinityPoints": "0",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "0",
+        "eternities": "0",
+        "dimensionBoosts": 4,
+        "galaxies": 2,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906906737.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          1030,
+          770,
+          610,
+          510,
+          380,
+          300,
+          250,
+          190
+        ]
+      }
+    },
+    {
+      "atMs": 6614,
+      "simulatedOffsetMs": 904600000,
+      "type": "click",
+      "label": "购买模式：最大"
+    },
+    {
+      "atMs": 6789,
+      "simulatedOffsetMs": 904600000,
+      "type": "click",
+      "label": "全部最大"
+    },
+    {
+      "atMs": 7034,
+      "simulatedOffsetMs": 904600000,
+      "type": "click",
+      "label": "全部最大"
+    },
+    {
+      "atMs": 7206,
+      "simulatedOffsetMs": 904600000,
+      "type": "click",
+      "label": "转生"
+    },
+    {
+      "atMs": 7285,
+      "simulatedOffsetMs": 904600000,
+      "type": "modal",
+      "name": "确认",
+      "index": 0
+    },
+    {
+      "atMs": 8591,
+      "simulatedOffsetMs": 904600000,
+      "type": "cycle-state",
+      "cycle": 0,
+      "result": "reset",
+      "state": {
+        "antimatter": "15.6023897252424",
+        "infinityPoints": "1",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "1",
+        "eternities": "0",
+        "dimensionBoosts": 0,
+        "galaxies": 0,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906909211.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atMs": 8942,
+      "simulatedOffsetMs": 904600000,
+      "type": "milestone",
+      "name": "first-infinity",
+      "state": {
+        "antimatter": "31.1576426019966",
+        "infinityPoints": "1",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "1",
+        "eternities": "0",
+        "dimensionBoosts": 0,
+        "galaxies": 0,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906909541.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "atMs": 9578,
+      "simulatedOffsetMs": 904600000,
+      "type": "milestone",
+      "name": "early-complete",
+      "state": {
+        "antimatter": "62.268149205011596",
+        "infinityPoints": "1",
+        "eternityPoints": "0",
+        "realities": 0,
+        "infinities": "1",
+        "eternities": "0",
+        "dimensionBoosts": 0,
+        "galaxies": 0,
+        "breakInfinity": false,
+        "endState": 0,
+        "doomed": false,
+        "realTimePlayed": 906910201.001301,
+        "fullGameCompletions": 0,
+        "currentChallenge": 0,
+        "currentInfinityChallenge": 0,
+        "currentEternityChallenge": 0,
+        "armyBought": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

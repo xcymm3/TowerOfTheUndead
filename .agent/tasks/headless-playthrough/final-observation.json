@@ -1,0 +1,28 @@
+{
+  "stoppedAt": "2026-09-18T17:40:58+08:00",
+  "actualElapsedMinutes": 67.98,
+  "simulatedOffsetMs": 66977680000,
+  "simulatedDays": 775.2046,
+  "browser": {
+    "engine": "Chromium/Chrome",
+    "headless": true,
+    "viewport": "1440x1000",
+    "visibleWindowOpened": false,
+    "mouseLockUsed": false
+  },
+  "finalState": {
+    "infinities": "2",
+    "infinityPoints": "1",
+    "eternities": "0",
+    "realities": 0,
+    "normalChallengeCurrent": 3,
+    "normalChallengeCompletedBits": 6,
+    "fullGameCompletions": 0
+  },
+  "newsEquivalence": {
+    "tickerDomCount": 0,
+    "achievement22Unlocked": false,
+    "secretAchievement24Unlocked": false,
+    "status": "missing"
+  }
+}
