@@ -323,7 +323,10 @@ export async function researchInteractions({ page, engine, reference, reset, tes
     await click('.c-modal__confirm-btn')
     await check('return player.dilation.active', true)
     await parity('dilation: confirmed entry reset')
-    await mutate('Currency.tachyonParticles.value=new Decimal(100); AntimatterDimension(1).amount=new Decimal(100); gameLoop(1000);')
+    // Eternity milestones retain unlocked Replicanti. Use its original deterministic
+    // continuous-growth branch so unrelated low-count random replication cannot flake parity.
+    await mutate('Currency.tachyonParticles.value=new Decimal(100); AntimatterDimension(1).amount=new Decimal(100); player.replicanti.amount=new Decimal(100); player.replicanti.chance=1; gameLoop(1000);')
+    await check('return Currency.dilatedTime.value.gt(0)', true)
     await parity('dilation: stage tachyon fixture, production penalty and dilated time generation')
     await mutate('Tab.eternity.dilation.show(true);')
     await click('.o-dilation-btn')

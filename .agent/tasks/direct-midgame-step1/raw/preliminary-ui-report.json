@@ -1,0 +1,22 @@
+{
+  "filter": "Crunch mode inputs|Boost, galaxy|Middle-stage descriptions",
+  "results": [
+    {
+      "name": "Midgame completion · Crunch mode inputs and boost/galaxy limits control actual triggering",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Boost, galaxy, crunch and Eternity autobuyers execute original resets",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

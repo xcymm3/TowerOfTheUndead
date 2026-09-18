@@ -1,6 +1,6 @@
 # 亡灵之塔 · Tower of the Undead
 
-以亡灵军团与高塔为主题的放置增量游戏。玩法和数值沿用 Antimatter Dimensions 提交 `5409e320cecef96a917cca1dfb68f1f183e499ca`，玩家可见名称遵循 [逐项映射表](./docs/亡灵之塔-逐项内容映射表.md)。当前完成可运行基线接入，完整游戏仍按 [五步计划](./docs/亡灵之塔-开发进度与五步计划.md) 分阶段验收。
+以亡灵军团与高塔为主题的放置增量游戏。玩法和数值沿用 Antimatter Dimensions 提交 `5409e320cecef96a917cca1dfb68f1f183e499ca`，玩家可见名称遵循 [逐项映射表](./docs/亡灵之塔-逐项内容映射表.md)。当前完成可运行基线接入，完整游戏按 [直接开发七步计划](./docs/亡灵之塔-开发进度与五步计划.md#直接开发七步计划2026-09-18) 分阶段验收。
 
 ## 本地开发
 
@@ -30,7 +30,7 @@ pnpm preview
 - `pnpm test:runtime`：复用当前构建执行校验和回归；任一构建缺失或输入指纹过期时失败，需先运行 `pnpm test`。
 - `pnpm build`：重新构建运行时、检查类型、生成完整 `dist/`。原版测试对照不进入交付目录。
 - `pnpm test:production`：检查正式产物的许可、运行时指纹及测试目录隔离，并在 `/TowerOfTheUndead/` 子路径预览服务中验证载入、资源请求、购买、军团名册、保存和刷新恢复。
-- `PAGES_BASE_URL=https://实际站点/ node tests/pages.mjs`：对已发布站点执行同一真实购买、保存刷新冒烟，不植入阶段夹具（PowerShell 使用 `$env:PAGES_BASE_URL` 设置地址）。当前发布仍待平台认证与上线验证。
+- `PAGES_BASE_URL=https://实际站点/ node tests/pages.mjs`：对已发布站点执行同一真实购买、保存刷新冒烟，不植入阶段夹具（PowerShell 使用 `$env:PAGES_BASE_URL` 设置地址）。2026-09-18 已确认 GitHub 认证有效；实际发布与线上验收留在直接开发第 7 步。
 - `pnpm preview`：预览 `dist/`。部署时托管整个目录，包括 `engine/` 与 `art/`；通过 HTTP 访问 `/TowerOfTheUndead/`。
 - 测试报告与截图默认写入 `test-results/`；可通过 `TEST_OUTPUT_DIR` 指定隔离输出目录，不提交生成产物。
 - 中期操作对照见 [中期验收方法与覆盖限制](./docs/亡灵之塔-中期验收方法.md)。`TEST_FILTER` 可按用例名称筛选调试；筛选报告不代表完整回归通过。
@@ -54,4 +54,4 @@ pnpm preview
 
 原作 MIT 许可保存在 [vendor/antimatter/LICENSE](./vendor/antimatter/LICENSE) 和 [文档副本](./docs/AntimatterDimensions-MIT-LICENSE.txt)。
 
-阶段回归含原版与亡灵版的固定场景比较，以及使用阶段夹具的页面检查；它们不等于自然推进到结局的完整验证。后期主题化、逐项映射审计和终局操作链仍按五步计划推进。
+阶段回归含原版与亡灵版的固定场景比较，以及使用阶段夹具的页面检查；它们不等于自然推进到结局的完整验证。后期主题化、逐项映射审计和终局操作链仍按直接开发七步计划推进。第 1 步范围及证据见 [中期补齐记录](./docs/亡灵之塔-直接开发第一步.md)。

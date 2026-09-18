@@ -1,0 +1,81 @@
+/* Original panels share a narrower iframe. Keep their controls and ordering intact. */
+.undead-runtime .l-break-infinity-upgrade-grid,
+.undead-runtime .l-dilation-upgrades-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%;
+}
+.undead-runtime .l-break-infinity-upgrade-grid__row,
+.undead-runtime .l-dilation-upgrades-grid__row { display: contents; }
+.undead-runtime .l-infinity-upgrade-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%;
+}
+.undead-runtime .l-infinity-upgrade-grid > div { min-width: 0; }
+.undead-runtime .l-infinity-upgrade-grid__cell,
+.undead-runtime .l-dilation-upgrades-grid__cell {
+  width: 100%; min-width: 0; height: auto; min-height: 96px; margin: 0 0 8px;
+}
+.undead-runtime .l-break-infinity-upgrade-grid .o-infinity-upgrade-btn,
+.undead-runtime .l-infinity-upgrade-grid .o-infinity-upgrade-btn,
+.undead-runtime .l-dilation-upgrades-grid .o-dilation-upgrade {
+  width: 100%; height: auto; min-height: 104px; padding: 10px 7px; font-size: 12px;
+  white-space: normal; overflow-wrap: anywhere; line-height: 1.5;
+}
+.undead-runtime .l-replicanti-upgrade-row {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%;
+}
+.undead-runtime .l-replicanti-upgrade-button { min-width: 0; width: 100%; margin: 0; }
+.undead-runtime .o-primary-btn--replicanti-upgrade {
+  min-width: 0; width: 100%; height: auto; min-height: 100px; padding: 8px; font-size: 12px;
+}
+.undead-runtime .l-autobuyers-tab { width: 100%; min-width: 0; font-size: 12px; }
+.undead-runtime .l-autobuyers-tab .c-autobuyer-box-row {
+  width: 100%; margin: 6px 0; padding: 12px 24px 12px 10px; gap: 8px;
+  border-radius: 0; border-color: var(--tower-highlight); background: var(--tower-panel);
+}
+.undead-runtime .l-autobuyer-box__autobuyers { min-width: 0; width: auto; }
+.undead-runtime .l-autobuyer-box__title { min-width: 0; max-width: 100%; }
+.undead-runtime .l-autobuyer-singlet-group {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; min-width: 0; gap: 8px;
+}
+.undead-runtime .c-autobuyer-box-row > div { min-width: 0; }
+.undead-runtime .l-autobuyers-tab .o-autobuyer-btn,
+.undead-runtime .l-autobuyers-tab .o-autobuyer-input {
+  max-width: 100%; border-radius: 0; color: var(--color-text); background: var(--tower-panel);
+}
+.undead-runtime .c-prestige-info-blocks { align-items: flex-start; }
+.undead-runtime .c-prestige-button-container { min-height: 0; height: auto; }
+.undead-runtime .o-prestige-button,
+.undead-runtime .o-eternity-button {
+  max-width: 100%; min-height: 60px; height: auto; margin-block: 5px; padding: 10px;
+  border: 2px solid var(--tower-border); border-radius: 0;
+  color: var(--color-text); background: var(--tower-green); font-size: 12px;
+  line-height: 1.5; overflow-wrap: anywhere;
+}
+.undead-runtime .o-eternity-button--unavailable,
+.undead-runtime .o-infinity-button--unavailable,
+.undead-runtime .o-dilation-upgrade--unavailable {
+  color: var(--tower-muted); background: var(--tower-panel); border-color: var(--tower-highlight); opacity: 1;
+}
+.undead-runtime .o-dilation-upgrade--available,
+.undead-runtime .o-dilation-upgrade--bought,
+.undead-runtime .o-dilation-upgrade--capped {
+  color: var(--color-text); background: var(--tower-green); border-color: var(--tower-border); border-radius: 0;
+}
+@media (max-width: 650px) {
+  .undead-runtime .l-infinity-upgrade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .undead-runtime .l-break-infinity-upgrade-grid,
+  .undead-runtime .l-dilation-upgrades-grid,
+  .undead-runtime .l-replicanti-upgrade-row { grid-template-columns: minmax(0, 1fr); }
+  .undead-runtime .l-autobuyers-tab .c-autobuyer-box-row { flex-wrap: wrap; }
+  .undead-runtime .l-autobuyers-tab .l-autobuyer-box__header,
+  .undead-runtime .l-autobuyers-tab .c-autobuyer-box-row__intervalSlot,
+  .undead-runtime .l-autobuyers-tab .c-autobuyer-box-row__toggleSlot,
+  .undead-runtime .l-autobuyers-tab .c-autobuyer-box-row__checkboxSlot { width: 100%; }
+  .undead-runtime .l-autobuyers-tab .l-autobuyer-box__title { width: 100%; }
+  .undead-runtime .l-autobuyer-singlet-group { grid-template-columns: minmax(0, 1fr); }
+}
+
+.undead-runtime .o-dilation-btn {
+  max-width: 100%; min-height: 72px; height: auto; padding: 12px;
+  border: 2px solid var(--tower-border); border-radius: 0; box-shadow: none;
+  color: var(--color-text); background: var(--tower-green); font-size: 12px;
+}

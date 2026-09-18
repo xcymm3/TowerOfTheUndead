@@ -36,7 +36,7 @@ page.on('pageerror', error => errors.push(error.message))
 page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
 const results = []
 async function test(name, fn) {
-  if (process.env.TEST_FILTER && !name.includes(process.env.TEST_FILTER) && name !== 'No browser runtime errors') return
+  if (process.env.TEST_FILTER && !process.env.TEST_FILTER.split('|').some(filter => name.includes(filter.trim())) && name !== 'No browser runtime errors') return
   try { await fn(); results.push({ name, pass: true }); console.log('PASS', name) }
   catch (error) {
     results.push({ name, pass: false, error: error.stack })

@@ -1,5 +1,8 @@
 // Wording adapters only: captured values and mathematical expressions come from upstream.
+import { midgamePhrases, translateMidgame } from './midgame-phrases';
+
 const exact = {
+  ...midgamePhrases,
   "You are about to do a Dimension Boost Reset": "即将进行筑塔重置",
   "This will reset your Antimatter and Antimatter Dimensions. Are you sure you want to do this?": "这将重置游魂与亡灵军团。确认进行筑塔？",
   "You are about to purchase an Antimatter Galaxy": "即将开辟墓域",
@@ -91,7 +94,7 @@ const dynamic = [
   [/Dimensional Sacrifice formula scales better\s*(.*)/gi, "改善灵魂献祭公式：$1"],
 ];
 export function translatePhrases(text) {
-  let value = text;
+  let value = translateMidgame(text);
   for (const [pattern, replacement] of entries) value = value.replace(pattern, replacement);
   for (const [pattern, replacement] of dynamic) value = value.replace(pattern, replacement);
   return value.replace(/\bON\b/g, "开启").replace(/\bOFF\b/g, "关闭");

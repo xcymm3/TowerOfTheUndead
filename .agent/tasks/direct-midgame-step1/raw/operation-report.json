@@ -1,0 +1,126 @@
+{
+  "filter": "Midgame|Research UI|No browser runtime errors",
+  "results": [
+    {
+      "name": "Midgame completion · Crunch mode inputs and boost/galaxy limits control actual triggering",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Eight army and tickspeed slow unlocks, interval caps, bulk and real scheduling",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Every middle-stage simple autobuyer unlocks, toggles and actually spends currency",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Boost, galaxy, crunch and Eternity autobuyers execute original resets",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · All break upgrades, repeatable cost chains and caps",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Every pre-Reality dilation upgrade, galaxy reset and finite cap",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Replicanti growth, cap, confirmation and galaxy retention milestones",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Second dimension path and dilation three-path unlock",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Space theorem exception spends exact cost and refunds on study respec",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · All eternity trials cancel entry, restart, apply rules and exit on completion",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Normal and infinity challenge automatic retry keeps the active trial",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · EC8 enforces fifty council and forty replicanti purchases and disables autos",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Offline milestone credits and mutually exclusive eligibility",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Soul contracts reject missing prerequisite/funds and buy at exact cost",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Break gate requires max crunch interval and modal confirmation",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Eight council tiers unlock and buy with exact original thresholds",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Plague seed unlock plus all three upgrade currency boundaries",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Duty autobuyer unlock, interval, mode and activation use original controls",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Four early altars reject insufficient EP and buy at exact cost",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Late altars require prior study and exact theorem unlock then EP purchase",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Eternity resets contracts, council, plague and automation at retention milestones",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Original study prerequisites, exact costs, path exclusivity and refund",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Every pre-Reality study cost, prerequisite and exclusive partner",
+      "pass": true
+    },
+    {
+      "name": "Research UI · All normal and infinity challenges enter, apply rules and exit through UI",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Twelve eternity trials complete all five tiers with original secondary and IP gates",
+      "pass": true
+    },
+    {
+      "name": "Research UI · EC4 crunch limit and EC12 game-time failure boundaries at every tier",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Every eternity milestone crosses its threshold through an actual Eternity",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Dilation original study gates, confirmation, production and exit retention",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

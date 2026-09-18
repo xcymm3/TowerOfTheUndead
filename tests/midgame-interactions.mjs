@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { outputPath } from './output.mjs'
+import { completeMidgame } from './midgame-completion.mjs'
 
 // Resource/progression fixtures skip waiting, never replace purchase handlers or gates.
 // Both isolated engines receive the same fixture and real browser clicks.
 export async function midgameInteractions({ page, engine, reference, reset, test }) {
+  await completeMidgame({ page, engine, reference, reset, test })
   const frames = [engine, reference]
   const trace = []
   const mutate = async script => {

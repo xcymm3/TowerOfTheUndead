@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "date": "2026-09-18",
+  "upstream": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+  "criteria": {
+    "AC1": {
+      "status": "PASS",
+      "evidence": [
+        "operation-report.json",
+        "midgame-completion.json.gz"
+      ],
+      "scope": "All middle-stage autobuyer types, modes, real scheduling and reset effects; break upgrade costs/caps."
+    },
+    "AC2": {
+      "status": "PASS",
+      "evidence": [
+        "operation-report.json",
+        "midgame-completion.json.gz",
+        "final-display-report.json"
+      ],
+      "scope": "Replicanti deterministic growth, cap, reset confirmation, milestone retention and purchase controls."
+    },
+    "AC3": {
+      "status": "PASS",
+      "evidence": [
+        "operation-report.json",
+        "research-operations.json.gz",
+        "midgame-completion.json.gz"
+      ],
+      "scope": "Second/third paths, ST cost/refund, 12 EC rules, retry/cancel/exit, EC8 quota. V unlock and celestial exceptions excluded."
+    },
+    "AC4": {
+      "status": "PASS",
+      "evidence": [
+        "operation-report.json",
+        "midgame-completion.json.gz",
+        "final-research-operations.json.gz"
+      ],
+      "scope": "Ten pre-Reality dilation upgrades, finite caps and resets; actual offline milestone credits; dilation study/entry/production/exit."
+    },
+    "AC5": {
+      "status": "PASS",
+      "evidence": [
+        "final-display-report.json",
+        "final-display-output.txt",
+        "production.txt",
+        "typecheck.txt",
+        "lint.txt",
+        "build-fingerprint.json"
+      ],
+      "scope": "Current display build, visible labels, 320/1440 control bounds/screenshots, source hashes and production smoke."
+    }
+  },
+  "code_sha256": {
+    "runtime/phrases.js": "68a88bbb784ae9c603891c7a2040bb9b3482ae33e2f55b41ceb3e43c614d048c",
+    "runtime/theme.js": "36b98504eabb878bf32ee79f8d3c83e3ca90dd4824b8f06429df00bf389b3e24",
+    "runtime/midgame-phrases.js": "ef39b08a1d3cf2e088290854fdf957205d8e05779b8ca1572ab65bb10abfbcca",
+    "runtime/midgame.css": "73967b4742e67d57af0fa4ed76266701d93ca680a80445633f590a0833df5450",
+    "tests/runtime.mjs": "74413753cb3ad11d2149e93d90a039f5b41b174294aec1033dde778528c56026",
+    "tests/midgame-interactions.mjs": "551804506ffca9228570d734452ab18af8d3c7f63c8f80a92a7c0e41e2403664",
+    "tests/midgame-completion.mjs": "abd8e09198ee91356aeda5d2e61f24b3537cccc766faf9cdd18246202d25dbd1",
+    "tests/research-interactions.mjs": "1ddde0d437161d24cf2fded35ceacdcad2d04e7f373f798097d2153a4d51006e"
+  },
+  "validation_passes": [
+    {
+      "report": "raw/preliminary-full-report.json",
+      "passed": 88,
+      "failed": 0,
+      "scope": "Full suite before final display polish; not claimed as full suite against final code."
+    },
+    {
+      "report": "raw/operation-report.json",
+      "passed": 30,
+      "failed": 0,
+      "scope": "Middle-stage and research suite before final dilation/replicanti display polish."
+    },
+    {
+      "report": "raw/final-display-report.json",
+      "passed": 4,
+      "failed": 0,
+      "scope": "Final code: all four panel screenshots and text/bounds; replicanti purchases; dilation entry/production/exit; no browser errors."
+    }
+  ],
+  "fixed_finding": "Unrelated low-count random Replicanti growth in inherited dilation fixture; stage amount100/chance1 now uses unchanged original deterministic branch and asserts positive dilated time. Initial failure retained.",
+  "limits": [
+    "Resource/history fixtures do not prove natural new-save progression.",
+    "Only AC1-AC5 of direct step1 pass; direct steps2-7 are not complete.",
+    "Global mapping semantics, celestial/endgame exceptions, long offline/storage and Pages release remain later steps."
+  ],
+  "raw_sha256": {
+    "build-final.txt.gz": "76cbea7e4a30141df8fd56be1440dc88dacf9432a438d183ae5b3165f1d8a312",
+    "build-fingerprint.json": "b462a7a4d3eed9b2757d00b70626a523f05756a01d31e79b3f83e826bf3e2672",
+    "display-pass-before-fixture-fix.json": "2d5a0ae21141ce191f11f6de93d636bf5483eb452c45e588af69adc4dca27145",
+    "dist-build.txt.gz": "6809598e711a1c6163303c970c55b6c0876e00287f48b3e68cda4898a364813a",
+    "dist-final.txt.gz": "2ffb62a7c7147310328caed99d7149d86809c442cfd8ba7ccb3fe98e96209cd1",
+    "final-display-output.txt": "073edeeac8eefa367387c24c42a5f204c21b095617e07d16dea87dc0ca8403d0",
+    "final-display-report.json": "6afada576efedb702efaad33cf67e3f8ab36d152928f1a91d01885d8ad71d439",
+    "final-midgame-completion.json.gz": "46c79f5befdb0e8be4f1cca497c77765e8454687099b9d2824816ad0033bdf0f",
+    "final-midgame-operations.json.gz": "e9f1b36a85bf008cc4a7593d3a362f1a850b578751556cb88d375b1d6df2ec27",
+    "final-research-operations.json.gz": "a19282be40f977cf936d89c10ff222b9e1cdef7223e170122aca3493eab30af1",
+    "lint.txt": "97232a727ad90dbb72525722cfbb9172efe07711d9da02a73d7d79dca04eaa9f",
+    "midgame-automation-autobuyers-1440.png": "901dfb07dfb2a1d071757760208a81fa28ba53ae8433ab3abd919375a3632ca8",
+    "midgame-automation-autobuyers-320.png": "45942f6fc8d6026094e33c1a0c7f8ab65ad7654aef86b31103b8c69b0956d655",
+    "midgame-completion.json.gz": "64dc91c83f5e7d9824b57073502581f412f6c106cfe21eb31385dea36c0e61ac",
+    "midgame-eternity-dilation-1440.png": "6853aaaf3c8b46d6b68c86f0a7315cce0ff3989c5a28cd2a40dc72df58d65239",
+    "midgame-eternity-dilation-320.png": "8f29b43aa7df1f67f093d1ba460077ff7bdb72e4f3f08e86f6cef619bc093ea9",
+    "midgame-infinity-break-1440.png": "801ae9bf399499fbe3050159f2f2722ffa6f4436ba406b9c29284258fb22298d",
+    "midgame-infinity-break-320.png": "5e63196e973d2b08a7a802d4a317224674d401875f463ebb10c0c1b884bde845",
+    "midgame-infinity-replicanti-1440.png": "e12bc433f04129a77a223d276e4b0c5570e334b63c05f853f8c9f6b9ee1b21fc",
+    "midgame-infinity-replicanti-320.png": "c0a2171f0b0b6306bed749da4b313176044a00778c27981212def1ab2c327947",
+    "midgame-operations.json.gz": "ce5ff5961222c91ac51703654cb2452904c888cceab37bd308576641205f50e4",
+    "operation-build-fingerprint.json": "1ae7d8fcfb760b8a8ba8caadbbdb297e15e4f8e97bfcf76fff4c0681f58c77b4",
+    "operation-output.txt": "18c162163b58d4e0ad008b6f384bcb31d4e67be54449871ae395abad4f16575c",
+    "operation-report.json": "958c7e22b3ef3b3434aa1ea3c49c2880ed4140608234b4ef6f57ddc2e1b7397f",
+    "preliminary-full-output.txt": "4d9ae24b6984b1fcb63388c2a915e1119be2e103ee4428008b7e268332f4af40",
+    "preliminary-full-report.json": "ad345e2f4efb8af7fc45c2db20c707a8358f6bf110c10277d7217d117e0ef4ef",
+    "preliminary-ui-report.json": "9995b06e7d7ee3cd4414ff19a325fbca03aa10af76638ff2e1522e6b6e199b4b",
+    "production.txt": "e84e8cf70f712aea9802277ec36d744d2be31519b03c4f2399a64542d5637c77",
+    "research-operations.json.gz": "130c1274431b912b7e64fedb493e8e2725b331f5a38c3548e3e2d01dad9a8a77",
+    "runtime-build.txt.gz": "9642288b7c0062d2f46c01d30606f49c74224fd9fbfa9e4400c36d1d216ab997",
+    "typecheck.txt": "5e419d5756c7f39390f8b5cac48831a2cf6a3983f8bd0916f14fe67ee9087170"
+  },
+  "code_hash_encoding": "UTF-8 bytes with CRLF normalized to LF; raw artifacts retain exact bytes via .gitattributes"
+}

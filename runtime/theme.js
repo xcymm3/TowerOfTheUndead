@@ -4,6 +4,7 @@ import mapping from "./mapping.json";
 import { configurations } from "./bindings";
 import { armyNames, translate, prepareTranslations } from "./glossary";
 import "./theme.css";
+import "./midgame.css";
 
 export function installUndeadTheme() {
   const extra = {};

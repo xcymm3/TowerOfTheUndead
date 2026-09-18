@@ -1,0 +1,23 @@
+{
+  "filter": "Middle-stage descriptions|Plague seed unlock|Dilation original study",
+  "results": [
+    {
+      "name": "Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Plague seed unlock plus all three upgrade currency boundaries",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Dilation original study gates, confirmation, production and exit retention",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: dilation: stage tachyon fixture, production penalty and dilated time generation\n+ actual - expected\n... Skipped lines\n\n  {\n    am: '39639.2104519703',\n    auto: {\n      annihilation: {\n        isActive: false,\n...\n    replicanti: {\n+     amount: '1',\n-     amount: '2',\n      boughtGalaxyCap: 0,\n      chance: 0.01,\n      chanceCost: '1e+150',\n      galCost: '1e+170',\n      galaxies: 0,\n\n    at parity (file:///D:/mydoc/React/TowerOfTheUndead/tests/research-interactions.mjs:56:12)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/research-interactions.mjs:327:5\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/research-interactions.mjs:11:11)\n    at async researchInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/research-interactions.mjs:305:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:198:3"
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,6 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects
+PASS Midgame UI · Plague seed unlock plus all three upgrade currency boundaries
+PASS Research UI · Dilation original study gates, confirmation, production and exit retention
+PASS No browser runtime errors

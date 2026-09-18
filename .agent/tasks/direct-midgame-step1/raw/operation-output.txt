@@ -1,0 +1,32 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS Midgame completion · Crunch mode inputs and boost/galaxy limits control actual triggering
+PASS Midgame completion · Eight army and tickspeed slow unlocks, interval caps, bulk and real scheduling
+PASS Midgame completion · Every middle-stage simple autobuyer unlocks, toggles and actually spends currency
+PASS Midgame completion · Boost, galaxy, crunch and Eternity autobuyers execute original resets
+PASS Midgame completion · All break upgrades, repeatable cost chains and caps
+PASS Midgame completion · Every pre-Reality dilation upgrade, galaxy reset and finite cap
+PASS Midgame completion · Replicanti growth, cap, confirmation and galaxy retention milestones
+PASS Midgame completion · Second dimension path and dilation three-path unlock
+PASS Midgame completion · Space theorem exception spends exact cost and refunds on study respec
+PASS Midgame completion · All eternity trials cancel entry, restart, apply rules and exit on completion
+PASS Midgame completion · Normal and infinity challenge automatic retry keeps the active trial
+PASS Midgame completion · EC8 enforces fifty council and forty replicanti purchases and disables autos
+PASS Midgame completion · Offline milestone credits and mutually exclusive eligibility
+PASS Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects
+PASS Midgame UI · Soul contracts reject missing prerequisite/funds and buy at exact cost
+PASS Midgame UI · Break gate requires max crunch interval and modal confirmation
+PASS Midgame UI · Eight council tiers unlock and buy with exact original thresholds
+PASS Midgame UI · Plague seed unlock plus all three upgrade currency boundaries
+PASS Midgame UI · Duty autobuyer unlock, interval, mode and activation use original controls
+PASS Midgame UI · Four early altars reject insufficient EP and buy at exact cost
+PASS Midgame UI · Late altars require prior study and exact theorem unlock then EP purchase
+PASS Midgame UI · Eternity resets contracts, council, plague and automation at retention milestones
+PASS Research UI · Original study prerequisites, exact costs, path exclusivity and refund
+PASS Research UI · Every pre-Reality study cost, prerequisite and exclusive partner
+PASS Research UI · All normal and infinity challenges enter, apply rules and exit through UI
+PASS Research UI · Twelve eternity trials complete all five tiers with original secondary and IP gates
+PASS Research UI · EC4 crunch limit and EC12 game-time failure boundaries at every tier
+PASS Research UI · Every eternity milestone crosses its threshold through an actual Eternity
+PASS Research UI · Dilation original study gates, confirmation, production and exit retention
+PASS No browser runtime errors

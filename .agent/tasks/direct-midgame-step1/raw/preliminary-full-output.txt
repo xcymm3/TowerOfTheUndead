@@ -1,0 +1,91 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS 767 mappings bind to their original config objects
+PASS Early unlocks respect original parent and subtab gates
+PASS Parity · Initial purchase
+PASS Parity · Ten-purchase multiplier and cost scaling
+PASS Parity · Maximum purchases
+PASS Parity · Eight-tier production and tick ordering
+PASS Parity · Tickspeed purchase and bulk scaling
+PASS Parity · Dimension boost reset
+PASS Parity · Galaxy reset
+PASS Parity · Sacrifice reset
+PASS Parity · NC6 alternate currency
+PASS Parity · NC9 coupled cost scaling
+PASS Parity · Infinity reset
+PASS Parity · Infinity upgrade economics
+PASS Parity · Infinity dimension production chain
+PASS Parity · Eternity reset and retained milestones
+PASS Parity · Time altar production
+PASS Parity · Research prerequisites and costs
+PASS Parity · Dilation penalty and generation
+PASS Parity · First Reality rewards and reset
+PASS Parity · Seeded glyph generation
+PASS Parity · Black hole three upgrade tracks
+PASS Parity · Continuum and dark matter production
+PASS Parity · Pelle rifts and terminal resource loop
+PASS UI · Single, partial ten, next decade and maximum purchases match original
+PASS UI · Eight tiers unlock through original boost requirements and actual clicks
+PASS UI · Every tier rejects insufficient funds and buys at exact original price
+PASS UI · Boost boundary and retained state match original at every early tier
+PASS UI · Tickspeed exact cost boundary matches original
+PASS UI · Tickspeed single and maximum clicks match original
+PASS UI · Galaxy threshold, cancellation and confirmation match original
+PASS UI · Sacrifice cancellation, reward and retained eighth tier match original
+PASS UI · First Infinity threshold and mandatory confirmation match original
+PASS UI · Controls left, army right; responsive reset buttons remain reachable
+PASS Midgame completion · Crunch mode inputs and boost/galaxy limits control actual triggering
+PASS Midgame completion · Eight army and tickspeed slow unlocks, interval caps, bulk and real scheduling
+PASS Midgame completion · Every middle-stage simple autobuyer unlocks, toggles and actually spends currency
+PASS Midgame completion · Boost, galaxy, crunch and Eternity autobuyers execute original resets
+PASS Midgame completion · All break upgrades, repeatable cost chains and caps
+PASS Midgame completion · Every pre-Reality dilation upgrade, galaxy reset and finite cap
+PASS Midgame completion · Replicanti growth, cap, confirmation and galaxy retention milestones
+PASS Midgame completion · Second dimension path and dilation three-path unlock
+PASS Midgame completion · Space theorem exception spends exact cost and refunds on study respec
+PASS Midgame completion · All eternity trials cancel entry, restart, apply rules and exit on completion
+PASS Midgame completion · Normal and infinity challenge automatic retry keeps the active trial
+PASS Midgame completion · EC8 enforces fifty council and forty replicanti purchases and disables autos
+PASS Midgame completion · Offline milestone credits and mutually exclusive eligibility
+PASS Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects
+PASS Midgame UI · Soul contracts reject missing prerequisite/funds and buy at exact cost
+PASS Midgame UI · Break gate requires max crunch interval and modal confirmation
+PASS Midgame UI · Eight council tiers unlock and buy with exact original thresholds
+PASS Midgame UI · Plague seed unlock plus all three upgrade currency boundaries
+PASS Midgame UI · Duty autobuyer unlock, interval, mode and activation use original controls
+PASS Midgame UI · Four early altars reject insufficient EP and buy at exact cost
+PASS Midgame UI · Late altars require prior study and exact theorem unlock then EP purchase
+PASS Midgame UI · Eternity resets contracts, council, plague and automation at retention milestones
+PASS Research UI · Original study prerequisites, exact costs, path exclusivity and refund
+PASS Research UI · Every pre-Reality study cost, prerequisite and exclusive partner
+PASS Research UI · All normal and infinity challenges enter, apply rules and exit through UI
+PASS Research UI · Twelve eternity trials complete all five tiers with original secondary and IP gates
+PASS Research UI · EC4 crunch limit and EC12 game-time failure boundaries at every tier
+PASS Research UI · Every eternity milestone crosses its threshold through an actual Eternity
+PASS Research UI · Dilation original study gates, confirmation, production and exit retention
+PASS Reality UI · Entire perk graph via canvas clicks and connected purchase boundaries
+PASS Reality UI · Glyph deletion, sacrifice confirmation and all five basic types
+PASS Reality UI · Glyph filter unlock, five modes and original threshold decisions
+PASS Reality UI · First reset threshold, cancel, seeded rewards and glyph equip
+PASS Reality UI · All 25 upgrade purchase gates and five rebuyable second costs
+PASS Reality UI · Black hole unlock, six tracks, pause and coupled clocks
+PASS Automator UI · Exact unlock points and original script execution controls
+PASS Automator UI · Invalid syntax rejection and study resource wait/resume
+PASS Storage UI · File export, stage import and invalid input preservation
+PASS Storage UI · Three isolated slots and backup recovery with reserve undo
+PASS Storage load · Original offline calculation and disabled offline control
+PASS Celestial UI · Teresa shop purchase boundaries, effects and run entry/exit
+PASS Celestial UI · Effarig all four unlock purchases and run entry/exit
+PASS Celestial UI · Laitela dark upgrades, singularity threshold and run entry/exit
+PASS Endgame UI · doom requirements, cancel and confirmed reset
+PASS Endgame UI · five rift drains, simultaneous limit and milestone crossings
+PASS Endgame UI · generator unlock and five ordered sacrifices restore rifts
+PASS Performance · Large-number scene stays bounded and responds across six widths
+PASS Real purchase click updates army and resource state
+PASS Scene pause never pauses simulation
+PASS Local save isolation and serialization round trip
+PASS Save reload and real offline simulation
+PASS Responsive views at 320, 375, 414, 768, 1024 and 1440 pixels
+Rendered 41 game screens
+PASS All game screens render with progression fixtures
+PASS No browser runtime errors

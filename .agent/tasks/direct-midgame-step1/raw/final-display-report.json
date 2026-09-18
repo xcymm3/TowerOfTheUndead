@@ -1,0 +1,22 @@
+{
+  "filter": "Middle-stage descriptions|Plague seed unlock|Dilation original study",
+  "results": [
+    {
+      "name": "Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Plague seed unlock plus all three upgrade currency boundaries",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Dilation original study gates, confirmation, production and exit retention",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
