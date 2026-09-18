@@ -93,6 +93,10 @@ export const realityPhrases = {
 
 export function translateReality(text) {
   return text
+    .replace(/(?:Replicanti speed|疫种繁衍速度) is multiplied based on (?:Replicanti Galaxies|疫巢)/gi,
+      '根据疫巢数量提高疫种繁衍倍率')
+    .replace(/(?:Replicanti speed|疫种繁衍速度) is boosted based on your fastest game-(?:time|时间) (?:Reality|冥界创世)/gi,
+      '根据最快创世游戏时间提高疫种繁衍速度')
     .replace(/^Void$/, '空置')
     .replace(/Get (.*?) Eternity Points to unlock a new Reality/gi, '达到 $1 冥印后开启新的冥界创世')
     .replace(/\byears?\b/gi, '年')
