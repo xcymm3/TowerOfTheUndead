@@ -55,6 +55,7 @@ export const glossary = {
   "Automatically retry challenges": "自动重试试炼", "Automatic tab switching": "自动切换页面", "Update rate": "更新间隔",
   "Export to file": "导出到文件", "Import from file": "从文件导入", "Open Automatic Save Backup Menu": "打开自动备份",
   "Save backup": "存档备份", "Save slots": "存档槽", "Load backup": "载入备份", "Offline ticks": "离线模拟步数",
+  "How To Play": "高塔指南", "Type to search...": "搜索规则与系统…",
   "Past Prestige Runs": "历次仪式记录", "Multiplier Breakdown": "倍率明细", "Glyph Set Records": "冥器套装记录", "Challenge records": "试炼记录",
   "Eternity Milestones": "轮回里程碑", "Celestial Navigation": "主宰星图", "Glyph Alchemy": "冥器炼金", "Currently": "当前",
   "Multiplier": "倍率", "Multipliers": "倍率", "Unspent": "未花费", "Total": "累计", "Amount": "数量", "Time": "时间",

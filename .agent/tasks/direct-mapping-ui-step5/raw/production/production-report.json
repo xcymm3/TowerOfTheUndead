@@ -1,0 +1,227 @@
+{
+  "url": "http://127.0.0.1:5181/TowerOfTheUndead/",
+  "time": "2026-09-18T06:21:38.186Z",
+  "errors": [],
+  "failedRequests": [],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/assets/index-CjeivC7g.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/assets/index-CFsFZrxN.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/show-hint.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/fontawesome/css/all.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/codemirror.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/lint.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/panda-syntax.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/liquibyte.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/vue-sfc-classes.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/ad-slider-component.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/glyphs.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/styles.css?3",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/automator.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/time-studies.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/tooltips.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/css/app.422991c9.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/vis-network.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/images/stars-bg.webm",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/images/realityanimbg.webm",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/art/graveyard.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/js/chunk-vendors.31a33ded.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/js/app.fa34f37d.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/img/army-atlas.485908af..png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/BlobEmoji-Bold.ttf",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/art/army-atlas.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/assets/index-CjeivC7g.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/assets/index-CFsFZrxN.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/art/graveyard.png",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/fontawesome/css/all.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/codemirror.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/show-hint.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/lint.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/panda-syntax.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/codemirror/liquibyte.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/vue-sfc-classes.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/ad-slider-component.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/glyphs.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/styles.css?3",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/automator.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/time-studies.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/tooltips.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/vis-network.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/css/app.422991c9.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/js/chunk-vendors.31a33ded.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/js/app.fa34f37d.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/images/stars-bg.webm",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/images/realityanimbg.webm",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/img/army-atlas.485908af..png",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/engine/stylesheets/BlobEmoji-Bold.ttf",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:5181/TowerOfTheUndead/art/army-atlas.png",
+      "status": 304
+    }
+  ],
+  "pass": true,
+  "armyBefore": "1.0",
+  "armyAfter": "1.0"
+}

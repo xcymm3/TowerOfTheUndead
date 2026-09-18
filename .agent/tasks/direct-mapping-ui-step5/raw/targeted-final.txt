@@ -1,0 +1,13 @@
+PASS 767 mappings bind to their original config objects
+PASS Content audit · resources, tiers and dynamic mapped descriptions
+PASS Content audit · help search and page are usable
+PASS Content audit · notification and confirmation copy are translated and reachable
+PASS Content audit · ending copy and Automator grammar protection
+Auditing late screen reality-upgrades
+Auditing late screen imaginary-upgrades
+Auditing late screen glyph-management
+Auditing late screen dual-clocks
+Auditing late screen celestial-navigation
+Auditing late screen pelle-panel
+PASS Content audit · late-game screens pass six-width clipping, reachability and contrast checks
+PASS No browser runtime errors

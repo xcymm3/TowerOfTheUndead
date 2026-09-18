@@ -3,6 +3,9 @@
 }
 .undead-runtime .l-reality-upgrade-grid__row { display: contents; }
 .undead-runtime .l-reality-upgrade-grid .l-spoon-btn-group { min-width: 0; width: 100%; }
+.undead-runtime .l-reality-upgrade-grid .l--spoon-btn-group__little-spoon-reality-btn {
+  width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere;
+}
 .undead-runtime .l-reality-upgrade-btn,
 .undead-runtime .l-black-hole-upgrade-grid__row .c-reality-upgrade-btn {
   width: 100%; min-width: 0; height: auto; min-height: 112px; margin: 0;

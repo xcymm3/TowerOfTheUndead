@@ -1,0 +1,34 @@
+{
+  "filter": "767 mappings|Content audit",
+  "results": [
+    {
+      "name": "767 mappings bind to their original config objects",
+      "pass": true
+    },
+    {
+      "name": "Content audit · resources, tiers and dynamic mapped descriptions",
+      "pass": true
+    },
+    {
+      "name": "Content audit · help search and page are usable",
+      "pass": true
+    },
+    {
+      "name": "Content audit · notification and confirmation copy are translated and reachable",
+      "pass": true
+    },
+    {
+      "name": "Content audit · ending copy and Automator grammar protection",
+      "pass": true
+    },
+    {
+      "name": "Content audit · late-game screens pass six-width clipping, reachability and contrast checks",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

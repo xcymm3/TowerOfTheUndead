@@ -207,6 +207,10 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .undead-runtime .l-modal-buttons { flex-wrap: wrap; gap: 8px; }
 .undead-runtime .l-modal-buttons button { white-space: nowrap; }
 .undead-runtime .c-modal { font-family: var(--font-game); max-height: calc(100vh - 24px); overflow-y: auto; }
+.undead-runtime .l-h2p-modal { width: min(96rem, calc(100vw - 24px)); height: min(76rem, calc(100vh - 24px)); min-width: 0; }
+.undead-runtime .l-h2p-container, .undead-runtime .l-h2p-info { min-width: 0; min-height: 0; }
+.undead-runtime .l-h2p-body { min-width: 0; overflow-wrap: anywhere; }
+.undead-runtime .l-h2p-search-tab { flex: 0 0 18rem; min-width: 0; }
 .undead-runtime .c-modal-message { min-width: 0; width: min(50rem, calc(100vw - 52px)); }
 .undead-runtime .c-modal__title, .undead-runtime .c-modal-message__text { width: 100%; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
 #notification-container .o-notification { max-width: calc(100vw - 24px); white-space: normal; overflow-wrap: anywhere; font-family: var(--font-game); color: var(--color-text); background: var(--tower-panel); border: 1px solid var(--tower-border); border-left: 3px solid var(--tower-gold); }
@@ -218,4 +222,13 @@ body[class] { margin: 0; background: var(--tower-panel); }
   .army-resets .reset-container button { grid-column: 2; grid-row: 1 / span 3; align-self: center; padding-inline: 12px; }
   .crunch-ready { flex-wrap: wrap; }
   .army-price small { display: block; font-size: 8px; }
+  .undead-runtime .l-h2p-modal { height: calc(100vh - 16px); width: calc(100vw - 16px); margin: 0; }
+  .undead-runtime .l-h2p-header { flex: 0 0 auto; }
+  .undead-runtime .l-h2p-container { flex: 1 1 auto; flex-direction: column; margin: 0.8rem 0 0; overflow: hidden; }
+  .undead-runtime .l-h2p-search-tab { width: 100%; flex: 0 0 auto; }
+  .undead-runtime .l-h2p-tab-list { max-height: 13rem; flex: 0 1 13rem; }
+  .undead-runtime .l-h2p-info { flex: 1 1 auto; }
+  .undead-runtime .c-h2p-title { font-size: 2.2rem; }
+  .undead-runtime .c-h2p-body--title { font-size: 1.9rem; }
+  .undead-runtime .c-h2p-body { font-size: 1.3rem; }
 }

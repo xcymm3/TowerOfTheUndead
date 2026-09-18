@@ -15,6 +15,7 @@ export const endgamePhrases = {
   "Armageddon for": "焚界重生，获得",
   "Unlock the Galaxy Generator": "启动万墓织机",
   "Start over?": "开启新的轮回？",
+  "Start over": "开启新的轮回",
   "Choose Cosmetic Set": "选择冥器外观套装",
   "You have unlocked all Glyph cosmetic sets!": "所有冥器外观套装均已解锁！",
   "Selected Set:": "已选套装：",
@@ -97,5 +98,6 @@ export function translateEndgame(text) {
     .replace(/You can use the button in the top-right to view the game as it is right now\./gi,
       "可使用右上角按钮在终幕与当前游戏状态之间切换。")
     .replace(/Reset the entire game/gi, "重开整个游戏")
-    .replace(/Start over\?/gi, "开启新的轮回？");
+    .replace(/Start over\?/gi, "开启新的轮回？")
+    .replace(/Start over/gi, "开启新的轮回");
 }

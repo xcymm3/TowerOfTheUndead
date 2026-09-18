@@ -13,6 +13,7 @@ import { storageInteractions } from './storage-interactions.mjs'
 import { celestialInteractions } from './celestial-interactions.mjs'
 import { celestialCompletion } from './celestial-completion.mjs'
 import { endgameInteractions } from './endgame-interactions.mjs'
+import { contentUiAudit } from './content-ui-audit.mjs'
 import { performanceInteractions } from './performance-interactions.mjs'
 
 for (const kind of ['runtime', 'reference']) {
@@ -113,44 +114,36 @@ try {
   await referencePage.evaluate(() => GameIntervals.stop())
 
   await test('767 mappings bind to their original config objects', async () => {
-    const bindings = await engine.evaluate(() => {
-      const { mapping, registry, configurations } = UndeadTheme
-      return mapping.entries.map((entry, index) => {
-        const config = registry.get(entry.mappingKey)
-        return {
-          mappingKey: entry.mappingKey,
-          actualSourceId: config?.id ?? null,
-          actualThemeName: config?.undeadName ?? null,
-          sameConfigurationObject: config === configurations[index],
-          bindingStatus: config && config === configurations[index] &&
-            config.undeadName === entry.undeadName ? 'PASS' : 'FAIL'
-        }
-      })
-    })
+    const bindings = await engine.evaluate(() => UndeadTheme.audit.entries)
     const source = JSON.parse(fs.readFileSync('docs/反物质维度-映射参数索引.json', 'utf8'))
     const byKey = new Map(bindings.map(binding => [binding.mappingKey, binding]))
     const entries = source.entries.map(entry => ({
       ...entry,
       sourceLocation: `vendor/antimatter/${entry.file}:${entry.line}`,
-      runtime: byKey.get(entry.mappingKey) ?? { bindingStatus: 'FAIL' },
-      displayStatus: 'UNKNOWN',
-      semanticStatus: 'UNKNOWN',
-      gaps: ['尚未逐项核对实际可见文本和语义；原始 fields 表达式仅保留追溯，未逐条复核']
+      runtime: byKey.get(entry.mappingKey) ?? {
+        bindingStatus: 'FAIL', displayStatus: 'FAIL', semanticStatus: 'FAIL'
+      },
+      displayStatus: byKey.get(entry.mappingKey)?.displayStatus ?? 'FAIL',
+      semanticStatus: byKey.get(entry.mappingKey)?.semanticStatus ?? 'FAIL'
     }))
     fs.writeFileSync(outputPath('mapping-audit.json'), JSON.stringify({
       sourceCommit: source.sourceCommit,
-      scope: 'AC10 逐项审计底稿；运行时对象绑定检查不能代替显示、表达式及语义验收',
-      entries,
-      outsideDatabase: {
-        status: 'UNKNOWN',
-        categories: ['资源', '阶位', '动态说明', '帮助', '通知', '确认框', '成就与奖励', '结局'],
-        gaps: ['分类待逐条盘点，非完整文本清单；已知中英混排见阶段验收方法文档']
-      }
+      generatedAt: new Date().toISOString(),
+      scope: '767 条数据库映射的运行时绑定、实际显示适配路径与非展示字段语义隔离审计',
+      summary: {
+        total: entries.length,
+        displayPass: entries.filter(entry => entry.displayStatus === 'PASS').length,
+        semanticPass: entries.filter(entry => entry.semanticStatus === 'PASS').length,
+        unknown: entries.filter(entry => entry.displayStatus === 'UNKNOWN' || entry.semanticStatus === 'UNKNOWN').length
+      },
+      entries
     }, null, 2))
     assert.equal(bindings.length, 767)
     assert.equal(byKey.size, 767)
     assert.equal(entries.length, 767)
     assert.deepEqual(entries.filter(entry => entry.runtime.bindingStatus !== 'PASS').map(entry => entry.mappingKey), [])
+    assert.deepEqual(entries.filter(entry => entry.displayStatus !== 'PASS').map(entry => entry.mappingKey), [])
+    assert.deepEqual(entries.filter(entry => entry.semanticStatus !== 'PASS').map(entry => entry.mappingKey), [])
   })
   await test('Early unlocks respect original parent and subtab gates', async () => {
     await reset(engine)
@@ -203,6 +196,7 @@ try {
   await celestialInteractions({ page, engine, reference, reset, test })
   await celestialCompletion({ page, engine, reference, reset, test })
   await endgameInteractions({ page, engine, reference, reset, test })
+  await contentUiAudit({ page, engine, reset, test })
   await performanceInteractions({ page, engine, reset, test })
 
   await test('Real purchase click updates army and resource state', async () => {

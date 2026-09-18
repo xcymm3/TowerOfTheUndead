@@ -1,0 +1,37 @@
+{
+  "taskId": "direct-mapping-ui-step5",
+  "verifiedAt": "2026-09-18",
+  "status": "PASS",
+  "acceptanceCriteria": {
+    "AC-1": "PASS",
+    "AC-2": "PASS",
+    "AC-3": "PASS",
+    "AC-4": "PASS",
+    "AC-5": "PASS",
+    "AC-6": "PASS"
+  },
+  "checks": {
+    "mappingAudit": { "status": "PASS", "total": 767, "displayPass": 767, "semanticPass": 767, "unknown": 0 },
+    "outsideDatabase": { "status": "PASS", "categories": 5, "missingCategories": 0 },
+    "responsive": { "status": "PASS", "screens": 6, "widths": 6, "checks": 36 },
+    "contrast": { "status": "PASS", "body": 12.778852155891819, "muted": 6.1016553813815, "gold": 11.324352046046 },
+    "source": { "status": "PASS", "upstreamFiles": 820, "mappingCount": 767 },
+    "typecheck": { "status": "PASS" },
+    "lint": { "status": "PASS" },
+    "build": { "status": "PASS", "warnings": ["browserslist-data", "asset-size"] },
+    "targetedRuntime": { "status": "PASS", "passed": 7, "failed": 0, "browserErrors": 0 },
+    "productionSmoke": { "status": "PASS", "operations": ["load", "purchase", "army-sync", "save", "reload"] }
+  },
+  "artifacts": {
+    "mappingReport": "raw/final/mapping-audit.json",
+    "contentReport": "raw/final/outside-database-content-audit.json",
+    "runtimeReport": "raw/final/runtime-report.json",
+    "screenshots": "raw/final/content-*.png",
+    "sourceLog": "raw/verify-source.txt",
+    "typecheckLog": "raw/typecheck.txt",
+    "lintLog": "raw/lint.txt",
+    "buildLog": "raw/build.txt",
+    "productionLog": "raw/production.txt"
+  },
+  "scopeBoundary": "Step 6 retains historical/corrupt saves, every backup type, long offline, sustained-run and the original 15-item consolidated regression; Step 7 retains GitHub Pages publication."
+}

@@ -124,3 +124,6 @@
   .undead-runtime .c-laitela-singularity__cap-control,
   .undead-runtime .c-laitela-automation-toggle { width: 100%; margin-inline: 0; }
 }
+.undead-runtime .c-wide-canvas-element.l-celestial-navigation {
+  width: 100%; max-width: 950px; height: auto; aspect-ratio: 19 / 12; min-width: 0;
+}
