@@ -11,6 +11,7 @@ import { realityInteractions } from './reality-interactions.mjs'
 import { automatorInteractions } from './automator-interactions.mjs'
 import { storageInteractions } from './storage-interactions.mjs'
 import { celestialInteractions } from './celestial-interactions.mjs'
+import { celestialCompletion } from './celestial-completion.mjs'
 import { endgameInteractions } from './endgame-interactions.mjs'
 import { performanceInteractions } from './performance-interactions.mjs'
 
@@ -200,6 +201,7 @@ try {
   await automatorInteractions({ page, engine, reference, reset, test })
   await storageInteractions({ page, engine, reference, reset, test })
   await celestialInteractions({ page, engine, reference, reset, test })
+  await celestialCompletion({ page, engine, reference, reset, test })
   await endgameInteractions({ page, engine, reference, reset, test })
   await performanceInteractions({ page, engine, reset, test })
 

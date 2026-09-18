@@ -1,0 +1,50 @@
+{
+  "filter": "Celestial UI|Celestial completion",
+  "results": [
+    {
+      "name": "Celestial UI · Teresa shop purchase boundaries, effects and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial UI · Effarig all four unlock purchases and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial UI · Laitela dark upgrades, singularity threshold and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Teresa reward and Effarig three-stage completion events",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Enslaved storage, two unlocks, hints, completion and Tesseract",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · V natural unlock, six feats, rewards, retry and exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Ra four ancestors, Memories, Remembrance, Alchemy and Reality Glyph",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · four dark avatars, ascension, annihilation and eight-tier domain reward",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Singularity bulk, automation and every milestone threshold",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · seven-master page record, wording and responsive controls",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

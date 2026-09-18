@@ -1,0 +1,29 @@
+遗物典藏官·维萨尔's Quotes
+持有 0 遗物碎片.
+Each new 冥器 will have its 品相 increased
+by a random value between +0% and +0.00%.
+You will gain 1 遗物碎片 next 冥界创世 (60/min).
+
+More 冥印 slightly increases 遗物碎片
+gained. More distinct 冥器 effects significantly
+increases 遗物碎片 gained.
+铭魂权重调校 · Adjustable 冥器等级 factor weights
+(已解锁)
+冥器筛选 · 冥器 Filtering
+(已解锁)
+冥器套装 · 冥器 Presets
+(已解锁)
+Enter 遗物领域全破.
+Ϙ
+All 生产者 倍率, game 速度, and 魂火节律 are severely lowered, like 永夜. 冥威 reduces the 产出 and game 速度 penalties and 岁月回响 reduce the 魂火节律 penalty. 冥器等级s are temporarily capped to 2,000, 品相 is unaffected. You will 退出 遗物领域全破 when you complete a Layer of it for the first 时间.
+转生:
+Ϙ 遗物领域·转生破封 · 疫种 cap is multiplied by a value based on 转生次数
+Ϙ 转生次数 increase your max 疫巢
+Ϙ Base 魂印 gain is capped at 1e200 in 遗物领域全破
+Ϙ Each type of 魂印 倍率 is capped at 1e50 in 遗物领域全破
+轮回:
+Ϙ 遗物领域·轮回破封 · 轮回次数 generates 转生次数
+Ϙ 魂印 are no longer limited in any way in 遗物领域全破
+Ϙ 持有 已解锁 缚时幽魂
+冥界创世:
+Ϙ 遗物领域·创世破封 · 持有 已解锁 遗物典藏官·维萨尔 冥器 (You may equip at most one and some effects are mutually exclusive)

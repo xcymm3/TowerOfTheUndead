@@ -6,6 +6,7 @@ import { armyNames, translate, prepareTranslations } from "./glossary";
 import "./theme.css";
 import "./midgame.css";
 import "./reality.css";
+import "./celestial.css";
 
 export function installUndeadTheme() {
   const extra = {};
@@ -21,10 +22,10 @@ export function installUndeadTheme() {
       extra["Glyph of " + entry.key] = entry.undeadName;
     }
     if (typeof config.name === "string") {
-      if (config.name.includes(" ") && config.name.length > 6) extra[config.name] = entry.undeadName;
-      Object.defineProperty(config, "name", { configurable: true, enumerable: true, writable: true, value: entry.undeadName });
+      // Names can be logic keys or persisted values (Ra's Remembrance is one example). Translate only at render time.
+      extra[config.name] = entry.undeadName;
     } else if (Array.isArray(config.name)) {
-      config.name = config.name.map(() => entry.undeadName);
+      for (const name of config.name) if (typeof name === "string") extra[name] = entry.undeadName;
     }
     // Configurations without a source title still get their exact mapped name on the card.
     for (const field of ["description", "reward", "requirementDescription", "singleDesc", "totalDesc"]) {

@@ -1,0 +1,125 @@
+灾厄君主·奈瑟's Quotes
+查看灾厄君主说明
+全部升级灾厄化身
+持有 0 灾厄精粹. (Average: 0.00/s)
+历史最高灾厄精粹为 0, 使永续召唤额外购买 0.00%.
+封存现实时间不会影响灾厄化身。
+持有 1.00 M 死星
+达到 200 寂灭能量 to condense all 寂灭能量 into 4 死星
+
+
+(Enough 寂灭能量 in 01:15)
+持有 0.0000 寂灭能量. (+2.6499/s)
+降低死星凝聚上限提高死星凝聚上限
+每提高一档，所需寂灭能量变为 ×10,
+同时死星收益变为 ×12.
+
+累计 时间 to (自动-)condense: 01:15 (+11.32 秒)
+Manual 死星获取速率： 3.180 per 分钟
+自动死星获取速率： 自动-死星 is 关闭
+自动升级灾厄化身： 关闭
+自动凝聚死星： 关闭
+进入灾厄君主领域
+魂印 and 冥印 gain are Dilated.
+
+Game 速度 is reduced to 1 and gradually comes back over 10 分钟.
+
+死寂钟 storing, discharging, pulsing, and inversion are all 已停用.
+
+
+
+
+
+游魂 generates entropy inside of this 冥界创世. At 100% entropy, the 冥界创世 becomes destabilized and you gain a 奖励 based on how quickly you reached 100%. Destabilizing the 冥界创世 in less than 30 秒 makes it become significantly more difficult, in exchange for giving a much stronger 奖励. Doing this 8 times will also give a ×8 to 寂灭能量 gain.
+憎恶聚合体: 0
+平均产出： 0.00/s (+0.00%/s)
+虚渊节律
+216.00ms
+费用: 2 灾厄精粹
+灾厄精粹威能
+灾厄精粹 ×22.78
+费用: 2 灾厄精粹
+寂灭威能
+寂灭能量 +0.0080
+费用: 2 灾厄精粹
+Tick: 0 ms (0.0%)
+寂灭能量: 0.0370/s (1.4% of 累计)
+瘟疫巨像: 0
+平均产出： 0.00/s (+0.00%/s)
+虚渊节律
+864.00ms
+费用: 3.69 M 灾厄精粹
+灾厄精粹威能
+灾厄精粹 ×0.00
+费用: 3.69 M 灾厄精粹
+寂灭威能
+寂灭能量 +0.1200
+费用: 3.69 M 灾厄精粹
+Tick: 0 ms (0.0%)
+寂灭能量: 0.1389/s (5.2% of 累计)
+恐惧收割者: 0
+平均产出： 0.00/s (+0.00%/s)
+虚渊节律
+3.46s
+费用: 6.37 Qa 灾厄精粹
+灾厄精粹威能
+灾厄精粹 ×0.00
+费用: 6.37 Qa 灾厄精粹
+寂灭威能
+寂灭能量 +1.8000
+费用: 6.37 Qa 灾厄精粹
+Tick: 0 ms (0.0%)
+寂灭能量: 0.5208/s (19.7% of 累计)
+终末使徒: 0
+平均产出： 0.00/s (+0.00%/s)
+虚渊节律
+13.82s
+费用: 2.74e40 灾厄精粹
+灾厄精粹威能
+灾厄精粹 ×0.00
+费用: 2.74e40 灾厄精粹
+寂灭威能
+寂灭能量 +27.0000
+费用: 2.74e40 灾厄精粹
+Tick: 0 ms (0.0%)
+寂灭能量: 1.9531/s (73.7% of 累计)
+虚渊湮祭需要 1.00e60 灾厄精粹
+
+虚渊湮祭 will 重置 your 灾厄精粹 and 灾厄化身 amounts, but will give a permanent 倍率 of ×1.00 to all 灾厄化身.
+查看全部死星里程碑
+In 500.00 K 死星
+
+ᛝ Increased 死星 gain per cap increase
+
+×12 ➜ ×13
+1/4 completion
+In 953.13 K 死星
+
+ 永续召唤比例倍率
+
+×1.09 ➜ ×1.12
+3/∞ completions
+In 2.00 M 死星
+
+ Boost 灾厄精粹 and 寂灭能量 产出 based on highest 冥器等级
+
+×1.00
+0/1 completions
+In 3.10 M 死星
+
+ᛝ Automatically condense 死星 when reaching a threshold above the cap
+
+Cap ×1.15 ➜ Cap ×1.10
+3/8 completions
+In 4.18 M 死星
+
+ᛝ 寂灭能量产出倍率
+
+×8 ➜ ×16
+3/∞ completions
+In 5.40 M 死星
+
+ᛝ 灾厄精粹产出倍率
+
+×7.59 ➜ ×11.39
+5/∞ completions

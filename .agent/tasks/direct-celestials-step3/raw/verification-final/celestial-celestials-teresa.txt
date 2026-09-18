@@ -1,0 +1,37 @@
+墓园摄政者·莫薇娅's Quotes
+持有 0.00 命匣.
+开始 摄政领域完成.
+Ϟ
+冥器 冥典自书 is 已停用. You gain less 魂印 and 冥印 (x^0.55).
+
+
+This 冥界创世 can be repeated for a stronger 奖励 based on the 游魂 gained within it.
+
+持有 not 已完成 摄政领域完成 yet.
+Every 秒, you gain 1% of your peaked 冥印 per 分钟 this 冥界创世.
+Pour 命匣
+×1.00 命匣 gain
+0.00/1.00 Sp
+100.00 T: 摄政领域 · Unlock 摄政领域完成.
+1.00 Qt: 冥印自生 · Unlock 守陵 冥印 generation.
+1.00 Sp: 觐见遗物典藏官 · Unlock 遗物典藏官·维萨尔, 冥界主宰 of Ancient Relics.
+1.00 Sx: 摄政遗赠商店 · Unlock 墓园摄政者·莫薇娅's 遗赠点 Shop.
+10.00 B: 冥器回置 · Unlock "Undo" of equipping a 冥器.
+1.00 M: 冥河赐福传承 · You 开始 冥界创世 with all 冥河赐福 已解锁.
+持有 0 遗赠点.
+冥器升阶 · Increase pre-instability 冥器等级s by 5%
+当前: ×1.00
+费用: 1 遗赠点
+命匣双收 · Double 命匣 gain
+当前: ×1
+费用: 1 遗赠点
+永夜批购 · 永夜 亡灵执役 购买 twice as many 永夜 升级 at once.
+当前: ×1
+费用: 100 遗赠点
+高阶执役加速 · 通灵者, 墓园祭坛, 永夜, and 疫种 亡灵执役 are ×2 faster.
+当前: ×1
+费用: 1.00 K 遗赠点
+挽歌遗物 · Receive a 挽歌冥器外观 of a random type that is 80% of your highest 等级. (Try clicking it!)
+
+费用: 1 遗赠点
+You can now modify the appearance of your 冥器 to look like Music 冥器.

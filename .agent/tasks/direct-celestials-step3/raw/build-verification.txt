@@ -1,0 +1,155 @@
+$ node scripts/build-runtime.mjs && tsc -b && vite build
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+All browser targets in the browserslist configuration have supported ES module.
+Therefore we don't build two separate bundles for differential loading.
+
+
+-  Building for production...
+ WARNING  Compiled with 3 warnings12:17:21
+
+ warning
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets:
+  img/army-atlas.485908af..png (956 KiB)
+  img/stars-bg.f04db429..png (256 KiB)
+  img/s8-bg.8135ae4a..jpg (658 KiB)
+  img/s12-bg.7929eed6..jpg (628 KiB)
+  js/app.e9331c70.js (2.64 MiB)
+  js/chunk-vendors.31a33ded.js (1.57 MiB)
+  icon.icns (496 KiB)
+  audio/credits.mp3 (3.57 MiB)
+  audio/news.mp3 (260 KiB)
+  images/cancer achievements.png (672 KiB)
+  images/celestial-navigation-bg.webp (693 KiB)
+  images/loading.png (1.18 MiB)
+  images/noise.png (533 KiB)
+  images/normal achievements.png (1.8 MiB)
+  images/realityanimbg.webm (4.1 MiB)
+  images/s12-bg.jpg (628 KiB)
+  images/s8-bg.jpg (658 KiB)
+  images/secret achievements.png (493 KiB)
+  images/stars-bg.png (256 KiB)
+  images/stars-bg.webm (10.3 MiB)
+  images/std_coin.png (586 KiB)
+  stylesheets/fontawesome/webfonts/fa-solid-900.ttf (379 KiB)
+
+ warning
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  app (4.36 MiB)
+      js/chunk-vendors.31a33ded.js
+      css/app.cba227f4.css
+      js/app.e9331c70.js
+
+
+ warning
+
+webpack performance recommendations:
+You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
+For more info visit https://webpack.js.org/guides/code-splitting/
+
+  File                                      Size             Gzipped
+
+  ..\public\engine\js\app.e9331c70.js       2699.40 KiB      711.70 KiB
+  ..\public\engine\js\chunk-vendors.31a3    1611.97 KiB      446.44 KiB
+  3ded.js
+  ..\public\engine\fungame\depression.js    7.19 KiB         1.95 KiB
+  ..\public\engine\stylesheets\styles.cs    188.99 KiB       27.12 KiB
+  s
+  ..\public\engine\css\app.cba227f4.css     149.37 KiB       34.60 KiB
+  ..\public\engine\stylesheets\fontaweso    142.33 KiB       21.31 KiB
+  me\css\all.css
+  ..\public\engine\stylesheets\glyphs.cs    34.02 KiB        4.40 KiB
+  s
+  ..\public\engine\stylesheets\new-ui-st    18.09 KiB        3.61 KiB
+  yles.css
+  ..\public\engine\stylesheets\vis-netwo    14.82 KiB        2.71 KiB
+  rk.css
+  ..\public\engine\stylesheets\time-stud    11.89 KiB        1.90 KiB
+  ies.css
+  ..\public\engine\stylesheets\codemirro    8.72 KiB         2.49 KiB
+  r\codemirror.css
+  ..\public\engine\stylesheets\ad-slider    8.60 KiB         2.06 KiB
+  -component.css
+  ..\public\engine\stylesheets\theme-S12    7.84 KiB         1.94 KiB
+  .css
+  ..\public\engine\stylesheets\automator    6.33 KiB         1.30 KiB
+  .css
+  ..\public\engine\stylesheets\codemirro    4.96 KiB         1.01 KiB
+  r\liquibyte.css
+  ..\public\engine\stylesheets\tooltips.    3.22 KiB         0.83 KiB
+  css
+  ..\public\engine\stylesheets\codemirro    3.15 KiB         1.28 KiB
+  r\lint.css
+  ..\public\engine\stylesheets\github-li    2.77 KiB         1.03 KiB
+  ght.css
+  ..\public\engine\stylesheets\old-ui.cs    1.98 KiB         0.71 KiB
+  s
+  ..\public\engine\stylesheets\vue-sfc-c    1.90 KiB         0.66 KiB
+  lasses.css
+  ..\public\engine\stylesheets\codemirro    1.84 KiB         0.62 KiB
+  r\panda-syntax.css
+  ..\public\engine\stylesheets\theme-S9.    1.39 KiB         0.51 KiB
+  css
+  ..\public\engine\stylesheets\theme-S1.    1.33 KiB         0.50 KiB
+  css
+  ..\public\engine\stylesheets\theme-S10    1.21 KiB         0.48 KiB
+  .css
+  ..\public\engine\stylesheets\theme-S6.    1.20 KiB         0.48 KiB
+  css
+  ..\public\engine\stylesheets\theme-AMO    1.19 KiB         0.34 KiB
+  LED Metro.css
+  ..\public\engine\stylesheets\theme-S11    1.06 KiB         0.40 KiB
+  .css
+  ..\public\engine\stylesheets\theme-AMO    1.05 KiB         0.32 KiB
+  LED.css
+  ..\public\engine\stylesheets\theme-S7.    1.05 KiB         0.34 KiB
+  css
+  ..\public\engine\stylesheets\theme-Inv    0.88 KiB         0.31 KiB
+  erted Metro.css
+  ..\public\engine\stylesheets\theme-S8.    0.83 KiB         0.35 KiB
+  css
+  ..\public\engine\fungame\depression.cs    0.77 KiB         0.34 KiB
+  s
+  ..\public\engine\stylesheets\theme-Dar    0.75 KiB         0.29 KiB
+  k.css
+  ..\public\engine\stylesheets\codemirro    0.72 KiB         0.34 KiB
+  r\show-hint.css
+  ..\public\engine\stylesheets\theme-S4.    0.64 KiB         0.33 KiB
+  css
+  ..\public\engine\stylesheets\theme-S3.    0.59 KiB         0.25 KiB
+  css
+  ..\public\engine\stylesheets\theme-S2.    0.55 KiB         0.28 KiB
+  css
+  ..\public\engine\stylesheets\theme-Dar    0.54 KiB         0.23 KiB
+  k Metro.css
+  ..\public\engine\stylesheets\theme-Met    0.45 KiB         0.20 KiB
+  ro.css
+  ..\public\engine\stylesheets\theme-S5.    0.43 KiB         0.24 KiB
+  css
+  ..\public\engine\stylesheets\theme-Inv    0.23 KiB         0.14 KiB
+  erted.css
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The ..\public\engine directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 18 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.84 kB │ gzip:  0.59 kB
+dist/assets/index-CjeivC7g.css   11.44 kB │ gzip:  3.25 kB
+dist/assets/index-CFsFZrxN.js   226.38 kB │ gzip: 71.06 kB
+
+✓ built in 227ms

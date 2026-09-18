@@ -1,0 +1,27 @@
+缚时幽魂' Quotes
+进入缚时幽魂领域
+
+冥器等级最低提升至 5,000.
+通灵者、墓园祭坛和灾厄领主均只能购买 1 次。
+亡灵军团 倍率 are always Dilated (the 冥器 效果 still only applies in actual 永夜).
+冥典研究 192 (uncapped 疫种) is 未解锁.
+死寂双钟已停用。
+逆命烬与幽夜流沙产出大幅降低。
+永夜冥器不再生成冥典页。
+部分试炼目标提高。
+封存冥界时间的释放效率降低（指数为 0.55）。
+奖励：解锁折叠墓室，用于提高通灵者持有上限（见通灵者页面）。
+封存冥界时间时，其他速度倍率全部停用，损失的速度会转化为封存时间。释放死寂钟可让进度向前推进；封存时间也用于解锁特定能力。
+0 ms
+封存死寂钟时间
+释放封存冥界时间
+正在封存现实时间 completely halts all 产出, setting game 速度 to 0. You can use 封存现实时间 to "amplify" a 冥界创世, simulating repeated runs of it. Amplified 创世次数 give all the rewards that 普通 创世次数 do.
+0 ms
+封存现实时间
+离线收益已停用
+Efficiency: 70%
+Maximum 封存现实时间: 08:00:00
+
+
+延展回响魂火：祭坛免费魂火软上限增加 100,000
+开启缚时领域 (要求 [✗] a 等级 5,000 冥器 and [✗] a 100% 品相 冥器)

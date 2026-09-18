@@ -1,0 +1,48 @@
+不朽巫妖·阿斯莫's Quotes
+每个追忆残片每秒生成 1 点先祖追忆.
+封存现实时间时不会生成追忆残片，但仍会正常获得先祖追忆。
+将指针移至进度条下方图标可查看升级说明，
+并将指针移至图标可查看资源详情。
+墓园摄政者·莫薇娅 等级 1/25
+
+
+墓园摄政者·莫薇娅 has 0 先祖追忆
+墓园摄政者·莫薇娅·追忆滋养
+先祖追忆产出提高 30%
+费用: 1.00 K 先祖追忆
+当前: ×1.00
+墓园摄政者·莫薇娅·残片凝聚
+追忆残片产出提高 50%
+费用: 5.00 K 先祖追忆
+当前: ×1.00
+等级 墓园摄政者·莫薇娅 to 2
+转生魂契灌注 · Unlock Charged 转生魂契. You get one more maximum Charged 转生 升级 every 2 levels
+You can charge an additional 转生 升级
+费用: 1.69 M 先祖追忆
+0.00 追忆残片, 0.00 先祖追忆/sec
+Gaining 0.00 追忆残片/sec
+
+
+
+墓园摄政者·莫薇娅 等级 1
+逆命烬即时获取 · 逆命烬 are given immediately when 永夜仪式 is 鸣响
+墓园摄政者·莫薇娅 等级 2
+转生魂契灌注 · Unlock Charged 转生魂契. You get one more maximum Charged 转生 升级 every 2 levels
+Ϟ
+墓园摄政者·莫薇娅 等级 5
+命匣滋养追忆 · All 追忆残片 produce more 先祖追忆 based on 命匣
+Ϙ
+墓园摄政者·莫薇娅 等级 8
+唤醒遗物典藏官 · Unlock 遗物典藏官·维萨尔's 先祖追忆
+墓园摄政者·莫薇娅 等级 10
+冥器异化 · Unlock Altered 冥器, which grant new effects to 冥器 based on 冥器 献祭
+墓园摄政者·莫薇娅 等级 15
+摄政秘库扩容 · Purchase caps are raised in 墓园摄政者·莫薇娅's 遗赠点 Shop
+墓园摄政者·莫薇娅 等级 25
+万魂逆命追溯 · In non-冥界主宰 创世次数, gain 逆命烬 as if you reached the square root of your 累计 游魂 in 永夜. Any 倍率 to TP gain are applied retroactively, even outside 永夜
+开始 不朽巫妖·阿斯莫's 冥界创世
+你最多只能筑塔 4 次，且无法继续筑塔。
+魂火节律的购买倍率固定为 ×1.125。
+
+
+在不朽巫妖领域中，四位先祖会依据各自资源生成追忆残片。

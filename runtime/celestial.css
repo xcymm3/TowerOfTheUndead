@@ -1,0 +1,126 @@
+/* Seven-master pages: presentation only; the vendored simulation remains untouched. */
+.undead-runtime .l-teresa-celestial-tab,
+.undead-runtime .l-enslaved-celestial-tab,
+.undead-runtime .l-v-celestial-tab,
+.undead-runtime .l-ra-celestial-tab,
+.undead-runtime .l-ra-alchemy-tab,
+.undead-runtime .l-laitela-celestial-tab,
+.undead-runtime .l-pelle-celestial-tab {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .pelle-unlock-requirements {
+  width: min(50rem, 100%);
+  max-width: 100%;
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .l-effarig-shop-and-run,
+.undead-runtime .l-enslaved-celestial-tab--inner,
+.undead-runtime .l-enslaved-top-container,
+.undead-runtime .l-ra-all-pets-container,
+.undead-runtime .l-laitela-mechanics-container {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.undead-runtime .l-effarig-shop,
+.undead-runtime .l-effarig-run,
+.undead-runtime .l-enslaved-upgrades-column,
+.undead-runtime .l-enslaved-run-container {
+  min-width: 0;
+  max-width: 100%;
+}
+.undead-runtime .l-effarig-run { width: min(52rem, 100%); margin-left: 0; }
+.undead-runtime .l-effarig-tab__reward { min-width: 0; align-items: flex-start; }
+.undead-runtime .l-effarig-tab__reward-descriptions { min-width: 0; overflow-wrap: anywhere; }
+.undead-runtime .c-effarig-shop-button { max-width: 100%; }
+
+.undead-runtime .c-enslaved-run-button { width: min(34rem, 100%); }
+.undead-runtime .l-enslaved-top-container__half { width: min(24rem, 100%); margin: 0; }
+.undead-runtime .l-enslaved-shop-container { width: 100%; max-width: 65rem; }
+.undead-runtime .o-enslaved-shop-button { width: min(30rem, 100%); height: auto; min-height: 12rem; }
+.undead-runtime .o-enslaved-mechanic-button { min-width: 0; width: 100%; }
+
+.undead-runtime .l-v-unlocks-container { max-width: 100%; }
+.undead-runtime .c-v-unlock-bar { width: min(40rem, 100%); }
+.undead-runtime .l-v-milestones-grid,
+.undead-runtime .l-v-milestones-grid__row { width: 100%; min-width: 0; flex-wrap: wrap; }
+.undead-runtime .o-v-milestone { width: min(25rem, 100%); height: auto; min-height: 10rem; color: var(--color-text); }
+.undead-runtime .o-v-milestone--unlocked { color: var(--color-text-inverted); }
+
+.undead-runtime .l-ra-all-pets-container { height: auto; }
+.undead-runtime .l-ra-pet-container { max-width: 100%; }
+.undead-runtime .c-ra-pet-header { overflow-wrap: anywhere; }
+.undead-runtime .c-ra-memory-header,
+.undead-runtime .c-ra-remembrance-unlock { width: min(80rem, 100%); }
+.undead-runtime .c-ra-run-button { max-width: 100%; }
+.undead-runtime .c-ra-pet-upgrade__tooltip { max-width: calc(100vw - 32px); }
+.undead-runtime .c-alchemy-resource-info,
+.undead-runtime .c-reality-glyph-creation { width: min(60rem, 100%); }
+.undead-runtime .l-alchemy-circle { max-width: calc(100% - 12px); margin-inline: auto; }
+
+.undead-runtime .c-laitela-singularity-container { width: 100%; max-width: 98rem; flex-wrap: wrap; gap: 10px; }
+.undead-runtime .c-laitela-singularity { width: min(40rem, 100%); height: auto; min-height: 11rem; }
+.undead-runtime .o-laitela-run-button,
+.undead-runtime .o-laitela-run-button--large { width: min(44rem, 100%); height: auto; min-height: 38rem; margin-right: 0; }
+.undead-runtime .c-dark-matter-dimension-container,
+.undead-runtime .l-laitela-annihilation-container { width: min(51rem, 100%); height: auto; min-height: 15rem; }
+.undead-runtime .c-dark-matter-dimension-container,
+.undead-runtime .l-laitela-annihilation-container,
+.undead-runtime .o-laitela-run-button,
+.undead-runtime .c-laitela-singularity-container,
+.undead-runtime .c-laitela-milestone {
+  color: var(--color-laitela--accent);
+  background: var(--color-laitela--base);
+}
+.undead-runtime .o-dark-matter-dimension-button:not(.o-dark-matter-dimension-button--available):not(.o-dark-matter-dimension-button--ascend) {
+  color: #aeb9c3;
+  background: #121b24;
+  border-color: #71808c;
+}
+.undead-runtime .c-dark-matter-dimension-buttons { width: 100%; height: auto; gap: 6px; }
+.undead-runtime .o-dark-matter-dimension-button { min-width: 0; flex: 1; }
+.undead-runtime .l-laitela-annihilation-button { width: min(35rem, 100%); height: auto; }
+.undead-runtime .c-laitela-next-milestones { height: auto; width: min(22rem, 100%); margin-left: 0; }
+.undead-runtime .c-laitela-milestone { width: 100%; height: auto; min-height: 13rem; }
+
+@media (max-width: 680px) {
+  .undead-runtime .l-effarig-shop-and-run,
+  .undead-runtime .l-enslaved-celestial-tab--inner,
+  .undead-runtime .l-enslaved-top-container,
+  .undead-runtime .l-laitela-mechanics-container { flex-direction: column; align-items: stretch; }
+  .undead-runtime .l-effarig-shop,
+  .undead-runtime .l-effarig-run,
+  .undead-runtime .l-enslaved-upgrades-column,
+  .undead-runtime .l-enslaved-run-container { width: 100%; }
+  .undead-runtime .l-v-unlocks-container { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr); gap: 8px; overflow: visible; }
+  .undead-runtime .l-v-unlocks-container li,
+  .undead-runtime .l-v-unlocks-container li:nth-child(n) {
+    width: 100%; min-height: 15rem; margin: 0; padding: 0; transform: none;
+  }
+  .undead-runtime .l-v-hexagon { position: relative; min-height: 15rem; transform: none; border: 2px solid var(--tower-border); }
+  .undead-runtime .l-placeholder-invisible { display: none; }
+  .undead-runtime .c-v-run-button__line { display: none; }
+  .undead-runtime .l-ra-pet-container { width: 100%; }
+  .undead-runtime .c-ra-pet-header { width: 100%; }
+  .undead-runtime .c-ra-pet-title { font-size: 2rem; }
+  .undead-runtime .c-ra-memory-header,
+  .undead-runtime .l-ra-celestial-tab > div { overflow-wrap: anywhere; }
+  .undead-runtime .c-ra-remembrance-unlock-inner { flex-wrap: wrap; }
+  .undead-runtime .c-ra-pet-remembrance-button { max-width: 100%; }
+  .undead-runtime .c-dark-matter-dimension-buttons { flex-direction: column; height: auto; }
+  .undead-runtime .o-dark-matter-dimension-button { width: 100%; flex: none; }
+  .undead-runtime .c-dark-matter-dimension-container { min-height: 27rem; }
+  .undead-runtime .c-laitela-singularity__cap-control,
+  .undead-runtime .c-laitela-automation-toggle { width: 100%; margin-inline: 0; }
+}
