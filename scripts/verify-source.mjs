@@ -2,8 +2,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
-import { root } from './runtime-fingerprint.mjs'
+import { canonicalFingerprintContent, root } from './runtime-fingerprint.mjs'
 process.chdir(root)
+assert.deepEqual(canonicalFingerprintContent('runtime/example.js', Buffer.from('a\r\nb\r\n')), Buffer.from('a\nb\n'))
+assert.deepEqual(canonicalFingerprintContent('public/art/army-atlas.png', Buffer.from([0x0d, 0x0a])),
+  Buffer.from([0x0d, 0x0a]))
 const manifest = JSON.parse(fs.readFileSync('vendor/source-manifest.json', 'utf8'))
 const mapping = JSON.parse(fs.readFileSync('docs/反物质维度-映射参数索引.json', 'utf8'))
 assert.equal(manifest.sourceCommit, '5409e320cecef96a917cca1dfb68f1f183e499ca')
