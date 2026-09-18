@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-09-18T08:00:05.227Z",
+  "scope": "原 15 项发布标准的本地部分",
+  "summary": {
+    "pass": 14,
+    "deferred": 1,
+    "fail": 0
+  },
+  "criteria": {
+    "AC1": {
+      "status": "PASS",
+      "evidence": [
+        "source verification: 820 immutable upstream files",
+        "mapping-audit.json"
+      ]
+    },
+    "AC2": {
+      "status": "PASS",
+      "evidence": [
+        "Responsive views at 320, 375, 414, 768, 1024 and 1440 pixels",
+        "outside-database-content-audit.json"
+      ]
+    },
+    "AC3": {
+      "status": "PASS",
+      "evidence": [
+        "UI · First Infinity threshold and mandatory confirmation match original",
+        "early UI operation results"
+      ]
+    },
+    "AC4": {
+      "status": "PASS",
+      "evidence": [
+        "Real purchase click updates army and resource state",
+        "Save reload and real offline simulation"
+      ]
+    },
+    "AC5": {
+      "status": "PASS",
+      "evidence": [
+        "midgame-operations.json",
+        "midgame-completion.json"
+      ]
+    },
+    "AC6": {
+      "status": "PASS",
+      "evidence": [
+        "research-operations.json",
+        "Midgame completion · Offline milestone credits and mutually exclusive eligibility"
+      ]
+    },
+    "AC7": {
+      "status": "PASS",
+      "evidence": [
+        "reality-operations.json",
+        "reality-completion.json",
+        "automator-operations.json"
+      ]
+    },
+    "AC8": {
+      "status": "PASS",
+      "evidence": [
+        "celestial-operations.json",
+        "celestial-completion-operations.json"
+      ]
+    },
+    "AC9": {
+      "status": "PASS",
+      "evidence": [
+        "endgame-operations.json",
+        "Endgame UI · generator unlock and five ordered sacrifices restore rifts"
+      ]
+    },
+    "AC10": {
+      "status": "PASS",
+      "evidence": [
+        "mapping-audit.json",
+        "outside-database-content-audit.json"
+      ]
+    },
+    "AC11": {
+      "status": "PASS",
+      "evidence": [
+        "storage-operations.json",
+        "Storage backups · All eight slots and archive export/import",
+        "Storage offline · 24-hour and seven-day bounded simulations with controls"
+      ]
+    },
+    "AC12": {
+      "status": "PASS",
+      "evidence": [
+        "cross-stage-operations.json",
+        "performance-operations.json",
+        "sustained-run.json"
+      ]
+    },
+    "AC13": {
+      "status": "PASS",
+      "evidence": [
+        "runtime-report.json",
+        "dist-manifest.json",
+        "production-report.json",
+        "separate typecheck/lint/build logs"
+      ]
+    },
+    "AC14": {
+      "status": "PASS",
+      "evidence": [
+        "production-report.json",
+        "dist-manifest.json"
+      ],
+      "note": "仅本地 /TowerOfTheUndead/ 正式产物子路径；线上检查属于第七步。"
+    },
+    "AC15": {
+      "status": "DEFERRED_TO_STEP7",
+      "evidence": [],
+      "note": "GitHub Pages 认证、部署、HTTPS 链接和线上验收未在第六步执行。"
+    }
+  },
+  "status": "PASS_WITH_AC15_DEFERRED"
+}

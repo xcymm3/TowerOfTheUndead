@@ -1,0 +1,87 @@
+{
+  "method": "30 seconds with original GameIntervals enabled; samples every 5 seconds. The fixture unlocks representative late systems and assigns finite large values without claiming natural progression.",
+  "samples": [
+    {
+      "elapsedSeconds": 0,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000000000,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 400,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 5,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000005000,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 10,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000010001,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 15,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000015001,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 20,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000020001,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 25,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000025000,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    },
+    {
+      "elapsedSeconds": 30,
+      "souls": "1e+1000000",
+      "formattedSouls": "1.00e1,000,000",
+      "lastUpdate": 1800000030000,
+      "intervalRunning": true,
+      "progressActive": false,
+      "outerNodes": 92,
+      "engineNodes": 414,
+      "sprites": 24
+    }
+  ],
+  "lateDisplay": {
+    "textSample": "查看终焉封界规则\n\n\n终焉余烬升级\n焚界重生，获得 -999.94 B 遗骸\n终焉余烬 1.75e156/s ➜ 1.50e40/s\nRemnant Gain Factors\n▼\nBest 游魂: 1.00e900,000\nBest 魂印: 1.00e800,000\nBest 冥印: 1.00e700,000\n\n\nlog10(log10(游魂) + 2)\nlog10(log10(魂印) + 2)\nlog10(log10(冥印) + 2)\nStatic divisor\nStatic 统御精华\nExisting 遗骸\nFinal 数量\n+\n+\n/\n^\n-\n5.95\n5.90\n5.85\n1.64\n7.50\n1.00 T\n-999.94 B\n持有 1.00 T 遗骸.\n持有 1.00e1,000,000 终焉余烬. +1.75e156/s\n末世军团 · 提高亡灵军团倍率\n当前: ×1.00\n费用: 100 终焉余烬\n末世狂热 · 提高游戏速度倍率\n当前: ×1.00\n费用: 100.00 K 终焉余烬\n末世冥器 · 提高终焉封界允许装备的冥器等级\n当前: 1\n费用: 1.00 Qa 终焉余烬\n末世通灵 · Increase 冥威转化率 rate\n当前: +0.00\n费用: 1.00 Qt 终焉余烬\n末世疆域 · 提高墓域强度倍率\n当前: ×1.00\n费用: 1.00 No 终焉余烬\n隐藏已购升级\n低阶军团永久执役 · 永久恢复第 1–4 阶亡灵军团执役\n费用: 100.00 K 终焉余烬\n永久筑塔执役 · 永久恢复筑塔执役\n费用: 500.00 K 终焉余烬\n执役传承 · 执役升级不再被焚界重生重置\n费用: 5.00 M 终焉余烬\n高阶军团永久执役 · 永久恢复第 5–8 阶亡灵军团执役\n费用: 25.00 M 终焉余烬\n永久领土执役 · 永久恢复墓域执役\n费用: 100.00 M 终焉余烬\n永久仪式执役 · 永久恢复魂火节律执役\n费用: 1.00 B 终焉余烬\n转生契约永存 · 转生魂契不再被焚界重生重置\n费用: 10.00 B 终焉余烬\n尖塔不朽 · 筑塔不再重置任何内容\n费用: 100.00 B 终焉余烬\n破界契约永存 · 破界升级不再被焚界重生重置\n费用: 1.00 T 终焉余烬\n永久议会执役 · 永久恢复通灵者执役\n费用: 100.00 T 终焉余烬",
+    "engineFits": true,
+    "visibleButtons": 18
+  }
+}

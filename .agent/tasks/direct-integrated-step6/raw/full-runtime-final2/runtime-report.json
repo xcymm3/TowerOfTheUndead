@@ -1,0 +1,482 @@
+{
+  "filter": null,
+  "results": [
+    {
+      "name": "767 mappings bind to their original config objects",
+      "pass": true
+    },
+    {
+      "name": "Early unlocks respect original parent and subtab gates",
+      "pass": true
+    },
+    {
+      "name": "Parity · Initial purchase",
+      "pass": true
+    },
+    {
+      "name": "Parity · Ten-purchase multiplier and cost scaling",
+      "pass": true
+    },
+    {
+      "name": "Parity · Maximum purchases",
+      "pass": true
+    },
+    {
+      "name": "Parity · Eight-tier production and tick ordering",
+      "pass": true
+    },
+    {
+      "name": "Parity · Tickspeed purchase and bulk scaling",
+      "pass": true
+    },
+    {
+      "name": "Parity · Dimension boost reset",
+      "pass": true
+    },
+    {
+      "name": "Parity · Galaxy reset",
+      "pass": true
+    },
+    {
+      "name": "Parity · Sacrifice reset",
+      "pass": true
+    },
+    {
+      "name": "Parity · NC6 alternate currency",
+      "pass": true
+    },
+    {
+      "name": "Parity · NC9 coupled cost scaling",
+      "pass": true
+    },
+    {
+      "name": "Parity · Infinity reset",
+      "pass": true
+    },
+    {
+      "name": "Parity · Infinity upgrade economics",
+      "pass": true
+    },
+    {
+      "name": "Parity · Infinity dimension production chain",
+      "pass": true
+    },
+    {
+      "name": "Parity · Eternity reset and retained milestones",
+      "pass": true
+    },
+    {
+      "name": "Parity · Time altar production",
+      "pass": true
+    },
+    {
+      "name": "Parity · Research prerequisites and costs",
+      "pass": true
+    },
+    {
+      "name": "Parity · Dilation penalty and generation",
+      "pass": true
+    },
+    {
+      "name": "Parity · First Reality rewards and reset",
+      "pass": true
+    },
+    {
+      "name": "Parity · Seeded glyph generation",
+      "pass": true
+    },
+    {
+      "name": "Parity · Black hole three upgrade tracks",
+      "pass": true
+    },
+    {
+      "name": "Parity · Continuum and dark matter production",
+      "pass": true
+    },
+    {
+      "name": "Parity · Pelle rifts and terminal resource loop",
+      "pass": true
+    },
+    {
+      "name": "UI · Single, partial ten, next decade and maximum purchases match original",
+      "pass": true
+    },
+    {
+      "name": "UI · Eight tiers unlock through original boost requirements and actual clicks",
+      "pass": true
+    },
+    {
+      "name": "UI · Every tier rejects insufficient funds and buys at exact original price",
+      "pass": true
+    },
+    {
+      "name": "UI · Boost boundary and retained state match original at every early tier",
+      "pass": true
+    },
+    {
+      "name": "UI · Tickspeed exact cost boundary matches original",
+      "pass": true
+    },
+    {
+      "name": "UI · Tickspeed single and maximum clicks match original",
+      "pass": true
+    },
+    {
+      "name": "UI · Galaxy threshold, cancellation and confirmation match original",
+      "pass": true
+    },
+    {
+      "name": "UI · Sacrifice cancellation, reward and retained eighth tier match original",
+      "pass": true
+    },
+    {
+      "name": "UI · First Infinity threshold and mandatory confirmation match original",
+      "pass": true
+    },
+    {
+      "name": "UI · Controls left, army right; responsive reset buttons remain reachable",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Crunch mode inputs and boost/galaxy limits control actual triggering",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Eight army and tickspeed slow unlocks, interval caps, bulk and real scheduling",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Every middle-stage simple autobuyer unlocks, toggles and actually spends currency",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Boost, galaxy, crunch and Eternity autobuyers execute original resets",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · All break upgrades, repeatable cost chains and caps",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Every pre-Reality dilation upgrade, galaxy reset and finite cap",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Replicanti growth, cap, confirmation and galaxy retention milestones",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Second dimension path and dilation three-path unlock",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Space theorem exception spends exact cost and refunds on study respec",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · All eternity trials cancel entry, restart, apply rules and exit on completion",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Normal and infinity challenge automatic retry keeps the active trial",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · EC8 enforces fifty council and forty replicanti purchases and disables autos",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Offline milestone credits and mutually exclusive eligibility",
+      "pass": true
+    },
+    {
+      "name": "Midgame completion · Middle-stage descriptions use mapped Chinese and original numeric effects",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Soul contracts reject missing prerequisite/funds and buy at exact cost",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Break gate requires max crunch interval and modal confirmation",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Eight council tiers unlock and buy with exact original thresholds",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Plague seed unlock plus all three upgrade currency boundaries",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Duty autobuyer unlock, interval, mode and activation use original controls",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Four early altars reject insufficient EP and buy at exact cost",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Late altars require prior study and exact theorem unlock then EP purchase",
+      "pass": true
+    },
+    {
+      "name": "Midgame UI · Eternity resets contracts, council, plague and automation at retention milestones",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Original study prerequisites, exact costs, path exclusivity and refund",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Every pre-Reality study cost, prerequisite and exclusive partner",
+      "pass": true
+    },
+    {
+      "name": "Research UI · All normal and infinity challenges enter, apply rules and exit through UI",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Twelve eternity trials complete all five tiers with original secondary and IP gates",
+      "pass": true
+    },
+    {
+      "name": "Research UI · EC4 crunch limit and EC12 game-time failure boundaries at every tier",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Every eternity milestone crosses its threshold through an actual Eternity",
+      "pass": true
+    },
+    {
+      "name": "Research UI · Dilation original study gates, confirmation, production and exit retention",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All crunch upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All eternity upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All tick upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All reality upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Post-Reality dimension, multiplier, theorem and dilation autobuyers actually purchase",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Reality autobuyer modes honor original thresholds and perform real resets",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Glyph choice, five equipment effects, respec and progression persist across Reality",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Automatic glyph filtering really keeps or sacrifices the generated reward",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Improved Eternity modes and filter-rejection priority use original settings",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Both black holes complete full cycles and pause freezes phases",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Entire perk graph via canvas clicks and connected purchase boundaries",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Glyph deletion, sacrifice confirmation and all five basic types",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Glyph filter unlock, five modes and original threshold decisions",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · First reset threshold, cancel, seeded rewards and glyph equip",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · All 25 upgrade purchase gates and five rebuyable second costs",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Black hole unlock, six tracks, pause and coupled clocks",
+      "pass": true
+    },
+    {
+      "name": "Automator UI · Exact unlock points and original script execution controls",
+      "pass": true
+    },
+    {
+      "name": "Automator UI · Invalid syntax rejection and study resource wait/resume",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Conditional and loop blocks wait for real resources then stop",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Automation settings, clock commands and block conversion",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Prestige commands and script retention across Reality restart",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Saved study presets, trial and dilation commands perform purchases",
+      "pass": true
+    },
+    {
+      "name": "Storage UI · File export, stage import and invalid input preservation",
+      "pass": true
+    },
+    {
+      "name": "Storage UI · Three isolated slots and backup recovery with reserve undo",
+      "pass": true
+    },
+    {
+      "name": "Storage load · Original offline calculation and disabled offline control",
+      "pass": true
+    },
+    {
+      "name": "Storage compatibility · Legacy encoding, five stages and damaged-root recovery",
+      "pass": true
+    },
+    {
+      "name": "Storage backups · All eight slots and archive export/import",
+      "pass": true
+    },
+    {
+      "name": "Storage offline · 24-hour and seven-day bounded simulations with controls",
+      "pass": true
+    },
+    {
+      "name": "Celestial UI · Teresa shop purchase boundaries, effects and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial UI · Effarig all four unlock purchases and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial UI · Laitela dark upgrades, singularity threshold and run entry/exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Teresa reward and Effarig three-stage completion events",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Enslaved storage, two unlocks, hints, completion and Tesseract",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · V natural unlock, six feats, rewards, retry and exit",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Ra four ancestors, Memories, Remembrance, Alchemy and Reality Glyph",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · four dark avatars, ascension, annihilation and eight-tier domain reward",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · Singularity bulk, automation and every milestone threshold",
+      "pass": true
+    },
+    {
+      "name": "Celestial completion · seven-master page record, wording and responsive controls",
+      "pass": true
+    },
+    {
+      "name": "Endgame UI · doom requirements, cancel and confirmed reset",
+      "pass": true
+    },
+    {
+      "name": "Endgame UI · five rift drains, simultaneous limit and milestone crossings",
+      "pass": true
+    },
+    {
+      "name": "Endgame UI · generator unlock and five ordered sacrifices restore rifts",
+      "pass": true
+    },
+    {
+      "name": "Content audit · resources, tiers and dynamic mapped descriptions",
+      "pass": true
+    },
+    {
+      "name": "Content audit · help search and page are usable",
+      "pass": true
+    },
+    {
+      "name": "Content audit · notification and confirmation copy are translated and reachable",
+      "pass": true
+    },
+    {
+      "name": "Content audit · ending copy and Automator grammar protection",
+      "pass": true
+    },
+    {
+      "name": "Content audit · late-game screens pass six-width clipping, reachability and contrast checks",
+      "pass": true
+    },
+    {
+      "name": "Performance · Large-number scene stays bounded and responds across six widths",
+      "pass": true
+    },
+    {
+      "name": "Performance · Thirty-second live loop and late-game large numbers stay bounded",
+      "pass": true
+    },
+    {
+      "name": "Real purchase click updates army and resource state",
+      "pass": true
+    },
+    {
+      "name": "Scene pause never pauses simulation",
+      "pass": true
+    },
+    {
+      "name": "Local save isolation and serialization round trip",
+      "pass": true
+    },
+    {
+      "name": "Save reload and real offline simulation",
+      "pass": true
+    },
+    {
+      "name": "Responsive views at 320, 375, 414, 768, 1024 and 1440 pixels",
+      "pass": true
+    },
+    {
+      "name": "All game screens render with progression fixtures",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

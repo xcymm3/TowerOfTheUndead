@@ -1,0 +1,2 @@
+$ pnpm test:production
+PASS: local /TowerOfTheUndead/ load, purchase, army, save and reload.

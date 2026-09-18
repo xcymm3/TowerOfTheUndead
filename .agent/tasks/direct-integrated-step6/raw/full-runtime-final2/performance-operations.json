@@ -1,0 +1,214 @@
+{
+  "environment": {
+    "platform": "win32",
+    "release": "10.0.26200",
+    "cpu": "12th Gen Intel(R) Core(TM) i5-1235U",
+    "logicalCpus": 12,
+    "node": "v22.23.1",
+    "browser": "153.0.8010.48",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+  },
+  "method": "Same headless browser, 1440x1000; stopped simulation timers; synthetic resources and eight unit amounts. 60 requestAnimationFrame intervals in outer and engine documents; 20 explicit original 50ms simulation ticks. Timings are observations, not an FPS certification or natural progression proof.",
+  "samples": [
+    {
+      "label": "initial-scale",
+      "fixture": {
+        "amount": "1",
+        "souls": "1e6"
+      },
+      "displayedSouls": "1.00 M",
+      "sprites": 8,
+      "outerNodes": 76,
+      "engineNodes": 352,
+      "rosterResponseMs": 41.65090000000782,
+      "tickTimesMs": [
+        1.400000000372529,
+        0.7999999998137355,
+        0.7000000001862645,
+        0.599999999627471,
+        0.6000000000931323,
+        0.6000000000931323,
+        0.7000000001862645,
+        0.5,
+        0.5,
+        0.599999999627471,
+        0.5,
+        0.6000000000931323,
+        0.6000000000931323,
+        0.39999999990686774,
+        0.6000000000931323,
+        0.6000000000931323,
+        0.5,
+        1,
+        1.2999999998137355,
+        0.8999999999068677
+      ],
+      "outerFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.5
+      },
+      "engineFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.5
+      }
+    },
+    {
+      "label": "large",
+      "fixture": {
+        "amount": "1e1000",
+        "souls": "1e10000"
+      },
+      "displayedSouls": "1.00e10000",
+      "sprites": 24,
+      "outerNodes": 92,
+      "engineNodes": 374,
+      "rosterResponseMs": 44.10479999985546,
+      "tickTimesMs": [
+        2.099999999627471,
+        1.1000000000931323,
+        1,
+        0.7000000001862645,
+        0.6000000000931323,
+        0.599999999627471,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        1.3000000002793968,
+        2,
+        1.1999999997206032,
+        0.7000000001862645,
+        0.7000000001862645,
+        0.599999999627471,
+        0.40000000037252903,
+        0.5,
+        0.599999999627471
+      ],
+      "outerFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.599999999860302
+      },
+      "engineFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.5
+      }
+    },
+    {
+      "label": "larger",
+      "fixture": {
+        "amount": "1e100000",
+        "souls": "1e1000000"
+      },
+      "displayedSouls": "1.00e1,000,000",
+      "sprites": 24,
+      "outerNodes": 92,
+      "engineNodes": 387,
+      "rosterResponseMs": 47.24890000000596,
+      "tickTimesMs": [
+        1,
+        0.6000000000931323,
+        1,
+        0.8999999999068677,
+        0.6999999997206032,
+        0.40000000037252903,
+        0.599999999627471,
+        0.40000000037252903,
+        0.5,
+        0.39999999990686774,
+        0.5,
+        0.6000000000931323,
+        0.39999999990686774,
+        0.39999999990686774,
+        0.5,
+        0.5,
+        0.39999999990686774,
+        0.39999999990686774,
+        0.5,
+        0.5
+      ],
+      "outerFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.5
+      },
+      "engineFrames": {
+        "count": 60,
+        "medianMs": 13.300000000046566,
+        "p95Ms": 13.5,
+        "maxMs": 13.5
+      }
+    }
+  ],
+  "widths": [
+    {
+      "width": 320,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 0,
+      "boughtAfter": 10,
+      "rosterResponseMs": 37.528699999907985
+    },
+    {
+      "width": 375,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 10,
+      "boughtAfter": 20,
+      "rosterResponseMs": 47.52450000005774
+    },
+    {
+      "width": 414,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 20,
+      "boughtAfter": 30,
+      "rosterResponseMs": 48.810099999886006
+    },
+    {
+      "width": 768,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 30,
+      "boughtAfter": 40,
+      "rosterResponseMs": 44.71059999987483
+    },
+    {
+      "width": 1024,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 40,
+      "boughtAfter": 50,
+      "rosterResponseMs": 43.19800000009127
+    },
+    {
+      "width": 1440,
+      "outerFits": true,
+      "engineFits": true,
+      "valuesFit": true,
+      "rowsReadable": true,
+      "boughtBefore": 50,
+      "boughtAfter": 60,
+      "rosterResponseMs": 46.830000000074506
+    }
+  ]
+}

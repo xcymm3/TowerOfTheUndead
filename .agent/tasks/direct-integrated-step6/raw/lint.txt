@@ -1,0 +1,2 @@
+$ pnpm lint
+PASS: oxlint src scripts tests completed with no diagnostics.

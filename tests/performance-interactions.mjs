@@ -127,4 +127,98 @@ export async function performanceInteractions({ page, engine, reset, test }) {
       await engine.evaluate(() => Tab.dimensions.antimatter.show(true))
     }
   })
+
+  await test('Performance · Thirty-second live loop and late-game large numbers stay bounded', async () => {
+    const report = {
+      method: '30 seconds with original GameIntervals enabled; samples every 5 seconds. The fixture unlocks representative late systems and assigns finite large values without claiming natural progression.',
+      samples: [],
+      lateDisplay: null,
+    }
+    const write = () => fs.writeFileSync(outputPath('sustained-run.json'), JSON.stringify(report, null, 2))
+    try {
+      await page.setViewportSize({ width: 1440, height: 1000 })
+      await reset(engine)
+      await engine.evaluate(() => {
+        const clockStart = performance.now()
+        Date.now = () => 1800000000000 + Math.floor(performance.now() - clockStart)
+        player.options.updateRate = 100
+        player.break = true
+        player.infinities = new Decimal(1000)
+        player.eternities = new Decimal(100)
+        player.realities = 25
+        player.dimensionBoosts = 4
+        Currency.antimatter.value = new Decimal('1e1000000')
+        AntimatterDimensions.all.forEach((dimension, index) => {
+          dimension.amount = new Decimal(`1e${1000 + index * 100}`)
+          dimension.bought = 10
+        })
+        Tab.dimensions.antimatter.show(true)
+        Lazy.invalidateAll(); GameUI.update(); GameIntervals.start()
+      })
+      for (let elapsedSeconds = 0; elapsedSeconds <= 30; elapsedSeconds += 5) {
+        if (elapsedSeconds > 0) await page.waitForTimeout(5000)
+        const state = await engine.evaluate(() => ({
+          souls: Currency.antimatter.value.toString(),
+          formattedSouls: format(Currency.antimatter.value, 2, 1),
+          lastUpdate: player.lastUpdate,
+          intervalRunning: GameIntervals.gameLoop.isStarted,
+          progressActive: ui.view.modal.progressBar !== undefined,
+        }))
+        const sample = {
+          elapsedSeconds,
+          ...state,
+          outerNodes: await page.locator('*').count(),
+          engineNodes: await engine.locator('*').count(),
+          sprites: await page.locator('.field-unit').count(),
+        }
+        report.samples.push(sample)
+        write()
+        assert.equal(sample.intervalRunning, true)
+        assert.equal(sample.progressActive, false)
+        assert.ok(sample.sprites <= 24)
+        assert.doesNotMatch(sample.formattedSouls, /NaN|undefined|Infinity/)
+      }
+      for (let index = 1; index < report.samples.length; index++) {
+        assert.ok(Number(report.samples[index].lastUpdate) > Number(report.samples[index - 1].lastUpdate),
+          'Live loop timestamp must continue advancing')
+      }
+      const engineNodeCounts = report.samples.map(sample => sample.engineNodes)
+      assert.ok(Math.max(...engineNodeCounts) - Math.min(...engineNodeCounts) < 500,
+        'Live loop must not create unbounded engine DOM nodes')
+      const spriteCounts = report.samples.map(sample => sample.sprites)
+      assert.ok(Math.max(...spriteCounts) - Math.min(...spriteCounts) <= 8,
+        'Representative sprites may grow by at most one capped representative per tier')
+
+      await engine.evaluate(() => {
+        GameIntervals.stop()
+        Date.now = () => 1800000000000
+        player.realities = 100
+        player.celestials.pelle.doomed = true
+        player.celestials.pelle.remnants = 1e12
+        player.celestials.pelle.realityShards = new Decimal('1e1000000')
+        player.celestials.pelle.records.totalAntimatter = new Decimal('1e900000')
+        player.celestials.pelle.records.totalInfinityPoints = new Decimal('1e800000')
+        player.celestials.pelle.records.totalEternityPoints = new Decimal('1e700000')
+        Tab.celestials.pelle.show(true)
+        Modal.hideAll(); ui.view.quotes.current = undefined; Lazy.invalidateAll(); GameUI.update()
+      })
+      await page.waitForTimeout(300)
+      const lateText = await engine.locator('.c-game-tab').innerText()
+      report.lateDisplay = {
+        textSample: lateText.slice(0, 2000),
+        engineFits: await engine.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+        visibleButtons: await engine.locator('.c-game-tab button:visible').count(),
+      }
+      write()
+      assert.doesNotMatch(lateText, /NaN|undefined/)
+      assert.equal(report.lateDisplay.engineFits, true)
+      assert.ok(lateText.trim().length > 0)
+      await page.screenshot({ path: outputPath('sustained-late-large.png'), fullPage: true })
+    } finally {
+      write()
+      await engine.evaluate(() => { GameIntervals.stop(); Date.now = () => 1800000000000 }).catch(() => {})
+      await reset(engine)
+      await engine.evaluate(() => Tab.dimensions.antimatter.show(true))
+    }
+  })
 }

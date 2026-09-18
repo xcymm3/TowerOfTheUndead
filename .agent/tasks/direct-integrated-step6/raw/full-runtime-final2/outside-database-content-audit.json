@@ -1,0 +1,687 @@
+{
+  "generatedAt": "2026-09-18T07:56:31.146Z",
+  "status": "PASS",
+  "categories": [
+    {
+      "category": "资源、阶位与动态说明",
+      "status": "PASS",
+      "checks": [
+        "8 类核心资源逐项翻译",
+        "8 阶军团逐项翻译",
+        "动态字段适配器均已登记",
+        "军团实页显示"
+      ],
+      "evidence": {
+        "resources": [
+          [
+            "Antimatter",
+            "游魂"
+          ],
+          [
+            "Infinity Points",
+            "魂印"
+          ],
+          [
+            "Eternity Points",
+            "冥印"
+          ],
+          [
+            "Reality Machines",
+            "命匣"
+          ],
+          [
+            "Imaginary Machines",
+            "虚冥"
+          ],
+          [
+            "Dark Matter",
+            "灾厄精粹"
+          ],
+          [
+            "Dark Energy",
+            "寂灭能量"
+          ],
+          [
+            "Reality Shards",
+            "终焉余烬"
+          ]
+        ],
+        "tiers": [
+          "骷髅兵",
+          "僵尸",
+          "幽魂",
+          "吸血鬼",
+          "尸巫",
+          "死亡骑士",
+          "骨龙",
+          "灾厄领主"
+        ],
+        "methods": {
+          "configuration-field-prefix": 448,
+          "component-context-challenge-name": 12,
+          "render-time-name-translation": 59,
+          "derived-glyph-name-translation": 11,
+          "component-context-name": 232,
+          "stable-cycle-name": 5
+        }
+      }
+    },
+    {
+      "category": "帮助",
+      "status": "PASS",
+      "checks": [
+        "打开帮助弹窗",
+        "搜索 Glyph Alchemy",
+        "进入匹配帮助页",
+        "320px 无横向裁切"
+      ],
+      "evidence": {
+        "bounds": {
+          "left": 8,
+          "right": 290,
+          "width": 298,
+          "scrollWidth": 282,
+          "clientWidth": 282
+        }
+      }
+    },
+    {
+      "category": "通知与确认弹窗",
+      "status": "PASS",
+      "checks": [
+        "真实通知 DOM",
+        "真实确认弹窗",
+        "320/1440px 按钮试点击"
+      ],
+      "evidence": {
+        "notificationText": "命匣 gained from 冥界创世",
+        "modalText": "×\n即将进行转生仪式\nUpon 转生, 全体生产 , 筑塔, and 墓域 are 重置. 作为回报，你会获得 1 魂印，可在魂界中购买升级；同时增加 1 次转生，记录于史册。\n取消\n确认"
+      }
+    },
+    {
+      "category": "结局文本与脚本保护",
+      "status": "PASS",
+      "checks": [
+        "结局三项关键操作文案",
+        "输入/代码节点保护",
+        "Automator 编辑器组件保护"
+      ],
+      "evidence": {
+        "ending": [
+          "开启新的轮回",
+          "重开整个游戏",
+          "选择冥器外观套装"
+        ],
+        "protectedTags": true,
+        "editorGuardPresent": true
+      }
+    },
+    {
+      "category": "后期界面、窄屏与对比度",
+      "status": "PASS",
+      "checks": [
+        "6 个后期关键界面",
+        "每页 6 档宽度",
+        "控件边界与最小尺寸",
+        "正文/次要文字/强调文字对比度"
+      ],
+      "evidence": {
+        "screenChecks": 36,
+        "contrast": {
+          "body": 12.778852155891819,
+          "muted": 6.1016553813815,
+          "gold": 11.324352046046
+        }
+      }
+    }
+  ],
+  "missingCategories": [],
+  "allowedUntranslatedContent": [
+    "Automator 脚本语法",
+    "代码与公式",
+    "通用缩写",
+    "原版专有名词"
+  ],
+  "screens": [
+    {
+      "screen": "reality-upgrades",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "reality-upgrades",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "reality-upgrades",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "reality-upgrades",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "reality-upgrades",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "reality-upgrades",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 25
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "imaginary-upgrades",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 35
+    },
+    {
+      "screen": "glyph-management",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "glyph-management",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "glyph-management",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "glyph-management",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "glyph-management",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "glyph-management",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 18
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "dual-clocks",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 8
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "celestial-navigation",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 320,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 276,
+        "width": 254
+      },
+      "viewport": 298,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 375,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 331,
+        "width": 309
+      },
+      "viewport": 353,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 414,
+      "status": "PASS",
+      "root": {
+        "left": 22,
+        "right": 370,
+        "width": 348
+      },
+      "viewport": 392,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 768,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 734,
+        "width": 722
+      },
+      "viewport": 746,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 1024,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 576,
+        "width": 564
+      },
+      "viewport": 588,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    },
+    {
+      "screen": "pelle-panel",
+      "width": 1440,
+      "status": "PASS",
+      "root": {
+        "left": 12,
+        "right": 790,
+        "width": 778
+      },
+      "viewport": 802,
+      "documentOverflow": 0,
+      "clippedControls": 0,
+      "undersizedControls": 0,
+      "visibleControls": 0
+    }
+  ]
+}

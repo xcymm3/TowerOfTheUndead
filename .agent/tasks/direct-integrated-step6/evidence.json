@@ -1,0 +1,37 @@
+{
+  "taskId": "direct-integrated-step6",
+  "verifiedAt": "2026-09-18",
+  "status": "PASS",
+  "runtime": {
+    "total": 119,
+    "passed": 119,
+    "failed": 0,
+    "browserErrors": 0
+  },
+  "source": {
+    "immutableUpstreamFiles": 820,
+    "mappings": 767,
+    "status": "PASS"
+  },
+  "production": {
+    "basePath": "/TowerOfTheUndead/",
+    "files": 143,
+    "failedRequests": 0,
+    "browserErrors": 0,
+    "status": "PASS"
+  },
+  "originalAcceptance": {
+    "localPass": 14,
+    "failed": 0,
+    "deferred": ["AC15"]
+  },
+  "acceptanceCriteria": {
+    "AC-1": "PASS",
+    "AC-2": "PASS",
+    "AC-3": "PASS",
+    "AC-4": "PASS",
+    "AC-5": "PASS",
+    "AC-6": "PASS",
+    "AC-7": "PASS"
+  }
+}

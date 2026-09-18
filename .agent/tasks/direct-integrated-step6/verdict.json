@@ -1,0 +1,19 @@
+{
+  "taskId": "direct-integrated-step6",
+  "verdict": "PASS",
+  "verifiedAt": "2026-09-18",
+  "acceptanceCriteria": {
+    "AC-1": "PASS",
+    "AC-2": "PASS",
+    "AC-3": "PASS",
+    "AC-4": "PASS",
+    "AC-5": "PASS",
+    "AC-6": "PASS",
+    "AC-7": "PASS"
+  },
+  "originalAcceptance": {
+    "AC1-AC14-local": "PASS",
+    "AC15": "DEFERRED_TO_STEP7"
+  },
+  "problems": 0
+}

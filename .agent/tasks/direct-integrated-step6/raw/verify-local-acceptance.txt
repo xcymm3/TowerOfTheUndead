@@ -1,0 +1,2 @@
+$ node scripts/verify-local-acceptance.mjs .agent/tasks/direct-integrated-step6/raw/full-runtime-final2
+PASS: 119 runtime checks, 143 production files, local AC1-AC14; AC15 deferred to step 7.
