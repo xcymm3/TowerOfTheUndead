@@ -1,16 +1,24 @@
+import { outputPath } from './output.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { spawn } from 'node:child_process'
 import { chromium } from '@playwright/test'
 import { isBuildCurrent } from '../scripts/runtime-fingerprint.mjs'
 import { earlyInteractions } from './early-interactions.mjs'
+import { midgameInteractions } from './midgame-interactions.mjs'
+import { researchInteractions } from './research-interactions.mjs'
+import { realityInteractions } from './reality-interactions.mjs'
+import { automatorInteractions } from './automator-interactions.mjs'
+import { storageInteractions } from './storage-interactions.mjs'
+import { celestialInteractions } from './celestial-interactions.mjs'
+import { endgameInteractions } from './endgame-interactions.mjs'
+import { performanceInteractions } from './performance-interactions.mjs'
 
 for (const kind of ['runtime', 'reference']) {
   assert.ok(isBuildCurrent(kind), '构建产物缺失或过期，请先运行 pnpm test：' + kind)
 }
 
-fs.mkdirSync('test-results', { recursive: true })
-const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:5180'
+const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:5180/TowerOfTheUndead/'
 const server = process.env.TEST_BASE_URL ? null : spawn(process.execPath,
   ['node_modules/vite/bin/vite.js', '--host', '127.0.0.1', '--port', '5180', '--strictPort'],
   { stdio: 'ignore' })
@@ -28,11 +36,12 @@ page.on('pageerror', error => errors.push(error.message))
 page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
 const results = []
 async function test(name, fn) {
+  if (process.env.TEST_FILTER && !name.includes(process.env.TEST_FILTER) && name !== 'No browser runtime errors') return
   try { await fn(); results.push({ name, pass: true }); console.log('PASS', name) }
   catch (error) {
     results.push({ name, pass: false, error: error.stack })
     console.error('FAIL', name, error.message)
-    await page.screenshot({ path: `test-results/failure-${results.length}.png`, fullPage: true }).catch(() => {})
+    await page.screenshot({ path: outputPath(`failure-${results.length}.png`), fullPage: true }).catch(() => {})
   }
 }
 let engine
@@ -95,17 +104,52 @@ try {
   // Keep upstream autosaves out of the game's storage even on slow test machines.
   const referenceContext = await browser.newContext()
   const referencePage = await referenceContext.newPage()
+  referencePage.on('pageerror', error => errors.push('reference: ' + error.message))
+  referencePage.on('console', message => { if (message.type() === 'error') errors.push('reference: ' + message.text()) })
   reference = referencePage
-  await referencePage.goto(base + '/reference/index.html')
+  await referencePage.goto(base.replace(/\/$/, '') + '/reference/index.html')
   await referencePage.waitForFunction(() => window.GameStorage && window.ui?.view.initialized)
   await referencePage.evaluate(() => GameIntervals.stop())
 
   await test('767 mappings bind to their original config objects', async () => {
-    const count = await engine.evaluate(() => {
-      const { mapping, registry } = UndeadTheme
-      return mapping.entries.filter(e => registry.get(e.mappingKey)?.undeadName === e.undeadName).length
+    const bindings = await engine.evaluate(() => {
+      const { mapping, registry, configurations } = UndeadTheme
+      return mapping.entries.map((entry, index) => {
+        const config = registry.get(entry.mappingKey)
+        return {
+          mappingKey: entry.mappingKey,
+          actualSourceId: config?.id ?? null,
+          actualThemeName: config?.undeadName ?? null,
+          sameConfigurationObject: config === configurations[index],
+          bindingStatus: config && config === configurations[index] &&
+            config.undeadName === entry.undeadName ? 'PASS' : 'FAIL'
+        }
+      })
     })
-    assert.equal(count, 767)
+    const source = JSON.parse(fs.readFileSync('docs/反物质维度-映射参数索引.json', 'utf8'))
+    const byKey = new Map(bindings.map(binding => [binding.mappingKey, binding]))
+    const entries = source.entries.map(entry => ({
+      ...entry,
+      sourceLocation: `vendor/antimatter/${entry.file}:${entry.line}`,
+      runtime: byKey.get(entry.mappingKey) ?? { bindingStatus: 'FAIL' },
+      displayStatus: 'UNKNOWN',
+      semanticStatus: 'UNKNOWN',
+      gaps: ['尚未逐项核对实际可见文本和语义；原始 fields 表达式仅保留追溯，未逐条复核']
+    }))
+    fs.writeFileSync(outputPath('mapping-audit.json'), JSON.stringify({
+      sourceCommit: source.sourceCommit,
+      scope: 'AC10 逐项审计底稿；运行时对象绑定检查不能代替显示、表达式及语义验收',
+      entries,
+      outsideDatabase: {
+        status: 'UNKNOWN',
+        categories: ['资源', '阶位', '动态说明', '帮助', '通知', '确认框', '成就与奖励', '结局'],
+        gaps: ['分类待逐条盘点，非完整文本清单；已知中英混排见阶段验收方法文档']
+      }
+    }, null, 2))
+    assert.equal(bindings.length, 767)
+    assert.equal(byKey.size, 767)
+    assert.equal(entries.length, 767)
+    assert.deepEqual(entries.filter(entry => entry.runtime.bindingStatus !== 'PASS').map(entry => entry.mappingKey), [])
   })
   await test('Early unlocks respect original parent and subtab gates', async () => {
     await reset(engine)
@@ -134,7 +178,8 @@ try {
     ['Time altar production', 'player.eternities=new Decimal(1); player.dimensions.time[0].amount=new Decimal(50); player.dimensions.time[0].bought=10; for(let i=0;i<100;i++) gameLoop(50);'],
     ['Research prerequisites and costs', 'player.eternities=new Decimal(1); player.timestudy.theorem=new Decimal(1000); TimeStudy(11).purchase(); TimeStudy(21).purchase(); TimeStudy(31).purchase(); return player.timestudy.studies;'],
     ['Dilation penalty and generation', 'player.eternities=new Decimal(100); player.dilation.studies=[1]; player.dilation.active=true; player.dilation.tachyonParticles=new Decimal(100); AntimatterDimension(1).amount=new Decimal(1e20); for(let i=0;i<40;i++) gameLoop(50);'],
-    ['First Reality rewards and reset', 'player.eternities=new Decimal(100); player.dilation.studies=[1,2,3,4,5,6]; Currency.eternityPoints.value=new Decimal("1e4000"); player.records.thisReality.maxEP=new Decimal("1e4000"); processManualReality(false); return {rm:player.reality.realityMachines.toString(),glyphs:player.reality.glyphs.inventory.map(g=>({type:g.type,level:g.level,strength:g.strength,effects:g.effects})),pp:player.reality.perkPoints};'],
+    // Avoid achievement 154's 10% bonus in this deterministic reset case; glyph RNG retains the original seed.
+    ['First Reality rewards and reset', 'player.records.thisReality.time=120000; player.records.thisReality.realTime=120000; player.eternities=new Decimal(100); player.dilation.studies=[1,2,3,4,5,6]; Currency.eternityPoints.value=new Decimal("1e4000"); player.records.thisReality.maxEP=new Decimal("1e4000"); processManualReality(false); return {rm:player.reality.realityMachines.toString(),glyphs:player.reality.glyphs.inventory.map(g=>({type:g.type,level:g.level,strength:g.strength,effects:g.effects})),pp:player.reality.perkPoints};'],
     ['Seeded glyph generation', 'player.realities=5; return GlyphGenerator.randomGlyph({actualLevel:100,rawLevel:100},new GlyphGenerator.RealGlyphRNG());'],
     ['Black hole three upgrade tracks', 'player.realities=1; player.blackHole[0].unlocked=true; Currency.realityMachines.value=new Decimal(1e8); BlackHole(1).intervalUpgrade.purchase(); BlackHole(1).powerUpgrade.purchase(); BlackHole(1).durationUpgrade.purchase(); return player.blackHole;'],
     ['Continuum and dark matter production', 'player.realities=100; player.reality.imaginaryUpgradeBits|=1<<15; player.celestials.laitela.dimensions[0].amount=new Decimal(1); Currency.antimatter.value=new Decimal("1e100"); for(let i=0;i<100;i++) gameLoop(50);'],
@@ -149,6 +194,14 @@ try {
   }
 
   await earlyInteractions({ page, engine, reference, reset, test, evaluateScenario })
+  await midgameInteractions({ page, engine, reference, reset, test })
+  await researchInteractions({ page, engine, reference, reset, test })
+  await realityInteractions({ page, engine, reference, reset, test })
+  await automatorInteractions({ page, engine, reference, reset, test })
+  await storageInteractions({ page, engine, reference, reset, test })
+  await celestialInteractions({ page, engine, reference, reset, test })
+  await endgameInteractions({ page, engine, reference, reset, test })
+  await performanceInteractions({ page, engine, reset, test })
 
   await test('Real purchase click updates army and resource state', async () => {
     await reset(engine)
@@ -159,7 +212,7 @@ try {
     assert.equal(await page.locator('.field-unit.sprite-1').count(), 1)
     assert.equal(await page.locator('.field-unit.sprite-2').count(), 0)
     assert.equal(await engine.evaluate(() => player.antimatter.toString()), '0')
-    await page.screenshot({ path: 'test-results/desktop-first-recruit.png', fullPage: true })
+    await page.screenshot({ path: outputPath('desktop-first-recruit.png'), fullPage: true })
   })
   await test('Scene pause never pauses simulation', async () => {
     const before = await engine.evaluate(() => player.antimatter.toNumber())
@@ -199,14 +252,14 @@ try {
     assert.ok(await engine.evaluate(() => player.antimatter.gt(10)))
     await engine.evaluate(() => { GameIntervals.stop(); Modal.hideAll() })
   })
-  await test('Responsive views at 320, 375, 414, 768 and 1440 pixels', async () => {
-    for (const width of [320, 375, 414, 768, 1440]) {
+  await test('Responsive views at 320, 375, 414, 768, 1024 and 1440 pixels', async () => {
+    for (const width of [320, 375, 414, 768, 1024, 1440]) {
       await page.setViewportSize({ width, height: 1000 })
       await page.waitForTimeout(100)
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Outer overflow at ' + width)
       assert.equal(await engine.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Engine overflow at ' + width)
       assert.equal(await engine.locator('[data-buy-tier="1"]').isVisible(), true)
-      await page.screenshot({ path: 'test-results/width-' + width + '.png', fullPage: true })
+      await page.screenshot({ path: outputPath('width-' + width + '.png'), fullPage: true })
     }
   })
   await test('All game screens render with progression fixtures', async () => {
@@ -253,7 +306,7 @@ try {
       })
       assert.equal(fits, true, 'Screen outside management panel: ' + tab + '/' + sub)
       if (['studies', 'glyphs', 'pelle', 'upgrades', 'autobuyers'].includes(sub)) {
-        await page.screenshot({ path: 'test-results/screen-' + tab + '-' + sub + '.png', fullPage: true })
+        await page.screenshot({ path: outputPath('screen-' + tab + '-' + sub + '.png'), fullPage: true })
       }
     }
     console.log('Rendered', tabs.length, 'game screens')
@@ -267,11 +320,11 @@ try {
       GameUI.update()
     })
     await page.waitForTimeout(400)
-    await page.screenshot({ path: 'test-results/desktop-full-army.png', fullPage: true })
+    await page.screenshot({ path: outputPath('desktop-full-army.png'), fullPage: true })
   })
   await test('No browser runtime errors', async () => assert.deepEqual(errors, []))
 } finally {
-  fs.writeFileSync('test-results/runtime-report.json', JSON.stringify({ results, errors }, null, 2))
+  fs.writeFileSync(outputPath('runtime-report.json'), JSON.stringify({ filter: process.env.TEST_FILTER || null, results, errors }, null, 2))
   await browser.close()
   server?.kill()
 }

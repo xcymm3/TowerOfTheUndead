@@ -29,13 +29,15 @@ pnpm preview
 - `pnpm test`：重新构建亡灵版与独立原版对照，检查源码与映射，然后执行浏览器回归。Windows 默认使用已安装的 Google Chrome；其他平台先执行 `pnpm exec playwright install chromium`。
 - `pnpm test:runtime`：复用当前构建执行校验和回归；任一构建缺失或输入指纹过期时失败，需先运行 `pnpm test`。
 - `pnpm build`：重新构建运行时、检查类型、生成完整 `dist/`。原版测试对照不进入交付目录。
-- `pnpm test:production`：检查正式产物的许可、运行时指纹及测试目录隔离，并在预览服务中验证载入、购买和军团同步。
-- `pnpm preview`：预览 `dist/`。部署时托管整个目录，包括 `engine/` 与 `art/`；通过 HTTP 访问。
-- 测试报告与截图写入 `test-results/`，不提交生成产物。
+- `pnpm test:production`：检查正式产物的许可、运行时指纹及测试目录隔离，并在 `/TowerOfTheUndead/` 子路径预览服务中验证载入、资源请求、购买、军团名册、保存和刷新恢复。
+- `PAGES_BASE_URL=https://实际站点/ node tests/pages.mjs`：对已发布站点执行同一真实购买、保存刷新冒烟，不植入阶段夹具（PowerShell 使用 `$env:PAGES_BASE_URL` 设置地址）。当前发布仍待平台认证与上线验证。
+- `pnpm preview`：预览 `dist/`。部署时托管整个目录，包括 `engine/` 与 `art/`；通过 HTTP 访问 `/TowerOfTheUndead/`。
+- 测试报告与截图默认写入 `test-results/`；可通过 `TEST_OUTPUT_DIR` 指定隔离输出目录，不提交生成产物。
+- 中期操作对照见 [中期验收方法与覆盖限制](./docs/亡灵之塔-中期验收方法.md)。`TEST_FILTER` 可按用例名称筛选调试；筛选报告不代表完整回归通过。
 
 ## 当前架构
 
-- `src/App.tsx`、`src/App.css`、`src/index.css`：React 资源栏、军团场景和布局。
+- `src/App.tsx`、`src/App.css`、`src/index.css`：React 资源栏、军团场景和布局；桌面左经营右军团，移动端经营在前。
 - `src/game/bridge.ts`：运行时快照类型与接收校验；通过同源 iframe 消息展示原作状态，不另建数值循环。
 - `vendor/antimatter/`：820 个上游文件的固定快照，包含原作大数、生产、购买、重置、自动化、存档与终局逻辑。
 - `vendor/source-manifest.json`：源码提交号和逐文件 SHA-256；原作文件保持原样。

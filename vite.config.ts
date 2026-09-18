@@ -8,6 +8,7 @@ const root = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/TowerOfTheUndead/',
   build: { copyPublicDir: false },
   plugins: [react(), {
     name: 'ship-game-assets-only',

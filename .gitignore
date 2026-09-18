@@ -28,3 +28,9 @@ public/reference
 *.njsproj
 *.sln
 *.sw?
+
+# deadline-carl:local-state:start
+/.agent/durable-loop/
+/.agent/deadline-carl-scratch/
+/.agent/tasks/*/.init-in-progress
+# deadline-carl:local-state:end

@@ -66,6 +66,8 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .unit-8 { clip-path: inset(0 0 0 14%); }
 .army-identity h2 { margin: 0; color: var(--color-text); font-size: 17px; line-height: 1.5; letter-spacing: 2px; text-shadow: 2px 2px var(--tower-shadow); }
 .army-multiplier { color: var(--tower-muted); font-size: 11px; }
+.army-identity, .army-quantity, .army-price { min-width: 0; overflow-wrap: anywhere; }
+.army-quantity b, .army-price b { display: block; line-height: 1.4; }
 .army-quantity b, .army-price b { font-variant-numeric: tabular-nums; font-size: 15px; overflow-wrap: anywhere; }
 .army-price b { color: var(--tower-gold); }
 .army-row small { display: block; font-size: 10px; color: var(--tower-muted); font-weight: 400; }
@@ -107,7 +109,45 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .undead-runtime .c-prestige-info-blocks { position: relative; display: flex; flex-wrap: wrap; height: auto; gap: 8px; margin-bottom: 10px; }
 .undead-runtime .c-prestige-info-blocks > div { position: static; flex: 1 1 180px; width: auto; min-width: 0; }
 .undead-runtime .l-game-header__center { display: none; }
+.undead-runtime .l-game-header__center:has(.c-reality-container) { display: flex; flex-direction: column; align-items: center; }
+.undead-runtime .l-game-header__center:has(.c-reality-container) > span { display: none; }
+.undead-runtime .c-reality-container { width: 100%; min-width: 0; }
+.undead-runtime .l-reality-button { width: min(35rem, 100%); height: auto; min-height: 6rem; }
+.undead-runtime .c-reality-button { min-height: 6rem; overflow-wrap: anywhere; color: var(--color-text); }
+/* Keep glyph controls inside the management panel; only the ten-slot inventory scrolls. */
+.undead-runtime .l-glyphs-tab { flex-wrap: wrap; gap: 12px; width: 100%; min-width: 0; }
+.undead-runtime .l-reality-button-column { width: min(44rem, 100%); margin-right: 0; min-width: 0; }
+.undead-runtime .l-player-glyphs-column { width: min(65rem, 100%); min-width: 0; }
+.undead-runtime .l-glyph-sidebar-option-container { height: auto; }
+.undead-runtime .l-equipped-glyphs-and-effects-container { width: 100%; flex-wrap: wrap; gap: 8px; }
+.undead-runtime .l-glyph-info-wrapper { width: min(45rem, 100%); min-width: 0; }
+.undead-runtime .l-current-glyph-effects, .undead-runtime .l-sacrificed-glyphs { width: 100%; }
+.undead-runtime .l-glyph-inventory { width: 100%; align-items: flex-start; overflow-x: auto; }
+.undead-runtime .l-glyph-inventory__row { flex-shrink: 0; }
+.undead-runtime .l-glyph-inventory__slot { flex-shrink: 0; }
+/* The embedded management viewport is narrower than the original full-page editor. */
+.undead-runtime .c-automator-tab { width: 100%; min-width: 0; overflow-wrap: anywhere; }
+.undead-runtime .l-automator-button-row { height: auto; min-height: 3rem; flex-wrap: wrap; }
+.undead-runtime .c-automator__controls .c-button-group { flex-wrap: wrap; min-width: 0; }
+.undead-runtime .l-automator-pane, .undead-runtime .l-automator-pane__content { min-width: 0; min-height: 0; }
+@media(max-width: 800px) {
+  .undead-runtime .c-automator-split-pane { height: auto; }
+  .undead-runtime .c-automator-split-pane > .vue-splitter-container { display: flex; flex-direction: column; height: auto; gap: 10px; }
+  .undead-runtime .c-automator-split-pane .splitter-pane.vertical.splitter-paneL,
+  .undead-runtime .c-automator-split-pane .splitter-pane.vertical.splitter-paneR { position: relative; width: 100% !important; height: 48rem; padding: 0; }
+  .undead-runtime .c-automator-split-pane .splitter-pane-resizer { display: none; }
+  .undead-runtime .c-automator-tab--full-screen .c-automator-split-pane { height: 100%; overflow-y: auto; background: var(--tower-panel); }
+}
 .undead-runtime .c-game-tab { overflow-x: auto; padding-bottom: 8px; }
+/* Keep Teresa's run entry and shop inside the narrower management pane. */
+.undead-runtime .l-teresa-celestial-tab > .l-mechanics-container { width: 100%; flex-wrap: wrap; align-items: flex-start; gap: 16px; }
+.undead-runtime .l-teresa-mechanic-container { min-width: 0; width: 22rem; max-width: 100%; }
+.undead-runtime .c-teresa-unlock { width: 100%; margin: 0 0 1rem; }
+.undead-runtime .l-rm-container { width: 27rem; text-align: left; }
+.undead-runtime .l-rm-container .c-rm-store { width: 11rem; margin-left: 0; text-align: center; }
+.undead-runtime .l-rm-container .c-teresa-pour { width: 11rem; }
+.undead-runtime .c-teresa-shop { width: 22rem; max-width: 100%; margin: 0; }
+.undead-runtime .l-rm-container-labels { display: none; }
 .undead-runtime .army-management { overflow: visible; padding: 0; border: 0; }
 .undead-runtime .l-modern-sidebar, .undead-runtime .l-notification-icon { display: none; }
 .undead-runtime .l-time-studies-tab__tt-shop { position: fixed; top: auto; bottom: 0; left: 0; width: 100%; height: auto; max-height: 180px; background: transparent; z-index: 10; }
@@ -135,16 +175,17 @@ body[class] { margin: 0; background: var(--tower-panel); }
   .tower-tabs button, .tower-tabs button:first-child { padding: 7px 2px; letter-spacing: 1px; }
   .undead-runtime { padding-inline: 7px; }
   .tower-tabs button { padding: 7px 10px; font-size: 12px; }
-  .army-row { grid-template-columns: 44px minmax(62px, 1fr) minmax(42px, .65fr) 69px; gap: 5px; min-height: 70px; padding-right: 5px; }
-  .army-portrait { width: 44px; height: 52px; background-size: 400% 200%; }
+  .army-row { grid-template-columns: 44px minmax(0, 1fr) 69px; gap: 3px 7px; min-height: 70px; padding: 7px 5px 7px 0; }
+  .army-portrait { grid-column: 1; grid-row: 1 / span 3; width: 44px; height: 52px; background-size: 400% 200%; }
+  .army-identity { grid-column: 2; grid-row: 1; }
   .army-identity h2 { font-size: 13px; letter-spacing: 0; }
-  .army-price { grid-column: 3; grid-row: 1; padding-top: 31px; }
+  .army-price { grid-column: 2; grid-row: 3; }
   .army-price b { font-size: 10px; }
   .army-price small { display: none; }
-  .army-quantity { grid-column: 3; grid-row: 1; padding-bottom: 20px; }
+  .army-quantity { grid-column: 2; grid-row: 2; }
   .army-quantity b { font-size: 12px; }
   .army-quantity small { display: none; }
-  .army-row button { grid-column: 4; grid-row: 1; font-size: 14px; min-width: 0; }
+  .army-row button { grid-column: 3; grid-row: 1 / span 3; font-size: 14px; min-width: 0; }
   .army-row button small { font-size: 9px; }
   .army-toolbar > span { font-size: 10px; }
   .buy-modes button, .max-all { font-size: 11px; padding: 5px 8px; }

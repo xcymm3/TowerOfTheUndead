@@ -1,3 +1,4 @@
+import { outputPath } from './output.mjs'
 import assert from 'node:assert/strict'
 
 // Fixtures provide resources and elapsed progress only. Purchases, unlocks and resets
@@ -76,7 +77,41 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
     assert.equal(await engine.evaluate(() => AntimatterDimension(8).bought), 1)
     await page.waitForTimeout(300)
     for (let tier = 1; tier <= 8; tier++) assert.ok(await page.locator(`.field-unit.sprite-${tier}`).count())
-    await page.screenshot({ path: 'test-results/step2-eight-tiers.png', fullPage: true })
+    await page.screenshot({ path: outputPath('step2-eight-tiers.png'), fullPage: true })
+  })
+
+  await test('UI · Every tier rejects insufficient funds and buys at exact original price', async () => {
+    for (let tier = 1; tier <= 8; tier++) {
+      const setup = `player.dimensionBoosts=4; for(let t=1;t<${tier};t++) AntimatterDimension(t).amount=new Decimal(1); Currency.antimatter.value=AntimatterDimension(${tier}).cost;`
+      await prepare(setup)
+      await engine.getByRole('button', { name: '单次', exact: true }).click()
+      await engine.evaluate(t => { Currency.antimatter.value=AntimatterDimension(t).cost.times(0.999999); GameUI.update() }, tier)
+      assert.equal(await buy(tier).isDisabled(), true, 'Below cost: tier ' + tier)
+      await engine.evaluate(t => { Currency.antimatter.value=AntimatterDimension(t).cost; GameUI.update() }, tier)
+      await buy(tier).click()
+      await compare(setup, `buyOneDimension(${tier});`)
+    }
+  })
+
+  await test('UI · Boost boundary and retained state match original at every early tier', async () => {
+    for (let boost = 0; boost < 5; boost++) {
+      const setup = `player.dimensionBoosts=${boost}; const req=DimBoost.requirement; AntimatterDimension(req.tier).amount=new Decimal(req.amount);`
+      await prepare(setup)
+      await action('boost').click()
+      await compare(setup, 'manualRequestDimensionBoost(false);')
+    }
+  })
+
+  await test('UI · Tickspeed exact cost boundary matches original', async () => {
+    const setup = 'Currency.antimatter.value=new Decimal(1000); buyOneDimension(1); buyOneDimension(2); Currency.antimatter.value=Tickspeed.cost;'
+    await prepare(setup)
+    await engine.evaluate(() => { Currency.antimatter.value=Tickspeed.cost.minus(1); GameUI.update() })
+    assert.match(await engine.locator('.tickspeed-btn').getAttribute('class'), /o-primary-btn--disabled/)
+    await engine.locator('.tickspeed-btn').click()
+    await compare(setup + 'Currency.antimatter.value=Tickspeed.cost.minus(1);', 'buyTickSpeed();')
+    await engine.evaluate(() => { Currency.antimatter.value=Tickspeed.cost; GameUI.update() })
+    await engine.locator('.tickspeed-btn').click()
+    await compare(setup, 'buyTickSpeed();')
   })
 
   await test('UI · Tickspeed single and maximum clicks match original', async () => {
@@ -105,7 +140,9 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
   await test('UI · Sacrifice cancellation, reward and retained eighth tier match original', async () => {
     const setup = 'player.dimensionBoosts=5; AntimatterDimensions.all.forEach(d=>d.amount=new Decimal(100)); AntimatterDimension(1).amount=new Decimal("1e12"); Achievement(18).unlock();'
     await prepare(setup)
-    await engine.evaluate(() => { player.options.confirmations.sacrifice=true; GameUI.update() })
+    await engine.evaluate(() => { player.dimensionBoosts=4; GameUI.update() })
+    assert.equal(await action('sacrifice').isDisabled(), true)
+    await engine.evaluate(() => { player.dimensionBoosts=5; player.options.confirmations.sacrifice=true; GameUI.update() })
     await action('sacrifice').click()
     await cancel()
     assert.equal(await engine.evaluate(() => player.sacrificed.toString()), '0')
@@ -120,13 +157,13 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
   await test('UI · First Infinity threshold and mandatory confirmation match original', async () => {
     await prepare('Currency.antimatter.value=new Decimal("1e307"); player.records.thisInfinity.maxAM=new Decimal("1e307");')
     assert.equal(await action('crunch').count(), 0)
-    const setup = 'Currency.antimatter.value=new Decimal("1e309"); player.records.thisInfinity.maxAM=new Decimal("1e309"); player.records.thisInfinity.time=120000; player.records.thisInfinity.realTime=120000;'
+    const setup = 'Currency.antimatter.value=Player.infinityLimit; player.records.thisInfinity.maxAM=Player.infinityLimit; player.records.thisInfinity.time=120000; player.records.thisInfinity.realTime=120000;'
     await prepare(setup)
     await action('crunch').click()
     await cancel()
     assert.equal(await engine.evaluate(() => player.infinities.toString()), '0')
     await action('crunch').click()
-    await page.screenshot({ path: 'test-results/step2-first-infinity-confirm.png', fullPage: true })
+    await page.screenshot({ path: outputPath('step2-first-infinity-confirm.png'), fullPage: true })
     await confirm()
     await compare(setup, 'bigCrunchReset();')
     assert.equal(await engine.evaluate(() => PlayerProgress.infinityUnlocked()), true)
@@ -140,7 +177,7 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
     assert.equal(await engine.locator('.c-modal').evaluate(e => {
       const r=e.getBoundingClientRect(); return r.left>=0 && r.right<=innerWidth && e.scrollWidth<=e.clientWidth
     }), true, 'First Infinity message must fit at 320px')
-    await page.screenshot({ path: 'test-results/step2-animation-message-320.png', fullPage: true })
+    await page.screenshot({ path: outputPath('step2-animation-message-320.png'), fullPage: true })
     await acknowledge.click()
     // Separately exercise the original fast-Infinity achievement's UI callback.
     await engine.evaluate(() => { Achievement(55).unlock(); GameUI.update() })
@@ -148,22 +185,25 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
     assert.equal(await engine.locator('.c-modal').evaluate(e => {
       const r=e.getBoundingClientRect(); return r.left>=0 && r.right<=innerWidth && e.scrollWidth<=e.clientWidth
     }), true, 'Fast Infinity message must fit at 320px')
-    await page.screenshot({ path: 'test-results/step2-first-infinity-message-320.png', fullPage: true })
+    await page.screenshot({ path: outputPath('step2-first-infinity-message-320.png'), fullPage: true })
     await acknowledge.click()
     await engine.waitForFunction(() => !ui.view.modal.current)
     await page.setViewportSize({ width: 1440, height: 1000 })
   })
 
-  await test('UI · Army left, controls right; responsive reset buttons remain reachable', async () => {
+  await test('UI · Controls left, army right; responsive reset buttons remain reachable', async () => {
     await prepare('player.dimensionBoosts=4; Currency.antimatter.value=new Decimal("1e100"); for(let t=1;t<=8;t++) buyOneDimension(t);')
+    // Let the original transient achievement notices expire before layout captures.
+    await engine.waitForFunction(() => !document.querySelector('.o-notification'), { }, { timeout: 10000 })
     for (const width of [320, 375, 414, 768, 1024, 1440]) {
       await page.setViewportSize({ width, height: 1000 })
       await page.waitForTimeout(150)
       assert.equal(await engine.evaluate(() => Boolean(ui.view.modal.current)), false, 'Unexpected modal at ' + width)
       const scene = await page.locator('.battle-panel').boundingBox()
       const panel = await page.locator('.management-panel').boundingBox()
-      if (width > 800) assert.ok(scene.x + scene.width <= panel.x)
-      else assert.ok(scene.y + scene.height <= panel.y)
+      if (width > 800) assert.ok(panel.x + panel.width <= scene.x)
+      else assert.ok(panel.y + panel.height <= scene.y)
+      assert.equal(await page.locator('.game-layout > :first-child').getAttribute('aria-label'), '高塔经营')
       assert.equal(await engine.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true)
       for (const name of ['boost', 'galaxy', 'sacrifice']) {
         await action(name).scrollIntoViewIfNeeded()
@@ -175,7 +215,7 @@ export async function earlyInteractions({ page, engine, reference, reset, test, 
         }), true, name + ' clipped at ' + width)
       }
       await engine.evaluate(() => { window.scrollTo(0, 0); document.body.scrollTop=0; document.documentElement.scrollTop=0 })
-      await page.screenshot({ path: `test-results/step2-width-${width}.png`, fullPage: true })
+      await page.screenshot({ path: outputPath(`step2-width-${width}.png`), fullPage: true })
     }
     await page.getByRole('button', { name: '展开经营', exact: true }).click()
     assert.equal(await page.locator('.battle-panel').isVisible(), false)
