@@ -4,7 +4,7 @@ import { outputPath } from './output.mjs'
 
 export async function storageInteractions({ page, engine, reference, reset, test }) {
   const frames = [engine, reference]
-  const trace = [{ fixture: 'Stopped intervals and fixed clock; synthetic stage resources are explicitly assigned. Save import/export, slot selection and backup restore use real UI. No legacy-save corpus or natural full progression claim.' }]
+  const trace = [{ fixture: 'Stopped intervals and fixed clock; synthetic stage resources are explicitly assigned. Save import/export, slot selection and backup restore use real UI. Legacy encoding/root migration, five representative current-stage round trips, damaged storage recovery, all eight automatic slots, backup archives and bounded long-offline loads are covered; fixtures are not claimed as natural progression.' }]
   const settle = async () => {
     for (const frame of frames) await frame.evaluate(() => {
       GameIntervals.stop(); Lazy.invalidateAll(); GameUI.update()
@@ -21,6 +21,7 @@ export async function storageInteractions({ page, engine, reference, reset, test
     infinities: player.infinities.toString(), eternities: player.eternities.toString(), realities: player.realities,
     ip: player.infinityPoints.toString(), ep: player.eternityPoints.toString(),
     rm: player.reality.realityMachines.toString(), studies: player.timestudy.studies,
+    doomed: player.celestials.pelle.doomed, teresaUnlocks: player.celestials.teresa.unlockBits,
     seed: player.reality.seed, glyphs: JSON.parse(JSON.stringify(player.reality.glyphs)),
   }))
   const parity = async label => {
@@ -167,5 +168,226 @@ export async function storageInteractions({ page, engine, reference, reset, test
       else assert.equal(state.souls, '10', 'disabled offline must not produce resources')
       assert.equal(state.army[0][1], 1)
     }
+  })
+
+  await test('Storage compatibility · Legacy encoding, five stages and damaged-root recovery', async () => {
+    await prepare()
+    const stageFixtures = [
+      ['early', 'Currency.antimatter.value=new Decimal(321); AntimatterDimension(1).bought=3;'],
+      ['midgame', 'player.infinities=new Decimal(12); player.eternities=new Decimal(2); Currency.infinityPoints.value=new Decimal("1e90"); player.timestudy.studies=[11,21,31];'],
+      ['reality', 'player.infinities=new Decimal(100); player.eternities=new Decimal(200); player.realities=4; Currency.realityMachines.value=new Decimal(456);'],
+      ['celestial', 'player.realities=100; player.celestials.teresa.unlockBits=7; Currency.realityMachines.value=new Decimal("1e20");'],
+      ['endgame', 'player.realities=100; player.celestials.pelle.doomed=true; player.celestials.pelle.remnants=9; player.celestials.pelle.realityShards=new Decimal(1234);'],
+    ]
+    for (const [stage, fixture] of stageFixtures) {
+      for (const frame of frames) {
+        await reset(frame)
+        await frame.evaluate(script => {
+          Function(script)()
+          player.options.offlineProgress = false
+          const encoded = GameStorage.exportModifiedSave()
+          GameStorage.loadPlayerObject(GameSaveSerializer.deserialize(encoded))
+          GameIntervals.stop(); Modal.hideAll()
+        }, fixture)
+      }
+      await parity(`current serializer round trip: ${stage}`)
+    }
+
+    // The pre-Reality serializer was plain base64 and single-slot saves stored the player as the root object.
+    for (const frame of frames) {
+      await reset(frame)
+      await frame.evaluate(() => {
+        Currency.antimatter.value = new Decimal(7654)
+        player.infinities = new Decimal(7)
+        player.options.offlineProgress = false
+        const oldEncoded = btoa(JSON.stringify(player, GameSaveSerializer.jsonConverter))
+        localStorage.setItem(GameStorage.localStorageKey, oldEncoded)
+        GameStorage.load()
+        GameIntervals.stop(); Modal.hideAll()
+      })
+    }
+    const legacy = await parity('plain-base64 single-root save migrates to current three-slot root')
+    assert.equal(legacy.souls, '7654')
+    for (const frame of frames) assert.equal(await frame.evaluate(() => {
+      const root = GameSaveSerializer.deserialize(localStorage.getItem(GameStorage.localStorageKey))
+      return root.current === 0 && root.saves[0].antimatter === '7654'
+    }), true)
+
+    // Keep a valid recovery point, corrupt the main root, load the safe default, then recover using the real backup UI.
+    for (const frame of frames) await frame.evaluate(() => {
+      Currency.antimatter.value = new Decimal(4242)
+      player.options.loadBackupWithoutOffline = true
+      GameStorage.loadBackupTimes()
+      GameStorage.saveToBackup(1, 60000)
+      localStorage.setItem(GameStorage.localStorageKey, 'damaged-root-save')
+      GameStorage.load()
+      GameIntervals.stop(); Modal.hideAll(); Tab.options.saving.show(true); GameUI.update()
+    })
+    assert.equal((await parity('damaged main root falls back to a safe new player')).souls, '10')
+    await click('[onclick="Modal.backupWindows.show()"]')
+    for (const frame of frames) await frame.locator('.l-backup-entry').nth(0).locator('button').click()
+    await settle()
+    assert.equal((await parity('valid automatic backup recovers the damaged main root')).souls, '4242')
+
+    for (const frame of frames) await frame.evaluate(() => {
+      localStorage.setItem(GameStorage.backupDataKey(GameStorage.currentSlot, 2), 'damaged-backup')
+      Tab.options.saving.show(true); Modal.backupWindows.show(); GameUI.update()
+    })
+    await settle()
+    for (const frame of frames) assert.match(await frame.locator('.l-backup-entry').nth(1).locator('button').getAttribute('class'), /disabled/)
+    assert.equal((await parity('damaged backup slot is disabled without changing the recovered state')).souls, '4242')
+    await mutate('Modal.hideAll();')
+  })
+
+  await test('Storage backups · All eight slots and archive export/import', async () => {
+    await prepare()
+    for (const frame of frames) await frame.evaluate(() => GameStorage.loadBackupTimes())
+    for (let id = 1; id <= 8; id++) {
+      await mutate(`Currency.antimatter.value=new Decimal(${1000 + id}); player.backupTimer=${id * 60000}; GameStorage.saveToBackup(${id}, player.backupTimer);`)
+    }
+    for (const frame of frames) {
+      const contents = await frame.evaluate(() => Array.from({ length: 8 }, (_, index) => ({
+        id: index + 1,
+        souls: GameStorage.loadFromBackup(index + 1)?.antimatter,
+        timer: GameStorage.lastBackupTimes[index + 1]?.backupTimer,
+      })))
+      assert.deepEqual(contents, Array.from({ length: 8 }, (_, index) => ({
+        id: index + 1, souls: String(1001 + index), timer: (index + 1) * 60000,
+      })))
+    }
+    await mutate('Currency.antimatter.value=new Decimal(9999); player.options.loadBackupWithoutOffline=true;')
+
+    const archives = []
+    await mutate('Tab.options.saving.show(true);')
+    await click('[onclick="Modal.backupWindows.show()"]')
+    for (const [index, frame] of frames.entries()) {
+      const host = index === 0 ? page : reference
+      const pending = host.waitForEvent('download')
+      await frame.locator('[onclick="GameStorage.exportBackupsAsFile()"] ').click()
+      const download = await pending
+      const target = outputPath(`backup-archive-${index}.txt`)
+      await download.saveAs(target)
+      archives.push(fs.readFileSync(target, 'utf8'))
+    }
+    await settle()
+    await mutate('Modal.hideAll();')
+
+    // Slot 8 must be restored first because every later recovery intentionally overwrites it as the reserve undo slot.
+    for (const id of [8, 1, 2, 3, 4, 5, 6, 7]) {
+      await mutate('Tab.options.saving.show(true);')
+      await click('[onclick="Modal.backupWindows.show()"]')
+      for (const frame of frames) await frame.locator('.l-backup-entry').nth(id - 1).locator('button').click()
+      await settle()
+      assert.equal((await parity(`real backup UI restores slot ${id}`)).souls, String(1000 + id))
+    }
+
+    for (const frame of frames) await frame.evaluate(() => {
+      for (let id = 1; id <= 8; id++) localStorage.removeItem(GameStorage.backupDataKey(GameStorage.currentSlot, id))
+      localStorage.removeItem(GameStorage.backupTimeKey(GameStorage.currentSlot))
+      GameStorage.loadBackupTimes(); Tab.options.saving.show(true); Modal.backupWindows.show(); GameUI.update()
+    })
+    await settle()
+    for (const [index, frame] of frames.entries()) await frame.locator('.c-modal input.c-file-import').setInputFiles({
+      name: 'backup-archive.txt', mimeType: 'text/plain', buffer: Buffer.from(archives[index])
+    })
+    await settle()
+    for (const frame of frames) assert.deepEqual(await frame.evaluate(() => Array.from({ length: 8 }, (_, index) =>
+      GameStorage.loadFromBackup(index + 1)?.antimatter)), Array.from({ length: 8 }, (_, index) => String(1001 + index)))
+    await parity('backup archive restores all eight slots and their timers')
+
+    const beforeInvalid = await engine.evaluate(() => Array.from({ length: 8 }, (_, index) =>
+      localStorage.getItem(GameStorage.backupDataKey(GameStorage.currentSlot, index + 1))))
+    for (const frame of frames) await frame.locator('.c-modal input.c-file-import').setInputFiles({
+      name: 'damaged-backups.txt', mimeType: 'text/plain', buffer: Buffer.from('not-a-backup-archive')
+    })
+    await settle()
+    assert.deepEqual(await engine.evaluate(() => Array.from({ length: 8 }, (_, index) =>
+      localStorage.getItem(GameStorage.backupDataKey(GameStorage.currentSlot, index + 1)))), beforeInvalid)
+    await parity('damaged backup archive is rejected without overwriting valid backups')
+    await mutate('Modal.hideAll();')
+  })
+
+  await test('Storage offline · 24-hour and seven-day bounded simulations with controls', async () => {
+    await prepare()
+    const runLongOffline = async ({ seconds, lateGame, control }) => {
+      for (const frame of frames) await reset(frame)
+      await Promise.all(frames.map(frame => frame.evaluate(({ seconds, lateGame, control }) => {
+        AntimatterDimension(1).amount = new Decimal(1)
+        AntimatterDimension(1).bought = 1
+        if (lateGame) {
+          player.infinities = new Decimal(1000)
+          player.eternities = new Decimal(100)
+          player.realities = 25
+          player.celestials.teresa.unlockBits = 7
+        }
+        player.options.offlineProgress = true
+        player.options.offlineTicks = 2000
+        player.lastUpdate = Date.now() - seconds * 1000
+        const saved = GameSaveSerializer.deserialize(GameStorage.exportModifiedSave())
+        GameStorage.offlineTicks = 2000
+        // Force the same one-tick first batch in both independent pages. This makes the original asynchronous
+        // Speed up/SKIP callbacks fire at an identical progress boundary instead of depending on host CPU timing.
+        const originalRun = Async.run
+        const originalRunForTime = Async.runForTime
+        let firstBatch = true
+        Async.runForTime = function(fun, maxIter, config) {
+          if (!firstBatch) return originalRunForTime.call(this, fun, maxIter, config)
+          firstBatch = false
+          fun(maxIter)
+          return maxIter - 1
+        }
+        Async.run = function(fun, maxIter, config) {
+          const originalEntry = config.asyncEntry
+          config.asyncEntry = doneSoFar => {
+            originalEntry(doneSoFar)
+            const progress = ui.view.modal.progressBar
+            if (control === 'speed-and-skip') progress.buttons[0].click()
+            progress.buttons.at(-1).click()
+          }
+          return originalRun.call(this, fun, maxIter, config)
+        }
+        GameStorage.loadRoot({ current: 0, saves: { 0: saved, 1: undefined, 2: undefined } })
+        Async.run = originalRun
+        Async.runForTime = originalRunForTime
+      }, { seconds, lateGame, control })))
+      for (const frame of frames) await frame.waitForFunction(() => ui.view.modal.progressBar === undefined, null, { timeout: 30000 })
+      for (const frame of frames) await frame.evaluate(() => {
+        GameIntervals.stop(); Modal.hideAll(); Date.now = () => 1800000000000
+      })
+      const actual = await snapshot(engine)
+      const expected = await snapshot(reference)
+      const label = `${seconds / 3600}-hour offline load (${lateGame ? 'late-stage' : 'early-stage'}, ${control})`
+      trace.push({ label, actual, expected, comparison: 'Both pages enter the asynchronous branch after one deterministic test batch, then invoke the original Speed up/SKIP callbacks at the same progress point; all discrete state is exact and continuously produced souls allow 0.1% tolerance.' })
+      fs.writeFileSync(outputPath('storage-operations.json'), JSON.stringify(trace, null, 2))
+      const actualSouls = Number(actual.souls)
+      const expectedSouls = Number(expected.souls)
+      assert.ok(actualSouls > 10 && expectedSouls > 10)
+      assert.ok(Math.abs(actualSouls - expectedSouls) / Math.max(actualSouls, expectedSouls) < 1e-3, label)
+      const actualDiscrete = { ...actual }
+      const expectedDiscrete = { ...expected }
+      delete actualDiscrete.souls
+      delete expectedDiscrete.souls
+      assert.deepEqual(actualDiscrete, expectedDiscrete, label)
+      for (const frame of frames) assert.equal(await frame.evaluate(() => Boolean(GameStorage.loadFromBackup(7))), true,
+        'five-hour offline backup must be populated')
+      return actual
+    }
+    await runLongOffline({ seconds: 24 * 3600, lateGame: false, control: 'speed-and-skip' })
+    await runLongOffline({ seconds: 7 * 24 * 3600, lateGame: true, control: 'skip' })
+
+    for (const frame of frames) {
+      await reset(frame)
+      await frame.evaluate(() => {
+        AntimatterDimension(1).amount = new Decimal(1)
+        AntimatterDimension(1).bought = 1
+        player.options.offlineProgress = false
+        player.lastUpdate = Date.now() - 7 * 86400 * 1000
+        GameStorage.loadPlayerObject(GameSaveSerializer.deserialize(GameStorage.exportModifiedSave()))
+        GameIntervals.stop(); Modal.hideAll()
+      })
+    }
+    const disabled = await parity('seven-day offline load disabled')
+    assert.equal(disabled.souls, '10')
+    assert.equal(disabled.army[0][1], 1)
   })
 }

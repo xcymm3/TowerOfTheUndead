@@ -37,6 +37,36 @@ modify('src/core/ui.js', 'Vue.use(VueGtag, {\n  config: { id: "UA-77268961-1" }\
 modify('src/core/storage/storage.js', 'DEV ? "dimensionTestSave" : "dimensionSave"', 'DEV ? "undeadTowerTestSave" : "undeadTowerSave"')
 modify('src/core/storage/storage.js', '`backupTestSave-${saveSlot}-${backupSlot}` : `backupSave-${saveSlot}-${backupSlot}`', '`undeadBackupTest-${saveSlot}-${backupSlot}` : `undeadBackup-${saveSlot}-${backupSlot}`')
 modify('src/core/storage/storage.js', '`backupTestTimes-${saveSlot}` : `backupTimes-${saveSlot}`', '`undeadBackupTestTimes-${saveSlot}` : `undeadBackupTimes-${saveSlot}`')
+modify('src/core/storage/storage.js', '    const backupData = GameSaveSerializer.deserialize(importText);\n    localStorage.setItem(this.backupTimeKey(this.currentSlot), GameSaveSerializer.serialize(backupData.time));', `    const backupData = GameSaveSerializer.deserialize(importText);
+    const backupKeys = backupData && typeof backupData === "object"
+      ? Object.keys(backupData).filter(key => key !== "time")
+      : [];
+    const invalidBackup = !backupData || typeof backupData.time !== "object" ||
+      backupKeys.some(key => !AutoBackupSlots.some(slot => slot.id === Number(key)) ||
+        this.checkPlayerObject(backupData[key]) !== "");
+    if (invalidBackup) {
+      GameUI.notify.error("Could not import backup saves (format unrecognized or invalid).");
+      return;
+    }
+    localStorage.setItem(this.backupTimeKey(this.currentSlot), GameSaveSerializer.serialize(backupData.time));`)
+modify('src/core/storage/storage.js', '      this.backupTimeData[id] = {', '      this.lastBackupTimes[id] = {')
+modify('src/game.js', '    ui.view.modal.progressBar = {};', `    ui.view.modal.progressBar = {
+      label: "Preparing Offline Progress Simulation",
+      info: () => "Preparing the bounded offline calculation…",
+      progressName: "Ticks",
+      current: 0,
+      max: ticks,
+      startTime: Date.now(),
+      buttons: []
+    };`)
+modify('src/game.js', '        then: () => {\n          afterSimulation(seconds, playerStart);\n        },', `        then: () => {
+          // A small tick count can finish in the first synchronous batch, so asyncExit is never called.
+          if (ui.$viewModel.modal.progressBar !== undefined) {
+            ui.$viewModel.modal.progressBar = undefined;
+            GameStorage.postLoadStuff();
+          }
+          afterSimulation(seconds, playerStart);
+        },`)
 fs.cpSync(path.join(root, 'runtime'), path.join(stage, 'src/undead'), { recursive: true })
 fs.copyFileSync(path.join(root, 'public/art/army-atlas.png'), path.join(stage, 'src/undead/army-atlas.png'))
 fs.copyFileSync(path.join(root, 'runtime/GameUIComponent.vue'), path.join(stage, 'src/components/GameUIComponent.vue'))
