@@ -1,0 +1,36 @@
+{
+  "taskId": "direct-pages-step7",
+  "verifiedAt": "2026-09-18T08:11:31Z",
+  "site": {
+    "url": "https://xcymm3.github.io/TowerOfTheUndead/",
+    "public": true,
+    "httpsEnforced": true,
+    "buildType": "workflow"
+  },
+  "release": {
+    "sourceCommit": "402c9cfc29487dac997fc5030485292d44c58ff3",
+    "workflowRunId": 35323011362,
+    "workflowRunUrl": "https://github.com/xcymm3/TowerOfTheUndead/actions/runs/35323011362",
+    "buildJobId": 105529547076,
+    "deployJobId": 105529842136,
+    "deploymentId": 6520287744,
+    "conclusion": "success"
+  },
+  "version": {
+    "runtimeFingerprintLocal": "227285cfe86200c978c3563ae5799d041e4fe9a383aa2bc3e9be072186575210",
+    "runtimeFingerprintOnline": "227285cfe86200c978c3563ae5799d041e4fe9a383aa2bc3e9be072186575210",
+    "match": true
+  },
+  "onlineSmoke": {
+    "pass": true,
+    "responses": 51,
+    "failedRequests": 0,
+    "browserErrors": 0,
+    "realPurchase": true,
+    "armyBeforeRefresh": "1.0",
+    "armyAfterRefresh": "1.0",
+    "saveReloadPersisted": true,
+    "report": "raw/online-final/pages-report.json",
+    "screenshot": "raw/online-final/pages.png"
+  }
+}
