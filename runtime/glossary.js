@@ -42,7 +42,7 @@ export const glossary = {
   "Buy Max": "购买最大", "Buy max": "购买最大", "Max all": "全部最大", "Max All": "全部最大", "Buy 1": "单次", "Until 10": "补至十次",
   "Save Game": "保存存档", "Export save": "导出存档", "Import save": "导入存档", "Choose save": "选择存档", "Hard reset": "重置存档",
   "Save": "保存", "Export": "导出", "Import": "导入", "Load": "载入", "Reset": "重置", "Cancel": "取消", "Confirm": "确认", "Close": "关闭",
-  "Locked": "未解锁", "Unlocked": "已解锁", "Completed": "已完成", "Purchased": "已购买", "Start": "开始", "Exit": "退出",
+  "Locked": "未解锁", "Unlocked": "已解锁", "Completed": "已完成", "Purchased": "已购买", "Running": "进行中", "Start": "开始", "Exit": "退出",
   "Enabled": "已启用", "Disabled": "已停用", "Enable": "启用", "Disable": "停用", "Buy": "购买",
   "Active": "征伐", "Passive": "守陵", "Idle": "沉眠", "Settings": "设置", "Records": "记录", "Progress": "进度",
   "Common": "残旧", "Uncommon": "附魔", "Rare": "精良", "Epic": "稀有", "Legendary": "传说", "Mythical": "神话", "Transcendent": "超凡",

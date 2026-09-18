@@ -97,7 +97,22 @@ export const midgamePhrases = {
   'X times highest IP': '达到最高魂印的指定倍数',
   'Will trigger ASAP': '条件满足后立即执行',
   'Restart Challenge': '重新开始试炼',
+  'Exit Challenge': '退出试炼',
+  'Retry Challenge': '重试试炼',
+  'Automatically retry challenges:': '自动重试试炼：',
   'Show all known challenges:': '显示全部已知试炼：',
+  'You are currently in': '当前所在：',
+  'Some Normal Challenges have requirements to be able to run that challenge.': '部分亡灵试炼需要达到指定条件后才能进入。',
+  'If you have an active Big Crunch Autobuyer, it will attempt to Crunch as soon as possible when reaching Infinite antimatter.': '若转生执役已启用，游魂达到无限时会立即尝试进行转生仪式。',
+  'Antimatter Dimensions gain a multiplier based on time played': '根据游戏总时长提高亡灵军团倍率',
+  '1st and 8th Antimatter Dimensions gain a multiplier based on Infinities': '根据转生次数提高骷髅兵与灾厄领主倍率',
+  '2nd and 7th Antimatter Dimensions gain a multiplier based on Infinities': '根据转生次数提高僵尸与骨龙倍率',
+  '3rd and 6th Antimatter Dimensions gain a multiplier based on Infinities': '根据转生次数提高幽魂与死亡骑士倍率',
+  '4th and 5th Antimatter Dimensions gain a multiplier based on Infinities': '根据转生次数提高吸血鬼与尸巫倍率',
+  'All Galaxies are twice as strong': '所有墓域强度翻倍',
+  'Antimatter Dimensions gain a multiplier based on time spent in current Infinity': '根据本次转生持续时间提高亡灵军团倍率',
+  'Multiplier to 1st Antimatter Dimension based on unspent Infinity Points': '根据未花费魂印提高骷髅兵倍率',
+  'Increase Dimension Boost multiplier': '提高筑塔倍率',
   'Reset Replicanti amount': '重置疫种数量',
   'Unlock Replicanti': '解锁疫种',
   'Replicanti, translated to': '疫种，提供以下加成',
@@ -117,6 +132,41 @@ export function translateMidgame(text) {
     .replace(/\bNext\b/g, '下次')
     .replace(/\bInstant\b/gi, '即时')
     .replace(/\bPress\b/g, '按')
+    .replace(/Increase the multiplier for buying (.*?) Antimatter Dimensions/gi, '提高每购入 $1 个亡灵军团获得的倍率')
+    .replace(/Decrease the number of Dimensions needed for Dimension Boosts and Antimatter Galaxies by (.*)/gi, '筑塔与开辟墓域所需军团数量减少 $1')
+    .replace(/Passively generate Infinity Points (.*?) times slower than your fastest Infinity/gi, '以最快转生速度的 $1 分之一被动生成魂印')
+    .replace(/Upgradeable ([1-8])(?:st|nd|rd|th) Antimatter Dimension Autobuyer/gi,
+      (_, tier) => `${['骷髅兵', '僵尸', '幽魂', '吸血鬼', '尸巫', '死亡骑士', '骨龙', '灾厄领主'][Number(tier) - 1]}执役可升级`)
+    .replace(/Upgradeable Tickspeed Autobuyer/gi, '魂火节律执役可升级')
+    .replace(/Dimension Boosts Autobuyer/gi, '筑塔执役')
+    .replace(/Antimatter Galaxies Autobuyer/gi, '墓域执役')
+    .replace(/Big Crunches Autobuyer/gi, '转生执役')
+    .replace(/Start every reset with (.*?) Dimension Boosts?, automatically unlocking the ([5-8])(?:th|st|nd|rd) Antimatter Dimension;?\s*(?:and an Antimatter Galaxy)?/gi,
+      (_, boosts, tier) => `每次重置时拥有 ${boosts} 次筑塔，并自动解锁${['尸巫', '死亡骑士', '骨龙', '灾厄领主'][Number(tier) - 5]}${Number(tier) === 8 ? '及一个墓域' : ''}`)
+    .replace(/reach Infinity for the first time outside of a challenge\./gi, '首次在试炼外达到转生条件。')
+    .replace(/reach Infinity for the first time\./gi, '首次达到转生条件。')
+    .replace(/buying Antimatter Dimensions or Tickspeed upgrades halts production of all Antimatter Dimensions\.\s*Production gradually returns to normal over (.*?) minutes\./gi,
+      '购买亡灵军团或魂火节律升级会暂停全部军团生产；生产将在 $1 分钟内逐渐恢复。')
+    .replace(/the 1st Antimatter Dimension is heavily weakened, but gets an uncapped exponentially increasing multiplier\.\s*This multiplier resets after Dimension Boosts and Antimatter Galaxies\./gi,
+      '骷髅兵大幅削弱，但会获得无上限、指数增长的倍率；筑塔或开辟墓域后该倍率重置。')
+    .replace(/buying an Antimatter Dimension automatically erases all lower tier Antimatter Dimensions,\s*like a sacrifice without the boost\./gi,
+      '购买某阶亡灵军团会清空全部低阶军团，如同一次不提供倍率的献祭。')
+    .replace(/the Tickspeed purchase multiplier starts at (.*?) instead of (.*?)\.(?!\d)/gi,
+      '魂火节律的费用倍率从 $1 开始，而非 $2。')
+    .replace(/upgrading each Antimatter Dimension costs the Antimatter Dimension (.*?) tiers\s*below it instead of antimatter\. Antimatter Dimension prices are modified\./gi,
+      '升级每阶亡灵军团改为消耗低 $1 阶的军团而非游魂，且军团价格会改变。')
+    .replace(/the multiplier from buying (.*?) Antimatter Dimensions is reduced to (.*?)\. This increases by\s*(.*?) per Dimension Boost, to a maximum of (.*?), and is unaffected by any upgrades\./gi,
+      '每购入 $1 个亡灵军团的倍率降为 $2；每次筑塔增加 $3，最高为 $4，且不受其他升级影响。')
+    .replace(/Dimension Boosts provide no multiplier and Antimatter Galaxies cannot be bought\. Dimensional\s*Sacrifice resets antimatter and all Antimatter Dimensions, but also gives a significantly stronger multiplier\./gi,
+      '筑塔不再提供倍率且无法开辟墓域；灵魂献祭会重置游魂与全部军团，但提供显著更强的倍率。')
+    .replace(/whenever you buy Tickspeed upgrades or (.*?) of an Antimatter Dimension,\s*everything else of equal cost will increase to its next cost step\./gi,
+      '每当购买魂火节律升级或某阶军团达到 $1 个时，其他同价项目都会提高一个价格档位。')
+    .replace(/there are only (.*?) Antimatter Dimensions\. Dimension Boost\s*and Antimatter Galaxy costs are modified\./gi,
+      '只能使用前 $1 阶亡灵军团，筑塔与墓域的费用规则会改变。')
+    .replace(/there is normal matter which rises once you have at least (.*?) 2nd Antimatter\s*Dimension\. If it exceeds your antimatter, it will Dimension Boost without giving the bonus\./gi,
+      '拥有至少 $1 个僵尸后会产生不断增长的生机侵蚀；若其超过游魂，将强制筑塔且不提供筑塔加成。')
+    .replace(/each Antimatter Dimension produces the Dimension (.*?) tiers below it\s*instead of (.*?)\. Both 1st and 2nd Dimensions produce antimatter\.\s*The 2nd, 4th, and 6th Dimensions are made stronger to compensate\./gi,
+      '每阶亡灵军团改为生产低 $1 阶军团，而非低 $2 阶；骷髅兵与僵尸都会生产游魂，并增强僵尸、吸血鬼与死亡骑士作为补偿。')
     .replace(/Reach (.*?) to Eternity and gain Tachyon Particles\./gi, '达到 $1 后可轮回并获得逆命烬。')
     .replace(/Reach (.*?) antimatter to gain more Tachyon Particles\./gi, '达到 $1 游魂后可获得更多逆命烬。')
     .replace(/Divide Replicanti by (.*)/gi, '将疫种数量除以 $1')

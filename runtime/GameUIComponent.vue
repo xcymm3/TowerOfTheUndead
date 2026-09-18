@@ -1,16 +1,17 @@
 <script>
 import TabComponents from "@/components/tabs";
-import GameUiComponentFixed from "@/components/GameUiComponentFixed";
+import GameUiComponentFixed from "@/undead/GameUiComponentFixed";
 import HeaderPrestigeGroup from "@/components/ui-modes/HeaderPrestigeGroup";
 import HeaderChallengeDisplay from "@/components/ui-modes/HeaderChallengeDisplay";
 import HeaderChallengeEffects from "@/components/ui-modes/HeaderChallengeEffects";
 import HeaderBlackHole from "@/components/ui-modes/HeaderBlackHole";
+import NewsTicker from "@/components/ui-modes/NewsTicker";
 import BigCrunchButton from "@/undead/CrunchButton";
 import GameSpeedDisplay from "@/components/GameSpeedDisplay";
 export default {
   name: "UndeadGameUI",
   components: { ...TabComponents, GameUiComponentFixed, HeaderPrestigeGroup, HeaderChallengeDisplay,
-    HeaderChallengeEffects, HeaderBlackHole, BigCrunchButton, GameSpeedDisplay },
+    HeaderChallengeEffects, HeaderBlackHole, NewsTicker, BigCrunchButton, GameSpeedDisplay },
   data() { return { tabs: [], subtabs: [], shortcuts: [], progress: false, catalog: false, query: "" }; },
   computed: {
     view() { return this.$viewModel; },
@@ -60,6 +61,7 @@ export default {
       </button>
       <button :class="{ selected: catalog }" @click="catalog = !catalog">典籍</button>
     </nav>
+    <NewsTicker v-if="view.news" class="tower-news" aria-label="冥界传闻" />
     <nav v-if="view.tab !== 'dimensions' && subtabs.length > 1 && !catalog" class="tower-subtabs" aria-label="系统分页">
       <button v-for="tab in subtabs" :key="tab.key" :class="{ selected: view.subtab === tab.key }" @click="showSub(tab)">{{ sublabel(tab) }}</button>
     </nav>

@@ -131,6 +131,104 @@ export async function contentUiAudit({ page, engine, reset, test }) {
       { notificationText, modalText })
   })
 
+  await test('Content audit · news ticker and both news achievements are reachable', async () => {
+    await reset(engine)
+    await engine.evaluate(() => {
+      const target = GameDatabase.news[50]
+      for (const news of GameDatabase.news.filter(news => news.id !== target.id).slice(0, 49)) {
+        NewsHandler.addSeenNews(news.id)
+      }
+      nextNewsMessageId = target.id
+      player.options.news.speed = 10
+      ui.view.news = true
+      GameUI.update()
+      const ticker = document.querySelector('.c-news-ticker').__vue__
+      ticker.recentTickers = []
+      ticker.restart()
+    })
+    const ticker = engine.locator('.c-news-ticker')
+    await ticker.waitFor({ state: 'visible' })
+    assert.equal(await ticker.count(), 1)
+    await engine.evaluate(() => document.querySelector('.c-news-ticker').__vue__.scrollMessage())
+    await engine.waitForFunction(() => Achievement(22).isUnlocked)
+
+    await engine.evaluate(() => {
+      nextNewsMessageId = 'a130'
+      document.querySelector('.c-news-ticker').__vue__.restart()
+    })
+    const line = ticker.locator('.c-news-line')
+    await engine.waitForFunction(() => document.querySelector('.c-news-line')?.textContent.includes('Click this'))
+    await line.evaluate(element => {
+      element.style.paddingLeft = '0'
+      element.style.transform = 'translateX(0)'
+      element.style.transitionDuration = '0ms'
+    })
+    await line.click({ position: { x: 8, y: 8 } })
+    await engine.waitForFunction(() => SecretAchievement(24).isUnlocked)
+    assert.equal(await engine.evaluate(() => SecretAchievement(24).isUnlocked), true,
+      'clicking visible interactive news must unlock Secret Achievement 24')
+    const evidence = await engine.evaluate(() => ({
+      tickerCount: document.querySelectorAll('.c-news-ticker').length,
+      uniqueNews: NewsHandler.uniqueTickersSeen,
+      achievement22: Achievement(22).isUnlocked,
+      secretAchievement24: SecretAchievement(24).isUnlocked
+    }))
+    await ticker.screenshot({ path: outputPath('content-news-ticker.png') })
+    record('新闻条与关联功业', ['新闻条唯一挂载', '展示新闻计入唯一已读', '50 条功业触发',
+      '真实点击互动新闻触发隐秘功业'], evidence)
+  })
+
+  await test('Content audit · midgame copy, challenge layout and offline modal are corrected', async () => {
+    await prepare('challenges', 'normal',
+      'player.infinities=new Decimal(20); player.challenge.normal.completedBits=(1<<12)-1;')
+    const translations = await engine.evaluate(() => [
+      'Increase the multiplier for buying 10 Antimatter Dimensions',
+      'Passively generate Infinity Points 10 times slower than your fastest Infinity',
+      'Start every reset with 4 Dimension Boosts, automatically unlocking the 8th Antimatter Dimension; and an Antimatter Galaxy',
+      'Some Normal Challenges have requirements to be able to run that challenge.',
+      'the 1st Antimatter Dimension is heavily weakened, but gets an uncapped exponentially increasing multiplier. This multiplier resets after Dimension Boosts and Antimatter Galaxies.'
+    ].map(source => UndeadTheme.translate(source)))
+    assert.ok(translations.every(text => !/[A-Za-z]{3,}/.test(text)), translations.join('\n'))
+    const challenge = engine.locator('.l-challenges-tab')
+    const challengeText = await challenge.innerText()
+    assert.doesNotMatch(challengeText, /\b(?:Increase|based|automatically|Running|You are currently|buying|Dimension)\b/i)
+    for (const width of [320, 768, 1440]) {
+      await page.setViewportSize({ width, height: 1000 })
+      const layout = await challenge.evaluate(element => ({
+        viewport: innerWidth,
+        documentOverflow: document.documentElement.scrollWidth - innerWidth,
+        clippedCards: [...element.querySelectorAll('.c-challenge-box')].filter(card => {
+          const rect = card.getBoundingClientRect()
+          return rect.left < -1 || rect.right > innerWidth + 1
+        }).length,
+        fontSizes: [...element.querySelectorAll('.c-challenge-box')].map(card => parseFloat(getComputedStyle(card).fontSize))
+      }))
+      assert.ok(layout.documentOverflow <= 1, `challenge page overflow at ${width}`)
+      assert.equal(layout.clippedCards, 0, `challenge card clipped at ${width}`)
+      assert.ok(layout.fontSizes.every(size => size >= 12), `challenge text too small at ${width}`)
+    }
+    await challenge.screenshot({ path: outputPath('content-challenges-readable.png') })
+
+    await engine.evaluate(() => {
+      ui.$viewModel.modal.progressBar = {
+        label: '离线收益验证', progressName: '步数', current: 1, max: 2, startTime: Date.now() - 100,
+        info: () => '正在结算', buttons: []
+      }
+      GameUI.update()
+    })
+    await engine.locator('.progress-bar-modal').waitFor({ state: 'visible' })
+    const modalCount = await engine.locator('.progress-bar-modal').count()
+    assert.equal(modalCount, 1)
+    await engine.evaluate(() => {
+      ui.$viewModel.modal.progressBar = undefined
+      GameUI.update()
+    })
+    await page.setViewportSize({ width: 1440, height: 1000 })
+    record('中期文案、试炼可读性与离线弹窗', ['魂契动态文案无中英混排', '试炼规则完整翻译',
+      '320/768/1440px 卡片无裁切且字号不低于 12px', '离线进度弹窗仅一个实例'],
+    { translations, modalCount })
+  })
+
   await test('Content audit · ending copy and Automator grammar protection', async () => {
     const evidence = await engine.evaluate(() => ({
       ending: ['Start over', 'Reset the entire game', 'Choose Cosmetic Set'].map(text => UndeadTheme.translate(text)),
@@ -244,7 +342,8 @@ export async function contentUiAudit({ page, engine, reset, test }) {
       '正文/次要文字/强调文字对比度'], { screenChecks: screens.length, contrast })
   })
 
-  const expected = ['资源、阶位与动态说明', '帮助', '通知与确认弹窗', '结局文本与脚本保护', '后期界面、窄屏与对比度']
+  const expected = ['资源、阶位与动态说明', '帮助', '通知与确认弹窗', '新闻条与关联功业',
+    '中期文案、试炼可读性与离线弹窗', '结局文本与脚本保护', '后期界面、窄屏与对比度']
   const complete = expected.every(category => categories.some(entry => entry.category === category && entry.status === 'PASS'))
   fs.writeFileSync(outputPath('outside-database-content-audit.json'), JSON.stringify({
     generatedAt: new Date().toISOString(), status: complete ? 'PASS' : 'FAIL', categories,

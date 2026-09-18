@@ -41,6 +41,19 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .tower-utility { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: flex-end; padding: 5px 0; }
 .tower-utility button { background: none; color: var(--tower-muted); border: 0; font-size: 11px; padding: 3px 0; white-space: nowrap; }
 .tower-utility .selected { color: var(--tower-gold); }
+.undead-runtime .tower-news {
+  position: relative; width: 100%; height: 34px; margin: 3px 0 8px; padding: 4px 0;
+  border: 1px solid var(--tower-border); border-left: 4px solid var(--tower-gold); border-radius: 0;
+  background: var(--tower-panel); box-shadow: inset 0 1px var(--tower-highlight);
+}
+.undead-runtime .tower-news::before {
+  content: "冥界传闻"; position: absolute; inset: 0 auto 0 0; z-index: 1; display: flex; align-items: center;
+  padding: 0 10px; color: var(--tower-gold); background: linear-gradient(90deg, var(--tower-panel) 82%, transparent);
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; pointer-events: none;
+}
+.undead-runtime .tower-news .c-news-line { color: var(--color-text); font: 600 13px/24px var(--font-game); }
+.undead-runtime .tower-news .c-news-line[style*="cursor"],
+.undead-runtime .tower-news .c-news-line:has(a) { color: var(--tower-gold); }
 .undead-runtime .o-save-timer, .undead-runtime .o-tab-btn--short, .undead-runtime .o-how-to-play-btn { display: none; }
 .undead-runtime .l-help-me, .undead-runtime .h2p-tutorial--glow { display: none; }
 .tower-content { display: block !important; width: 100%; min-width: 0; padding-top: 8px; }
@@ -162,6 +175,16 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .undead-runtime .c-progress-bar { background: var(--tower-panel); margin-top: 14px; }
 .undead-runtime .c-progress-bar__fill { background: var(--tower-green); }
 .undead-runtime .o-tab-btn { border-radius: 0; }
+.undead-runtime .l-challenges-tab { width: 100%; min-width: 0; gap: 4px; font-size: 13px; line-height: 1.55; }
+.undead-runtime .l-challenge-grid { width: 100%; min-width: 0; padding: 4px 0; gap: 10px; }
+.undead-runtime .l-challenge-grid__cell { flex: 1 1 360px; min-width: 280px; max-width: 520px; margin: 0; }
+.undead-runtime .c-challenge-box {
+  width: 100%; height: auto; min-height: 176px; padding: 12px 14px; font-size: 12px; line-height: 1.55;
+  border-radius: 0; background: var(--tower-panel); overflow-wrap: anywhere;
+}
+.undead-runtime .c-challenge-box--normal { font-size: 12px; }
+.undead-runtime .c-challenge-box .o-challenge-btn { min-height: 36px; height: auto; margin-top: 10px; font-size: 13px; }
+.undead-runtime .c-challenge-box__reward-description--small-text { font-size: 11px; }
 .tower-catalog { text-align: left; padding: 12px 0; }
 .tower-catalog h2 { color: var(--tower-gold); }
 .tower-catalog p { color: var(--tower-muted); font-size: 12px; }
@@ -217,6 +240,8 @@ body[class] { margin: 0; background: var(--tower-panel); }
 #notification-container .o-notification--error { border-left-color: var(--color-bad); }
 @media(max-width: 580px) {
   .army-resets { grid-template-columns: minmax(0, 1fr); }
+  .undead-runtime .l-challenge-grid__cell { flex-basis: 100%; min-width: 0; max-width: none; }
+  .undead-runtime .c-challenge-box { min-height: 0; padding: 10px; }
   .army-resets .reset-container { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; text-align: left; }
   .army-resets .reset-container h4, .army-resets .reset-container > span, .army-resets .reset-effect { grid-column: 1; }
   .army-resets .reset-container button { grid-column: 2; grid-row: 1 / span 3; align-self: center; padding-inline: 12px; }
