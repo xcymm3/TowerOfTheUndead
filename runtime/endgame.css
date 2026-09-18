@@ -1,0 +1,92 @@
+/* Final-loop presentation only. The vendored Pelle simulation and ending state machine remain untouched. */
+.undead-runtime .l-pelle-all-content-container,
+.undead-runtime .l-pelle-panel-container,
+.undead-runtime .l-pelle-content-container,
+.undead-runtime .c-pelle-bar-container,
+.undead-runtime .c-pelle-single-bar,
+.undead-runtime .c-pelle-rift {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.undead-runtime .c-pelle-rift-row,
+.undead-runtime .c-armageddon-container,
+.undead-runtime .c-pelle-upgrade-container,
+.undead-runtime .l-galaxy-generator-upgrades-container {
+  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.undead-runtime .c-pelle-rift-column,
+.undead-runtime .c-pelle-rift-status,
+.undead-runtime .c-armageddon-button-container,
+.undead-runtime .c-armageddon-resources-container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.undead-runtime .c-pelle-rift-rift-info-container {
+  height: auto;
+  min-height: 5rem;
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .c-pelle-upgrade {
+  width: min(18rem, 100%);
+  height: auto;
+  min-height: 9rem;
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .c-increase-cap {
+  width: min(70rem, calc(100% - 16px));
+  height: auto;
+  min-height: 11.4rem;
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .c-new-game-container {
+  width: min(72rem, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  color: #f4f7fb;
+  background: rgba(9, 13, 20, 0.94);
+  border: 2px solid var(--color-pelle--base);
+  border-radius: var(--var-border-radius, 8px);
+  box-shadow: 0 0 24px rgba(237, 20, 61, 0.45);
+  padding: 12px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+
+.undead-runtime .c-credits-container { overflow-x: hidden; }
+.undead-runtime #ui-fixed:has(.c-credits-container[style*="display: block"]) .l-notification-container {
+  display: none;
+}
+.undead-runtime .o-notification {
+  max-width: calc(100vw - 20px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 680px) {
+  .undead-runtime .c-pelle-rift-row,
+  .undead-runtime .c-armageddon-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .undead-runtime .c-pelle-rift-status,
+  .undead-runtime .c-pelle-rift-column,
+  .undead-runtime .c-armageddon-button-container,
+  .undead-runtime .c-armageddon-resources-container {
+    width: 100%;
+  }
+  .undead-runtime .c-pelle-strike-container { width: 100%; height: auto; }
+  .undead-runtime .c-pelle-strike { min-height: 4.4rem; }
+  .undead-runtime .c-pelle-rift-rift-info-container { min-height: 0; }
+  .undead-runtime .c-pelle-upgrade { width: 100%; }
+  .undead-runtime .c-increase-cap { margin-inline: 0; }
+  .undead-runtime .c-big-text { font-size: 2rem; }
+  .undead-runtime .c-new-game-container { font-size: 0.9rem; }
+}

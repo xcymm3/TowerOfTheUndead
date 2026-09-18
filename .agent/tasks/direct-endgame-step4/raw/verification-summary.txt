@@ -1,0 +1,24 @@
+2026-09-18 fresh verification
+
+pnpm test:runtime (TEST_FILTER=Endgame UI)
+PASS source: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline
+PASS Endgame UI · doom requirements, cancel and confirmed reset
+PASS Endgame UI · five rift drains, simultaneous limit and milestone crossings
+PASS Endgame UI · generator unlock and five ordered sacrifices restore rifts
+PASS No browser runtime errors
+
+pnpm typecheck
+PASS (exit 0)
+
+pnpm lint
+PASS (exit 0)
+
+pnpm build
+PASS (exit 0)
+Advisory warnings only: Browserslist data age and existing asset/entrypoint size recommendations
+
+pnpm test:production
+PASS site load, real purchase, army, save and reload
+
+git diff --check
+PASS (exit 0; line-ending conversion notices are informational)

@@ -1,0 +1,22 @@
+{
+  "filter": "Endgame UI",
+  "results": [
+    {
+      "name": "Endgame UI · doom requirements, cancel and confirmed reset",
+      "pass": true
+    },
+    {
+      "name": "Endgame UI · five rift drains, simultaneous limit and milestone crossings",
+      "pass": true
+    },
+    {
+      "name": "Endgame UI · generator unlock and five ordered sacrifices restore rifts",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

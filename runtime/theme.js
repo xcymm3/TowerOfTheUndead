@@ -1,5 +1,6 @@
 import Vue from "vue";
 import { notify } from "@/core/notify";
+import wordShift from "@/core/word-shift";
 import mapping from "./mapping.json";
 import { configurations } from "./bindings";
 import { armyNames, translate, prepareTranslations } from "./glossary";
@@ -7,10 +8,12 @@ import "./theme.css";
 import "./midgame.css";
 import "./reality.css";
 import "./celestial.css";
+import "./endgame.css";
 
 export function installUndeadTheme() {
   const extra = {};
   const registry = new Map();
+  const cycleNames = new Map();
   mapping.entries.forEach((entry, index) => {
     const config = configurations[index];
     if (!config || typeof config !== "object") throw new Error("映射配置缺失：" + entry.mappingKey);
@@ -26,6 +29,7 @@ export function installUndeadTheme() {
       extra[config.name] = entry.undeadName;
     } else if (Array.isArray(config.name)) {
       for (const name of config.name) if (typeof name === "string") extra[name] = entry.undeadName;
+      if (entry.group === "pelleRifts") cycleNames.set(config.name.join("\u0000"), entry.undeadName);
     }
     // Configurations without a source title still get their exact mapped name on the card.
     for (const field of ["description", "reward", "requirementDescription", "singleDesc", "totalDesc"]) {
@@ -45,6 +49,11 @@ export function installUndeadTheme() {
       } else if (typeof original === "string") config[field] = entry.undeadName + " · " + original;
     }
   });
+  // Pelle deliberately scrambles its English rift synonyms. Scrambling CJK produces unreadable Latin-1 symbols,
+  // so use each audited themed rift name while leaving the source arrays and timing logic untouched.
+  const originalWordCycle = wordShift.wordCycle.bind(wordShift);
+  wordShift.wordCycle = (list, noBuffer = false) => cycleNames.get(list?.join?.("\u0000")) ??
+    originalWordCycle(list, noBuffer);
   prepareTranslations(extra);
   // Notifications are plain DOM, outside Vue's render hook; preserve their timing and handlers.
   for (const key of Object.keys(notify)) {
