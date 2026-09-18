@@ -1,0 +1,37 @@
+{
+  "filter": "Post-Reality dimension|Glyph choice|Automatic glyph filtering|Automator completion",
+  "results": [
+    {
+      "name": "Reality completion · Post-Reality dimension, multiplier, theorem and dilation autobuyers actually purchase",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Glyph choice, five equipment effects, respec and progression persist across Reality",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Automatic glyph filtering really keeps or sacrifices the generated reward",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Conditional and loop blocks wait for real resources then stop",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  'if am < 100 {\\n' +\n    'studies purchase 11\\n' +\n    '}\\n' +\n    'while am < 100 {\\n' +\n    'pause 0.1 seconds\\n' +\n...\n    'studies respec\\n' +\n+   'stop\\n' +\n+   '}\\n' +\n+   '}\\n' +\n+   '}'\n-   'stop'\n\n    at check (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:35:40)\n    at async enter (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:58:5)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:142:5\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async automatorInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:139:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:200:3"
+    },
+    {
+      "name": "Automator completion · Automation settings, clock commands and block conversion",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n\n1 !== 0\n\n    at check (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:35:40)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:164:5\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async automatorInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:160:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:200:3"
+    },
+    {
+      "name": "Automator completion · Prestige commands and script retention across Reality restart",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  'infinity nowait\\n' +\n    'wait am >= 1e400\\n' +\n    'infinity\\n' +\n    'eternity nowait\\n' +\n    'wait ep >= 1e4000\\n' +\n+   'realitystop'\n-   'reality\\n' +\n-   'stop'\n\n    at check (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:35:40)\n    at async enter (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:58:5)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:184:5\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async automatorInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/automator-interactions.mjs:181:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:200:3"
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

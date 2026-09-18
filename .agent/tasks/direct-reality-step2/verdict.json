@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "criteria": {
+    "AC1": "PASS",
+    "AC2": "PASS",
+    "AC3": "PASS",
+    "AC4": "PASS",
+    "AC5": "PASS"
+  },
+  "problems": [],
+  "evidence": "evidence.json"
+}

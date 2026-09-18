@@ -1,0 +1,51 @@
+.undead-runtime .l-reality-upgrade-grid {
+  width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;
+}
+.undead-runtime .l-reality-upgrade-grid__row { display: contents; }
+.undead-runtime .l-reality-upgrade-grid .l-spoon-btn-group { min-width: 0; width: 100%; }
+.undead-runtime .l-reality-upgrade-btn,
+.undead-runtime .l-black-hole-upgrade-grid__row .c-reality-upgrade-btn {
+  width: 100%; min-width: 0; height: auto; min-height: 112px; margin: 0;
+  border-radius: 0; font-size: 12px; line-height: 1.5; padding: 10px 6px; overflow-wrap: anywhere;
+}
+.undead-runtime .c-reality-upgrade-btn--unavailable,
+.undead-runtime .c-reality-upgrade-btn--bought {
+  color: var(--color-text); background: var(--tower-panel); border-color: var(--tower-highlight);
+}
+.undead-runtime .c-reality-upgrade-btn--unlocked,
+.undead-runtime .c-reality-upgrade-btn--available {
+  color: var(--color-text); background: var(--tower-green); border-color: var(--tower-border);
+}
+.undead-runtime .l-black-hole-tab { width: 100%; min-width: 0; }
+.undead-runtime .l-black-hole-upgrade-grid,
+.undead-runtime .l-black-hole-upgrade-permanent { width: 100%; min-width: 0; }
+.undead-runtime .l-black-hole-upgrade-grid__row > .l-spoon-btn-group { flex: 1; min-width: 0; width: 100%; }
+.undead-runtime .c-black-hole-canvas { max-width: 100%; height: auto; }
+.undead-runtime .l-black-hole-upgrade-grid__row { width: 100%; min-width: 0; gap: 8px; }
+.undead-runtime .l-auto-pause-button { max-width: 100%; }
+@media (max-width: 650px) {
+  .undead-runtime .l-reality-upgrade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .undead-runtime .l-black-hole-upgrade-grid__row { display: grid; grid-template-columns: minmax(0, 1fr); }
+}
+
+.undead-runtime .c-reality-upgrade-infotext { grid-column: 1 / -1; margin: 0 0 12px; font-size: 12px; line-height: 1.6; }
+.undead-runtime .c-reality-upgrade-btn--possible {
+  color: var(--color-text) !important; border-color: var(--tower-highlight);
+  background: repeating-linear-gradient(135deg, var(--tower-panel) 0 10px, var(--tower-green) 10px 12px);
+}
+.undead-runtime .c-reality-upgrade-btn--locked {
+  color: var(--tower-muted) !important; border-color: var(--tower-highlight);
+  background: var(--tower-panel);
+}
+.undead-runtime .c-reality-upgrade-btn--bought { background: var(--tower-green); }
+
+.undead-runtime .l-equipped-glyphs__buttons .c-reality-upgrade-btn,
+.undead-runtime .c-current-glyph-effects {
+  color: var(--color-text); background: var(--tower-panel); border-color: var(--tower-highlight); border-radius: 0;
+}
+.undead-runtime .c-current-glyph-effects__header { color: var(--tower-gold); }
+.undead-runtime .l-reality-upgrade-grid .c-reality-upgrade-btn:hover { color: var(--color-text); }
+
+.undead-runtime .c-reality-button--unavailable {
+  color: var(--tower-muted); background: var(--tower-panel); border-color: var(--tower-highlight);
+}

@@ -1,0 +1,26 @@
+{
+  "filter": "Mapped upgrade descriptions|All 25 upgrade purchase|Glyph filter unlock|Automation settings, clock commands",
+  "results": [
+    {
+      "name": "Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Glyph filter unlock, five modes and original threshold decisions",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · All 25 upgrade purchase gates and five rebuyable second costs",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Automation settings, clock commands and block conversion",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

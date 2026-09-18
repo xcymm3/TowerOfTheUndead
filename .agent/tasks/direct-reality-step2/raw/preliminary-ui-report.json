@@ -1,0 +1,31 @@
+{
+  "filter": "Automator completion|Mapped upgrade descriptions",
+  "results": [
+    {
+      "name": "Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: reality.hole/320: {\"left\":-226,\"right\":524,\"viewport\":298,\"top\":378.96875,\"text\":\"  第一钟·缩短沉寂：沉寂时间减少 20%  当前 间隔： 1.00 小时  费用: 15 命匣 \",\"hitTag\":\"\",\"hit\":true}\n    at file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:313:18\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:11:5)\n    at async completeReality (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:293:3)\n    at async realityInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-interactions.mjs:8:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:199:3"
+    },
+    {
+      "name": "Automator completion · Conditional and loop blocks wait for real resources then stop",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Automation settings, clock commands and block conversion",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Prestige commands and script retention across Reality restart",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Saved study presets, trial and dilation commands perform purchases",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

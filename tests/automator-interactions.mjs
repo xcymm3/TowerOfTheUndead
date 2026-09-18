@@ -20,6 +20,9 @@ export async function automatorInteractions({ page, engine, reference, reset, te
     interval: AutomatorBackend.currentInterval, studies: player.timestudy.studies,
     theorem: player.timestudy.theorem, respec: player.respec,
     errors: AutomatorData.currentErrors(), events: AutomatorData.eventLog,
+    realities: player.realities, infinities: player.infinities, eternities: player.eternities,
+    auto: player.auto, dilation: player.dilation, challenge: player.challenge,
+    blackHolePause: player.blackHolePause,
   })))
   const parity = async label => {
     const actual = await snapshot(engine)
@@ -41,17 +44,15 @@ export async function automatorInteractions({ page, engine, reference, reset, te
       const input = frame.locator('.CodeMirror textarea')
       await input.press('ControlOrMeta+A')
       await input.press('Backspace')
-      // CodeMirror handles line breaks through keyboard commands; insert explicit
-      // Enter events instead of relying on a newline character in typed text.
-      for (const [index, line] of text.split('\n').entries()) {
-        if (index > 0) await input.press('Enter')
-        await input.pressSequentially(line, { delay: 1 })
-      }
+      // Browser text insertion is a real editor input event; inserting the full
+      // script avoids auto-paired braces being duplicated by sequential keystrokes.
+      await (frame === engine ? page : reference).keyboard.insertText(text)
       await input.press('Escape')
     }
     await page.waitForTimeout(700)
     await mutate('')
-    await check('return AutomatorData.currentScriptText()', text)
+    // CodeMirror may add indentation after braces; whitespace is not script semantics.
+    await check("return AutomatorData.currentScriptText().split('\\n').map(s=>s.trim()).join('\\n')", text.split('\n').map(s=>s.trim()).join('\n'))
   }
   const prepare = async () => {
     await page.setViewportSize({ width: 1440, height: 1000 })
@@ -130,5 +131,107 @@ export async function automatorInteractions({ page, engine, reference, reset, te
     await mutate('Currency.timeTheorems.value=new Decimal(1); AutomatorBackend.update(AutomatorBackend.currentInterval); AutomatorBackend.update(AutomatorBackend.currentInterval);')
     await check('return [TimeStudy(11).isBought,player.respec,AutomatorBackend.isOn]', [true, true, false])
     await parity('resource supplied: study purchased, respec armed, script ends')
+  })
+
+  await test('Automator completion · Conditional and loop blocks wait for real resources then stop', async () => {
+    await prepare()
+    await mutate('Currency.timeTheorems.value=new Decimal(1);')
+    await enter('if am < 100 {\nstudies purchase 11\n}\nwhile am < 100 {\npause 0.1 seconds\n}\nuntil am >= 200 {\npause 0.1 seconds\n}\nwait am >= 300\nstudies respec\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    await click('.c-automator__controls .fa-play')
+    const advance = 'for(let i=0;i<30;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);'
+    await mutate(advance)
+    await check('return [TimeStudy(11).isBought,player.respec,AutomatorBackend.isRunning]',[true,false,true])
+    await parity('IF buys study; WHILE remains until AM threshold')
+    await mutate(`Currency.antimatter.value=new Decimal(100); ${advance}`)
+    await check('return [player.respec,AutomatorBackend.isRunning]',[false,true])
+    await parity('WHILE exits and UNTIL waits')
+    await mutate(`Currency.antimatter.value=new Decimal(200); ${advance}`)
+    await check('return [player.respec,AutomatorBackend.isRunning]',[false,true])
+    await parity('UNTIL exits and WAIT blocks on exact next threshold')
+    await mutate(`Currency.antimatter.value=new Decimal(300); ${advance}`)
+    await check('return [player.respec,AutomatorBackend.isOn]',[true,false])
+    await parity('WAIT releases and STOP terminates original script')
+  })
+
+  await test('Automator completion · Automation settings, clock commands and block conversion', async () => {
+    await prepare()
+    await mutate('player.eternities=new Decimal(100); NormalChallenge(12).complete(); player.reality.upgradeBits|=(1<<13)|(1<<25); player.blackHole[0].unlocked=true;')
+    await enter('auto infinity 2 seconds\nauto eternity 3 x highest\nauto reality 1 rm\nblack hole off\nwait am >= 100\nblack hole on\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    const original = await engine.evaluate(()=>AutomatorData.currentScriptText().toLowerCase().replace(/\s+/g,' ').trim())
+    await click('.c-automator__controls .c-slider-toggle-button')
+    await check('return player.reality.automator.type===AUTOMATOR_TYPE.BLOCK',true)
+    for (const frame of frames) assert.ok(await frame.locator('.c-automator-block-editor').count()>0)
+    await click('.c-automator__controls .c-slider-toggle-button')
+    await check("return AutomatorData.currentScriptText().toLowerCase().replace(/\\s+/g,' ').trim()",original)
+    await check('return player.reality.automator.type===AUTOMATOR_TYPE.TEXT',true)
+    await click('.c-automator__controls .fa-play')
+    await mutate('for(let i=0;i<15;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [Autobuyer.bigCrunch.time,Autobuyer.eternity.xHighest.toNumber(),Autobuyer.reality.rm.toNumber(),BlackHoles.arePaused]',[2,3,1,true])
+    await parity('converted script configures three prestige autobuyers and pauses clock')
+    await mutate('Currency.antimatter.value=new Decimal(100); for(let i=0;i<10;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [BlackHoles.arePaused,AutomatorBackend.isOn]',[false,false])
+    await parity('resource gate releases clock ON and STOP')
+  })
+
+  await test('Automator completion · Prestige commands and script retention across Reality restart', async () => {
+    await prepare()
+    await mutate('player.eternities=new Decimal(100); player.reality.upgradeBits|=1<<25;')
+    await enter('infinity nowait\nwait am >= 1e400\ninfinity\neternity nowait\nwait ep >= 1e4000\nreality\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    const original = await engine.evaluate(()=>AutomatorData.currentScriptText())
+    await click('.c-automator__controls .fa-play')
+    await mutate('for(let i=0;i<5;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return player.infinities.toNumber()',0)
+    await mutate("player.break=true; Currency.antimatter.value=new Decimal('1e400'); player.records.thisInfinity.maxAM=Currency.antimatter.value; for(let i=0;i<10;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);")
+    await check('return player.infinities.gt(0)',true)
+    await parity('NOWAIT skips unavailable prestige; resource then triggers real crunch')
+    await mutate("player.dilation.studies=[1,2,3,4,5,6]; Currency.eternityPoints.value=new Decimal('1e4000'); player.records.thisReality.maxEP=Currency.eternityPoints.value; player.records.thisReality.time=120000; player.records.thisReality.realTime=120000; for(let i=0;i<10;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);")
+    await check('return player.realities',51)
+    await check('return AutomatorData.currentScriptText()',original)
+    await parity('REALITY command resets game and preserves editor script')
+    await mutate('Modal.hideAll(); ui.view.quotes.current=undefined; Tab.automation.automator.show(true);')
+    // Explicit UI rewind + force restart, then real manual Reality checks restart policy.
+    if (await engine.evaluate(()=>AutomatorBackend.state.forceRestart)) await click('.c-automator__controls .fa-reply')
+    await check('return AutomatorBackend.state.forceRestart',false)
+    await click('.c-automator__controls .fa-reply')
+    await check('return AutomatorBackend.state.forceRestart',true)
+    await click('.c-automator__controls .fa-fast-backward')
+    await mutate("player.dilation.studies=[1,2,3,4,5,6]; Currency.eternityPoints.value=new Decimal('1e4000'); player.records.thisReality.maxEP=Currency.eternityPoints.value; player.records.thisReality.time=120000; player.records.thisReality.realTime=120000; Tab.reality.glyphs.show(true);")
+    await click('.c-reality-button:visible')
+    await check('return player.realities',52)
+    await check('return [AutomatorBackend.currentLineNumber,AutomatorBackend.isRunning]',[1,true])
+    await check('return AutomatorData.currentScriptText()',original)
+    await parity('manual Reality obeys force restart and retains exact script')
+  })
+
+  await test('Automator completion · Saved study presets, trial and dilation commands perform purchases', async () => {
+    await prepare()
+    await mutate("player.eternities=new Decimal(100); player.timestudy.presets[0]={name:'Stage path',studies:'11,21|0'}; Currency.timeTheorems.value=new Decimal(1);")
+    await enter('studies load id 1\nstudies load name Stage path\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    await click('.c-automator__controls .fa-play')
+    await mutate('for(let i=0;i<5;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [TimeStudy(11).isBought,TimeStudy(21).isBought,AutomatorBackend.isRunning]',[true,false,true])
+    await mutate('Currency.timeTheorems.value=new Decimal(3); for(let i=0;i<5;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [TimeStudy(21).isBought,AutomatorBackend.isOn]',[true,false])
+    await parity('preset commands resolve ID/name and wait for actual missing theorem cost')
+    await prepare()
+    await mutate('player.eternities=new Decimal(20000); player.timestudy.studies=[171]; Currency.timeTheorems.value=new Decimal(30);')
+    await enter('unlock ec 1\nstart ec 1\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    await click('.c-automator__controls .fa-play')
+    await mutate('for(let i=0;i<6;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [player.challenge.eternity.current,Currency.timeTheorems.value.toNumber(),AutomatorBackend.isOn]',[1,0,false])
+    await parity('EC unlock spends original cost then START enters original challenge')
+    await prepare()
+    await mutate('player.eternities=new Decimal(100); player.timestudy.studies=[231]; player.eternityChalls.eterc11=5; player.eternityChalls.eterc12=5; Currency.timeTheorems.value=new Decimal(12900);')
+    await enter('unlock dilation\nstart dilation\nstop')
+    await check('return AutomatorData.currentErrors()',[])
+    await click('.c-automator__controls .fa-play')
+    await mutate('for(let i=0;i<6;i++) AutomatorBackend.update(AutomatorBackend.currentInterval);')
+    await check('return [TimeStudy.dilation.isBought,player.dilation.active,AutomatorBackend.isOn]',[true,true,false])
+    await parity('UNLOCK DILATION spends original TT and START DILATION performs reset')
   })
 }

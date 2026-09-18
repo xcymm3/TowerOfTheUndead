@@ -55,3 +55,5 @@ pnpm preview
 原作 MIT 许可保存在 [vendor/antimatter/LICENSE](./vendor/antimatter/LICENSE) 和 [文档副本](./docs/AntimatterDimensions-MIT-LICENSE.txt)。
 
 阶段回归含原版与亡灵版的固定场景比较，以及使用阶段夹具的页面检查；它们不等于自然推进到结局的完整验证。后期主题化、逐项映射审计和终局操作链仍按直接开发七步计划推进。第 1 步范围及证据见 [中期补齐记录](./docs/亡灵之塔-直接开发第一步.md)。
+
+第 2 步创世系统的实施、验证及剩余边界见 [创世补齐记录](./docs/亡灵之塔-直接开发第二步.md)。当前继续推进第 3 步七位主宰，完整验收和 Pages 发布仍属后续步骤。

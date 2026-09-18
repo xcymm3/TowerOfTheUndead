@@ -1,0 +1,14 @@
+{
+  "filter": "Mapped upgrade descriptions",
+  "results": [
+    {
+      "name": "Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

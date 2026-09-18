@@ -1,0 +1,49 @@
+{
+  "filter": "Reality completion",
+  "results": [
+    {
+      "name": "Reality completion · All crunch upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All eternity upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All tick upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All reality upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Post-Reality dimension, multiplier, theorem and dilation autobuyers actually purchase",
+      "pass": false,
+      "error": "page.evaluate: Error: AutobuyerSingleToggleLabel: expected one component; found 0: vm.autobuyer===Autobuyer.timeTheorem\n    at eval (eval at evaluate (:311:30), <anonymous>:10:39)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at component (D:\\mydoc\\React\\TowerOfTheUndead\\tests\\reality-completion.mjs:56:45)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:152:22\n    at async test (D:\\mydoc\\React\\TowerOfTheUndead\\tests\\runtime.mjs:40:9)\n    at async test (D:\\mydoc\\React\\TowerOfTheUndead\\tests\\reality-completion.mjs:11:5)\n    at async completeReality (D:\\mydoc\\React\\TowerOfTheUndead\\tests\\reality-completion.mjs:137:3)\n    at async realityInteractions (D:\\mydoc\\React\\TowerOfTheUndead\\tests\\reality-interactions.mjs:8:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:199:3"
+    },
+    {
+      "name": "Reality completion · Reality autobuyer modes honor original thresholds and perform real resets",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Glyph choice, five equipment effects, respec and progression persist across Reality",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: power: respec returns equipment and retains perks/upgrades across Reality\n+ actual - expected\n... Skipped lines\n\n  {\n    am: '4.999999999999999e+130',\n    auto: {\n      annihilation: {\n        isActive: false,\n...\n        {\n+         effects: 20480,\n-         effects: 80,\n          id: 2,\n          idx: 20,\n          level: 1,\n          rawLevel: 0,\n+         strength: 1.01,\n+         type: 'infinity'\n-         strength: 2.165,\n-         type: 'dilation'\n        },\n        {\n          effects: 65536,\n          id: 1,\n          idx: 21,\n\n    at parity (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:49:12)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:214:7\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:11:5)\n    at async completeReality (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:189:3)\n    at async realityInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-interactions.mjs:8:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:199:3"
+    },
+    {
+      "name": "Reality completion · Automatic glyph filtering really keeps or sacrifices the generated reward",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: return player.reality.glyphs.inventory.length\n\n1 !== 0\n\n    at check (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:29:40)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:230:7\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:40:9)\n    at async test (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:11:5)\n    at async completeReality (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-completion.mjs:218:3)\n    at async realityInteractions (file:///D:/mydoc/React/TowerOfTheUndead/tests/reality-interactions.mjs:8:3)\n    at async file:///D:/mydoc/React/TowerOfTheUndead/tests/runtime.mjs:199:3"
+    },
+    {
+      "name": "Reality completion · Both black holes complete full cycles and pause freezes phases",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

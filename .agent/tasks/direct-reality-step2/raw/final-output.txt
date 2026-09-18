@@ -1,0 +1,4 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable
+PASS No browser runtime errors

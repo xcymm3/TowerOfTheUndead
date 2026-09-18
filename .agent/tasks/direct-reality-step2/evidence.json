@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "criteria": {
+    "AC1": {
+      "status": "PASS",
+      "evidence": "raw/comprehensive-report.json"
+    },
+    "AC2": {
+      "status": "PASS",
+      "evidence": "raw/comprehensive-report.json"
+    },
+    "AC3": {
+      "status": "PASS",
+      "evidence": "raw/comprehensive-report.json"
+    },
+    "AC4": {
+      "status": "PASS",
+      "evidence": "raw/comprehensive-report.json"
+    },
+    "AC5": {
+      "status": "PASS",
+      "evidence": "raw/final-report.json, raw/production-report.json"
+    }
+  },
+  "sourceCommit": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+  "sourceFiles": 820,
+  "mappingKeys": 767,
+  "finalBuild": {
+    "input": "1fdd15e58418d2e1f79d3ca7ec68cc69090b520cdd36755706e6361b4d6722fa"
+  },
+  "verificationStages": [
+    {
+      "report": "comprehensive-report.json",
+      "passed": 24,
+      "scope": "All Reality/Automator checks before display polishing; simulation and operation logic unchanged afterward"
+    },
+    {
+      "report": "entry-display-report.json",
+      "passed": 5,
+      "scope": "Display, upgrades, filter and editor conversion after header polishing"
+    },
+    {
+      "report": "final-report.json",
+      "passed": 2,
+      "scope": "Final word-boundary fix: descriptions, six viewport widths, hit targets and browser errors"
+    }
+  ],
+  "codeSha256LF": {
+    "runtime/reality-phrases.js": "788e1573f8270f5a9ca1fcafe4186e05e7ae6d6eff69f1ba8595500e6363c9da",
+    "runtime/reality.css": "a700b464010de4250ad4685dec60d32d9f90bef46d0ca70aa2db117cdf166a37",
+    "runtime/phrases.js": "e3f92290a191ef72c8b53b7996052822a6f10038f5b2a31b1989b0a88b00c3c0",
+    "runtime/theme.js": "553517905297716def35869c5a4e5e3b714a77dd011331eebd142eca12430fc5",
+    "tests/reality-completion.mjs": "c50a8ec44c364b395a17bf995a0a9df5da7eaf38794a0c816ad36ade5f1fcf38",
+    "tests/reality-interactions.mjs": "b3f680a72b562da014f97d5168b96c92fd528778f3d2738c4e50b2736a14565f",
+    "tests/automator-interactions.mjs": "d538542653c0270a93122c512d9c7f16fdee8a6f9ebacf08ccfcdd1c43c71180"
+  },
+  "limitations": [
+    "Stage fixtures, not natural new-save completion",
+    "Celestials/endgame/global audit/long offline/Pages remain steps 3-7"
+  ],
+  "rawSha256": {
+    "automator-operations.json.gz": "3e4c1750af0d3eb722a87e002350746dd05647ca79a14f2ad0f674610059a032",
+    "comprehensive-build-fingerprint.json": "48447dbfabdfcfa84840e2482ebaf17484c8fbbddd7115c48d7bc23dce8d6ad9",
+    "comprehensive-output.txt": "e7a6331c6f9b990743056e5c6c5eff212a58c90e30b78b8c94764790bf64959e",
+    "comprehensive-report.json": "b0840564b04b621125b596e5f52debcde75b321fad5ad9ac3316ac012c38ae64",
+    "display-polish-report.json": "281a8d5e32780e9e24d489a486b62080467b26ec2936a3e6caeae347bf4e3b6d",
+    "dist-build.log.gz": "5421cc08bd2532eaea043c879d29d44c1622cf46ecd66ba45d11d6f64260451c",
+    "entry-display-output.txt": "a9c4fa9fda2673fda11b104b653b84f1137e53704c80c67b55840ce03b6441d1",
+    "entry-display-report.json": "281a8d5e32780e9e24d489a486b62080467b26ec2936a3e6caeae347bf4e3b6d",
+    "final-build-fingerprint.json": "c236f5b950711e63b97209983f4ebde39808d3b71e4c0079e0ced0b9b9cbb36c",
+    "final-output.txt": "a515fc7d03162f40b444f6ead2ac7a25b83b3478939f3947871b8e25d822f594",
+    "final-reality-completion.json.gz": "7fb84ddbcba2a4545a5d2e5c488002498613bf346efa82242c464bb170611657",
+    "final-report.json": "8dea9d5ec588d9d5a4c36eae185d7003a90b4d093d45b6dceac29eabcc4c8c9c",
+    "lint.txt": "97232a727ad90dbb72525722cfbb9172efe07711d9da02a73d7d79dca04eaa9f",
+    "preliminary-core-report.json": "fef5c8f233d2f1be14cd2421e0667397ccb9e38dfb56263ae87316456263d69d",
+    "preliminary-operations-report.json": "6841983fe28d67e82dd5e207192ad1378a33ed9b8c8c6fa93bc0cc28024c65ab",
+    "preliminary-ui-report.json": "252d1b14df87b95897f85bda0f4b19d70cc30b84b32c621613625460d56b140d",
+    "production-output.txt": "e84e8cf70f712aea9802277ec36d744d2be31519b03c4f2399a64542d5637c77",
+    "production-report.json": "6a9b770a9f9563112bab6145fd568efd87e901c444e0d2e816a22f5d75f92e3f",
+    "reality-automation-autobuyers-1440.png": "90233a1d70113754267f52653b97f05586c39c985937bea19daf350f2745aaef",
+    "reality-automation-autobuyers-320.png": "af7722c282996cc423cd9626077efc6a9091aa09b5878dcaf366cd1695dd3118",
+    "reality-completion.json.gz": "360161c5f10da5f050f753d4ad55543cfd73ea3782950ee87d0f6f634e992f6a",
+    "reality-operations.json.gz": "8481500f2007f6b50ed02f30c94925ee06a50401e4e87928ba9351457306265d",
+    "reality-reality-glyphs-1440.png": "2633fcf1935931f1254f3cf01c06562252e53b13a762757da45ffd70adaebb86",
+    "reality-reality-glyphs-320.png": "fd45c18cad262bfadd909c0004f9f41542a469b0b9687636ca8c668f116b2e8d",
+    "reality-reality-hole-1440.png": "cbfd098f484fc0ca8253b6de37c7585eb81bcfe6adf468546f5f6eb954138a8c",
+    "reality-reality-hole-320.png": "bdc7de6f269d3e1d22c7b021e53f3a0cdb43a778178cfe947e86f29bdd130808",
+    "reality-reality-upgrades-1440.png": "3b6e2b5f400c8414551362458c3db762c545eeed7a7662293fd56dfb69e9bd3a",
+    "reality-reality-upgrades-320.png": "e7573d435050d59e7ac8c4dca57f8ffebd4a7bdb3b353f7c2889f567dcf0e224",
+    "runtime-build.log.gz": "fd703a2c956bc2d130bdfe70707510480d30bc847ace7b81c095e2070b1cd837",
+    "typecheck.txt": "5e419d5756c7f39390f8b5cac48831a2cf6a3983f8bd0916f14fe67ee9087170"
+  }
+}

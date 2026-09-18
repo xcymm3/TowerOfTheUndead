@@ -1,0 +1,7 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable
+PASS Reality UI · Glyph filter unlock, five modes and original threshold decisions
+PASS Reality UI · All 25 upgrade purchase gates and five rebuyable second costs
+PASS Automator completion · Automation settings, clock commands and block conversion
+PASS No browser runtime errors

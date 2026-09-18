@@ -1,0 +1,102 @@
+{
+  "filter": "Reality completion|Reality UI|Automator",
+  "results": [
+    {
+      "name": "Reality completion · All crunch upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All eternity upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All tick upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · All reality upgrade requirements unlock through original events",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Post-Reality dimension, multiplier, theorem and dilation autobuyers actually purchase",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Reality autobuyer modes honor original thresholds and perform real resets",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Glyph choice, five equipment effects, respec and progression persist across Reality",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Automatic glyph filtering really keeps or sacrifices the generated reward",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Improved Eternity modes and filter-rejection priority use original settings",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Both black holes complete full cycles and pause freezes phases",
+      "pass": true
+    },
+    {
+      "name": "Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Entire perk graph via canvas clicks and connected purchase boundaries",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Glyph deletion, sacrifice confirmation and all five basic types",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Glyph filter unlock, five modes and original threshold decisions",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · First reset threshold, cancel, seeded rewards and glyph equip",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · All 25 upgrade purchase gates and five rebuyable second costs",
+      "pass": true
+    },
+    {
+      "name": "Reality UI · Black hole unlock, six tracks, pause and coupled clocks",
+      "pass": true
+    },
+    {
+      "name": "Automator UI · Exact unlock points and original script execution controls",
+      "pass": true
+    },
+    {
+      "name": "Automator UI · Invalid syntax rejection and study resource wait/resume",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Conditional and loop blocks wait for real resources then stop",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Automation settings, clock commands and block conversion",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Prestige commands and script retention across Reality restart",
+      "pass": true
+    },
+    {
+      "name": "Automator completion · Saved study presets, trial and dilation commands perform purchases",
+      "pass": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

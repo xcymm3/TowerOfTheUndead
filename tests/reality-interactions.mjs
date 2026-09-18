@@ -1,9 +1,11 @@
+import { completeReality } from './reality-completion.mjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { outputPath } from './output.mjs'
 
 // Explicit stage fixtures; all purchases below use the original rendered buttons.
 export async function realityInteractions({ page, engine, reference, reset, test }) {
+  await completeReality({ page, engine, reference, reset, test })
   const frames = [engine, reference]
   const trace = []
   const mutate = async script => {

@@ -1,0 +1,26 @@
+$ node scripts/verify-source.mjs && node tests/runtime.mjs
+PASS: 820 upstream files unchanged; 767 unique mappings; simulation build matches baseline.
+PASS Reality completion · All crunch upgrade requirements unlock through original events
+PASS Reality completion · All eternity upgrade requirements unlock through original events
+PASS Reality completion · All tick upgrade requirements unlock through original events
+PASS Reality completion · All reality upgrade requirements unlock through original events
+PASS Reality completion · Post-Reality dimension, multiplier, theorem and dilation autobuyers actually purchase
+PASS Reality completion · Reality autobuyer modes honor original thresholds and perform real resets
+PASS Reality completion · Glyph choice, five equipment effects, respec and progression persist across Reality
+PASS Reality completion · Automatic glyph filtering really keeps or sacrifices the generated reward
+PASS Reality completion · Improved Eternity modes and filter-rejection priority use original settings
+PASS Reality completion · Both black holes complete full cycles and pause freezes phases
+PASS Reality completion · Mapped upgrade descriptions and six-width Reality controls remain usable
+PASS Reality UI · Entire perk graph via canvas clicks and connected purchase boundaries
+PASS Reality UI · Glyph deletion, sacrifice confirmation and all five basic types
+PASS Reality UI · Glyph filter unlock, five modes and original threshold decisions
+PASS Reality UI · First reset threshold, cancel, seeded rewards and glyph equip
+PASS Reality UI · All 25 upgrade purchase gates and five rebuyable second costs
+PASS Reality UI · Black hole unlock, six tracks, pause and coupled clocks
+PASS Automator UI · Exact unlock points and original script execution controls
+PASS Automator UI · Invalid syntax rejection and study resource wait/resume
+PASS Automator completion · Conditional and loop blocks wait for real resources then stop
+PASS Automator completion · Automation settings, clock commands and block conversion
+PASS Automator completion · Prestige commands and script retention across Reality restart
+PASS Automator completion · Saved study presets, trial and dilation commands perform purchases
+PASS No browser runtime errors
