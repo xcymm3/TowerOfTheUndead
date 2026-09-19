@@ -20,6 +20,7 @@ fs.mkdirSync(stage, { recursive: true })
 for (const name of ['src', 'public', 'build', 'package.json', 'babel.config.js', '.browserslistrc']) {
   fs.cpSync(path.join(vendor, name), path.join(stage, name), { recursive: true })
 }
+fs.rmSync(path.join(stage, 'public/audio/news.mp3'), { force: true })
 if (!fs.existsSync(path.join(stage, 'node_modules'))) {
   fs.symlinkSync(path.join(vendor, 'node_modules'), path.join(stage, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir')
 }
@@ -67,6 +68,60 @@ modify('src/game.js', '        then: () => {\n          afterSimulation(seconds,
           }
           afterSimulation(seconds, playerStart);
         },`)
+// The standalone edition has no news ticker. Keep legacy save fields readable, but remove every
+// user-facing entry point and replace the two news-only achievements with reachable game actions.
+modify('src/core/new-game.js', '    ui.view.news = player.options.news.enabled;', `    player.options.news.enabled = false;
+    ui.view.news = false;`)
+modify('src/components/tabs/options-visual/OptionsVisualTab.vue', `        <OptionsButton
+          class="o-primary-btn--option"
+          onclick="Modal.newsOptions.show();"
+        >
+          Open News Options
+        </OptionsButton>`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `      uniqueNews: 0,
+      totalNews: 0,
+`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `      paperclips: 0,
+`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `      this.uniqueNews = NewsHandler.uniqueTickersSeen;
+      this.totalNews = player.news.totalSeen;
+`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `      this.paperclips = player.news.specialTickerData.paperclips;
+`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `        <br>
+        <div>
+          You have seen {{ quantifyInt("news message", totalNews) }} in total.
+        </div>
+        <div>
+          You have seen {{ quantifyInt("unique news message", uniqueNews) }}.
+        </div>
+`, '')
+modify('src/components/tabs/statistics/StatisticsTab.vue', `        <div v-if="paperclips">
+          You have {{ quantifyInt("useless paperclip", paperclips) }}.
+        </div>
+`, '')
+modify('src/core/secret-formula/achievements/normal-achievements.js', `  {
+    id: 22,
+    name: "FAKE NEWS!",
+    get description() { return \`Encounter \${formatInt(50)} different news messages.\`; },
+    checkRequirement: () => NewsHandler.uniqueTickersSeen >= 50,
+    checkEvent: GAME_EVENT.REALITY_RESET_AFTER
+  },`, `  {
+    id: 22,
+    name: "First formation",
+    description: "Open the Achievements page from the tower interface.",
+    checkRequirement: () => Tab.achievements.normal.isOpen,
+    checkEvent: GAME_EVENT.TAB_CHANGED
+  },`)
+modify('src/core/secret-formula/achievements/secret-achievements.js', `  {
+    id: 24,
+    name: "Real news",
+    description: "Click on a news ticker message that does something when you click on it."
+  },`, `  {
+    id: 24,
+    name: "Tower master",
+    description: "Open Settings from the tower interface."
+  },`)
 fs.cpSync(path.join(root, 'runtime'), path.join(stage, 'src/undead'), { recursive: true })
 fs.copyFileSync(path.join(root, 'public/art/army-atlas.png'), path.join(stage, 'src/undead/army-atlas.png'))
 fs.copyFileSync(path.join(root, 'runtime/GameUIComponent.vue'), path.join(stage, 'src/components/GameUIComponent.vue'))

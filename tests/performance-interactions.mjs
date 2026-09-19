@@ -155,6 +155,7 @@ export async function performanceInteractions({ page, engine, reset, test }) {
         Tab.dimensions.antimatter.show(true)
         Lazy.invalidateAll(); GameUI.update(); GameIntervals.start()
       })
+      await page.waitForFunction(() => document.querySelectorAll('.field-unit').length === 24)
       for (let elapsedSeconds = 0; elapsedSeconds <= 30; elapsedSeconds += 5) {
         if (elapsedSeconds > 0) await page.waitForTimeout(5000)
         const state = await engine.evaluate(() => ({

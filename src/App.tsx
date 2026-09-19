@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { isSnapshot, unitNames } from './game/bridge'
 import type { TowerSnapshot } from './game/bridge'
+import { t } from './i18n'
 import './App.css'
 
 export default function App() {
@@ -46,28 +47,28 @@ export default function App() {
   return (
     <main className={`tower-app ${wide ? 'expanded' : ''} ${paused ? 'is-paused' : ''}`}>
       <header className="resource-header">
-        <div className="wordmark"><span className="skull-mark" aria-hidden="true">♜</span><h1>亡灵之塔</h1><small>TOWER OF THE UNDEAD</small></div>
-        <div className="resource souls"><span className="resource-symbol" aria-hidden="true">◆</span><div><span>游魂</span><strong>{state?.souls ?? '—'}</strong></div></div>
-        <div className="resource income"><span className="resource-symbol" aria-hidden="true">✦</span><div><span>每秒产出</span><strong>+{state?.production ?? '—'}</strong></div></div>
-        <div className="resource seals"><span className="resource-symbol" aria-hidden="true">◆</span><div><span>魂印</span><strong>{state?.soulSeals ?? '—'}</strong></div></div>
-        <div className="resource floors"><span className="resource-symbol" aria-hidden="true">♜</span><div><span>筑塔次数</span><strong>{state?.floors ?? '—'}</strong></div></div>
-        <button className="settings-button" onClick={() => command('settings')} title="存档与设置" aria-label="存档与设置">⚙</button>
+        <div className="wordmark"><span className="skull-mark" aria-hidden="true">♜</span><h1>{t('brand.title')}</h1><small>{t('brand.subtitle')}</small></div>
+        <div className="resource souls"><span className="resource-symbol" aria-hidden="true">◆</span><div><span>{t('resource.souls')}</span><strong>{state?.souls ?? '—'}</strong></div></div>
+        <div className="resource income"><span className="resource-symbol" aria-hidden="true">✦</span><div><span>{t('resource.production')}</span><strong>+{state?.production ?? '—'}</strong></div></div>
+        <div className="resource seals"><span className="resource-symbol" aria-hidden="true">◆</span><div><span>{t('resource.seals')}</span><strong>{state?.soulSeals ?? '—'}</strong></div></div>
+        <div className="resource floors"><span className="resource-symbol" aria-hidden="true">♜</span><div><span>{t('resource.floors')}</span><strong>{state?.floors ?? '—'}</strong></div></div>
+        <button className="settings-button" onClick={() => command('settings')} title={t('action.settings')} aria-label={t('action.settings')}>⚙</button>
       </header>
 
       <div className="game-layout">
-        <section className="management-panel stone-frame" aria-label="高塔经营">
+        <section className="management-panel stone-frame" aria-label={t('panel.management')}>
           <iframe ref={frame} title="亡灵之塔经营界面" src={`${import.meta.env.BASE_URL}engine/index.html`}
             onLoad={() => setLoaded(true)} allow="clipboard-read; clipboard-write" />
           {!state && !error && <div className="loading-screen" role="status">
-            <span className="loading-sigil">♜</span><h2>唤醒高塔</h2>
-            <p>{slow ? '载入时间较长，请检查网络后重试。' : loaded ? '正在恢复军团与离线进度…' : '正在载入高塔…'}</p>
-            {slow && <button onClick={() => window.location.reload()}>重新载入</button>}
+            <span className="loading-sigil">♜</span><h2>{t('loading.title')}</h2>
+            <p>{slow ? t('loading.slow') : loaded ? t('loading.restore') : t('loading.initial')}</p>
+            {slow && <button onClick={() => window.location.reload()}>{t('loading.retry')}</button>}
           </div>}
-          {error && <div className="runtime-error" role="alert"><strong>高塔暂时无法运行</strong><p>{error}</p><button onClick={() => window.location.reload()}>重新载入</button></div>}
+          {error && <div className="runtime-error" role="alert"><strong>{t('error.runtime')}</strong><p>{error}</p><button onClick={() => window.location.reload()}>{t('loading.retry')}</button></div>}
         </section>
-        <aside className="battle-panel stone-frame" aria-label="当前拥有的亡灵军团">
-          <div className="scene-title"><span aria-hidden="true">◆</span><h2>墓园前线</h2><span aria-hidden="true">◆</span></div>
-          <div className="scene-chapter">{state?.chapter ?? '荒坟初醒'}<span>墓域 {state?.cemeteries ?? '—'}</span></div>
+        <aside className="battle-panel stone-frame" aria-label={t('panel.army')}>
+          <div className="scene-title"><span aria-hidden="true">◆</span><h2>{t('scene.title')}</h2><span aria-hidden="true">◆</span></div>
+          <div className="scene-chapter">{state?.chapter ?? '荒坟初醒'}<span>{t('scene.domain', { count: state?.cemeteries ?? '—' })}</span></div>
           <div className="graveyard-scene">
             <div className="scene-fog" aria-hidden="true" />
             <div className="army-on-field" aria-label={armyCount ? '已集结 ' + armyCount + ' 个族群' : '尚未召唤军团'}>
@@ -78,22 +79,22 @@ export default function App() {
                   onClick={() => { setRoster(true); command('army') }} />
               ))}
             </div>
-            {!armyCount && state && <div className="empty-army"><span>墓土之下，亡者静候召唤</span><small>在军团面板召唤第一位骷髅兵</small></div>}
-            {armyCount > 0 && <div className="army-caption"><span className="live-dot" />{armyCount} 个族群已集结 <small>按数量显示代表队列</small></div>}
+            {!armyCount && state && <div className="empty-army"><span>{t('scene.empty')}</span><small>{t('scene.emptyHint')}</small></div>}
+            {armyCount > 0 && <div className="army-caption"><span className="live-dot" />{t('scene.gathered', { count: armyCount })} <small>{t('scene.queue')}</small></div>}
           </div>
           {roster && <section className="roster" aria-label="军团名册">
-            <div className="roster-heading"><h3>军团名册</h3><button onClick={() => setRoster(false)} aria-label="关闭名册">×</button></div>
+            <div className="roster-heading"><h3>{t('roster.title')}</h3><button onClick={() => setRoster(false)} aria-label={t('roster.close')}>×</button></div>
             {unitNames.map((name, index) => <div key={name} className={state?.army[index]?.present ? '' : 'absent'}><span>{name}</span><b>{state?.army[index]?.amount ?? '0'}</b></div>)}
           </section>}
-          <div className="scene-controls"><button onClick={togglePause} aria-pressed={paused}>{paused ? '▶ 继续动画' : 'Ⅱ 暂停动画'}</button><button onClick={() => setRoster(!roster)} aria-expanded={roster}>♟ 军团展示</button></div>
+          <div className="scene-controls"><button onClick={togglePause} aria-pressed={paused}>{paused ? t('control.resume') : t('control.pause')}</button><button onClick={() => setRoster(!roster)} aria-expanded={roster}>{t('control.roster')}</button></div>
         </aside>
 
       </div>
 
       <footer className="game-footer">
-        <span className="save-status"><i className={state ? 'connected' : ''} />{saved ? '进度已保存' : state ? '本地存档 · 自动保存' : '正在唤醒'}</span>
-        <div><button onClick={() => command('save')} disabled={!state}>保存</button><button onClick={() => command('help')} disabled={!state}>玩法指南</button><button onClick={() => setWide(!wide)}>{wide ? '显示军团' : '展开经营'}</button></div>
-        <span className="footer-motto">白骨无言，高塔永存</span>
+        <span className="save-status"><i className={state ? 'connected' : ''} />{saved ? t('status.saved') : state ? t('status.local') : t('status.waking')}</span>
+        <div><button onClick={() => command('save')} disabled={!state}>{t('action.save')}</button><button onClick={() => command('help')} disabled={!state}>{t('action.help')}</button><button onClick={() => setWide(!wide)}>{wide ? t('action.showArmy') : t('action.expand')}</button></div>
+        <span className="footer-motto">{t('footer.motto')}</span>
       </footer>
     </main>
   )

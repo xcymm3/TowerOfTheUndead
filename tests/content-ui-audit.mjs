@@ -131,51 +131,33 @@ export async function contentUiAudit({ page, engine, reset, test }) {
       { notificationText, modalText })
   })
 
-  await test('Content audit · news ticker and both news achievements are reachable', async () => {
+  await test('Content audit · news system is absent and replacement achievements are reachable', async () => {
     await reset(engine)
     await engine.evaluate(() => {
-      const target = GameDatabase.news[50]
-      for (const news of GameDatabase.news.filter(news => news.id !== target.id).slice(0, 49)) {
-        NewsHandler.addSeenNews(news.id)
-      }
-      nextNewsMessageId = target.id
-      player.options.news.speed = 10
+      player.options.news.enabled = true
       ui.view.news = true
-      GameUI.update()
-      const ticker = document.querySelector('.c-news-ticker').__vue__
-      ticker.recentTickers = []
-      ticker.restart()
+      Tab.achievements.normal.show(true)
     })
-    const ticker = engine.locator('.c-news-ticker')
-    await ticker.waitFor({ state: 'visible' })
-    assert.equal(await ticker.count(), 1)
-    await engine.evaluate(() => document.querySelector('.c-news-ticker').__vue__.scrollMessage())
     await engine.waitForFunction(() => Achievement(22).isUnlocked)
-
-    await engine.evaluate(() => {
-      nextNewsMessageId = 'a130'
-      document.querySelector('.c-news-ticker').__vue__.restart()
-    })
-    const line = ticker.locator('.c-news-line')
-    await engine.waitForFunction(() => document.querySelector('.c-news-line')?.textContent.includes('Click this'))
-    await line.evaluate(element => {
-      element.style.paddingLeft = '0'
-      element.style.transform = 'translateX(0)'
-      element.style.transitionDuration = '0ms'
-    })
-    await line.click({ position: { x: 8, y: 8 } })
+    await page.locator('.settings-button').click()
     await engine.waitForFunction(() => SecretAchievement(24).isUnlocked)
-    assert.equal(await engine.evaluate(() => SecretAchievement(24).isUnlocked), true,
-      'clicking visible interactive news must unlock Secret Achievement 24')
     const evidence = await engine.evaluate(() => ({
       tickerCount: document.querySelectorAll('.c-news-ticker').length,
-      uniqueNews: NewsHandler.uniqueTickersSeen,
+      newsOptionButtons: [...document.querySelectorAll('button')]
+        .filter(button => /news/i.test(button.textContent)).length,
+      newsStatistics: /news message|新闻条|新闻消息/i.test(document.body.innerText),
       achievement22: Achievement(22).isUnlocked,
-      secretAchievement24: SecretAchievement(24).isUnlocked
+      achievement22Name: Achievement(22).config.undeadName,
+      secretAchievement24: SecretAchievement(24).isUnlocked,
+      secretAchievement24Name: SecretAchievement(24).config.undeadName
     }))
-    await ticker.screenshot({ path: outputPath('content-news-ticker.png') })
-    record('新闻条与关联功业', ['新闻条唯一挂载', '展示新闻计入唯一已读', '50 条功业触发',
-      '真实点击互动新闻触发隐秘功业'], evidence)
+    assert.equal(evidence.tickerCount, 0)
+    assert.equal(evidence.newsOptionButtons, 0)
+    assert.equal(evidence.newsStatistics, false)
+    assert.equal(evidence.achievement22Name, '初具军势')
+    assert.equal(evidence.secretAchievement24Name, '塔主亲临')
+    record('新闻系统退役与替代功业', ['新闻条不挂载', '画面设置无新闻入口', '史册无新闻统计',
+      '打开功业页面触发普通功业', '主界面设置按钮触发隐秘功业'], evidence)
   })
 
   await test('Content audit · midgame copy, challenge layout and offline modal are corrected', async () => {
@@ -250,6 +232,203 @@ export async function contentUiAudit({ page, engine, reset, test }) {
       evidence)
   })
 
+  await test('Content audit · i18n catalogs and every game screen contain no residual English UI copy', async () => {
+    await reset(engine)
+    await engine.evaluate(() => {
+      player.infinities = new Decimal(1e6)
+      player.eternities = new Decimal(1e6)
+      player.realities = 100
+      player.reality.upgradeBits = (1 << 26) - 1
+      player.reality.imaginaryUpgradeBits = (1 << 26) - 1
+      player.celestials.teresa.unlockBits = 63
+      player.celestials.effarig.unlockBits = 127
+      player.celestials.v.unlockBits = 127
+      player.celestials.ra.unlockBits = (1 << 29) - 1
+      for (const pet of Object.values(player.celestials.ra.pets)) pet.level = 25
+      player.dilation.studies = [1, 2, 3, 4, 5, 6]
+      player.reality.automator.forceUnlock = true
+      for (const achievement of Achievements.all) achievement.unlock()
+      document.querySelector('#notification-container')?.replaceChildren()
+      AutomatorBackend.initializeFromSave()
+      Modal.hideAll()
+      ui.view.quotes.current = undefined
+      for (const tab of Tabs.all) {
+        if (tab.key === 'shop') continue
+        tab.config.condition = () => true
+        for (const subtab of tab.subtabs) subtab.config.condition = () => true
+      }
+      window.__i18nAuditTabs = Tabs.all.filter(tab => tab.key !== 'shop')
+        .flatMap(tab => tab.subtabs.map(subtab => [tab.key, subtab.key]))
+    })
+    const catalog = await engine.evaluate(() => ({
+      locale: UndeadI18n.locale,
+      locales: UndeadI18n.availableLocales,
+      chinese: UndeadI18n.t('nav.army'),
+      fallback: (() => { UndeadI18n.setLocale('en-US'); const value = UndeadI18n.t('nav.army'); UndeadI18n.setLocale('zh-CN'); return value })()
+    }))
+    assert.deepEqual(catalog, { locale: 'zh-CN', locales: ['zh-CN', 'en-US'], chinese: '军团', fallback: 'Army' })
+    const tabs = await engine.evaluate(() => window.__i18nAuditTabs)
+    const residuals = []
+    for (const [tab, subtab] of tabs) {
+      await engine.evaluate(([nextTab, nextSubtab]) => {
+        Modal.hideAll()
+        ui.view.quotes.current = undefined
+        Tab[nextTab][nextSubtab].show(true)
+        GameUI.update()
+        ui.view.quotes.current = undefined
+        document.querySelector('#notification-container')?.replaceChildren()
+      }, [tab, subtab])
+      await page.waitForTimeout(150)
+      const found = await engine.evaluate(() => {
+        const ignored = 'script,style,svg,code,pre,textarea,.CodeMirror,.c-automator-docs,.c-automator-blocks'
+        const visible = element => {
+          if (!element || element.closest(ignored)) return false
+          const style = getComputedStyle(element)
+          const rect = element.getBoundingClientRect()
+          return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0
+        }
+        const allowed = /\b(?:EC\d+|IC\d+|AD|ID|TD|IP|EP|RM|IM|DM|DE|DT|TP|TT|AM|PP|Sx|OoM|Qt|Sp|Qa|Kms|ms|log|ln|e)\b/gi
+        const hasWords = value => /[A-Za-z]{2,}/.test(value.replace(allowed, '').replace(/https?:\/\/\S+/g, ''))
+        const values = []
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+        while (walker.nextNode()) {
+          const element = walker.currentNode.parentElement
+          const value = walker.currentNode.nodeValue.replace(/\s+/g, ' ').trim()
+          if (value && visible(element) && hasWords(value)) values.push({ kind: 'text', value, tag: element.tagName, className: element.className })
+        }
+        for (const element of document.querySelectorAll('[title],[aria-label],[placeholder]')) {
+          if (!visible(element)) continue
+          for (const attribute of ['title', 'aria-label', 'placeholder']) {
+            const value = element.getAttribute(attribute)?.trim()
+            if (value && hasWords(value)) values.push({ kind: attribute, value, tag: element.tagName, className: element.className })
+          }
+        }
+        return values
+      })
+      for (const item of found) residuals.push({ screen: `${tab}/${subtab}`, ...item })
+    }
+    fs.writeFileSync(outputPath('visible-english-residuals.json'), JSON.stringify(residuals, null, 2))
+    assert.deepEqual(residuals, [], residuals.slice(0, 20).map(item => `${item.screen}: ${item.value}`).join('\n'))
+    record('全页面国际化', ['简体中文默认目录', '英文回退目录', `${tabs.length} 个游戏页面可见文本`,
+      '标题、辅助标签与占位符'], { catalog, screens: tabs.length, residuals: residuals.length })
+  })
+
+  await test('Content audit · every interactive screen is reachable without clipping or overlap', async () => {
+    await reset(engine)
+    const tabs = await engine.evaluate(() => {
+      player.infinities = new Decimal(1e6)
+      player.eternities = new Decimal(1e6)
+      player.realities = 100
+      player.reality.upgradeBits = (1 << 26) - 1
+      player.reality.imaginaryUpgradeBits = (1 << 26) - 1
+      player.celestials.teresa.unlockBits = 63
+      player.celestials.effarig.unlockBits = 127
+      player.celestials.v.unlockBits = 127
+      player.celestials.ra.unlockBits = (1 << 29) - 1
+      for (const pet of Object.values(player.celestials.ra.pets)) pet.level = 25
+      player.dilation.studies = [1, 2, 3, 4, 5, 6]
+      player.reality.automator.forceUnlock = true
+      for (const tab of Tabs.all) {
+        if (tab.key === 'shop') continue
+        tab.config.condition = () => true
+        for (const subtab of tab.subtabs) subtab.config.condition = () => true
+      }
+      return Tabs.all.filter(tab => tab.key !== 'shop')
+        .flatMap(tab => tab.subtabs.map(subtab => [tab.key, subtab.key]))
+    })
+    const geometry = []
+    for (const width of [320, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 })
+      for (const [tab, subtab] of tabs) {
+        await engine.evaluate(([nextTab, nextSubtab]) => {
+          Modal.hideAll()
+          ui.view.quotes.current = undefined
+          Tab[nextTab][nextSubtab].show(true)
+          GameUI.update()
+          document.scrollingElement.scrollTop = 0
+        }, [tab, subtab])
+        await page.waitForTimeout(25)
+        await engine.evaluate(() => window.scrollTo(0, 0))
+        const result = await engine.evaluate(() => {
+          const selector = 'button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[role="button"]'
+          const visible = element => {
+            const style = getComputedStyle(element)
+            const box = element.getBoundingClientRect()
+            return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0 &&
+              box.width > 0 && box.height > 0 && box.bottom > 0 && box.top < innerHeight && box.right > 0 && box.left < innerWidth
+          }
+          const controls = [...document.querySelectorAll(selector)]
+            .filter(element => !element.closest('.CodeMirror'))
+            .filter(visible)
+          const hasHorizontalScroller = element => {
+            for (let parent = element.parentElement; parent && parent !== document.body; parent = parent.parentElement) {
+              const overflow = getComputedStyle(parent).overflowX
+              if (/(auto|scroll)/.test(overflow) && parent.scrollWidth > parent.clientWidth + 1) return true
+            }
+            return false
+          }
+          const clipped = controls.filter(element => {
+            const box = element.getBoundingClientRect()
+            return (box.left < -1 || box.right > innerWidth + 1) && !hasHorizontalScroller(element)
+          }).map(element => ({ text: element.textContent?.trim().slice(0, 80), className: element.className }))
+          const covered = controls.filter(element => {
+            const box = element.getBoundingClientRect()
+            const x = Math.min(innerWidth - 1, Math.max(0, box.left + box.width / 2))
+            const y = Math.min(innerHeight - 1, Math.max(0, box.top + box.height / 2))
+            const hit = document.elementFromPoint(x, y)
+            const blockingControl = hit?.closest(selector)
+            if (element.closest('.l-time-study-tree') && blockingControl?.closest('.l-time-studies-tab__tt-shop')) return false
+            return blockingControl && blockingControl !== element && !element.contains(blockingControl) &&
+              !blockingControl.contains(element)
+          }).map(element => ({ text: element.textContent?.trim().slice(0, 80), className: element.className }))
+          return {
+            documentOverflow: document.documentElement.scrollWidth - innerWidth,
+            clipped,
+            covered,
+            controls: controls.length
+          }
+        })
+        assert.ok(result.documentOverflow <= 1, `${tab}/${subtab} document overflow at ${width}`)
+        assert.deepEqual(result.clipped, [], `${tab}/${subtab} clipped controls at ${width}`)
+        assert.deepEqual(result.covered, [], `${tab}/${subtab} covered controls at ${width}`)
+        geometry.push({ screen: `${tab}/${subtab}`, width, controls: result.controls })
+      }
+    }
+
+    // Reproduce a real user's wheel-and-click path in the embedded management panel. No locator auto-scroll is used.
+    await page.setViewportSize({ width: 1200, height: 620 })
+    await reset(engine)
+    await engine.evaluate(() => {
+      player.dimensionBoosts = 4
+      Currency.antimatter.value = new Decimal('1e100')
+      for (const dimension of AntimatterDimensions.all) dimension.amount = new Decimal(10)
+      Tab.dimensions.antimatter.show(true)
+      Modal.hideAll()
+      document.querySelector('#notification-container')?.replaceChildren()
+      document.scrollingElement.scrollTop = 0
+      GameUI.update()
+    })
+    const frameBox = await page.locator('iframe').boundingBox()
+    assert.ok(frameBox)
+    await page.mouse.move(frameBox.x + frameBox.width / 2, frameBox.y + frameBox.height / 2)
+    const beforeScroll = await engine.evaluate(() => document.scrollingElement.scrollTop)
+    for (let index = 0; index < 5; index++) await page.mouse.wheel(0, 420)
+    await page.waitForTimeout(100)
+    const afterScroll = await engine.evaluate(() => document.scrollingElement.scrollTop)
+    assert.ok(afterScroll > beforeScroll, 'mouse wheel did not scroll the management document')
+    const tierEight = engine.locator('[data-buy-tier="8"]')
+    const buttonBox = await tierEight.boundingBox()
+    assert.ok(buttonBox && buttonBox.y >= frameBox.y && buttonBox.y + buttonBox.height <= frameBox.y + frameBox.height,
+      '8th army purchase remained unreachable after wheel scrolling')
+    const beforeBought = await engine.evaluate(() => AntimatterDimension(8).bought)
+    await page.mouse.click(buttonBox.x + buttonBox.width / 2, buttonBox.y + buttonBox.height / 2)
+    const afterBought = await engine.evaluate(() => AntimatterDimension(8).bought)
+    assert.ok(afterBought > beforeBought, '8th army purchase did not respond to a physical pointer click')
+    record('全界面交互可达性', ['全部页面 320/768/1440px 控件边界', '控件中心遮挡检测',
+      '管理面板真实滚轮滚动', '滚动后点击第八阶军团'],
+    { screenChecks: geometry.length, beforeScroll, afterScroll, beforeBought, afterBought })
+  })
+
   await test('Content audit · late-game screens pass six-width clipping, reachability and contrast checks', async () => {
     const cases = [
       { id: 'reality-upgrades', tab: 'reality', subtab: 'upgrades', root: '.l-reality-upgrade-grid',
@@ -288,7 +467,10 @@ export async function contentUiAudit({ page, engine, reset, test }) {
             clippedControls: candidates.filter(node => {
               const box = node.getBoundingClientRect()
               return box.left < -1 || box.right > innerWidth + 1
-            }).length,
+            }).map(node => {
+              const box = node.getBoundingClientRect()
+              return { className: node.className, text: node.textContent?.trim().slice(0, 80), left: box.left, right: box.right }
+            }),
             undersizedControls: candidates.filter(node => {
               const box = node.getBoundingClientRect()
               return box.width < 20 || box.height < 20
@@ -299,7 +481,7 @@ export async function contentUiAudit({ page, engine, reset, test }) {
         assert.ok(layout.root.left >= -1 && layout.root.right <= layout.viewport + 1,
           `${item.id} root clipped at ${width}`)
         assert.ok(layout.documentOverflow <= 1, `${item.id} page overflow at ${width}`)
-        assert.equal(layout.clippedControls, 0, `${item.id} controls clipped at ${width}`)
+        assert.deepEqual(layout.clippedControls, [], `${item.id} controls clipped at ${width}`)
         assert.equal(layout.undersizedControls, 0, `${item.id} controls too small at ${width}`)
         screens.push({ screen: item.id, width, status: 'PASS', ...layout })
         if ([320, 768, 1440].includes(width)) {
@@ -342,8 +524,9 @@ export async function contentUiAudit({ page, engine, reset, test }) {
       '正文/次要文字/强调文字对比度'], { screenChecks: screens.length, contrast })
   })
 
-  const expected = ['资源、阶位与动态说明', '帮助', '通知与确认弹窗', '新闻条与关联功业',
-    '中期文案、试炼可读性与离线弹窗', '结局文本与脚本保护', '后期界面、窄屏与对比度']
+  const expected = ['资源、阶位与动态说明', '帮助', '通知与确认弹窗', '新闻系统退役与替代功业',
+    '中期文案、试炼可读性与离线弹窗', '结局文本与脚本保护', '全页面国际化',
+    '全界面交互可达性', '后期界面、窄屏与对比度']
   const complete = expected.every(category => categories.some(entry => entry.category === category && entry.status === 'PASS'))
   fs.writeFileSync(outputPath('outside-database-content-audit.json'), JSON.stringify({
     generatedAt: new Date().toISOString(), status: complete ? 'PASS' : 'FAIL', categories,

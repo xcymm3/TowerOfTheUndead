@@ -98,6 +98,8 @@ export function translateReality(text) {
     .replace(/(?:Replicanti speed|疫种繁衍速度) is boosted based on your fastest game-(?:time|时间) (?:Reality|冥界创世)/gi,
       '根据最快创世游戏时间提高疫种繁衍速度')
     .replace(/^Void$/, '空置')
+    .replace(/Reach (.*?) antimatter with Continuum disabled for the entire Reality/gi,
+      '整次冥界创世停用永续召唤，并达到 $1 游魂')
     .replace(/Get (.*?) Eternity Points to unlock a new Reality/gi, '达到 $1 冥印后开启新的冥界创世')
     .replace(/\byears?\b/gi, '年')
     .replace(/You gain Dilated Time (.*?) times faster/gi, '幽夜流沙收益变为 $1 倍')

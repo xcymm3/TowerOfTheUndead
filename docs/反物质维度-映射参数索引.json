@@ -10372,7 +10372,7 @@
         "checkRequirement": "() => NewsHandler.uniqueTickersSeen >= 50",
         "checkEvent": "GAME_EVENT.REALITY_RESET_AFTER"
       },
-      "undeadName": "荒原传闻",
+      "undeadName": "初具军势",
       "mappingKey": "normalAchievements/9"
     },
     {
@@ -12850,7 +12850,7 @@
         "name": "\"Real news\"",
         "description": "\"Click on a news ticker message that does something when you click on it.\""
       },
-      "undeadName": "会回应的传闻",
+      "undeadName": "塔主亲临",
       "mappingKey": "secretAchievements/11"
     },
     {

@@ -67,11 +67,17 @@ const exact = {
   "Respec": "重洗", "Download": "下载", "Paste your save here": "在此粘贴存档",
   "Could not load the save (format unrecognized or invalid).": "无法载入存档：格式无法识别或内容无效。",
   "Game imported": "存档已导入", "Game saved": "存档已保存",
+  "Open the Achievements page from the tower interface.": "从高塔主界面打开功业页面。",
+  "Achievement multiplier reduces Auto-EC completion time.": "功业倍率缩短自动轮回试炼的完成时间。",
+  "Open Settings from the tower interface.": "从高塔主界面打开设置。",
 };
 const escape = text => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const entries = Object.entries(exact).sort((a,b)=>b[0].length-a[0].length)
   .map(([source, target]) => [new RegExp(escape(source).replace(/\s+/g, "\\s+"), "gi"), target]);
 const dynamic = [
+  [/Reach (.*?) antimatter with Continuum disabled for the entire Reality/gi, "整次冥界创世停用永续召唤，并达到 $1 游魂"],
+  [/Get (.*?) Time Theorems with a \/(.*?) Black Hole or slower, without discharging or entering EC12\./gi,
+    "获得 $1 冥典页，死寂钟速度不高于 1/$2，且不释放封存时间或进入 EC12。"],
   [/Multiplier is currently (.*?) and will increase to\s*(.*?) on Dimensional Sacrifice\./gi, "当前倍率为 $1，灵魂献祭后将变为 $2。"],
   [/Improve Replicanti multiplier formula to\s*(.*)/gi, "改善疫种倍率公式：$1"],
   [/Base Replicanti interval limit\s*(.*?)ms\s*➜\s*(.*?)ms/gi, "疫种基础繁衍间隔下限：$1ms ➜ $2ms"],

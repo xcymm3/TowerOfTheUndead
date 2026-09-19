@@ -3,7 +3,7 @@ import { notify } from "@/core/notify";
 import wordShift from "@/core/word-shift";
 import mapping from "./mapping.json";
 import { configurations } from "./bindings";
-import { armyNames, translate, prepareTranslations } from "./glossary";
+import { armyNames, i18n, prepareTranslations } from "./i18n";
 import "./theme.css";
 import "./midgame.css";
 import "./reality.css";
@@ -18,6 +18,12 @@ const GROUP_CONTEXT_COMPONENTS = {
   "ra.pets": ["RaPet", "RaPetRemembranceButton", "RaUpgradeIcon", "RaPetLevelBar"],
   alchemyResources: ["AlchemyResourceInfo"],
   speedrunMilestones: ["SpeedrunMilestoneSingle", "SpeedrunMilestoneCompare"]
+};
+const translate = text => {
+  if (typeof text !== "string") return text;
+  const match = text.match(/^(\s*)([\s\S]*?)(\s*)$/);
+  if (!match?.[2]) return text;
+  return match[1] + i18n.translateSource(match[2].replace(/\s+/g, " ")) + match[3];
 };
 
 function sameDescriptor(left, right) {
@@ -137,7 +143,7 @@ export function installUndeadTheme() {
   function translateVNode(node, componentName) {
     if (!node || typeof node !== "object") return;
     // Script editor content must remain valid original automator grammar.
-    if (node.tag === "textarea" || node.tag === "input" || node.tag === "code" || node.tag === "pre") return;
+    if (node.tag === "textarea" || node.tag === "code" || node.tag === "pre") return;
     if (node.text) node.text = translateForComponent(node.text, componentName);
     if (node.data && node.data.attrs) {
       for (const key of ["title", "aria-label", "placeholder"]) {
@@ -161,6 +167,57 @@ export function installUndeadTheme() {
     if (!this.$options.name || !/Automator.*Editor|AutomatorBlockSingleInput/.test(this.$options.name)) translateVNode(vnode, this.$options.name);
     return vnode;
   };
+  // Vue reuses some static VNodes without passing them through the render hook again. Translate those nodes,
+  // plus native placeholders and late-mounted dialogs, after they enter the document.
+  const ignoredUi = "script,style,svg,textarea,input,code,pre,.CodeMirror,.c-automator-docs,.c-automator-blocks";
+  const translateTextNode = node => {
+    if (!node.parentElement || node.parentElement.closest(ignoredUi)) return;
+    const translated = translate(node.nodeValue);
+    if (translated !== node.nodeValue) node.nodeValue = translated;
+  };
+  const translateAttributes = element => {
+    if (element.closest(ignoredUi)) return;
+    for (const attribute of ["title", "aria-label", "placeholder"]) {
+      const value = element.getAttribute(attribute);
+      if (!value) continue;
+      const translated = translate(value);
+      if (translated !== value) element.setAttribute(attribute, translated);
+    }
+  };
+  const translateDocument = root => {
+    if (!root) return;
+    if (root.nodeType === Node.TEXT_NODE) {
+      translateTextNode(root);
+      return;
+    }
+    if (!(root instanceof Element) || root.closest(ignoredUi)) return;
+    translateAttributes(root);
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      translateTextNode(walker.currentNode);
+    }
+    for (const element of root.querySelectorAll("[title],[aria-label],[placeholder]")) translateAttributes(element);
+  };
+  let translatingDocument = false;
+  const observerOptions = {
+    subtree: true, childList: true, characterData: true, attributes: true,
+    attributeFilter: ["title", "aria-label", "placeholder", "class", "style"]
+  };
+  const translateMutations = mutations => {
+    if (translatingDocument) return;
+    translatingDocument = true;
+    window.__undeadTranslationObserver.disconnect();
+    for (const mutation of mutations) {
+      if (mutation.type === "characterData" || mutation.type === "attributes") translateDocument(mutation.target);
+      else for (const node of mutation.addedNodes) translateDocument(node);
+    }
+    window.__undeadTranslationObserver.observe(document.documentElement, observerOptions);
+    translatingDocument = false;
+  };
+  window.__undeadTranslationObserver = new MutationObserver(translateMutations);
+  window.__undeadTranslationObserver.observe(document.documentElement, observerOptions);
+  translateDocument(document.body);
+  Vue.mixin({ mounted() { translateDocument(this.$el); } });
   const auditEntries = auditSnapshots.map(({ entry, config, before, sourceId, adapters }, index) => {
     const after = Object.getOwnPropertyDescriptors(config);
     const protectedFields = Object.keys(before).filter(field => !DISPLAY_FIELDS.includes(field));
@@ -240,9 +297,10 @@ export function installUndeadTheme() {
       semanticStatus
     };
   });
+  window.UndeadI18n = i18n;
   window.UndeadTheme = { armyNames, translate, translateForComponent, registry, mapping, configurations,
     audit: { entries: auditEntries, displayFields: DISPLAY_FIELDS, contextualComponents: GROUP_CONTEXT_COMPONENTS } };
-  document.documentElement.lang = "zh-CN";
+  i18n.setLocale("zh-CN");
 }
 
 function snapshot() {
@@ -289,7 +347,10 @@ export function startUndeadBridge() {
       }
       else GameUI.notify.info("当前正在结算，请稍后保存");
     }
-    if (data.action === "settings") Tab.options.saving.show(true);
+    if (data.action === "settings") {
+      SecretAchievement(24).unlock();
+      Tab.options.saving.show(true);
+    }
     if (data.action === "army") Tab.dimensions.antimatter.show(true);
     if (data.action === "help") Modal.h2p.show();
     publish();

@@ -1,5 +1,7 @@
 // Presentation-only terminology. Source identifiers and automator grammar remain stable.
 import { translatePhrases } from "./phrases";
+import { retargetCommunityTerms, translateCommunity } from "./i18n/community";
+import { translateResidual, translateResidualSegments } from "./i18n/residual";
 export const armyNames = ["骷髅兵", "僵尸", "幽魂", "吸血鬼", "尸巫", "死亡骑士", "骨龙", "灾厄领主"];
 export const councilNames = ["守墓侍僧", "招魂师", "诅咒祭司", "亡灵术士", "灵魂编织者", "瘟疫使者", "死亡贤者", "永恒巫妖"];
 export const altarNames = ["墓园祭坛", "腐朽祭坛", "幽魂祭坛", "鲜血祭坛", "尸巫祭坛", "黑骑祭坛", "龙墓祭坛", "终寂祭坛"];
@@ -35,8 +37,15 @@ export const glossary = {
   "Continuum": "永续召唤", "Singularities": "死星", "Singularity": "死星", "Annihilation": "虚渊湮祭", "Ascension": "虚渊晋升",
   "Armageddon": "焚界重生", "Achievements": "功业", "Achievement": "功业", "Speedrun": "征程计时",
   "Dimensions": "生产", "Dimension": "生产者", "Galaxies": "墓域", "Galaxy": "墓域", "Dilation": "永夜", "Sacrifice": "献祭",
+  "Dims": "阶位",
   "Challenges": "试炼", "Challenge": "试炼", "Statistics": "史册", "Options": "设置", "Saving": "存档", "Visual": "画面", "Gameplay": "游戏",
   "Production": "产出", "Normal": "普通", "Secret": "隐秘", "Automation": "执役", "Upgrades": "升级", "Upgrade": "升级", "Milestones": "里程碑",
+  "UI": "界面", "Modern": "现代", "Theme": "主题", "Notation": "计数法", "Metro": "方格", "Dark": "深色",
+  "Inverted": "反色", "AMOLED": "纯黑", "Scientific": "科学计数", "Engineering": "工程计数",
+  "Letters": "字母计数", "Standard": "标准计数", "Emoji": "表情计数", "Logarithm": "对数计数",
+  "Brackets": "括号计数", "Roman": "罗马计数", "Dots": "点阵计数", "Zalgo": "扭曲计数",
+  "Hex": "十六进制", "Imperial": "英制计数", "Clock": "时钟计数", "Prime": "质数计数",
+  "Bar": "条形计数", "Shi": "中文大数", "Blind": "隐匿计数", "Blobs": "图块计数", "ALL": "全部",
   "Time Theorem Shop": "冥典购置", "Time Study Tree": "冥典树", "Study Tree": "冥典树", "Time Studies": "冥典研究",
   "Current": "当前", "Cost": "费用", "Costs": "费用", "Requires": "要求", "Requirement": "要求", "Reward": "奖励", "Effect": "效果",
   "Buy Max": "购买最大", "Buy max": "购买最大", "Max all": "全部最大", "Max All": "全部最大", "Buy 1": "单次", "Until 10": "补至十次",
@@ -44,6 +53,7 @@ export const glossary = {
   "Save": "保存", "Export": "导出", "Import": "导入", "Load": "载入", "Reset": "重置", "Cancel": "取消", "Confirm": "确认", "Close": "关闭",
   "Locked": "未解锁", "Unlocked": "已解锁", "Completed": "已完成", "Purchased": "已购买", "Running": "进行中", "Start": "开始", "Exit": "退出",
   "Enabled": "已启用", "Disabled": "已停用", "Enable": "启用", "Disable": "停用", "Buy": "购买",
+  "Open": "打开", "Describe": "显示说明", "Shift": "换档键", "Max": "最大", "Automatic": "自动",
   "Active": "征伐", "Passive": "守陵", "Idle": "沉眠", "Settings": "设置", "Records": "记录", "Progress": "进度",
   "Common": "残旧", "Uncommon": "附魔", "Rare": "精良", "Epic": "稀有", "Legendary": "传说", "Mythical": "神话", "Transcendent": "超凡",
   "Infinite": "∞", "Normal matter": "生机侵蚀", "Matter": "生机侵蚀",
@@ -65,6 +75,7 @@ export const glossary = {
 const escaped = text => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 let matcher;
 let dictionary;
+let mappedNames;
 const translationCache = new Map();
 const ordinalMatchers = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"].map(ordinal => [
   new RegExp(ordinal + " (Antimatter Dimension(?:s)?|Antimatter D|AD)\\b", "gi"),
@@ -74,6 +85,10 @@ const ordinalMatchers = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"]
 ]);
 export function prepareTranslations(extra = {}) {
   translationCache.clear();
+  const glossaryKeys = new Set(Object.keys(glossary).map(key => key.toLowerCase()));
+  mappedNames = Object.fromEntries(Object.entries(extra)
+    .filter(([key]) => !glossaryKeys.has(key.toLowerCase()))
+    .map(([key, value]) => [key.toLowerCase(), value]));
   dictionary = Object.fromEntries(Object.entries({ ...extra, ...glossary }).map(([k, v]) => [k.toLowerCase(), v]));
   matcher = new RegExp("\\b(?:" + Object.keys(dictionary).sort((a, b) => b.length - a.length).map(escaped).join("|") + ")\\b", "gi");
 }
@@ -81,7 +96,22 @@ export function translate(text) {
   if (typeof text !== "string" || !matcher) return text;
   if (!/[a-z]/i.test(text)) return text;
   if (translationCache.has(text)) return translationCache.get(text);
-  let result = translatePhrases(text);
+  const armyTier = text.match(/^([1-8])(?:st|nd|rd|th) Antimatter Dimension$/i);
+  if (armyTier) {
+    const tierName = armyNames[Number(armyTier[1]) - 1];
+    translationCache.set(text, tierName);
+    return tierName;
+  }
+  const exactTerm = mappedNames[text.toLowerCase()] ?? dictionary[text.toLowerCase()];
+  if (exactTerm !== undefined) {
+    translationCache.set(text, exactTerm);
+    return exactTerm;
+  }
+  const phraseTranslation = translatePhrases(text);
+  const residualTranslation = translateResidual(phraseTranslation);
+  const communityTranslation = translateCommunity(phraseTranslation);
+  let result = residualTranslation !== phraseTranslation ? residualTranslation :
+    communityTranslation === phraseTranslation ? phraseTranslation : communityTranslation;
   const clockName = number => Number(number) === 2 ? "第二钟" : "第一钟";
   result = result.replace(/Reduce (?:the )?Black Hole(?: ([12]))?'s inactive time by ([\d.,]+%)/gi,
     (_, n, percent) => clockName(n) + "·缩短沉寂：沉寂时间减少 " + percent)
@@ -104,14 +134,25 @@ export function translate(text) {
     .replace(/and give a (.*?) multiplier\s+to the 1st Dimension/gi, "，骷髅兵获得 $1 倍率")
     .replace(/(?:and )?give a (.*?) multiplier\s+to Dimensions 1-(\d)/gi, "，第 1–$2 阶军团获得 $1 倍率")
     .replace(/(?:and )?give a (.*?) multiplier\s+to all Dimensions/gi, "，全体军团获得 $1 倍率")
-    .replace(/Time since last save:/gi, "距上次保存：");
+    .replace(/Time since last save:/gi, "距上次保存：")
+    .replace(/The goal must be reached within a certain amount of time or you will fail the Challenge\.?/gi,
+      "目标必须在限定时间内达成，否则试炼失败。")
+    .replace(/You unlock more resources through/gi, "你将通过以下途径解锁更多资源：")
+    .replace(/you can automatically discharge/gi, "可以自动释放");
   for (let i = 0; i < 8; i++) {
     result = result.replace(ordinalMatchers[i][0], armyNames[i])
       .replace(ordinalMatchers[i][1], councilNames[i])
       .replace(ordinalMatchers[i][2], altarNames[i]);
     if (i < 4) result = result.replace(ordinalMatchers[i][3], ["憎恶聚合体", "瘟疫巨像", "恐惧收割者", "终末使徒"][i]);
   }
-  result = result.replace(matcher, match => dictionary[match.toLowerCase()]);
+  result = result.replace(/\b1st\b/g, "第一").replace(/\b2nd\b/g, "第二").replace(/\b3rd\b/g, "第三")
+    .replace(/\b([4-8])th\b/g, (_, number) => `第${number}`);
+  for (let pass = 0; pass < 12; pass++) {
+    const next = translateResidualSegments(translateResidual(
+      retargetCommunityTerms(result.replace(matcher, match => dictionary[match.toLowerCase()]))));
+    if (next === result) break;
+    result = next;
+  }
   if (translationCache.size >= 10000) translationCache.clear();
   translationCache.set(text, result);
   return result;

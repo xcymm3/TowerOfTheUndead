@@ -5,13 +5,12 @@ import HeaderPrestigeGroup from "@/components/ui-modes/HeaderPrestigeGroup";
 import HeaderChallengeDisplay from "@/components/ui-modes/HeaderChallengeDisplay";
 import HeaderChallengeEffects from "@/components/ui-modes/HeaderChallengeEffects";
 import HeaderBlackHole from "@/components/ui-modes/HeaderBlackHole";
-import NewsTicker from "@/components/ui-modes/NewsTicker";
 import BigCrunchButton from "@/undead/CrunchButton";
 import GameSpeedDisplay from "@/components/GameSpeedDisplay";
 export default {
   name: "UndeadGameUI",
   components: { ...TabComponents, GameUiComponentFixed, HeaderPrestigeGroup, HeaderChallengeDisplay,
-    HeaderChallengeEffects, HeaderBlackHole, NewsTicker, BigCrunchButton, GameSpeedDisplay },
+    HeaderChallengeEffects, HeaderBlackHole, BigCrunchButton, GameSpeedDisplay },
   data() { return { tabs: [], subtabs: [], shortcuts: [], progress: false, catalog: false, query: "" }; },
   computed: {
     view() { return this.$viewModel; },
@@ -23,13 +22,14 @@ export default {
     }
   },
   methods: {
+    t(key, values) { return window.UndeadI18n.t(key, values); },
     update() {
       this.tabs = Tabs.all.filter(t => t.isAvailable && !["shop", "dimensions"].includes(t.key));
       this.shortcuts = [
-        { name: "军团", target: Tab.dimensions.antimatter },
-        { name: "议会", target: Tab.dimensions.infinity },
-        { name: "祭坛", target: Tab.dimensions.time },
-        { name: "研究", target: Tab.eternity.studies }
+        { name: this.t("nav.army"), target: Tab.dimensions.antimatter },
+        { name: this.t("nav.council"), target: Tab.dimensions.infinity },
+        { name: this.t("nav.altars"), target: Tab.dimensions.time },
+        { name: this.t("nav.research"), target: Tab.eternity.studies }
       ].map(s => ({ ...s, unlocked: s.target._parent.isUnlocked && s.target.isUnlocked, selected: s.target.isOpen }));
       this.subtabs = Tabs.current.subtabs.filter(t => t.isAvailable);
       this.progress = PlayerProgress.infinityUnlocked() || Player.canCrunch || PlayerProgress.eternityUnlocked();
@@ -59,17 +59,16 @@ export default {
       <button v-for="tab in tabs" :key="tab.key" :class="{ selected: view.tab === tab.key && !catalog }" @click="show(tab)">
         {{ label(tab) }}<span v-if="tab.hasNotification" class="notice-dot">◆</span>
       </button>
-      <button :class="{ selected: catalog }" @click="catalog = !catalog">典籍</button>
+      <button :class="{ selected: catalog }" @click="catalog = !catalog">{{ t("nav.codex") }}</button>
     </nav>
-    <NewsTicker v-if="view.news" class="tower-news" aria-label="冥界传闻" />
     <nav v-if="view.tab !== 'dimensions' && subtabs.length > 1 && !catalog" class="tower-subtabs" aria-label="系统分页">
       <button v-for="tab in subtabs" :key="tab.key" :class="{ selected: view.subtab === tab.key }" @click="showSub(tab)">{{ sublabel(tab) }}</button>
     </nav>
     <section v-if="catalog" class="tower-catalog">
-      <h2>亡灵典籍</h2>
-      <p>军团、研究、遗赠与主宰的完整记录。解锁条件见对应系统。</p>
-      <input v-model="query" aria-label="搜索典籍" placeholder="搜索名称或编号">
-      <p>{{ entries.length }} / 767 条记录</p>
+      <h2>{{ t("codex.title") }}</h2>
+      <p>{{ t("codex.description") }}</p>
+      <input v-model="query" :aria-label="t('codex.searchLabel')" :placeholder="t('codex.searchPlaceholder')">
+      <p>{{ t("codex.recordCount", { count: entries.length }) }}</p>
       <article v-for="entry in entries" :key="entry.mappingKey">
         <strong>{{ entry.undeadName }}</strong><code>{{ entry.mappingKey }}</code>
       </article>

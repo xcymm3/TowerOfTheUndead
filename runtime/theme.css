@@ -1,4 +1,5 @@
 /* Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V4 */
+/* Hallmark · macrostructure: stacked-game-surface · contrast: pass (40–41) · mobile: pass (34, 49–57) · nav/footer: game chrome · slop: pass */
 :root, body, .undead-runtime {
   --color-base: #111923; --color-text: #ebe8d8; --color-text-inverted: #0c1219;
   --color-background: #101821; --color-background-dark: #0b1018;
@@ -11,15 +12,21 @@
   --tower-green-light: #81c397; --tower-gold: #eddb8e; --tower-shadow: #05090e;
   --font-game: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
 }
-html { font-size: 62.5%; overflow-x: clip; background: var(--color-background); }
-body { margin: 0; min-width: 0; background: var(--color-background); color: var(--color-text); font: 1.4rem/1.55 var(--font-game); overflow-x: clip; }
+html {
+  min-height: 100%; font-size: 62.5%; overflow-x: clip; overflow-y: scroll; scrollbar-gutter: stable;
+  background: var(--color-background); overscroll-behavior-y: contain;
+}
+body {
+  margin: 0; min-width: 0; min-height: 100%; background: var(--color-background); color: var(--color-text);
+  font: 1.4rem/1.55 var(--font-game); overflow-x: clip; overflow-y: auto !important; height: auto !important; touch-action: pan-y;
+}
 * { box-sizing: border-box; }
 button, input, select, textarea { font-family: var(--font-game); }
 button { cursor: pointer; }
 button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--tower-gold); outline-offset: 3px; }
 button:disabled { cursor: not-allowed; opacity: .56; }
 h1,h2,h3,h4 { font-style: normal; }
-.undead-runtime { width: 100%; min-height: 100vh; padding: 0 12px 28px; text-align: center; color: var(--color-text); background: var(--color-background); }
+.undead-runtime { width: 100%; min-height: 100dvh; padding: 0 12px 28px; text-align: center; color: var(--color-text); background: var(--color-background); }
 body[class] { margin: 0; background: var(--tower-panel); }
 #loading { display: none !important; }
 .tower-tabs { display: flex; flex-wrap: wrap; gap: 5px; padding: 9px 0; border-bottom: 3px solid var(--tower-highlight); position: sticky; top: 0; z-index: 20; background: var(--color-background); }
@@ -41,19 +48,6 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .tower-utility { display: flex; flex-wrap: wrap; gap: 4px 14px; justify-content: flex-end; padding: 5px 0; }
 .tower-utility button { background: none; color: var(--tower-muted); border: 0; font-size: 11px; padding: 3px 0; white-space: nowrap; }
 .tower-utility .selected { color: var(--tower-gold); }
-.undead-runtime .tower-news {
-  position: relative; width: 100%; height: 34px; margin: 3px 0 8px; padding: 4px 0;
-  border: 1px solid var(--tower-border); border-left: 4px solid var(--tower-gold); border-radius: 0;
-  background: var(--tower-panel); box-shadow: inset 0 1px var(--tower-highlight);
-}
-.undead-runtime .tower-news::before {
-  content: "冥界传闻"; position: absolute; inset: 0 auto 0 0; z-index: 1; display: flex; align-items: center;
-  padding: 0 10px; color: var(--tower-gold); background: linear-gradient(90deg, var(--tower-panel) 82%, transparent);
-  font-size: 11px; font-weight: 700; letter-spacing: 1px; pointer-events: none;
-}
-.undead-runtime .tower-news .c-news-line { color: var(--color-text); font: 600 13px/24px var(--font-game); }
-.undead-runtime .tower-news .c-news-line[style*="cursor"],
-.undead-runtime .tower-news .c-news-line:has(a) { color: var(--tower-gold); }
 .undead-runtime .o-save-timer, .undead-runtime .o-tab-btn--short, .undead-runtime .o-how-to-play-btn { display: none; }
 .undead-runtime .l-help-me, .undead-runtime .h2p-tutorial--glow { display: none; }
 .tower-content { display: block !important; width: 100%; min-width: 0; padding-top: 8px; }
@@ -152,6 +146,11 @@ body[class] { margin: 0; background: var(--tower-panel); }
   .undead-runtime .c-automator-tab--full-screen .c-automator-split-pane { height: 100%; overflow-y: auto; background: var(--tower-panel); }
 }
 .undead-runtime .c-game-tab { overflow-x: auto; padding-bottom: 8px; }
+.undead-runtime .c-list-container, .undead-runtime .l-multiplier-subtab-btn-container { width: 100%; max-width: 100%; }
+.undead-runtime .l-multiplier-subtab-btn-container { height: auto; flex-wrap: wrap; gap: 4px; }
+.undead-runtime .c-multiplier-subtab-btn { flex: 1 1 8rem; width: auto; min-width: 0; margin: 0; }
+.undead-runtime .l-eternity-milestone-grid__row { width: 100%; flex-wrap: wrap; justify-content: center; }
+.undead-runtime .l-eternity-milestone-grid__cell { max-width: 100%; }
 /* Keep Teresa's run entry and shop inside the narrower management pane. */
 .undead-runtime .l-teresa-celestial-tab > .l-mechanics-container { width: 100%; flex-wrap: wrap; align-items: flex-start; gap: 16px; }
 .undead-runtime .l-teresa-mechanic-container { min-width: 0; width: 22rem; max-width: 100%; }
@@ -163,8 +162,9 @@ body[class] { margin: 0; background: var(--tower-panel); }
 .undead-runtime .l-rm-container-labels { display: none; }
 .undead-runtime .army-management { overflow: visible; padding: 0; border: 0; }
 .undead-runtime .l-modern-sidebar, .undead-runtime .l-notification-icon { display: none; }
-.undead-runtime .l-time-studies-tab__tt-shop { position: fixed; top: auto; bottom: 0; left: 0; width: 100%; height: auto; max-height: 180px; background: transparent; z-index: 10; }
+.undead-runtime .l-time-studies-tab__tt-shop { position: fixed; top: auto; right: 0; bottom: 0; left: 0; width: auto; height: auto; max-height: 180px; background: transparent; z-index: 10; }
 .undead-runtime .ttshop-background { background: var(--tower-panel); color: var(--color-text); border-color: var(--tower-border); max-width: 100%; }
+.undead-runtime .ttshop-container { width: 100%; min-width: 0; }
 .undead-runtime .ttbuttons-row { flex-wrap: wrap; height: auto !important; }
 .undead-runtime .l-tt-buy-button { flex: 1; min-width: 70px; width: auto; }
 .undead-runtime .l-time-studies-tab { align-items: flex-start; padding-bottom: 160px; }
@@ -214,6 +214,15 @@ body[class] { margin: 0; background: var(--tower-panel); }
   .buy-modes button, .max-all { font-size: 11px; padding: 5px 8px; }
   .army-rule { font-size: 10px; }
   .army-resets h4 { font-size: 16px; }
+  .undead-runtime .l-options-grid__row { flex-wrap: wrap; }
+  .undead-runtime .l-options-grid__button { width: 100%; max-width: 28rem; margin: .45rem 0; }
+  .undead-runtime .l-select-notation, .undead-runtime .l-select-theme { width: 100%; }
+  .undead-runtime .l-eternity-upgrades-grid__row { width: 100%; flex-wrap: wrap; justify-content: center; }
+  .undead-runtime .l-eternity-upgrades-grid__cell { width: min(100%, 28rem); margin: .45rem 0; }
+  .undead-runtime .l-eternity-milestone-grid__row { width: 100%; flex-wrap: wrap; justify-content: center; }
+  .undead-runtime .l-eternity-milestone-grid__cell { width: 100%; margin: .45rem 0; }
+  .undead-runtime .o-eternity-milestone__reward { width: min(100%, 28rem); height: auto; min-height: 8rem; }
+  .undead-runtime .c-button-perk-layout, .undead-runtime .c-button-physics { width: 100%; max-width: 28rem; }
 }
 @media(prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 

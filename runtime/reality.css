@@ -25,7 +25,12 @@
 .undead-runtime .l-black-hole-upgrade-grid__row > .l-spoon-btn-group { flex: 1; min-width: 0; width: 100%; }
 .undead-runtime .c-black-hole-canvas { max-width: 100%; height: auto; }
 .undead-runtime .l-black-hole-upgrade-grid__row { width: 100%; min-width: 0; gap: 8px; }
-.undead-runtime .l-auto-pause-button { max-width: 100%; }
+.undead-runtime .l-black-hole-tab .c-subtab-option-container {
+  width: 100%; max-width: 100%; flex-wrap: wrap; justify-content: center; gap: 8px;
+}
+.undead-runtime .l-auto-pause-button {
+  width: min(30rem, calc(100% - 2rem)); max-width: calc(100% - 2rem); margin-inline: auto; box-sizing: border-box;
+}
 @media (max-width: 650px) {
   .undead-runtime .l-reality-upgrade-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .undead-runtime .l-black-hole-upgrade-grid__row { display: grid; grid-template-columns: minmax(0, 1fr); }
